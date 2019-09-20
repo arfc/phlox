@@ -1,0 +1,44 @@
+notes on xe-100
+
+'''
+Helium cooled
+
+Graphite reflectors around outer perimeter of core
+
+~220,000 pebbles in core
+
+Fuel Pebble Description:
+-fuel pebble outer diameter: 60mm
+-fuel pebble "fuel core" diameter: 55mm
+- ~18,000 TRISO particles in each Pebble
+    TRISO particles:
+    - Diameter: 0.845 mm
+    - UCO (uranium oxycarbide) Kernal (core of TRISO) radius: 0.2125 mm
+    - Porous Carbon Buffer thickness: 0.095 mm
+    - Inner Pyrolytic Carbon Layer thickness: 0.04 mm
+    - Silicon Carbide Layer thickness: 0.035 mm
+    - Outer Pyrolytic Carbon Layer thickness: 0.04 mm
+
+Reactor pressure vessel outer diameter: ~4.88 m
+
+*note: [X energy study showed 200 MWt PBR w/ online refueling had burnup of 160,000]
+
+*note: [claims load-following to 40% power in 15 minutes]
+
+Power: 200 MWth, 75 MWe
+
+Core Inlet temp: 259.1 C
+Core Outlet temp: 750 C
+
+Core Inlet Pressure: 6 MPa
+Core Outlet Pressure: 5.84 MPa
+
+Core h at inlet: 2782.2 kJ/kg
+Core h at outlet: 5333 kJ/kg
+
+mass flow through core (of coolant): 78.6 kg/s
+
+*note: [Steam pressure: 16.5 MPa
+        Steam temp: 565 C]
+'''
+^from X-energy Xe-100 Reactor initial NRC meeting
