@@ -8,8 +8,9 @@ Graphite reflectors around outer perimeter of core
 ~220,000 pebbles in core
 
 Fuel Pebble Description:
+-outer matrix in pebble: graphite
 -fuel pebble outer diameter: 60mm
--fuel pebble "fuel core" diameter: 55mm
+-fuel pebble "fuel core" diameter: 50mm
 - ~18,000 TRISO particles in each Pebble
     TRISO particles:
     - Diameter: 0.845 mm
@@ -42,3 +43,19 @@ mass flow through core (of coolant): 78.6 kg/s
         Steam temp: 565 C]
 '''
 ^from X-energy Xe-100 Reactor initial NRC meeting
+
+
+'''
+M.B. Richards "Reaction of nuclear-grade graphite
+ with low concentrations of steam in the helium coolant of an MHTGR"
+ mentions that H-451 graphite is used for the modular HGTR
+reactor
+
+density: 1.74 Mg/m^3
+
+PROPERTIES OF UNIRRADIATED FUEL ELEMENT GRAPHITES H-451 AND TS-1240 has
+a table on impurities.  Matters iff in significant ppm and has a significant
+cross section.  ((add later and see if matters))
+
+'''
+^from osti graphite handbook
