@@ -4,7 +4,9 @@
 \usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
 \usepackage{geometry}
 \usepackage{pdflscape}
-
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
 \begin{document}
 \title{Work Plan for the Selection of the $\mu$Reactor Design at UIUC\\}
@@ -33,23 +35,14 @@ Six reactors are under investigation: eVinci, Holosgen, MicroNuclear, NuScale, O
 Design 		&eVinci 		& Holos (Zoe)		&MegaPower 	& NuScale		& Oklo 		& Starcore		& Urenco 		& Xe-100 \\ 
 \hline 
 Institution 	&Westinghouse& Holosgen	&MegaPower	& NuScale		& Oklo Inc. 	& Starcore		& Urenco 		& X-energy \\ 
-\hline 
 Type			&Heat Pipe	&   		  	&  		& PWR/Heat Pipe&Heat Pipe   			&				&   			& HTGR (Pebble)\\ 
-\hline 
 Spectrum		&Epithermal	&  		 	&  	&Thermal/Thermal 		&Fast   			&   			&			&Thermal\\ 
-\hline 
 Power (MWe)	&0.2-5		&   			&			& 10-50 /1-10			&   			&   			&			&75\\ 
-\hline
 Refueling (years)&5 to 10		&   			&			& 2 			&   			&   			&			&Online refueling\\ 
-\hline
 Enrichment (\%)&19.75		&   			&			& $<$4.95 		&   			&   			&			&15.5\\ 
-\hline
 Core Height / Diameter (m)	&/ 1.5		&   			&			& / 1.5 		&   			&   			&			&23 / 5\\ 
-\hline
 Fuel			&UN/U-Mo	&   			&			&UO2 (NuFuel HTP2)		&   			&   			&			&UCO TRISO\\ 
-\hline
 Clad			&-		&   			&			& M5 		&   			&   			&			&-\\ 
-\hline
 Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&			&-\\ 
 \hline
 \end{tabular}
@@ -61,33 +54,20 @@ Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&			&-\\
 \hline 
 1 	&Canada/US		& Terrestrial Energy	&Molten Salt Integral	&200		& PHASE 1 COMPLETED \\ 
  	&		& 	&	&		& PHASE 2 PENDING  \\
-\hline 
 2 	&US/Korea/China	& UltraSafe Nuclear	&High-temperature gas prismatic block	&5		& PHASE 1 IN PROGRESS completion date 2018   \\ 
  	&		& /Global First Power	&	&		& PHASE 2 Service Agreement under development  \\
-\hline
 3 	&Sweden/Canada	&LeadCold	&Molten lead pool fast spectrum	&3-10		& PHASE 1 ON HOLD AT VENDOR REQUEST  \\ 
-\hline
 4 	&US		&Advanced Reactor Concepts	&Sodium pool fast spectrum	&100		& PHASE 1 IN PROGRESS  \\ 
-\hline
 5 	&UK		&U-Battery	&High temperature gas prismatic block	&4		& PHASE 1 Service Agreement under development  \\ 
-\hline
 6 	&UK		&Moltex Energy	&Molten salt fast spectrum	&300		& PHASE 1 IN PROGRESS  \\ 
-\hline
 7 	&Canada/US		&StarCore Nuclear	&High-temperature gas prismatic block	&10		& PHASE 1 and 2 Service Agreement under development   \\ 
-\hline
 8 	&US		&SMR, LLC. &Pressurized Water	&160		&PHASE 1 Service Agreement under development   \\ 
  	&		& (A Holtec International Company)		&	&		&  \\
-\hline
 9 	&US		&NuScale Power	&Integral Pressurized Water	&50		&PHASE 2* Service Agreement under development   \\ 
-\hline
 10 	&US		&Westinghouse Electric Co.	&eVinci Micro Reactor	&$<$25		&PHASE 2* Service Agreement under development  \\ 
-\hline
 11 	&Japan		&4S	&Na cooled fast reactor	&10		&Licensing pre-application  \\ 
-\hline
 12 	&Russia		&ABV	&PWR	&2x7.9		&Part of design licensed  \\ 
-\hline
 13 	&Argentina	&CAREM-25	&PWR	&27		&Licensing in progress  \\ 
-\hline
 14 	&Russia		&KLT-40S	&PWR	&2x35	&Licensed and under construction  \\ 
 \hline
 \end{tabular}
@@ -105,40 +85,25 @@ Full design details have not been revealed yet for the public; only general info
 \begin{center}
 
 \caption{eVinci design parameters}
-\begin{tabular}{|l|l|l|}
-\hline 
+\begin{tabular}{l  l  l}
+\hline
 Design 		&Value (from Westinghouse reports) 		& Value (other)\\ 
-\hline 
+\hline
 Core Diameter (in) 		&59.06 		&  \\ 
-\hline 
 Monolith materials 		& 		& Type-316 SS	\\ 
-\hline 
 Refueling (years) 		&Up to 10 		&  \\ 
-\hline 
 Fuel 		&UN/U-Mo 		& 	 \\ 
-\hline 
 Fuel Pellet Density, \% TD 		&96 		&  \\ 
-\hline 
 Enrichment (\%) 		&19.75 		&  \\ 
-\hline 
 Fuel channel radius (in) 		& 		& 0.281 \\ 
-\hline 
 Number of fuel channels 		&378 (1 MWth), 4219 (14 MWth)		& 2112 (5 MWth) \\ 
-\hline 
 Reflector material 		&		& BeO\\ 
-\hline 
 HP channel radius (in) 		&		& 0.298\\ 
-\hline 
 Number of HP channels 		& 		& 1224\\ 
-\hline 
 HP to HP web thickness (in) 		& 		& 0.039\\ 
-\hline 
 Fuel to fuel web thickness (in) 		& 		& 0.059\\ 
-\hline 
 HP total length (ft) 		&		& 13.12\\ 
-\hline 
 HP fluid 		&Na/K		& \\ 
-\hline 
 HP fluid temperature (K) 		&920 		& \\ 
 \hline
 
@@ -167,31 +132,89 @@ There is absolutely nothing on MsNB design of MicroNuclear LLC company. I think 
 \subsection{MegaPower}
 
 \subsection{NuScale}
-Detailed technical specifications (as seen in Table 4) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (10-50 MWe) based on current small modular reactor tecnhnology and the other one (1-10 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW.
+Detailed technical specifications (as seen in Table 4) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (10-50 MWe) based on current small modular reactor tecnhnology and the other one (1-10 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW. There is no detail on the heat pipe design.  \\
+In 2018, BWX Technologies, Inc. (BWXT) was selected to provide manufacturing input leading to fabricating the first NuScale Power Modules. In 2019, Doosan Heavy Industries and Construction Co., Ltd. (DHIC) and NuScale signed an MOU for strategic cooperation to support deployment of the NPM worldwide. 
 
-\begin{table} [ht]
+\pagebreak
+\begin{table} [htbp]
 \begin{center}
 
 \caption{NuScale Reactor Core Description (\cite{NuScale18}}
-\begin{tabular}{|l|l|}
+\begin{tabular}{l     l}
 \hline 
 Design 		&Value \\ 
+\hline 
+Core diameter (in)			&59.25\\
+Active fuel height (in)	&78.74\\
+
+Number of FA 		&  37\\
+Rod array   			&17x17\\
+Fuel assembly length (in) &  94\\
+Fuel assembly pitch (in)	&8.466\\
+Fuel rod pitch (in)&0.496\\
+Number of spacer grids&5\\
+Grid height (in)&1.75\\
+Number of Fuel rods&264\\
+Number of Guide tubes&24\\
+Number of Instrumentation tubes&1\\
+\hline 
+Number of FR&264\\
+Diametral gap (in)&0.0065\\
+Cladding material&M5\\
+Cladding outside diameter (in)&0.374\\
+Cladding inside diameter (in)&0.326\\
+Cladding thickness (in)&0.024\\
+Fill gas&helium\\
+\hline 
+Fuel Pellet Density, \% TD&96\\
+Material&UO2 (sintered)\\
+Diameter (in)&0.3195\\
+Length (in) &0.40\\
+\hline 
+Number of CR Assemblies&16                              \\
+Upper absorber material&boron carbide              \\
+Lower absorber material&silver-indium-cadmium \\
+Cladding&304 stainless steel      \\
+Fill gas&helium                        \\
+\hline 
+BA Material Type&integral with fuel         \\
+Material &gadolinia (Gd2O3 )      \\
+Number &Up to 32 per assembly\\
+\hline 
+Nuclear Design Parameters (for Equilibrium Cycle)\\
+Core Average Linear Power (kw/ft)&2.5     \\
+Total Heat Flux Hot Channel Factor&1.860  \\
+Nuclear Enthalpy Hot Channel Factor&1.386  \\
+\hline 
+Reactivity Coefficients\\
+Doppler temperature coefficient (pcm/F)&-1.4 to -2.25\\
+Moderator temperature coefficient (HZP-HFP) (pcm/F)&+6 to -43     \\
+Boron coefficient (pcm/ppm)&-10             \\
+\hline 
+Effective Delayed Neutron Fraction 
+and Prompt Neutron Lifetime\\
+$\beta_{eff}$ BOC&0.0059\\
+$ \beta _{eff}$ EOC&0.0052\\
+Prompt lifetime BOC (10-6 seconds)&18.35  \\
+Prompt lifetime EOC (10-6 seconds)&-6       \\
+\hline 
+Boron Concentration (BOC) (ppm)&2000\\
 \hline 
 
 \end{tabular}
 \end{center}
 \end{table}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.5]{Figs/}
-\caption{NuScale MCNP view (radial)}
+\includegraphics[scale=0.8]{Figs/fig3.jpeg}
+\caption{NuScale 3D SMR view}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.5]{Figs/}
-\caption{NuScale Reactor Overview}
+\includegraphics[scale=0.7]{Figs/fig4.jpeg}
+\caption{ Two-dimensional schematic of a single NuScale unit}
 \end{figure}
 
 \subsection{Oklo}
@@ -201,62 +224,40 @@ Design 		&Value \\
 \subsection{Urenco}
 
 \subsection{X-energy}
-X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt, called as Pebble Bed Fuel. The main micro-rector design is ST-OTTO (refering to Fig.  \ref{xo}) which produces 30-48 MWt power. But the design details are not open for public. I think the design is very identical to the design of 200 MWt, as presented in Table \ref{xtable} except for the reactor size and fuel type. Th-based fuel is under consideration for the use in TRISOs. 
+X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt, called as Pebble Bed Fuel Reactor. The main micro-rector design is ST-OTTO (refering to Fig.  \ref{xo}) which produces 30-48 MWt power. But the design details are not open for public. I think the design is very identical to the design of 200 MWt, as presented in Table \ref{xtable} except for the reactor size and fuel type. Th-based fuel is under consideration for the use in TRISOs. 
 
 \begin{table} [ht]
 \begin{center}
 
 \caption{ X-energy design}
 \label{xtable}
-\begin{tabular}{|l|l|}
+\begin{tabular}{l l}
 \hline 
 Design 		&Value \\ 
 \hline 
 Core Diameter (m) 		&4.88 \\ 
-\hline 
 Core Height (m) 		&20 \\ 
-\hline 
-Refueling		&Online fuel loading 
-175 fresh pebbles/day \\ 
-\hline ed Fuel.
+Refueling		&Online fuel loading  \\ 
+	&175 fresh pebbles/day \\ 
 Fuel		&UCO TRISO Pebbles \\ 
-\hline 
 Enrichment (\%)		&15.5 \\ 
-\hline 
 Number of fuel pebbles		&220,000 \\ 
-\hline 
 Number of TRISO particles per pebble		&18,000 \\ 
-\hline 
 Pebble fuel core diameter (mm)		&55 \\ 
-\hline 
 Pebble diameter (mm)	&55 \\ 
-\hline 
 Pebble fuel core diameter (mm)		&60 \\ 
-\hline 
 Number of passes		&60\\ 
-\hline 
 Final burnup (GWd/tHM)		&160 \\ 
-\hline 
 Burnable poison		&no \\ 
-\hline 
 Power density (MW/m3)		&4.8 \\ 
-\hline 
 UCO TRISO kernel radius (mm)	&0.2125 \\ 
-\hline 
 Porous Carbon Buffer thickness (mm)	&0.095 \\ 
-\hline 
 Inner Pyrolytic Carbon Layer thickness (mm) 	&0.04 \\ 
-\hline 
 Silicon Carbide Layer thickness (mm)	&0.035 \\ 
-\hline 
 Outer Pyrolytic Carbon Layer thickness (mm)	&0.04 \\ 
-\hline 
 Core Inlet temp (C)	&259 \\ 
-\hline 
 Core Outlet temp (C) 	&750 \\ 
-\hline 
 Core Inlet Pressure (MPa)	&6 \\ 
-\hline 
 Core Outlet Pressure (MPa)	&5.84 \\ 
 \hline 
 
