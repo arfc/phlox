@@ -21,7 +21,7 @@ Zoe Richter}
 Micro-reactors are the reactors which produce power typically less than 20 MWe and site less than 500 m2 (0.1 acre) in the size of shipping container or a big house. They are considered to be automated operation with minimum operating staff. Due to the small size and low consequences of micro-reactors, the regulations applied to the existing (non)commercial reactors may not fully applicable to micro-reactors. Apart from other advanced reactor designs like SMRs, micro-reactors have specific following licencing issues: security, aircraft strike, emergency preparedness, source term analysis, staffing, remote operation, decommissioning, transportation, manufacturing licenses, quality assurance, probabilistic risk assessment and NRC oversight.
 
 \section{Reactors}
-Six reactors are under investigation: eVinci, Holosgen, MicroNuclear, NuScale, Oklo, Starcore, Urenco and X-energy (in alphabetical order). Kairos does not have any μReactor designs which produce power less than 200 MWe. A comparison of reactors under consideration is listed in Table 1. The design reviews around the world have given in Table 2. 
+Six reactors are under investigation: eVinci, Holosgen, MicroNuclear, NuScale, Oklo, Starcore, Urenco and X-energy (in alphabetical order). Kairos does not have any μReactor designs which produce power less than 200 MWe. A comparison of reactors under consideration is listed in Table \ref{microreactors}. The design reviews around the world have given in Table \ref{reviews}. 
 
 \pagebreak
 \newgeometry{margin=1cm}
@@ -30,6 +30,7 @@ Six reactors are under investigation: eVinci, Holosgen, MicroNuclear, NuScale, O
 \begin{center}
 
 \caption{A brief comparison of micro-reactor designs (\cite{Yan20};\cite{Arafat19};\cite{Levinsky18};\cite{IAEA18})}
+\label{microreactors}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline 
 Design 		&eVinci 		& Holos (Zoe)		&MegaPower 	& NuScale		& Oklo 		& Starcore		& Urenco 		& Xe-100 \\ 
@@ -48,6 +49,7 @@ Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&			&-\\
 \end{tabular}
 
 \caption{Worldwide design reviews}
+\label{reviews}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline 
 	 &Country of Origin 	& Company		&Reactor type			&Output(MWe) 	& Status \\ 
@@ -132,7 +134,7 @@ There is absolutely nothing on MsNB design of MicroNuclear LLC company. I think 
 \subsection{MegaPower}
 
 \subsection{NuScale}
-Detailed technical specifications (as seen in Table 4) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (10-50 MWe) based on current small modular reactor tecnhnology and the other one (1-10 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW. There is no detail on the heat pipe design.  \\
+Detailed technical specifications (as seen in Table \ref{Nutable}) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (10-50 MWe) based on current small modular reactor tecnhnology and the other one (1-10 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. 2D and 3D views of the reactor are illustrated in Fig. \ref{Nu2d} and \ref{Nu3d}, respectively. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW. There is no detail on the heat pipe design.  \\
 In 2018, BWX Technologies, Inc. (BWXT) was selected to provide manufacturing input leading to fabricating the first NuScale Power Modules. In 2019, Doosan Heavy Industries and Construction Co., Ltd. (DHIC) and NuScale signed an MOU for strategic cooperation to support deployment of the NPM worldwide. 
 
 \pagebreak
@@ -140,6 +142,7 @@ In 2018, BWX Technologies, Inc. (BWXT) was selected to provide manufacturing inp
 \begin{center}
 
 \caption{NuScale Reactor Core Description (\cite{NuScale18}}
+\label{Nutable}
 \begin{tabular}{l     l}
 \hline 
 Design 		&Value \\ 
@@ -207,14 +210,16 @@ Boron Concentration (BOC) (ppm)&2000\\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.8]{Figs/fig3.jpeg}
-\caption{NuScale 3D SMR view}
+\includegraphics[scale=0.7]{Figs/fig4.jpeg}
+\caption{ Two-dimensional schematic of a single NuScale unit}
+\label{Nu2d}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[scale=0.7]{Figs/fig4.jpeg}
-\caption{ Two-dimensional schematic of a single NuScale unit}
+\includegraphics[scale=0.8]{Figs/fig3.jpeg}
+\caption{NuScale 3D SMR view}
+\label{Nu3d}
 \end{figure}
 
 \subsection{Oklo}
@@ -281,24 +286,27 @@ Idaho National Laboratory, “Modernization of Technical Requirements for Licens
 
 \section{Source Term}
 A general source term analysis comprises transient scenario modeling, fuel pin radionuclide distribution, failed pin radionuclide release, radionuclide bubble transport, offsite dispersion analysis and containment region analysis. Some of them can, however, be eliminated or new ones can be added depending on which micro-reactor is to be chosen. As an example, the micro-reactor design does not include any spent fuel storage, thus the source term would not.
-For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Pathways for some advanced reactors (i.e., HTGR, SFR, MSR) are illustrated in Fig. 6. There are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
+For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Pathways for some advanced reactors (i.e., HTGR, SFR, MSR) are illustrated in Fig. \ref{pathway}. There are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
 
 \begin{figure}[hbtp]
 \centering
 \includegraphics[scale=0.6]{Figs/fig6*.jpeg}
 \caption{Pathway for radioactive release for several reactor types}
+\label{pathway}
 \end{figure}
+
+There is a possibility to make an assumption for the pathway identification of the micro-reactors. We can use the same or modified pathways of the existing reactors, accepted by the NRC, for the analogy to the selected micro-reactor design. Yet, heat pipe reactors may still require as the release ways have not completely known.
+The method for the source term calculation recommended by the NRC is given in Fig. \ref{sourceterm}. The method to be applied changes with the type of the reactor. In any cases, MELCOR, system accident analysis code, produce the source term for the defined design-basis accidents. 
+For probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 PRA including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.   
+The methodology and the results on the source term calculations are presented in detail in the relevant documents of NuScale \cite{NuScale18} and eVinci \cite{Southern19}.
 
 \begin{figure}[hbtp]
 \centering
 \includegraphics[scale=0.6]{Figs/fig7.jpeg}
 \caption{Source term evaluation model}
+\label{sourceterm}
 \end{figure}
 
-There is a possibility to make an assumption for the pathway identification of the micro-reactors. We can use the same or modified pathways of the existing reactors, accepted by the NRC, for the analogy to the selected micro-reactor design. Yet, heat pipe reactors may still require as the release ways have not completely known.
-The method for the source term calculation recommended by the NRC is given in Fig. 7. The method to be applied changes with the type of the reactor. In any cases, MELCOR, system accident analysis code, produce the source term for the defined design-basis accidents. 
-For probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 PRA including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.   
-The methodology and the results on the source term calculations are presented in detail in the relevant documents of NuScale \cite{NuScale18} and eVinci \cite{Southern19}.
 According to the NuScale, the potential radionuclide source term associated with a severe accident is much smaller (5\%) than that associated with a 1000 MWe design. This value is 1\% for eVinci. 
 
 \section{Licencing Procedure}
