@@ -34,15 +34,15 @@ Design 		&eVinci 		& Holos (Zoe)		&MegaPower 	& NuScale		& Oklo 		& Starcore		& 
 \hline 
 Institution 	&Westinghouse& Holosgen	&MegaPower	& NuScale		& Oklo Inc. 	& Starcore		& Urenco 		& X-energy \\ 
 \hline 
-Type			&Heat Pipe	&   		  	& PWR 		& Heat Pipe	&   			&			&   			& HTGR (Pebble)\\ 
+Type			&Heat Pipe	&   		  	&  		& PWR/Heat Pipe&Heat Pipe   			&				&   			& HTGR (Pebble)\\ 
 \hline 
-Spectrum		&Epithermal	&  		 	& Thermal 	& Fast		&   			&   			&			&Thermal\\ 
+Spectrum		&Epithermal	&  		 	&  	&Thermal/Thermal 		&Fast   			&   			&			&Thermal\\ 
 \hline 
-Power (MWe)	&0.2-5		&   			&			& 50 			&   			&   			&			&75\\ 
+Power (MWe)	&0.2-5		&   			&			& 10-50 /1-10			&   			&   			&			&75\\ 
 \hline
 Refueling (years)&5 to 10		&   			&			& 2 			&   			&   			&			&Online refueling\\ 
 \hline
-Enrichment (\%)&19.75		&   			&			& {<} 4.95 		&   			&   			&			&15.5\\ 
+Enrichment (\%)&19.75		&   			&			& $<$4.95 		&   			&   			&			&15.5\\ 
 \hline
 Core Height / Diameter (m)	&/ 1.5		&   			&			& / 1.5 		&   			&   			&			&23 / 5\\ 
 \hline
@@ -80,7 +80,7 @@ Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&			&-\\
 \hline
 9 	&US		&NuScale Power	&Integral Pressurized Water	&50		&PHASE 2* Service Agreement under development   \\ 
 \hline
-10 	&US		&Westinghouse Electric Co.	&eVinci Micro Reactor	&<25		&PHASE 2* Service Agreement under development  \\ 
+10 	&US		&Westinghouse Electric Co.	&eVinci Micro Reactor	&$<$25		&PHASE 2* Service Agreement under development  \\ 
 \hline
 11 	&Japan		&4S	&Na cooled fast reactor	&10		&Licensing pre-application  \\ 
 \hline
@@ -148,13 +148,13 @@ HP fluid temperature (K) 		&920 		& \\
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.5]{fig1.jpeg}
+\includegraphics[scale=0.5]{Figs/fig1.jpeg}
 \caption{eVinci Core Configuration}
 \end{figure}
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.5]{fig2.jpeg}
+\includegraphics[scale=0.5]{Figs/fig2.jpeg}
 \caption{eVinci Micro Reactor Overview}
 \end{figure}
 
@@ -167,7 +167,7 @@ There is absolutely nothing on MsNB design of MicroNuclear LLC company. I think 
 \subsection{MegaPower}
 
 \subsection{NuScale}
-Detailed technical specifications (as seen in Table 4) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (10-50 MWe) based on current small modular reactor tecnhnology and the other one (10-50 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. This design can be altered for the μR concept of NuScale for a nominal electric power of less than 20 MW.
+Detailed technical specifications (as seen in Table 4) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{NuScale18}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts: the one (1-10 MWe) based on current small modular reactor tecnhnology and the other one (10-50 MWe) based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW.
 
 \begin{table} [ht]
 \begin{center}
@@ -184,13 +184,13 @@ Design 		&Value \\
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.5]{}
+\includegraphics[scale=0.5]{Figs/}
 \caption{NuScale MCNP view (radial)}
 \end{figure}
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.5]{}
+\includegraphics[scale=0.5]{Figs/}
 \caption{NuScale Reactor Overview}
 \end{figure}
 
@@ -201,11 +201,13 @@ Design 		&Value \\
 \subsection{Urenco}
 
 \subsection{X-energy}
+X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt, called as Pebble Bed Fuel. The main micro-rector design is ST-OTTO (refering to Fig.  \ref{xo}) which produces 30-48 MWt power. But the design details are not open for public. I think the design is very identical to the design of 200 MWt, as presented in Table \ref{xtable}, but only the reactor size and fuel type. Th-based fuel is under consideration for the use in TRISOs. 
 
 \begin{table} [ht]
 \begin{center}
 
 \caption{ X-energy design}
+\label{xtable}
 \begin{tabular}{|l|l|}
 \hline 
 Design 		&Value \\ 
@@ -264,8 +266,9 @@ Core Outlet Pressure (MPa)	&5.84 \\
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=1]{fig5.jpeg}
+\includegraphics[scale=1]{Figs/fig5.jpeg}
 \caption{X-energy micro-reactor overview}
+\label{xo}
 \end{figure}
 
 \section{Site Requirements}
@@ -281,13 +284,13 @@ For the source term analysis of a selected micro-reactor design, phenomena and r
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.6]{fig6*.jpeg}
+\includegraphics[scale=0.6]{Figs/fig6*.jpeg}
 \caption{Pathway for radioactive release for several reactor types}
 \end{figure}
 
 \begin{figure}[hbtp]
 \centering
-\includegraphics[scale=0.6]{fig7.jpeg}
+\includegraphics[scale=0.6]{Figs/fig7.jpeg}
 \caption{Source term evaluation model}
 \end{figure}
 
