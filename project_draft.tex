@@ -33,18 +33,18 @@ Six reactors are under investigation: eVinci, Holosgen, MicroNuclear, NuScale, O
 \label{microreactors}
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline 
-Design 		&eVinci 		& Holos (Zoe)		&MegaPower 	& NuScale		& Oklo 		& Starcore		& Urenco 		& Xe-100 \\ 
+Design 		&eVinci 		& Holos (Zoe)		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 		& Xe-100 \\ 
 \hline 
 Institution 	&Westinghouse& Holosgen	&MegaPower	& NuScale		& Oklo Inc. 	& Starcore		& Urenco 		& X-energy \\ 
-Type			&Heat Pipe	&   		  	&  		& PWR/Heat Pipe&Heat Pipe   			&				&   			& HTGR (Pebble)\\ 
-Spectrum		&Epithermal	&  		 	&  	&Thermal/Thermal 		&Fast   			&   			&			&Thermal\\ 
-Power (MWe)	&0.2-5		&   			&			& 10-50 /1-10			&   			&   			&			&75\\ 
-Refueling (years)&5 to 10		&   			&			& 2 			&   			&   			&			&Online refueling\\ 
-Enrichment (\%)&19.75		&   			&			& $<$4.95 		&   			&   			&			&15.5\\ 
-Core Height / Diameter (m)	&/ 1.5		&   			&			& / 1.5 		&   			&   			&			&23 / 5\\ 
-Fuel			&UN/U-Mo	&   			&			&UO2 (NuFuel HTP2)		&   			&   			&			&UCO TRISO\\ 
-Clad			&-		&   			&			& M5 		&   			&   			&			&-\\ 
-Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&			&-\\ 
+Type			&Heat Pipe	&   		  	&  		& PWR/Heat Pipe&Heat Pipe   			&				& HTGR (Pebble)	& HTGR (Pebble)\\ 
+Spectrum		&Epithermal	&  		 	&  	&Thermal/Thermal 		&Fast   			&   			&	Thermal		&Thermal\\ 
+Power (MWe)	&0.2-5		&   			&			& 10-50 /1-10			&   			&  			&4-8			&75\\ 
+Refueling (years)&5 to 10		&   			&			& 2 			&   			&  			&5-10 			&Online refueling\\ 
+Enrichment (\%)&19.75		&   			&			& $<$4.95 		&   			&   			&20-17			&15.5\\ 
+Core  Diameter (m)	&1.5		&   			&			& 1.5 		&   			&   			&3.5-1.8			& 5\\ 
+Fuel			&UN/U-Mo	&   			&			&UO2 (NuFuel HTP2)		&   			&   			&TRISO			&UCO TRISO\\ 
+Clad			&-		&   			&			& M5 		&   			&   			&-			&-\\ 
+Heat Pipe fluid	&Na/K	&   			&			& - 		&   			&   			&	-		&-\\ 
 \hline
 \end{tabular}
 
@@ -227,6 +227,69 @@ Boron Concentration (BOC) (ppm)&2000\\
 \subsection{Starcore}
 
 \subsection{Urenco}
+The concept design, namely U-battery, has been made by the Universities of Manchester, Dalton Institute (UK) and Technology University of Delft (Netherlands). There is strong desire to operate the reactor by 2026. Main design parameters \cite{Ubattery} are tabulated in Table \ref{Utable}. A 3D view and core layout of the reactor are displayed in Fig. \ref{u3d} and \ref{ucore}. 
+
+\begin{table} [htbp]
+\begin{center}
+
+\caption{U-battery design}
+\label{Utable}
+\begin{tabular}{l l l}
+\hline 
+Design 		&10 MWe &20 MWe\\ 
+\hline 
+Reflector composition & BeO          &  Graphite\\
+Control rods (\#) & 4                        &  6 \\
+Fuel Blocks (\#) & 6*4                     & 30*4 \\
+Enrichment (\%) & 20                      & 17  \\
+Fuel life time (a)&  5                       & 10  \\
+Fuel block dimension (cm) & 36*80 &  36*80 \\
+Fuel mass (kg) & 208                     &   1.040\\
+Burn-up (MWd/kg HM)  & 88           &   70 \\
+\hline 
+Outer diameter (cm)             &   180  &  370   \\
+Vessel thickness (mm)        &   $<$100       & 100   \\
+Reactor core diameter (cm)  &   108     &  252  \\
+Reflector thickness (cm)      &   20 (BeO)    &29    \\
+Insulation thickness (cm)     &   5 (SiC fiber)     & 10 (SiC fiber)   \\
+Barrel thickness (cm)           &    2   & 2    \\
+Gap thickness (cm)             &    5  &  5  \\
+\hline 
+Core Height (cm)          & 320         & 320 \\
+Top reflector (cm)         &  20 (BeO)&50  \\
+Bottom reflector (cm)    &  20 (BeO)& 50 \\
+Top plenum (cm)          &20            &20  \\
+Bottom plenum (cm)     &  50          &50  \\
+Top insulation (cm)       &30           &30 \\
+Bottom insulation (cm)  &  60         &60 \\
+Core support plate (cm) &  10         &15  \\
+Support structure (cm)  &   60         &60  \\
+Vessel height (cm)       & 590         &655  \\
+\hline 
+BeO mass (kg) &    7.900       &0  \\
+Graphite mass (kg) &   8.100        & 70.000  \\
+Flask inner diam (cm)& 180       & - \\
+Flask inner height (cm)& $>$500         & - \\
+\hline 
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Figs/ubattery3d.jpeg}
+\caption{ 3D reactor configuration of U-battery}
+\label{u3d}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Figs/ubatterycore.jpeg}
+\caption{ Core and fuel block of U-battery}
+\label{ucore}
+\end{figure}
 
 \subsection{X-energy}
 X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt, called as Pebble Bed Fuel Reactor. The main micro-rector design is ST-OTTO (refering to Fig.  \ref{xo}) which produces 30-48 MWt power. But the design details are not open for public. I think the design is very identical to the design of 200 MWt, as presented in Table \ref{xtable} except for the reactor size and fuel type. Th-based fuel is under consideration for the use in TRISOs. 
@@ -322,16 +385,19 @@ This part is going to be discussed later but will include accident scenarios inc
 
 
 \begin{thebibliography}{X}
-\bibitem{Xu19} Hong Xu, Jurie J. van Wyk, Richard F. Wright, “Thermal Analysis for eVinci Micro™ Reactor,” 18th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH18), August 18-23, 2019. 
-\bibitem{Wright19} Richard F. Wright, Andrew M. Dokmanovich, “Phenomena Identification and Ranking Table for the eVinciTM Micro Reactor,” 18th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH18), August 18-23, 2019. 
-\bibitem{Yan20} B.H. Yan, C. Wang, L.G. Li, “The technology of micro heat pipe cooled reactor: A review,” Annals of Nuclear Energy 135 (2020) 106948.
+\bibitem{Xu19} Hong, X., Jurie J.,  van W., Richard F., W., 2019. Thermal Analysis for eVinci Micro™ Reactor. Presented at the 18th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH18), Portland, OR.
+\bibitem{Wright19} Wright, R.F., Dokmanovich, A.M., 2019. Phenomena Identification and Ranking Table for the eVinciTM Micro Reactor. Presented at the 18th International Topical Meeting on Nuclear Reactor Thermal Hydraulics (NURETH18), Portland, OR.
+\bibitem{Yan20} Yan, B.H., Wang, C., Li, L.G., 2020. The technology of micro heat pipe cooled reactor: A review. Annals of Nuclear Energy 135, 106948. https://doi.org/10.1016/j.anucene.2019.106948
 \bibitem{Arafat19} Yasir Arafat, Jurie Van Wyk, “Nuclear Plant Journal: eVinci™ Micro Reactor – Our Next Disruptive Technology,” http://www.westinghousenuclear.com/Portals/0/new%20plants/evincitm/eVinci%20Micro%20Reactor%20NPJ%20M-A%202019.pdf?ver=2019-04-30-211410-367
-\bibitem{Hernandez19} Richard Hernandez, Michael Todosow, Nicholas R. Brown, “Micro heat pipe nuclear reactor concepts: Analysis of fuel cycle performance and environmental impacts”, Annals of Nuclear Energy 126 (2019) 419–426.
+\bibitem{Hernandez19} Hernandez, R., Todosow, M., Brown, N.R., 2019. Micro heat pipe nuclear reactor concepts: Analysis of fuel cycle performance and environmental impacts. Annals of Nuclear Energy 126, 419–426. https://doi.org/10.1016/j.anucene.2018.11.050
 \bibitem{NuScale19} NuScale, “NuScale Standard Plant Design Certification Application - Chapter 4: Reactor, Part 2-Tier 2”, Revision 2, ML18310A325, October 2018. https://www.nrc.gov/reactors/new-reactors/design-cert/nuscale.html. 
 \bibitem{Southern19} Southern Company, “Modernization of Technical Requirements for Licensing of Advanced Non-Light Water Reactors: Westinghouse eVinciTM Micro-Reactor Licensing Modernization Project Demonstration”, DOE, SC-29980-202, 2019.
 \bibitem{NuScale18} NuScale, “NuScale Standard Plant Design Certification Application: Chapter Nineteen Probabilistic Risk Assessment and Severe Accident Evaluation”, Rev. 2, 2018. 
 \bibitem{Levinsky18} Levinsky, A., Wyk, J.J., Arafat, Y., et al., 2018. Westinghouse eVinci Reactor for Off-Grid Markets. Transactions of the American Nuclear Society, Orlando, Florida, November 11-15.
 \bibitem{IAEA18} IAEA, “Advances in Small Modular Reactor Technology Developments A Supplement to: IAEA Advanced Reactors Information System (ARIS)”, 2018. 
+\bibitem{Ubattery}Ding, M., Kloosterman, J.L., Kooijman, T., Linssen, R., 2011. Design of a U-Battery (No. PNR-131-2011-014). Urenco, and Koopman and Witteveen.
+
+
 
 \end{thebibliography}
 
