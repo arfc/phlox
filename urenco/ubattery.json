@@ -29,7 +29,7 @@
 "BeO mass (kg)                    "           :["    7.900         "," 0  "],
 "Graphite mass (kg)              "          :["   8.100          ","  70.000  "],
 "Flask inner diam (cm)          "          :[" 180               ","  - "],
-"Flask inner height (cm)         "          :[" >500          ","  - "],
+"Flask inner height (cm)         "          :[" <500          ","  - "],
 }
 }
 
