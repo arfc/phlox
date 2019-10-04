@@ -14,7 +14,7 @@
 "UO2 Density  (g/cm3)           ":" 10.8                       ",
 "Kernel Diameter  (cm)           ":" 0.05                       ",
 "Buffer Layer Thickness  (cm)           ":" 0.01            ",
-"SiC", IPyC", OPyC Thickness  (cm)           ":" 0.012   ",
+"SiC, IPyC, OPyC Thickness  (cm)           ":" 0.012   ",
 "TRISO Sphere Diameter  (cm)           ":" 0.094         ",
 "Total core bricks           ":" 1,925                           ",
 "Packing Fraction (%)           ":" 70                       ",
@@ -26,6 +26,7 @@
 "Generation Time (microsecond)          ":"233                        ",
 }
 }
+
 
 
 
