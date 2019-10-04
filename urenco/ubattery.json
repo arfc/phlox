@@ -10,7 +10,7 @@
 "Fuel mass (kg)                    "     :[" 208                   ","  1.040"],
 "Burn-up (MWd/kg HM)          "   :[" 88                          ","  70 "],
 "Outer diameter (cm)             "    :["   180                   "," 370   "]
-"Vessel thickness (mm)        "    :["   $<$100              "," 100   "],
+"Vessel thickness (mm)        "    :["   <100              "," 100   "],
 "Reactor core diameter (cm)  "    :["   108                   ","  252  "],
 "Reflector thickness (cm)      "    :["   20 (BeO)            "," 29    "],
 "Insulation thickness (cm)     "    :["   5 (SiC fiber)       ","  10 (SiC fiber)   "],
@@ -29,7 +29,7 @@
 "BeO mass (kg)                    "           :["    7.900         "," 0  "],
 "Graphite mass (kg)              "          :["   8.100          ","  70.000  "],
 "Flask inner diam (cm)          "          :[" 180               ","  - "],
-"Flask inner height (cm)         "          :[" $>$500          ","  - "],
+"Flask inner height (cm)         "          :[" >500          ","  - "],
 }
 }
 
