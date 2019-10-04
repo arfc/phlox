@@ -2,9 +2,9 @@
 "eVinci_Westinghouse": {
 "Design 		                       "   :["10 MWe               "," 20 MWe"], 
 "Reflector composition          "    :[" BeO                   ","  Graphite"],
-"Control rods (\#)                   "   :[" 4                        ","  6 "],
-"Fuel Blocks (\#)                   "    :[" 6*4                   "," 30*4 "],
-"Enrichment (\%)                  "     :[" 20                      "," 17  "],
+"Control rods (#)                   "   :[" 4                        ","  6 "],
+"Fuel Blocks (#)                   "    :[" 6*4                   "," 30*4 "],
+"Enrichment (%)                  "     :[" 20                      "," 17  "],
 "Fuel life time (a)                  "    :["  5                        "," 10  "],
 "Fuel block dimension (cm)    "   :[" 36*80                 "," 36*80 "],
 "Fuel mass (kg)                    "     :[" 208                   ","  1.040"],
