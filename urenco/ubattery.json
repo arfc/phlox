@@ -1,1 +1,35 @@
+{
+"eVinci_Westinghouse": {
+"Design 		                       "   :["10 MWe               "," 20 MWe"], 
+"Reflector composition          "    :[" BeO                   ","  Graphite"],
+"Control rods (\#)                   "   :[" 4                        ","  6 "],
+"Fuel Blocks (\#)                   "    :[" 6*4                   "," 30*4 "],
+"Enrichment (\%)                  "     :[" 20                      "," 17  "],
+"Fuel life time (a)                  "    :["  5                        "," 10  "],
+"Fuel block dimension (cm)    "   :[" 36*80                 "," 36*80 "],
+"Fuel mass (kg)                    "     :[" 208                   ","  1.040"],
+"Burn-up (MWd/kg HM)          "   :[" 88                          ","  70 "],
+"Outer diameter (cm)             "    :["   180                   "," 370   "]
+"Vessel thickness (mm)        "    :["   $<$100              "," 100   "],
+"Reactor core diameter (cm)  "    :["   108                   ","  252  "],
+"Reflector thickness (cm)      "    :["   20 (BeO)            "," 29    "],
+"Insulation thickness (cm)     "    :["   5 (SiC fiber)       ","  10 (SiC fiber)   "],
+"Barrel thickness (cm)           "    :["    2                     ","  2    "],
+"Gap thickness (cm)             "    :["    5                      ","   5  "],
+"Core Height (cm)                 "           :[" 320              ","  320 "],
+"Top reflector (cm)                "           :["  20 (BeO)     "," 50  "],
+"Bottom reflector (cm)           "           :["  20 (BeO)     ","  50 "],
+"Top plenum (cm)                 "           :["20                 "," 20  "],
+"Bottom plenum (cm)            "           :["  50               "," 50  "],
+"Top insulation (cm)              "           :["30                "," 30 "],
+"Bottom insulation (cm)         "           :["  60              "," 60 "],
+"Core support plate (cm)        "            :["  10             "," 15  "],
+"Support structure (cm)         "           :["   60              "," 60  "],
+"Vessel height (cm)               "           :[" 590             "," 655  "],
+"BeO mass (kg)                    "           :["    7.900         "," 0  "],
+"Graphite mass (kg)              "          :["   8.100          ","  70.000  "],
+"Flask inner diam (cm)          "          :[" 180               ","  - "],
+"Flask inner height (cm)         "          :[" $>$500          ","  - "],
+}
+}
 
