@@ -1,12 +1,12 @@
 {
 "nuscale_nuscale": {
 "Design":"Value", 
-"Core diameter (in)			":"59.25",
-"Active fuel height (in)	":"78.74",
-"Number of FA 		":"  37",
-"Rod array   			":"17x17",
+"Core diameter (in)":"59.25",
+"Active fuel height (in)":"78.74",
+"Number of FA ":"  37",
+"Rod array   ":"17x17",
 "Fuel assembly length (in) ":"  94",
-"Fuel assembly pitch (in)	":"8.466",
+"Fuel assembly pitch (in)":"8.466",
 "Fuel rod pitch (in)":"0.496",
 "Number of spacer grids":"5",
 "Grid height (in)":"1.75",
