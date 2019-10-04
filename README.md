@@ -15,3 +15,5 @@ Directory Descriptions:
 - Starcore: for the microreactor design from Starcore
 - U-battery: for the microreactor design from Urenco
 - MsNB:for the microreactor design from MicroNuclear
+
+Use Makefile to create pdf file. 
