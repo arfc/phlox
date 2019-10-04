@@ -1,6 +1,6 @@
 {
 "Holos_Holosgen": {
-"Design":"Value"", 
+"Design":"Value", 
 "Reactor thermal power (MWt)          ":"22        ",
 "U-235 enrichment (wt% )          ":"8-15             ",
 "Whole core volume (m3)          ":"6.9      ",
@@ -26,5 +26,6 @@
 "Generation Time (microsecond)          ":"233                        ",
 }
 }
+
 
 
