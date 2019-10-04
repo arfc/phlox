@@ -1,0 +1,21 @@
+{
+"eVinci_Westinghouse": {
+"Design":[ "Value (from Westinghouse reports), Value (other)"], 
+"Core Diameter (in)": [ "59.06" ," "], 
+"Monolith materials": [ " ", "Type-316 SS"],
+"Refueling (years)": [ "Up to 10 ", " "],
+"Fuel": [ "UN/U-Mo ", " "], 
+"Fuel Pellet Density (% TD)": [ "96 ", " "],
+"Enrichment (%) ": [ "19.75 ", " "],  
+"Fuel channel radius (in) ": [ " ", "0.281"], 
+"Number of fuel channels": [ "378 (1 MWt), 4219 (14 MWt)", "2112 (5MWt)"],
+"Reflector material ": [ "", "BeO"],
+"HP channel radius (in)": [ " ", "0.298"], 
+"Number of HP channels ": [ " ", "1224"],
+"HP to HP web thickness (in)": [ " ", "0.039"], 
+"Fuel to fuel web thickness (in) ": [ " ", "0.059"],
+"HP total length (ft) ": [ " ", "13.12"],
+"HP fluid 	": [ "Na/K ", " "],
+"HP fluid temperature (K)": [ "920", " "],
+}
+}
