@@ -9,7 +9,7 @@
 "Fuel block dimension (cm)    "   :[" 36*80                 "," 36*80 "],
 "Fuel mass (kg)                    "     :[" 208                   ","  1.040"],
 "Burn-up (MWd/kg HM)          "   :[" 88                          ","  70 "],
-"Outer diameter (cm)             "    :["   180                   "," 370   "]
+"Outer diameter (cm)             "    :["   180                   "," 370   "],
 "Vessel thickness (mm)        "    :["   <100              "," 100   "],
 "Reactor core diameter (cm)  "    :["   108                   ","  252  "],
 "Reflector thickness (cm)      "    :["   20 (BeO)            "," 29    "],
