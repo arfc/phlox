@@ -1,1 +1,29 @@
+{
+"Holos_Holosgen": {
+"Design":"Value", 
+"Reactor thermal power (MWt)          ":"22        ,
+"U-235 enrichment (wt% )          ":"8-15             ,
+"Whole core volume (m3)          ":"6.9      ,
+"Fuel Channels          ":"19x4                      ,
+"Fuel Channel Diameter (cm)          ":"1.4            ,
+"Coolant Channels          ":"54x4                   ,
+"Coolant Channel Diameter (cm)          ":"0.7               ,
+"Brick Graphite Density (g/cm3)          ":"2.23              ,
+"Brick Edge Length (cm)          ":"6               ,
+"Brick Height (cm)          ":"10             ,
+"UO2 Density  (g/cm3)           ":" 10.8                       ,
+"Kernel Diameter  (cm)           ":" 0.05                       ,
+"Buffer Layer Thickness  (cm)           ":" 0.01            ,
+"SiC, IPyC, OPyC Thickness  (cm)           ":" 0.012   ,
+"TRISO Sphere Diameter  (cm)           ":" 0.094         ,
+"Total core bricks           ":" 1,925                           ,
+"Packing Fraction (%)           ":" 70                       ,
+"TRISO spheres in one fuel channel            ":"24,778   ,
+"TRISO spheres in one brick                      ":"470,777 ,
+"TRISO spheres in core            ":"3.62x10^9            ,
+"Temperature Coefficient of Reactivity (pcm)          ":"-8       ,
+"Delayed Neutron Fraction (pcm)          ":"733      ,
+"Generation Time (microsecond)          ":"233                        ,
+}
+}
 
