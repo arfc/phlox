@@ -1,4 +1,4 @@
-manuscript = MicroReactor_Report_Draft
+manuscript = MicroReactor_Report
 latexopt   = -halt-on-error -file-line-error
 
 all: all-via-pdf
