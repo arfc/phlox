@@ -1,0 +1,54 @@
+oklodata = {
+"Oklo_Oklo": {
+      "reactor_tpower": {
+        "value": [],
+        "units":  ["MWt"],
+        "description": ["Reactor thermal power (MWt)"]
+      },
+      "reactor_epower": {
+        "value": [2],
+        "units":  ["MWe"],
+        "description": ["Reactor electrical power (MWe)"]
+      },
+      "reactor_type": {
+        "value": ["Heat Pipe"],
+        "units":  [""],
+        "description": ["Reactor Type"]
+      },
+      "spectrum": {
+        "value": ["Fast"],
+        "units":  [""],
+        "description": ["Reactor spectrum"]
+      },
+      "core_diameter": {
+        "value": [],
+        "units":  ["m"],
+        "description": ["Core diameter(m)"]
+      },
+      "enrichment_min": {
+        "value": [5],
+        "units":  ["wt%"],
+        "description": ["U-235 enrichment (wt% )"]
+      },
+      "enrichment_max": {
+        "value": [20],
+        "units":  ["wt%"],
+        "description": ["U-235 enrichment (wt% )"]
+      },
+      "refueling": {
+        "value": [12],
+        "units":  ["y"],
+        "description": ["Fuel cycle length"]
+      },
+      "hp_fluid": {
+        "value": ["Na/K"],
+        "units":  [""],
+        "description": ["Heat Pipe fluid"]
+      },
+      "fuel": {
+        "value": ["U-Zr"],
+        "units":  [""],
+        "description": ["Fuel"]
+      }
+   }
+}
