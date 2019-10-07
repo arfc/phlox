@@ -1,21 +1,79 @@
-{
-"Starcore_starcore": {
-"Design":"Value", 
-"Core Diameter (in)": "1.5",
-"Monolith materials": "2.5",
-"Refueling (years)": "5 (off-site)",
-"Fuel": "UCO TRISO Pebbles ", 
-"Enrichment (%) ": "<20",  
-"Number of fuel pebbles ": "26,800", 
-"Number of TRISO particles per pebble": "2,000",
-"Pebble fuel core diameter (mm)	": "60",
-"Fuel element geometry ": "Truncated cuboctahedron", 
-"Cladding material ": "Silicon carbide",
-"Primary side coolant": "Helium", 
-"Core outlet temp (C)  ": "850",
-"Core operating pressure (MPa) ": "7.5",
-"Secondary side coolant": "Nitrogen",
-"Secondary side operating pressure (MPa)": "6.8",
+stardata={
+"Starcore_Starcore": {
+     "reactor_tpower": {
+         "value": [],
+         "units":  ["MWt"],
+         "description": ["Reactor thermal power (MWt)"]
+      },
+     "reactor_epower": {
+         "value": [20],
+         "units":  ["MWe"],
+         "description": ["Reactor electrical power (MWe)"]
+      },
+     "reactor_type": {
+         "value": ["HTGR (pebble)"],
+         "units":  [""],
+         "description": ["Reactor Type"]
+      },
+     "spectrum": {
+         "value": ["Thermal"],
+         "units":  [""],
+         "description": ["Reactor spectrum"]
+      },
+     "core_diameter": {
+         "value": [1.5],
+         "units":  ["m"],
+         "description": ["Core diameter(m)"]
+      },
+     "core_height": {
+         "value": [2.5],
+         "units":  ["m"],
+         "description": ["Core diameter(m)"]
+      },
+     "enrichment_max": {
+         "value": [20],
+         "units":  ["wt%"],
+         "description": ["U-235 enrichment (wt% )"]
+      },
+     "refueling": {
+         "value": [5],
+         "units":  ["y"],
+         "description": ["Fuel cycle length (off-site)"]
+      },
+     "fuel": {
+         "value": ["UCO TRISO Pebbles"],
+         "units":  [""],
+         "description": ["Fuel"],
+      },
+     "monolith_density": {        
+         "value": [9.03],        
+         "units":  ["g/cm3"],        
+         "description": ["Monolith steel density (g/cm3)"]
+      },
+     "total_pebble": {
+         "value": [26800],
+         "units":  [""],
+         "description": ["Number of fuel pebbles"],
+      },
+     "triso_per_pebble": {
+         "value": [2000],
+         "units":  [""],
+         "description": ["Number of TRISO particles per pebble"]
+      },
+     "pebble_core_diameter": {
+         "value": [60],
+         "units":  ["mm"],
+         "description": ["Pebble fuel core diameter (mm)"]
+      },
+     "fuel_geo": {
+         "value": ["Truncated cuboctahedron"],
+         "units":  [""],
+         "description": ["Fuel element geometry"]
+      },
+     "clad_mat": {        
+         "value": ["Silicon carbide"],        
+         "units":  [""],        
+         "description": ["Cladding material"]
+      }
+   }
 }
-}
-
