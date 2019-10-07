@@ -1,69 +1,69 @@
-dataset={
+evincidata={
 "eVinci_Westinghouse": {
-      "reactor_power": {
+      "reactor_tpower": {
         "value": [14],
         "units":  ["MWt"],
-        "description": ["Reactor thermal power (MWt)"],
-      }
-      "reactor_power": {
+        "description": ["Reactor thermal power (MWt)"]
+      },
+      "reactor_epower": {
         "value": [5],
         "units":  ["MWe"],
-        "description": ["Reactor electrical power (MWe)- scalable"],
-      }
+        "description": ["Reactor electrical power (MWe)- scalable"]
+      },
       "reactor_type": {
         "value": ["Heat Pipe"],
         "units":  [""],
-        "description": ["Reactor Type"],
-      }
+        "description": ["Reactor Type"]
+      },
       "spectrum": {
         "value": ["Epithermal"],
         "units":  [""],
-        "description": ["Reactor spectrum"],
-      }
+        "description": ["Reactor spectrum"]
+      },
       "core_diameter": {
         "value": [1.5],
         "units":  ["m"],
-        "description": ["Core diameter(m)"],
-      }
+        "description": ["Core diameter(m)"]
+      },
       "enrichment": {
         "value": [19.75],
         "units":  ["wt%"],
-        "description": ["U-235 enrichment (wt% )"],
-      }
+        "description": ["U-235 enrichment (wt% )"]
+      },
       "refueling": {
         "value": [10],
         "units":  ["y"],
-        "description": ["Fuel cycle length - up to 10 years"],
-      }
+        "description": ["Fuel cycle length - up to 10 years"]
+      },
       "monolith_mat": {
         "value": ["Type 316 Stainless steel monolith"],
         "units":  [""],
-        "description": ["Monolith materials"],
-      }
+        "description": ["Monolith materials"]
+      },
       "fuel": {
         "value": ["UN/U-Mo"],
         "units":  [""],
-        "description": ["Fuel type"],
-      }
+        "description": ["Fuel type"]
+      },
       "theoretical_density": {
         "value": [96],
         "units":  ["%"],
-        "description": ["Percent of theoretical density(%)"],
-      }
+        "description": ["Percent of theoretical density(%)"]
+      },
       "fuel_channel": {
         "value": [4219],
         "units":  [""],
-        "description": ["Number of fuel channels"],
-      }
+        "description": ["Number of fuel channels"]
+      },
       "hp_fluid": {
         "value": ["Na/K"],
         "units":  [""],
-        "description": ["HP working fluid"],
-      }
-	  "hp_temperature": {
+        "description": ["HP working fluid"]
+      },
+      "hp_temperature": {
         "value": [920],
         "units":  ["K"],
-        "description": ["HP isothermal temperature(°C)"],
-      }
+        "description": ["HP isothermal temperature(°C)"]
+      },
    }
 }
