@@ -17,3 +17,5 @@ Directory Descriptions:
 - MsNB:for the microreactor design from MicroNuclear
 
 Use Makefile to create pdf file. 
+
+There is a bug in the Latex which prevents making pdf file. To solve this, after bib file generation from Zotero, remove the 'URL' lines from the bib file.  
