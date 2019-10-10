@@ -43,7 +43,7 @@ holosdata={
       "refueling_min": {
          "value": [12],
          "units":  ["y"],
-         "description": ["Fuel cycle length"],
+         "description": ["Minimum refueling cycle length"],
       },
       "refueling_max": {
          "value": [20],
