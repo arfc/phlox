@@ -29,49 +29,49 @@ urencodata={
          "core_height": {
              "value": [3.2],
              "units":  ["m"],
-             "description": ["Core diameter(m)"]
+             "description": ["Core height(m)"]
          },
          "enrichment": {
              "value": [20],
              "units":  ["wt%"],
-             "description": ["U-235 enrichment (wt% )"]
+             "description": ["Maximum U-235 enrichment (wt% )- less than 20%"]
          },
          "refueling": {
              "value": [5],
              "units":  ["y"],
-             "description": ["Fuel cycle length (off-site)"]
+             "description": ["Fuel cycle length"]
          },
          "fuel": {
              "value": ["UCO TRISO Pebbles"],
              "units":  [""],
              "description": ["Fuel"]
          },
-             "reflector_mat": {        
+         "reflector_mat": {        
               "value": ["BeO"],        
               "units":  [""],        
               "description": ["Reflector composition"]
          },
          "total_crod": {
              "value": [4],
-             "units":  [""],
+             "units":  ["#"],
              "description": ["Control rods (#)"]
          },
          "fuel_block": {
              "value": [24],
-             "units":  [""],
+             "units":  ["#"],
              "description": ["Fuel Blocks (#)"]
          },
          "fuel_block_dimension": {
              "value": ["36x80"],
-             "units":  ["cm"],
-             "description": ["Fuel block dimension (cm)"]
+             "units":  ["cmxcm"],
+             "description": ["Fuel block dimension (cmxcm)"]
          },
          "fuel_burnup": {
              "value": [88],
              "units":  ["MWd/kg HM"],
              "description": ["Burn-up (MWd/kgHM)"]
          },
-             "outer_diameter": {        
+         "outer_diameter": {        
               "value": [180],        
               "units":  ["cm"],        
               "description": ["Outer diameter (cm)"]
@@ -91,7 +91,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Insulation thickness (cm) - SiC Fiber"]
          },
-             "barrel_mat": {        
+         "barrel_thick": {        
               "value": [2],        
               "units":  ["cm"],        
               "description": ["Barrel thickness (cm)"]
@@ -99,14 +99,14 @@ urencodata={
          "core_gap_thick": {
              "value": [5],
              "units":  ["cm"],
-             "description": ["Core ap thickness (cm)"]
+             "description": ["Core gap thickness (cm)"]
          },
          "top_reflector": {
              "value": [20],
              "units":  ["cm"],
              "description": ["Top reflector (cm) - BeO"]
          },
-             "bottom_reflector": {        
+         "bottom_reflector": {        
               "value": [20],        
               "units":  ["cm"],        
               "description": ["Bottom reflector (cm) - BeO"]
@@ -116,7 +116,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Top plenum (cm)"]
          },
-             "bottom_plenum": {        
+         "bottom_plenum": {        
               "value": [50],        
               "units":  ["cm"],        
               "description": ["Bottom plenum (cm)"]
@@ -131,7 +131,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Bottom insulation (cm)"]
          },
-             "support_plate": {        
+         "support_plate": {        
               "value": [10],        
               "units":  ["cm"],        
               "description": ["Core support plate (cm)"]
@@ -141,7 +141,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Support structure (cm)"]
          },
-             "vessel_height": {        
+         "vessel_height": {        
               "value": [590],        
               "units":  ["cm"],        
               "description": ["Vessel height (cm)"],
@@ -156,7 +156,7 @@ urencodata={
              "units":  ["kg"],
              "description": ["Graphite mass (kg)"]
          },
-             "flask_inner_dia": {        
+         "flask_inner_dia": {        
               "value": [180],        
               "units":  ["cm"],        
               "description": ["Flask inner diameter (cm) "]
@@ -198,7 +198,7 @@ urencodata={
          "core_height": {
              "value": [3.2],
              "units":  ["m"],
-             "description": ["Core diameter(m)"]
+             "description": ["Core height(m)"]
          },
          "enrichment": {
              "value": [17],
@@ -208,32 +208,32 @@ urencodata={
          "refueling": {
              "value": [10],
              "units":  ["y"],
-             "description": ["Fuel cycle length (off-site)"]
+             "description": ["Fuel cycle length"]
          },
          "fuel": {
              "value": ["UCO TRISO Pebbles"],
              "units":  [""],
              "description": ["Fuel"]
          },
-             "reflector_mat": {        
+         "reflector_mat": {        
               "value": ["Graphite"],        
               "units":  [""],        
               "description": ["Reflector composition"]
          },
          "total_crod": {
              "value": [6],
-             "units":  [""],
+             "units":  ["#"],
              "description": ["Control rods (#)"]
          },
          "fuel_block": {
              "value": [120],
-             "units":  [""],
+             "units":  ["#"],
              "description": ["Fuel Blocks (#)"]
          },
          "fuel_block_dimension": {
              "value": ["36x80"],
-             "units":  ["cm"],
-             "description": ["Fuel block dimension (cm)"]
+             "units":  ["cmxcm"],
+             "description": ["Fuel block dimension (cmxcm)"]
          },
          "fuel_burnup": {
              "value": [70],
@@ -253,14 +253,14 @@ urencodata={
          "reflector_thick": {
              "value": [29],
              "units":  ["cm"],
-             "description": ["Reflector thickness (cm) - BeO"]
+             "description": ["Reflector thickness (cm)"]
          },
          "insulation_thick": {
              "value": [10],
              "units":  ["cm"],
              "description": ["Insulation thickness (cm) - SiC Fiber"]
          },
-             "barrel_mat": {        
+         "barrel_thick": {        
               "value": [2],        
               "units":  ["cm"],        
               "description": ["Barrel thickness (cm)"]
@@ -268,24 +268,24 @@ urencodata={
          "core_gap_thick": {
              "value": [5],
              "units":  ["cm"],
-             "description": ["Core ap thickness (cm)"]
+             "description": ["Core gap thickness (cm)"]
          },
          "top_reflector": {
              "value": [50],
              "units":  ["cm"],
-             "description": ["Top reflector (cm) - BeO"]
+             "description": ["Top reflector (cm)"]
          },
-             "bottom_reflector": {        
+         "bottom_reflector": {        
               "value": [50],        
               "units":  ["cm"],        
-              "description": ["Bottom reflector (cm) - BeO"]
+              "description": ["Bottom reflector (cm)"]
          },
          "top_plenum": {
              "value": [20],
              "units":  ["cm"],
              "description": ["Top plenum (cm)"]
          },
-             "bottom_plenum": {        
+         "bottom_plenum": {        
               "value": [50],        
               "units":  ["cm"],        
               "description": ["Bottom plenum (cm)"]
@@ -300,7 +300,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Bottom insulation (cm)"]
          },
-             "support_plate": {        
+         "support_plate": {        
               "value": [15],        
               "units":  ["cm"],        
               "description": ["Core support plate (cm)"]
@@ -310,8 +310,7 @@ urencodata={
              "units":  ["cm"],
              "description": ["Support structure (cm)"]
          },
-
-             "vessel_height": {        
+         "vessel_height": {        
               "value": [655],        
               "units":  ["cm"],        
               "description": ["Vessel height (cm)"]
@@ -326,7 +325,7 @@ urencodata={
              "units":  ["kg"],
              "description": ["Graphite mass (kg)"]
          },
-             "flask_inner_dia": {        
+         "flask_inner_dia": {        
               "value": [0],        
               "units":  ["cm"],        
               "description": ["Flask inner diameter (cm) "]
