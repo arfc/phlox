@@ -28,12 +28,12 @@ oklodata = {
       "enrichment_min": {
         "value": [5],
         "units":  ["wt%"],
-        "description": ["U-235 enrichment (wt% )"]
+        "description": ["Minimum U-235 enrichment (wt%)- less than 5%"]
       },
       "enrichment_max": {
         "value": [20],
         "units":  ["wt%"],
-        "description": ["U-235 enrichment (wt% )"]
+        "description": ["Maximum U-235 enrichment (wt%)-less than 20%"]
       },
       "refueling": {
         "value": [12],
@@ -48,7 +48,7 @@ oklodata = {
       "fuel": {
         "value": ["U-Zr"],
         "units":  [""],
-        "description": ["Fuel"]
+        "description": ["Fuel type"]
       }
    }
 }
