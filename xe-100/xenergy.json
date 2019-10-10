@@ -47,13 +47,13 @@ xdata={
       },
       "total_pebble": {
          "value": [220000],
-         "units":  [""],
-         "description": ["Number of fuel pebbles"],
+         "units":  ["#"],
+         "description": ["Number of fuel pebbles (#)"],
       },
       "triso_per_pebble": {
          "value": [18000],
-         "units":  [""],
-         "description": ["Number of TRISO particles per pebble"],
+         "units":  ["#"],
+         "description": ["Number of TRISO particles per pebble (#)"],
       },
       "pebble_diameter": {
          "value": [60],
@@ -66,9 +66,9 @@ xdata={
          "description": ["Pebble fuel core diameter (mm)"],
       },
       "fuel_pass": {
-         "value": [60],
-         "units":  [""],
-         "description": ["Number of passes"],
+         "value": [6],
+         "units":  ["#"],
+         "description": ["Number of passes (#)"],
       },
       "fuel_burnup": {
          "value": [160],
@@ -110,22 +110,22 @@ xdata={
          "units":  ["mm"],
          "description": ["Outer Pyrolytic Carbon Layer thickness (mm) "],
       },
-      "buffer_layer_thickness": {
+      "core_in_temp": {
          "value": [259],
          "units":  ["oC"],
          "description": ["Core Inlet temp (C)"],
       },
-      "inner_carbon_layer_thick": {
+      "core_out_temp": {
          "value": [750],
          "units":  ["oC"],
          "description": ["Core Outlet temp (C)"],
       },
-      "buffer_layer_thickness": {
+      "core_inlet_pres": {
          "value": [6],
          "units":  ["MPa"],
          "description": ["Core Inlet Pressure (MPa)"],
       },
-      "outer_carbon_layer_thick": {
+      "core_outlet_pres": {
          "value": [5.84],
          "units":  ["MPa"],
          "description": ["Core Outlet Pressure (MPa)"],
