@@ -10,3 +10,12 @@ Directory Descriptions:
 - xe-100: for the microreactor design from Xenergy
 - nuscale: for the microreactor design from NuScale
 - evinci: for the microreactor design from Westinghouse
+- Holos: for the microreactor design from Holosgen
+- MegaPower: for the microreactor design from LANL
+- Starcore: for the microreactor design from Starcore
+- U-battery: for the microreactor design from Urenco
+- MsNB:for the microreactor design from MicroNuclear
+
+Use Makefile to create pdf file. 
+
+There is a bug in the Latex which prevents making pdf file. To solve this, after bib file generation from Zotero, remove the 'URL' lines from the bib file.  
