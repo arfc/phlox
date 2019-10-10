@@ -33,7 +33,7 @@ evincidata={
       "refueling": {
         "value": [10],
         "units":  ["y"],
-        "description": ["Fuel cycle length - up to 10 years"]
+        "description": ["Maximum refueling cycle length"]
       },
       "monolith_mat": {
         "value": ["Type 316 Stainless steel monolith"],
@@ -45,15 +45,15 @@ evincidata={
         "units":  [""],
         "description": ["Fuel type"]
       },
-      "theoretical_density": {
+      "fuel_theo_density": {
         "value": [96],
         "units":  ["%"],
-        "description": ["Percent of theoretical density(%)"]
+        "description": ["Percent of theoretical density(%) of the fuel"]
       },
       "fuel_channel": {
         "value": [4219],
-        "units":  [""],
-        "description": ["Number of fuel channels"]
+        "units":  ["#"],
+        "description": ["Number of fuel channels (#)"]
       },
       "hp_fluid": {
         "value": ["Na/K"],
