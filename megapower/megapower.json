@@ -28,7 +28,7 @@ megadata={
       "enrichment": {
          "value": [19.75],
          "units":  ["wt%"],
-         "description": ["U-235 enrichment (wt% )"],
+         "description": ["U-235 enrichment (wt%)"],
       },
       "refueling": {
          "value": [5],
@@ -60,10 +60,10 @@ megadata={
          "units":  ["g/cm3"],
          "description": ["Theoretical density (g/cm3)"],
       },
-      "theoretical_density": {
+      "fuel_theo_density": {
          "value": [96],
          "units":  ["%"],
-         "description": ["Percent of theoretical density(%)"],
+         "description": ["Percent of theoretical density(%) of the fuel"],
       },
       "fc_outer_diameter": {
          "value": [1.425],
@@ -118,7 +118,7 @@ megadata={
       "hp_incore": {
          "value": [1224],
          "units":  [""],
-      "description": ["Number of HPs in-core"],
+         "description": ["Number of HPs in-core"],
       },
       "hp_hole_diameter": {
           "value": [1.575],
@@ -202,13 +202,13 @@ megadata={
       },
       "control_drums": {
           "value": [12],
-          "units":  [""],
-          "description": ["Number of control drums"],
+          "units":  ["#"],
+          "description": ["Number of control drums (#)"],
       },
       "emergency_crods": {
           "value": [2 ],
-           "units":  [""],
-           "description": ["Number of emergency control rods"],
+           "units":  ["#"],
+           "description": ["Number of emergency control rods (#)"],
       },
       "crod_mat": {
           "value": ["B4C"],
