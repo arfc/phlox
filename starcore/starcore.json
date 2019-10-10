@@ -30,15 +30,15 @@ stardata={
          "units":  ["m"],
          "description": ["Core diameter(m)"]
       },
-     "enrichment_max": {
+     "enrichment": {
          "value": [20],
          "units":  ["wt%"],
-         "description": ["U-235 enrichment (wt% )"]
+         "description": ["Maximum U-235 enrichment (wt% ) -less than 20%"]
       },
      "refueling": {
          "value": [5],
          "units":  ["y"],
-         "description": ["Fuel cycle length (off-site)"]
+         "description": ["Fuel cycle length (off-site refueling)"]
       },
      "fuel": {
          "value": ["UCO TRISO Pebbles"],
@@ -52,13 +52,13 @@ stardata={
       },
      "total_pebble": {
          "value": [26800],
-         "units":  [""],
-         "description": ["Number of fuel pebbles"],
+         "units":  ["#"],
+         "description": ["Number of fuel pebbles (#)"],
       },
      "triso_per_pebble": {
          "value": [2000],
-         "units":  [""],
-         "description": ["Number of TRISO particles per pebble"]
+         "units":  ["#"],
+         "description": ["Number of TRISO particles per pebble (#)"]
       },
      "pebble_core_diameter": {
          "value": [60],
