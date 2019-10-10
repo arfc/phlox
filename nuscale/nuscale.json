@@ -28,7 +28,7 @@ nuscaledata={
       "enrichment": {
          "value": [4.95],
          "units":  ["wt%"],
-         "description": ["U-235 enrichment (wt%) - maximum"],
+         "description": ["Maximum U-235 enrichment (wt%)"],
       },
       "refueling": {
          "value": [2],
@@ -40,10 +40,10 @@ nuscaledata={
          "units":  [""],
          "description": ["Fuel type"],
       },
-      "theoretical_density": {
+      "fuel_theo_density": {
          "value": [96],
          "units":  ["%"],
-         "description": ["Percent of theoretical density(%)"],
+         "description": ["Percent of theoretical density(%) of the fuel"],
       },
       "fuel_height": {
          "value": [78.74],
@@ -52,12 +52,12 @@ nuscaledata={
       },
       "fuel_assembly": {
          "value": [37],
-         "units":  [""],
-         "description": ["Number of FA"],
+         "units":  ["#"],
+         "description": ["Number of FA (#)"],
       },
       "assembly_type": {
          "value": ["17x17"],
-         "units":  [""],
+         "units":  ["#"],
          "description": ["Rod array"],
       },
       "assembly_length": {
@@ -87,18 +87,18 @@ nuscaledata={
       },
       "fuel_rod": {
          "value": [264],
-         "units":  [""],
-         "description": ["Number of Fuel rods"],
+         "units":  ["#"],
+         "description": ["Number of Fuel rods (#)"],
       },
       "guide_tube": {
          "value": [24],
-         "units":  [""],
-         "description": ["Number of Guide tubes"],
+         "units":  ["#"],
+         "description": ["Number of Guide tubes (#)"],
       },
       "inst_tube": {
          "value": [1],
-         "units":  [""],
-         "description": ["Number of Instrumentation tubes"],
+         "units":  ["#"],
+         "description": ["Number of Instrumentation tubes (#)"],
       },
       "gap_thickness": {
          "value": [0.0065],
@@ -135,15 +135,15 @@ nuscaledata={
         "units":  ["in"],
         "description": ["Fuel Pellet Diameter (in)"],
       },
-      "pellet_lenght": {
+      "pellet_length": {
         "value": [0.40],
         "units":  ["in"],
-        "description": ["Fuel Pellet Lenght (in)"],
+        "description": ["Fuel Pellet Length (in)"],
       },
       "crod_assembly": {
         "value": [16],
-        "units":  [""],
-        "description": ["Number of CR Assemblies"],
+        "units":  ["#"],
+        "description": ["Number of CR Assemblies (#)"],
       },
       "upper_absorber_mat": {
         "value": ["boron carbide"],
