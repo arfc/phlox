@@ -1,19 +1,19 @@
 holosdata={
 "Holos_Holosgen": {
       "reactor_tpower": {
-         "value": [],
+         "value": [22],
          "units":  ["MWt"],
          "description": ["Reactor thermal power (MWt)"],
       },
       "reactor_epower_min": {
          "value": [10],
          "units":  ["MWe"],
-         "description": ["Reactor electrical power (MWe)"],
+         "description": ["Minimum reactor electrical power (MWe)"],
       },
       "reactor_epower_max": {
          "value": [13],
          "units":  ["MWe"],
-         "description": ["Reactor electrical power (MWe)"],
+         "description": ["Maximum reactor electrical power (MWe)"],
       },
       "reactor_type": {
          "value": ["HTGR (pebble)"],
@@ -33,12 +33,12 @@ holosdata={
       "enrichment_min": {
          "value": [8],
          "units":  ["wt%"],
-         "description": ["U-235 enrichment (wt% )"],
+         "description": ["Minimum U-235 enrichment (wt% )"],
       },
       "enrichment_max": {
          "value": [15],
          "units":  ["wt%"],
-         "description": ["U-235 enrichment (wt% )"],
+         "description": ["Maximum U-235 enrichment (wt% )"],
       },
       "refueling_min": {
          "value": [12],
@@ -48,7 +48,7 @@ holosdata={
       "refueling_max": {
          "value": [20],
          "units":  ["y"],
-         "description": ["Fuel cycle length"],
+         "description": ["Maximum refueling cycle length"],
       },
       "core_volume": {
          "value": [6.9],
@@ -57,8 +57,8 @@ holosdata={
       },
       "fuel_channels": {
          "value": [76],
-         "units":  [""],
-         "description": ["Number of Fuel Channels"],
+         "units":  ["#"],
+         "description": ["Number of Fuel Channels (#)"],
       },
       "fuel_channel_diameter": {
          "value": [1.4],
@@ -117,8 +117,8 @@ holosdata={
       },
       "total_bricks": {
          "value": [1925],
-         "units":  [""],
-         "description": ["Total core bricks"],
+         "units":  ["#"],
+         "description": ["Total core bricks (#)"],
       },
       "packing_fraction": {
          "value": [70],
@@ -127,18 +127,18 @@ holosdata={
       },
       "triso_per_channel": {
          "value": [24778],
-         "units":  [""],
-         "description": ["TRISO spheres in one fuel channel"],
+         "units":  ["#"],
+         "description": ["TRISO spheres in one fuel channel (#)"],
       },
       "triso_per_brick": {
          "value": [470777],
-         "units":  [""],
-         "description": ["TRISO spheres in one brick "],
+         "units":  ["#"],
+         "description": ["TRISO spheres in one brick (#)"],
       },
       "triso_per_core": {
          "value": [3.62E9],
-         "units":  [""],
-         "description": ["TRISO spheres in core"],
+         "units":  ["#"],
+         "description": ["TRISO spheres in core (#)"],
       },
       "temperature_coefficient": {
          "value": [-8],
