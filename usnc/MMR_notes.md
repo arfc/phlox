@@ -1,3 +1,8 @@
+Brief description of the reactor:
+- Power: 10 - 40 MWt.
+- Gas cooled reactor. Coolant: He.
+- Fuel: TRISO particles encapsulated in Fuel Ceramic Compacts (FCC/FCM).
+
 MMR Fuel: FCM
 - R = 0.7 cm (It can vary from 0.4 to 0.7 cm)
 - Matrix: SiC Density: 3.2 g/cc
