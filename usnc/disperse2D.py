@@ -79,12 +79,11 @@ def main():
     # Place particles in Cylinder
     R = 0.7  # Cylinder Radius
     Z0 = 0.0 # Cylinder bottom coordinate
-    Z1 = 1.0 # Cylinder top coordinate
+    Z1 = 2.0 # Cylinder top coordinate
 
     vp = np.pi * r**2       # Area of the particle
     VC = R * (Z1 - Z0)      # Area of the projected Cylinder into a plane
     N = mt.floor(VC/vp*pf)  # Number of particles to pack
-    N = 100
 
     # Generates first particle
     xc, yc = generate_random_RPZ_position(R, Z1-Z0, r)
