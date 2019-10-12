@@ -18,7 +18,7 @@ sic
 
 surf 1 inf
 cell 1 2 sic -1
-pbed 10 2 "part2.inp"
+pbed 10 2 "dispersed_particles.inp"
 
 /**********************************
 *        Surfaces & Cells         *
