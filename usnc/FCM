@@ -7,6 +7,7 @@
 * OPyC T 20e-6 m                  *
 * Matrix SiC                      *
 **********************************/
+% -- Coated Particle
 particle 1
 
 un     0.035
@@ -20,16 +21,29 @@ surf 1 inf
 cell 1 2 sic -1
 pbed 10 2 "dispersed_particles1047.inp"
 
-/**********************************
-*        Surfaces & Cells         *
-**********************************/
-% -- Pellet
+% -- Fuel Channel
 surf 10 cyl 0.0 0.0 1.05 0.0 64.0
-surf 20 hexyprism 0.0 0.0 0.8 0.0 64.0
 
-cell 10 0 fill 10  -10
-cell 20 0 block     10 -20
-cell 30 0 outside   20
+cell 2 3 fill 10 -10
+cell 3 3 block    10
+
+% -- Coolant Channel
+surf 20 cyl 0.0 0.0 0.77 0.0 64.0
+
+cell 4 4 helium -20
+cell 5 4 block   20
+
+% -- Lattice
+
+surf 5 inf
+cell 6 5 block -5
+
+lat 20 3 0.0 0.0 
+
+surf 30 hexyprism 0.0 0.0 0.8 0.0 64.0
+
+cell 10 0 fill 10  -30
+cell 11 0 outside   30
 
 /**********************************
 *            Materials            *
