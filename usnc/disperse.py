@@ -52,7 +52,7 @@ def add_newparticle(x, y, z, r, Z0, Z1, R):
     success = False
     count = 0
     over_lap = True
-    while over_lap and count < 100:
+    while over_lap and count < 1000:
         count = count + 1
         xc, yc, zc = generate_random_RPZ_position(R, Z1-Z0, r)
         over_lap = False
@@ -77,9 +77,9 @@ def main():
     pf = 0.4  # Packing Fraction
 
     # Place particles in Cylinder
-    R = 0.7  # Cylinder Radius
-    Z0 = 0.0 # Cylinder bottom coordinate
-    Z1 = 1.0 # Cylinder top coordinate
+    R = 1.05  # Cylinder Radius
+    Z0 = 0.0  # Cylinder bottom coordinate
+    Z1 = 64.0 # Cylinder top coordinate
 
     vp = 4/3 * np.pi * r**3       # Volumen of the particle
     VC = np.pi * R**2 * (Z1 - Z0) # Volumen of the Cylinder
@@ -91,7 +91,7 @@ def main():
     
     n = 1
     failure = 0
-    while n < N and failure < 100:
+    while n < N and failure < 200:
         #If it fails 10 times to add a new particle, it ends the simulation
         x, y, z, success = add_newparticle(x, y, z, r, Z0, Z1, R)
         if success:
