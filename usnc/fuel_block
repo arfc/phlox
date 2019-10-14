@@ -22,22 +22,24 @@ cell 1 2 sic -1
 pbed 10 2 "dispersed_particles1047.inp"
 
 % -- Fuel Channel
-surf 10 cyl 0.0 0.0 1.05 0.0 64.0
+surf 10 cyl 0.0 0.0 0.7 0.0 1.0
+surf 11 cyl 0.0 0.0 1.0 0.0 1.0
 
 %cell 2 3 fill 10 -10
 cell 2 3 un      -10
-cell 3 3 block    10
+cell 3 3 helium   10 -11
+cell 4 3 block    11
 
 % -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 0.0 64.0
+surf 20 cyl 0.0 0.0 0.77 0.0 1.0
 
-cell 4 4 helium -20
-cell 5 4 block   20
+cell 5 4 helium -20
+cell 6 4 block   20
 
 % -- Lattice
 
 surf 5 inf
-cell 6 5 block -5
+cell 7 5 block -5
 
 lat 20 3 0.0 0.0 13 13 6.3
 5 5 5 5 5 5 5 5 5 5 5 5 5
@@ -54,7 +56,7 @@ lat 20 3 0.0 0.0 13 13 6.3
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 30.0 0.0 64.0
+surf 30 hexyprism 0.0 0.0 30.0 0.0 1.0
 
 cell 10 0 fill 20  -30
 cell 11 0 outside   30
