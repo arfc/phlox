@@ -22,16 +22,17 @@ cell 1 2 sic -1
 pbed 10 2 "dispersed_particles1047.inp"
 
 % -- Fuel Channel
-surf 10 cyl 0.0 0.0 0.7 0.0 1.0
-surf 11 cyl 0.0 0.0 1.0 0.0 1.0
+%surf 10 cyl 0.0 0.0 0.7 0.0 2.0
+surf 10 cyl 0.0 0.0 0.7 0.0 64.0
+surf 11 cyl 0.0 0.0 1.0 0.0 64.0
 
-%cell 2 3 fill 10 -10
-cell 2 3 un      -10
+cell 2 3 fill 10 -10
+%cell 2 3 un      -10
 cell 3 3 helium   10 -11
 cell 4 3 block    11
 
 % -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 0.0 1.0
+surf 20 cyl 0.0 0.0 0.77 0.0 64.0
 
 cell 5 4 helium -20
 cell 6 4 block   20
@@ -58,7 +59,7 @@ lat 20 3 0.0 0.0 13 13 5.6
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 26.0 0.0 1.0
+surf 30 hexyprism 0.0 0.0 26.0 0.0 64.0
 
 cell 10 8 fill 20  -30
 cell 11 8 block     30
@@ -80,8 +81,8 @@ lat 21 3 0.0 0.0 13 13 5.6
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 31 cyl 0.0 0.0 8.0 0.0 1.0
-surf 32 hexyprism 0.0 0.0 26.0 0.0 1.0
+surf 31 cyl 0.0 0.0 8.0 0.0 64.0
+surf 32 hexyprism 0.0 0.0 26.0 0.0 64.0
 
 cell 12 7 helium   -31
 cell 13 7 fill 20   31 -32
@@ -89,7 +90,7 @@ cell 14 7 block     32
 
 % -- Central Block
 
-surf 33 cyl 0.0 0.0 12.0 0.0 1.0
+surf 33 cyl 0.0 0.0 12.0 0.0 64.0
 
 cell 15 6 helium   -33
 cell 16 6 block     33
@@ -110,12 +111,17 @@ lat 22 3 0.0 0.0 11 11 52.0
           5 5 5 5 5 5 5 5 5 5 5
   
 
-surf 35 cyl 0.0 0.0 205.0 0.0 1.0
-surf 36 cyl 0.0 0.0 215.0 0.0 1.0
+surf 35 cyl 0.0 0.0 205.0 2.50 66.5
+surf 36 cyl 0.0 0.0 215.0 2.50 66.5
+
+surf 37 cyl 0.0 0.0 205.0 66.5 69.0
+surf 38 cyl 0.0 0.0 205.0 0.0 2.50
+
 
 cell 21 0 fill 22   -35
 cell 22 0 reflector  35 -36
 cell 23 0 outside    36
+
 
 /**********************************
 *            Materials            *
@@ -173,4 +179,4 @@ set pop 2000 500 10
 
 % --- Geometry plot:
 
-plot 1 1000 500 0.0 -220.0 220.0 -0.05 1.05
+plot 1 1000 500 0.0 -220.0 220.0 -0.05 64.05

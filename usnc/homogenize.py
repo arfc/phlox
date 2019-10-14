@@ -74,6 +74,8 @@ def main():
     fraction_c = mc/mtotal
     fraction_si = msi/mtotal
 
+    print("Fuel density: ", round(mtotal/(PI * R**2 * (Z1 - Z0)), 5))
+    print()
     print("U235 mass fraction: ", round(fraction_u5, 5))
     print("U238 mass fraction: ", round(fraction_u8, 5))
     print("N mass fraction:    ", round(fraction_n, 5))
