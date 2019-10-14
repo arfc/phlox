@@ -7,6 +7,7 @@
 * OPyC T 20e-6 m                  *
 * Matrix SiC                      *
 **********************************/
+% -- Coated Particle
 particle 1
 
 un     0.035
@@ -18,18 +19,103 @@ sic
 
 surf 1 inf
 cell 1 2 sic -1
-pbed 10 2 "part2.inp"
+pbed 10 2 "dispersed_particles1047.inp"
 
-/**********************************
-*        Surfaces & Cells         *
-**********************************/
-% -- Pellet
+% -- Fuel Channel
 surf 10 cyl 0.0 0.0 0.7 0.0 1.0
-surf 20 hexyprism 0.0 0.0 0.8 0.0 1.4
+surf 11 cyl 0.0 0.0 1.0 0.0 1.0
 
-cell 10 0 fill 10  -10
-cell 20 0 block     10 -20
-cell 30 0 outside   20
+%cell 2 3 fill 10 -10
+cell 2 3 un      -10
+cell 3 3 helium   10 -11
+cell 4 3 block    11
+
+% -- Coolant Channel
+surf 20 cyl 0.0 0.0 0.77 0.0 1.0
+
+cell 5 4 helium -20
+cell 6 4 block   20
+
+% -- Graphite (Empty) Channel
+
+surf 5 inf
+cell 7 5 block -5
+
+% -- Fuel Block Lattice
+
+lat 20 3 0.0 0.0 13 13 5.6
+5 5 5 5 5 5 5 5 5 5 5 5 5
+ 5 5 5 5 5 5 5 5 3 3 5 5 5
+  5 5 5 5 5 5 3 3 4 3 3 5 5
+   5 5 5 5 3 3 4 3 3 4 3 3 5
+    5 5 5 3 4 3 3 4 3 3 4 3 5
+     5 5 5 3 3 4 3 3 4 3 3 5 5
+      5 5 3 4 3 3 4 3 3 4 3 5 5
+       5 5 3 3 4 3 3 4 3 3 5 5 5
+        5 3 4 3 3 4 3 3 4 3 5 5 5
+         5 3 3 4 3 3 4 3 3 5 5 5 5
+          5 5 3 3 4 3 3 5 5 5 5 5 5
+           5 5 5 3 3 5 5 5 5 5 5 5 5
+            5 5 5 5 5 5 5 5 5 5 5 5 5
+
+surf 30 hexyprism 0.0 0.0 26.0 0.0 1.0
+
+cell 10 8 fill 20  -30
+cell 11 8 block     30
+
+% -- Control Block Lattice
+
+lat 21 3 0.0 0.0 13 13 5.6
+5 5 5 5 5 5 5 5 5 5 5 5 5
+ 5 5 5 5 5 5 5 5 3 3 5 5 5
+  5 5 5 5 5 5 3 3 4 3 3 5 5
+   5 5 5 5 3 3 4 3 3 4 3 3 5
+    5 5 5 3 4 3 3 4 3 3 4 3 5
+     5 5 5 3 3 4 5 5 4 3 3 5 5
+      5 5 3 4 3 5 5 5 3 4 3 5 5
+       5 5 3 3 4 5 5 4 3 3 5 5 5
+        5 3 4 3 3 4 3 3 4 3 5 5 5
+         5 3 3 4 3 3 4 3 3 5 5 5 5
+          5 5 3 3 4 3 3 5 5 5 5 5 5
+           5 5 5 3 3 5 5 5 5 5 5 5 5
+            5 5 5 5 5 5 5 5 5 5 5 5 5
+
+surf 31 cyl 0.0 0.0 8.0 0.0 1.0
+surf 32 hexyprism 0.0 0.0 26.0 0.0 1.0
+
+cell 12 7 helium   -31
+cell 13 7 fill 20   31 -32
+cell 14 7 block     32
+
+% -- Central Block
+
+surf 33 cyl 0.0 0.0 12.0 0.0 1.0
+
+cell 15 6 helium   -33
+cell 16 6 block     33
+
+% -- Core Lattice
+
+lat 22 3 0.0 0.0 11 11 52.0
+5 5 5 5 5 5 5 5 5 5 5
+ 5 5 5 5 5 5 5 5 5 5 5
+  5 5 5 5 5 7 8 8 7 5 5
+   5 5 5 5 8 8 7 8 8 5 5
+    5 5 5 8 7 8 8 7 8 5 5
+     5 5 7 8 8 6 8 8 7 5 5
+      5 5 8 7 8 8 7 8 5 5 5
+       5 5 8 8 7 8 8 5 5 5 5
+        5 5 7 8 8 7 5 5 5 5 5
+         5 5 5 5 5 5 5 5 5 5 5
+          5 5 5 5 5 5 5 5 5 5 5
+  
+
+surf 35 cyl 0.0 0.0 205.0 0.0 1.0
+surf 36 cyl 0.0 0.0 215.0 0.0 1.0
+
+cell 21 0 fill 22   -35
+cell 22 0 reflector  35 -36
+cell 23 0 outside    36
 
 /**********************************
 *            Materials            *
@@ -45,22 +131,29 @@ cell 30 0 outside   20
 * - C  29.96%                     *
 **********************************/
 mat un       -14.32
- 92235.09c   -11.0268
- 92238.09c   -80.8632
-  7014.09c   -8.11
+ 92235.09c   -0.110268
+ 92238.09c   -0.808632
+  7014.09c   -0.0811
 
 mat buffer   -1.05        moder grph 6000
- 6000.09c    -100.0
+ 6000.09c    -1.0000
 
 mat pyc      -1.90        moder grph 6000
- 6000.09c    -100.0
+ 6000.09c    -1.0000
 
 mat sic      -3.18        moder grph 6000
-14000.09c    -70.05
- 6000.09c    -29.96
+14000.09c    -0.7005
+ 6000.09c    -0.2996
 
 mat block    -1.75        moder grph 6000
- 6000.09c    -100.0
+ 6000.09c    -1.0000
+
+mat helium   2.65156E-05
+ 2004.09c    2.65156E-05
+
+mat reflector   -3.01
+ 4009.09c    0.50
+ 8016.09c    0.50
 
 % --- Thermal scattering data for light water:
 
@@ -72,7 +165,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Periodic boundary condition:
 
-set bc 3
+%set bc 3
 
 % --- Neutron population and criticality cycles:
 
