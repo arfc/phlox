@@ -24,7 +24,8 @@ pbed 10 2 "dispersed_particles1047.inp"
 % -- Fuel Channel
 surf 10 cyl 0.0 0.0 1.05 0.0 64.0
 
-cell 2 3 fill 10 -10
+%cell 2 3 fill 10 -10
+cell 2 3 un      -10
 cell 3 3 block    10
 
 % -- Coolant Channel
@@ -38,11 +39,15 @@ cell 5 4 block   20
 surf 5 inf
 cell 6 5 block -5
 
-lat 20 3 0.0 0.0 
+lat 20 3 0.0 0.0 2 2 2.5
+4 4  
+3 3
 
-surf 30 hexyprism 0.0 0.0 0.8 0.0 64.0
 
-cell 10 0 fill 10  -30
+
+surf 30 hexyprism 0.0 0.0 6.0 0.0 64.0
+
+cell 10 0 fill 20  -30
 cell 11 0 outside   30
 
 /**********************************
@@ -76,6 +81,9 @@ mat sic      -3.18        moder grph 6000
 mat block    -1.75        moder grph 6000
  6000.09c    -100.0
 
+mat helium   2.65156E-05
+ 2004.09c    2.65156E-05
+
 % --- Thermal scattering data for light water:
 
 therm grph gre7.00t
@@ -86,7 +94,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Periodic boundary condition:
 
-set bc 3
+%set bc 3
 
 % --- Neutron population and criticality cycles:
 
