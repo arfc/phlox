@@ -1,3 +1,5 @@
+/* This input file defines a fuel assembly block. */
+
 /**********************************
 *       Particle Definition       *
 * Kernel UN Diameter (D) 700e-6 m *
