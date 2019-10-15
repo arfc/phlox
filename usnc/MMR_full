@@ -23,18 +23,19 @@ pbed 10 2 "dispersed_particles1047.inp"
 
 % -- Fuel Channel
 surf 2 cyl 0.0 0.0 0.7 0.0 1.0
-surf 10 cyl 0.0 0.0 0.7 2.5 66.5
-surf 11 cyl 0.0 0.0 1.0 2.5 66.5
+surf 10 cyl 0.0 0.0 0.7 2.5 3.5
+surf 11 cyl 0.0 0.0 1.0 2.5 3.5
 
-cell 30 12 fill 10 -2
-cell 31 12 sic      2
+%cell 30 12 fill 10 -2
+%cell 31 12 sic      2
 
-cell 2 3 fill 12 -10
+%cell 2 3 fill 12 -10
+cell 2 3 fill 10 -10
 cell 3 3 helium   10 -11
 cell 4 3 block    11
 
 % -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 2.5 66.5
+surf 20 cyl 0.0 0.0 0.77 2.5 3.5
 
 cell 5 4 helium -20
 cell 6 4 block   20
@@ -61,7 +62,7 @@ lat 20 3 0.0 0.0 13 13 5.6
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 26.0 2.5 66.5
+surf 30 hexyprism 0.0 0.0 26.0 2.5 3.5
 
 cell 10 8 fill 20  -30
 cell 11 8 block     30
@@ -83,8 +84,8 @@ lat 21 3 0.0 0.0 13 13 5.6
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 31 cyl 0.0 0.0 8.0 2.5 66.5
-surf 32 hexyprism 0.0 0.0 26.0 2.5 66.5
+surf 31 cyl 0.0 0.0 8.0 2.5 3.5
+surf 32 hexyprism 0.0 0.0 26.0 2.5 3.5
 
 cell 12 7 helium   -31
 cell 13 7 fill 20   31 -32
@@ -92,7 +93,7 @@ cell 14 7 block     32
 
 % -- Central Block
 
-surf 33 cyl 0.0 0.0 12.0 2.5 66.5
+surf 33 cyl 0.0 0.0 12.0 2.5 3.5
 
 cell 15 6 helium   -33
 cell 16 6 block     33
@@ -112,19 +113,18 @@ lat 22 3 0.0 0.0 11 11 52.0
          5 5 5 5 5 5 5 5 5 5 5
           5 5 5 5 5 5 5 5 5 5 5
   
-surf 35 cyl 0.0 0.0 205.0 2.50 66.5
-surf 36 cyl 0.0 0.0 215.0 2.50 66.5
+surf 35 cyl 0.0 0.0 205.0 2.50 3.5
+surf 36 cyl 0.0 0.0 215.0 2.50 3.5
 
-surf 37 cyl 0.0 0.0 215.0 66.5 69.0
 surf 38 cyl 0.0 0.0 215.0 0.0 2.50
-surf 39 cyl 0.0 0.0 215.0 66.5 69.0
-surf 40 cyl 0.0 0.0 215.0 0.0 69.0
+surf 37 cyl 0.0 0.0 215.0 3.5 5.0
+surf 39 cyl 0.0 0.0 215.0 0.0 5.0
 
 cell 21 0 fill 22   -35
 cell 22 0 reflector  35 -36
-cell 23 0 block     -38
-cell 24 0 block     -39
-cell 25 0 outside    40
+cell 23 0 block     -37
+cell 24 0 block     -38
+cell 25 0 outside    39
 
 /**********************************
 *            Materials            *
