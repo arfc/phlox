@@ -40,8 +40,8 @@ cell 6 4 block   20
 
 % -- Lattice
 
-surf 30 cyl 0.0 0.0 12.0 0.0 1.0
-surf 31 hexyprism 0.0 0.0 30.0 0.0 1.0
+surf 30 cyl 0.0 0.0 6.0 0.0 1.0
+surf 31 hexyprism 0.0 0.0 26.0 0.0 1.0
 
 cell 10 0 helium   -30
 cell 11 0 block     30 -31
