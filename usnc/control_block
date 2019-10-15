@@ -21,7 +21,7 @@ sic
 
 surf 1 inf
 cell 1 2 sic -1
-pbed 10 2 "dispersed_particles1047.inp"
+pbed 10 2 "dispersed_particles.inp"
 
 % -- Fuel Channel
 surf 10 cyl 0.0 0.0 0.7 0.0 1.0

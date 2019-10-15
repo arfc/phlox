@@ -59,71 +59,11 @@ fill=blue!30]
 The Micro Modular Reactor (MMR) concept integrates power production, power conversion, and electricity generation in a single unit, making it suitable for use in remote areas. 
 The MMR will use fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
 The power of this reactor will range between 10 to 40 MW-thermal and its cycle length will be greater than 20 years.
-
-The MMR design results attractive for replacing diesel generators in remote areas. As it could be factory produced, it could generate power at economically competitive prices.
+The MMR design results attractive for replacing diesel generators in remote areas. As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
 
 \section{Serpent2 Model}
 
-The model describes a core composed of hexagonal assemblies \ref{fig:FullXY}. 3 different types assemblies make up the core, the fuel assembly \ref{fig:FuelAssembly}, the control rod assembly \ref{fig:ControlRodAssembly}, and the central assembly \ref{fig:CentralAssembly}.
-
-\subsection{FCM}
-\label{sub:FCM}
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[t]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
-		\caption{XY cross section.}
-		\label{fig:FCM_xy}
-	\end{subfigure}
-	\vspace{1cm}
-	\begin{subfigure}[t]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom2.png} 
-		\caption{YZ cross section.}
-		\label{fig:FCM_yz}
-	\end{subfigure}
-	\hfill
-	\caption{FCM Serpent2 model geometry for different cross-sections.}
-	\label{fig:FCM}
-\end{figure}
-
-\subsection{Fuel Assembly}
-\label{sub:FuelAssembly}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/fuel_block_geom1.png} 
-	\hfill
-	\caption{Fuel Assembly Serpent2 model geometry.}
-	\label{fig:FuelAssembly}
-\end{figure}
-
-\subsection{Control Rod Assembly}
-\label{sub:ControlRodAssembly}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/control_block_geom1.png} 
-	\hfill
-	\caption{Control Rod Assembly Serpent2 model geometry.}
-	\label{fig:ControlRodAssembly}
-\end{figure}
-
-\subsection{Central Assembly}
-\label{sub:CentralAssembly}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/central_block_geom1.png}
-	\hfill
-	\caption{Central Assembly Serpent2 model geometry.}
-	\label{fig:CentralAssembly}
-\end{figure}
-
-\subsection{MMR Full Core}
-\label{sub:Full}
+The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side. 3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}. The fuel assembly consists of 54 fuel channels and 19 cooling channels. The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels. The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}. The fuel channels are 2 cm diameter. The fuel compacts are 1.4 cm diameter. The fuel channel wall and the compacts have a 0.3 cm gap filled with He. The cooling channels are 1.45 cm diameter. The core has a top and bottom reflector of graphite. The hexagonal core as a radial reflector of graphite and another one of BeO.
 
 \begin{figure}[H]
 	\centering
@@ -140,6 +80,87 @@ The model describes a core composed of hexagonal assemblies \ref{fig:FullXY}. 3 
 	\caption{YZ cross section of the full core Serpent2 model geometry.}
 	\label{fig:FullYZ}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/fuel_block_geom1.png} 
+	\hfill
+	\caption{Fuel Assembly Serpent2 model geometry.}
+	\label{fig:FuelAssembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/control_block_geom1.png} 
+	\hfill
+	\caption{Control Rod Assembly Serpent2 model geometry.}
+	\label{fig:ControlRodAssembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/central_block_geom1.png}
+	\hfill
+	\caption{Central Assembly Serpent2 model geometry.}
+	\label{fig:CentralAssembly}
+\end{figure}
+
+\subsection{FCM}
+
+The fuel compact (Fig. \ref{fig:FCM}) is 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}. The fuel compact contains the TRISO particles in Carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}. The model assumes a 40\% packing fraction. The following section describes the particles and the compact.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
+		\caption{XY cross section.}
+		\label{fig:FCM_xy}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
+		\caption{YZ cross section.}
+		\label{fig:FCM_yz}
+	\end{subfigure}
+	\hfill
+	\caption{FCM Serpent2 model geometry for different cross-sections.}
+	\label{fig:FCM}
+\end{figure}
+
+\subsection{TRISO particles}
+
+A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}. The kernel has the fissile material (UO$_2$, UCO, UN, etc.). The layers (from the inside to the outside) are buffer, inner pyrolytic carbon (IPyC), silicon carbide (SiC), and outer pyrolytic carbon (OPyC).
+The model assumes a kernel of UN with a 700 $\mu$m-diameter. The layers have a thickness of 50, 35, 35, and 20 $\mu$m, respectively.
+The density for the kernel is 14.32 g/cc and for the layers it is 1.05, 1.9, 3.18, 1.9 g/cc, respectively. The enrichment is 12\%. For the SiC, the layer has a Si weight fraction of 70.05\% while the rest is Graphite. The rest of the layers only component is Graphite.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figures/triso1.png}
+	\hfill
+	\caption{Typical TRISO particle [Add reference to the website].}
+	\label{fig:triso}
+\end{figure}
+
+\section{Results}
+
+k-eff (analog)    = 0.74523 +/- 0.00115  [0.74297  0.74749]\\
+\noindent
+k-eff (implicit)  = 0.74481 +/- 0.00097  [0.74291  0.74670]
+
+\section{Comments}
+
+\begin{description}[font=$\bullet$\scshape\bfseries]
+	\item[] Random distribution of particles. 
+    \item[]	Size of the kernels, materials, size of the pellets, and fuel channels.
+\end{description}
+
+\section{Questions}
+
+\begin{description}[font=$\bullet$\scshape\bfseries]
+	\item[] How to see the Flux?
+	\item[]	How to see the Fluence?
+\end{description}
 
 \pagebreak
 \bibliographystyle{plain}
