@@ -1,3 +1,5 @@
+/*This input file defines a hexagonal elementary cell for FCM fuel.*/
+
 /**********************************
 *       Particle Definition       *
 * Kernel UN Diameter (D) 700e-6 m *
@@ -87,4 +89,5 @@ set pop 2000 500 10
 
 % --- Geometry plot:
 
+plot 3 600 600 0.2 -2.7 2.7 -2.4 2.4
 plot 1 1000 500 0.0 -2.3 2.3 -0.0 1.0
