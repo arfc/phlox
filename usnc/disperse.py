@@ -1,3 +1,12 @@
+"""
+This script organizes circles of radius r randomly in a cylinder of dimensions
+R and (Z1-Z0). The user can choose a packing fraction (pf).
+The outputs are a .inp file that can be read by Serpent2 and a .geo file
+that can be opened with gmsh to see the results.
+
+The simulation might file due to suboptimal packing. Usually for pf > 0.35.
+"""
+
 import numpy as np
 import math as mt
 import random as rd

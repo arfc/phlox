@@ -108,6 +108,7 @@ The model describes a core composed of hexagonal graphite assemblies Figs. \ref{
 \subsection{FCM}
 
 The fuel compact (Fig. \ref{fig:FCM}) is 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}. The fuel compact contains the TRISO particles in Carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}. The model assumes a 40\% packing fraction. The following section describes the particles and the compact.
+Serpent2 has a capability to randomly distribute particles in a volume. We used such capability to define this model.
 
 \begin{figure}[H]
 	\centering
@@ -142,25 +143,26 @@ The density for the kernel is 14.32 g/cc and for the layers it is 1.05, 1.9, 3.1
 	\label{fig:triso}
 \end{figure}
 
+\subsection{Distribution of TRISO particles in the compact}
+
+Currently Serpent2 counts with a capability to distribute randomly particles in a geometry. Such capability fails 
+
 \section{Results}
 
-k-eff (analog)    = 0.74523 +/- 0.00115  [0.74297  0.74749]\\
+The eigenvalue of the full core results:
+
 \noindent
-k-eff (implicit)  = 0.74481 +/- 0.00097  [0.74291  0.74670]
+k-eff (analog)    = 0.76257 +/- 0.00122  [0.76018  0.76495]\\
+\noindent
+k-eff (implicit)  = 0.76250 +/- 0.00100  [0.76054  0.76446]
 
 \section{Comments}
 
-\begin{description}[font=$\bullet$\scshape\bfseries]
-	\item[] Random distribution of particles. 
-    \item[]	Size of the kernels, materials, size of the pellets, and fuel channels.
-\end{description}
-
-\section{Questions}
-
-\begin{description}[font=$\bullet$\scshape\bfseries]
-	\item[] How to see the Flux?
-	\item[]	How to see the Fluence?
-\end{description}
+The results indicate that the model has some erroneous assumption, as the reactor seems to be sub critical.
+Many of the values chosen for the model come from \cite{hawari_development_2018}. However, some values are not clearly defined.
+For example the dimensions of a TRISO particle and the FCM fuel. Those values came from \cite{powers_fully_2013}, \cite{jo_preliminary_2014}, and \cite{venneri_neutronic_2015}.
+Another point that it is worth commenting is the discrepancy between \cite{hawari_development_2018} and \cite{jo_preliminary_2014} about the core's height. While the first defines it to be around 64 cm, the latter states that a height has to be larger than 200 cm.
+The next step will be modify those values to get an eigenvalue greater than 1.
 
 \pagebreak
 \bibliographystyle{plain}
