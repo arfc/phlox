@@ -31,41 +31,45 @@ def cooling_channels(f, d_x, rc, p_c):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
 
-    f.write("Circle(7) = { "+ str(-p) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(8) = { "+ str(0) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(9) = { "+ str(p) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(7) = { "+ str(-p) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(8) = { "+ str(0) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(9) = { "+ str(p) +", "+ str(3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
     
     #f.write("Circle(10) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(11) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(12) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(13) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     
-    f.write("Circle(14) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(15) = { "+ str(-p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(16) = { "+ str(0) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(17) = { "+ str(p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(18) = { "+ str(2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(14) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(15) = { "+ str(-p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(16) = { "+ str(0) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(17) = { "+ str(p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(18) = { "+ str(2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
 
     #f.write("Circle(19) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(20) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(21) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
     #f.write("Circle(22) = { "+ str(-2*p) +", 0, 0, "+ str(rc) +", 0, 2*Pi};\n")
 
-    f.write("Circle(23) = { "+ str(-p) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(24) = { "+ str(0) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
-    f.write("Circle(25) = { "+ str(p) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(23) = { "+ str(-p) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(24) = { "+ str(0) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
+    #f.write("Circle(25) = { "+ str(p) +", "+ str(-3*p_c) +", 0, "+ str(rc) +", 0, 2*Pi};\n")
 
 def fuel_channels(f, d_x, rf, p_c):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
+    p2 = round(3*s/2, 4)
 
-    i = 26
-    f.write("Circle("+ str(i)+") = { "+ str(-p) +", "+ str(4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
-    i += 1
-    f.write("Circle("+ str(i)+") = { "+ str(0) +", "+ str(4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
-    i += 1
-    f.write("Circle("+ str(i)+") = { "+ str(p) +", "+ str(4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
+    cc = 26
+    for i in range(0,3):
+        cc += 1
+        f.write("Circle("+ str(i + cc) +") = { "+ str((i-1)*p) +", "+ str(4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
+
+    for i in range(0,6):
+        cc += 1
+        f.write("Circle("+ str(i + cc) +") = { "+ str((i*2-5)*p2) +", "+ str(p_c/2) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
     
+    """
     i += 1
     f.write("Circle("+ str(i)+") = { "+ str(-2*p) +", "+ str(p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
     i += 1
@@ -116,7 +120,8 @@ def fuel_channels(f, d_x, rf, p_c):
     f.write("Circle("+ str(i)+") = { "+ str(0) +", "+ str(-4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
     i += 1
     f.write("Circle("+ str(i)+") = { "+ str(p) +", "+ str(-4*p_c) +", 0, "+ str(rf) +", 0, 2*Pi};\n")
-
+    """
+    
 
 def main():    
     f = open("untitled.geo","w+")
