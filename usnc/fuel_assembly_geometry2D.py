@@ -40,6 +40,7 @@ def add_lines(f, d_x):
     l = 2
     ns = 1
     ls = [1]
+    
     return c, l, ns, ls
 
 def place_circles(f, r, d_x, d_y, col, row, c, l, ns, ls):
@@ -54,6 +55,7 @@ def place_circles(f, r, d_x, d_y, col, row, c, l, ns, ls):
             l += 1
             ns += 1
         c += cc
+    
     return c, l, ns, ls
 
 def cooling_channels(f, d_x, rc, p_c, c, l, ns, ls):
