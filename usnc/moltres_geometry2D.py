@@ -153,16 +153,33 @@ def place_control_assembly(f, d_x, rc, rf, rcb, p_c, x, c, l, ns):
     """ 
     return c, l, ns, ls
 
+def place_central_assembly(f, d_x, rcc, x, c, l, ns):
+    ls = [1]
+    # c, l, ns, ls = place_hexagon(f, d_x, x, c, l, ns)
+    c, l, ns, ls = control_rod(f, rcc, x, c, l, ns, ls)
+
+    """
+    f.write("Plane Surface("+str(ns)+") = {")
+    for i in ls:
+        if i == ls[-1]:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+    f.write("};\n")  
+    """ 
+    return c, l, ns, ls
+
 def main():    
     f = open("untitled.geo","w+")
     f.write("//+\n")
     f.write("SetFactory('OpenCASCADE');\n")
 
     d_x = 30  # Side of hexagonal assembly
-    rc = 0.5 # Radius of cooling channel
-    rf = 1.5 # Radius of cooling channel
+    rc = 0.5  # Radius of cooling channel
+    rf = 1.5  # Radius of cooling channel
     p_c = 5.6 # pitch between channels
     rcb = 4   # Control bar radius
+    rcc = 6   # Central control bar radius
 
     p = 2*d_x/2/np.tan(np.pi/6)
 
@@ -194,12 +211,13 @@ def main():
     for i in range(16, 23):
         x[i,:] = [0, (19-i)*p, 0]
    
-    print(x)
     for i in assemblies['control']:
         c, l, ns, ls = place_control_assembly(f, d_x, rc, rf, rcb, p_c, x[i], c, l, ns)
 
     for i in assemblies['fuel']:
         c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x[i], c, l, ns)
+    
+    place_central_assembly(f, d_x, rcc, x, x[19], l, ns)
 
     '''
     x = [0, 2*p, 0]
