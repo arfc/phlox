@@ -1,17 +1,27 @@
 """
-
+c: number of circles
+l: number of loops
+ns: number of physical surfaces
 """
 import numpy as np
 import math as mt
 import random as rd
+import sys
 
-def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns):
+def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, type):
     for j in col:
         cc = 0
         for i in row:
             f.write("Circle("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
             f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
-            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
+            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
+
+            if type == 'fuel' or type == 'cool':
+                dict_type[type].append(l)
+            else:
+                print('Wrong type')
+                sys.exit()
+
             cc += 1
             l += 1
             ns += 1
@@ -29,26 +39,26 @@ def fuel_channels(f, d_x, rf, p_c, x, c, l, ns, fuel=True):
         row = [-5, -3, -1, 1, 3, 5]
     else:
         row = [-5, -3, 3, 5]
-    c, l, ns = place_circles(f, rf, p2, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rf, p2, p_c, x, col, row, c, l, ns, 'fuel')
 
     col = [-7/2, -5/2, 5/2, 7/2]
     row = [-3, -1, 1, 3]
-    c, l, ns = place_circles(f, rf, p2, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rf, p2, p_c, x, col, row, c, l, ns, 'fuel')
 
     col = [-2, 2]
     row = [-2, -1, 0, 1, 2]
-    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel')
 
     col = [-1, 1]
     if fuel == True:
         row = [-2, -1, 0, 1, 2]
     else:
         row = [-2, -1, 1, 2]
-    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel')
 
     col = [-4, 4]
     row = [-1, 0, 1]
-    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel')
 
     return c, l, ns
 
@@ -59,25 +69,25 @@ def cooling_channels(f, d_x, rc, p_c, x, c, l, ns, fuel=True):
 
     col = [-3, 3]
     row = [-1, 0, 1]
-    c, l, ns = place_circles(f, rc, p, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, 'cool')
 
     col = [-3/2, 3/2]
     row = [-3, -1, 1, 3]
-    c, l, ns = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, 'cool')
 
     col = [0]
     if fuel:
         row = [-2, -1, 0, 1, 2]
     else:
         row = [-2, -1, 1, 2]
-    c, l, ns = place_circles(f, rc, p, p_c, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, 'cool')
     
     return c, l, ns
 
 def control_rod(f, rcb, x, c, l, ns):
     col=[0]
     row=[0]
-    c, l, ns = place_circles(f, rcb, 0, 0, x, col, row, c, l, ns)
+    c, l, ns = place_circles(f, rcb, 0, 0, x, col, row, c, l, ns, 'cool')
 
     return c, l, ns
 
@@ -95,7 +105,7 @@ def place_control_assembly(f, d_x, rc, rf, rcb, p_c, x, c, l, ns):
     return c, l, ns
 
 def place_central_assembly(f, d_x, rcc, x, c, l, ns):
-    c, l, ns = control_rod(f, rcc, x, c, l, ns)
+    c, l, ns = control_rod(f, rcc, x, c, l, ns, 'cool')
 
     return c, l, ns
 
