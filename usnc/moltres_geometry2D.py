@@ -56,28 +56,6 @@ def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, ls):
     
     return c, l, ns, ls
 
-def cooling_channels(f, d_x, rc, p_c, x, c, l, ns, ls, fuel=True):
-    s = 2 * p_c/2 * np.tan(np.pi/6)
-    p = round(3*s, 4)
-    p2 = round(3*s/2, 4)
-
-    col = [-3, 3]
-    row = [-1, 0, 1]
-    c, l, ns, ls = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, ls)
-
-    col = [-3/2, 3/2]
-    row = [-3, -1, 1, 3]
-    c, l, ns, ls = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, ls)
-
-    col = [0]
-    if fuel:
-        row = [-2, -1, 0, 1, 2]
-    else:
-        row = [-2, -1, 1, 2]
-    c, l, ns, ls = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, ls)
-    
-    return c, l, ns, ls
-
 def fuel_channels(f, d_x, rf, p_c, x, c, l, ns, ls, fuel=True):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
@@ -111,6 +89,35 @@ def fuel_channels(f, d_x, rf, p_c, x, c, l, ns, ls, fuel=True):
 
     return c, l, ns, ls
 
+def cooling_channels(f, d_x, rc, p_c, x, c, l, ns, ls, fuel=True):
+    s = 2 * p_c/2 * np.tan(np.pi/6)
+    p = round(3*s, 4)
+    p2 = round(3*s/2, 4)
+
+    col = [-3, 3]
+    row = [-1, 0, 1]
+    c, l, ns, ls = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, ls)
+
+    col = [-3/2, 3/2]
+    row = [-3, -1, 1, 3]
+    c, l, ns, ls = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, ls)
+
+    col = [0]
+    if fuel:
+        row = [-2, -1, 0, 1, 2]
+    else:
+        row = [-2, -1, 1, 2]
+    c, l, ns, ls = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, ls)
+    
+    return c, l, ns, ls
+
+def control_rod(f, rcb, x, c, l, ns, ls):
+    col=[0]
+    row=[0]
+    c, l, ns, ls = place_circles(f, rcb, 0, 0, x, col, row, c, l, ns, ls)
+
+    return c, l, ns, ls
+
 def place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns):
     ls = [1]
     # c, l, ns, ls = place_hexagon(f, d_x, x, c, l, ns)
@@ -128,11 +135,12 @@ def place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns):
     """ 
     return c, l, ns, ls
 
-def place_control_assembly(f, d_x, rc, rf, p_c, x, c, l, ns):
+def place_control_assembly(f, d_x, rc, rf, rcb, p_c, x, c, l, ns):
     ls = [1]
     # c, l, ns, ls = place_hexagon(f, d_x, x, c, l, ns)
     c, l, ns, ls = cooling_channels(f, d_x, rc, p_c, x, c, l, ns, ls, False)
     c, l, ns, ls = fuel_channels(f, d_x, rf, p_c, x, c, l, ns, ls, False)
+    c, l, ns, ls = control_rod(f, rcb, x, c, l, ns, ls)
 
     """
     f.write("Plane Surface("+str(ns)+") = {")
@@ -153,7 +161,8 @@ def main():
     d_x = 30  # Side of hexagonal assembly
     rc = 0.5 # Radius of cooling channel
     rf = 1.5 # Radius of cooling channel
-    p_c = 5.6 # pitch between channels 
+    p_c = 5.6 # pitch between channels
+    rcb = 4   # Control bar radius
 
     p = 2*d_x/2/np.tan(np.pi/6)
 
@@ -187,7 +196,7 @@ def main():
    
     print(x)
     for i in assemblies['control']:
-        c, l, ns, ls = place_control_assembly(f, d_x, rc, rf, p_c, x[i], c, l, ns)
+        c, l, ns, ls = place_control_assembly(f, d_x, rc, rf, rcb, p_c, x[i], c, l, ns)
 
     for i in assemblies['fuel']:
         c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x[i], c, l, ns)
