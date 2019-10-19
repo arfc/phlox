@@ -29,11 +29,11 @@ def place_hexagon(f, d_x, x, c, l, ns):
         f.write("Line("+ str(c + i) +") = {"+ str(c + i) +", "+ str(c + i + 1) +"};\n")
     f.write("Line("+ str(c + 5) +") = {"+ str(c + 5) +", "+ str(c) +"};\n")
     f.write("// Boundary of the assembly \n")
-    f.write("Curve Loop("+ str(l) +") = {")
-    for i in range(1,6):
-        f.write(str(c + i) +", ")
-    f.write(str(c + 6) +"};\n")
-    f.write("// Defines fuel channel Assembly\n")
+    # f.write("Curve Loop("+ str(l) +") = {")
+    # for i in range(0,6):
+    #     f.write(str(c + i) +", ")
+    # f.write(str(c + 5) +"};\n")
+    # f.write("// Defines fuel channel Assembly\n")
     c += 6
     l += 1
     ns += 1
@@ -46,8 +46,8 @@ def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, ls):
         cc = 0
         for i in row:
             f.write("Circle("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
-            f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
-            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
+            # f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
+            # f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
             ls.append(l)
             cc += 1
             l += 1
