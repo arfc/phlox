@@ -46,8 +46,8 @@ def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, ls):
         cc = 0
         for i in row:
             f.write("Circle("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
-            # f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
-            # f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
+            f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
+            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
             ls.append(l)
             cc += 1
             l += 1
@@ -169,6 +169,59 @@ def place_central_assembly(f, d_x, rcc, x, c, l, ns):
     """ 
     return c, l, ns, ls
 
+def place_reflector(f, d_x, rr1, rr2, x, c, l, ns):
+    ls = [1]
+    # c, l, ns, ls = place_hexagon(f, d_x, x, c, l, ns)
+
+    f.write("// Reflector \n")
+    f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
+    f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
+    f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
+    f.write("Curve Loop("+ str(l + 1) +") = {"+ str(c + 1) +"};\n")
+
+    f.write("Plane Surface("+str(ns)+") = {")
+    for i in range(1, ns+1):
+        if i == ns:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
+    f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
+
+    c += 2
+    l += 2
+    ns += 2
+    return c, l, ns
+
+def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, ls):
+    for j in col:
+        cc = 0
+        for i in row:
+            f.write("Circle("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
+            f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
+            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")
+            ls.append(l)
+            cc += 1
+            l += 1
+            ns += 1
+        c += cc
+    
+    return c, l, ns, ls
+
+    """
+    f.write("Plane Surface("+str(ns)+") = {")
+    for i in ls:
+        if i == ls[-1]:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+    f.write("};\n")  
+    """ 
+    return c, l, ns, ls
+
 def main():    
     f = open("untitled.geo","w+")
     f.write("//+\n")
@@ -180,19 +233,18 @@ def main():
     p_c = 5.6 # pitch between channels
     rcb = 4   # Control bar radius
     rcc = 6   # Central control bar radius
+    rr1 = 205 # Inner Reflector Radius
+    rr2 = 215 # Outer Reflector Radius
 
     p = 2*d_x/2/np.tan(np.pi/6)
 
     c = 1
     l = 1
-    ns = 0
+    ns = 1
     
     assemblies = {'control': [1, 4, 7, 11, 14, 16, 22, 24, 27, 31, 34, 37],
                   'fuel': [2, 3, 5, 6, 8, 9, 10, 12, 13, 15, 17, 18, 20, 21,
                            23, 25, 26, 28, 29, 30, 32, 33, 35, 36]}
-
-    #print(assemblies['control'])
-    #print(assemblies['fuel'])
 
     x = np.zeros((38,3))
     # First & Seventh Column
@@ -217,62 +269,8 @@ def main():
     for i in assemblies['fuel']:
         c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x[i], c, l, ns)
     
-    place_central_assembly(f, d_x, rcc, x, x[19], l, ns)
-
-    '''
-    x = [0, 2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [0, p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [0, -p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [0, -2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-
-    x = [-3/2*d_x, p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [-3/2*d_x, -p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3/2*d_x, p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3/2*d_x, -p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-
-    x = [-3/2*d_x, p*5/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [-3/2*d_x, -p*5/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3/2*d_x, p*5/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3/2*d_x, -p*5/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-
-    x = [-3*d_x, p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [-3*d_x, 2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3*d_x, p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3*d_x, 2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)  
-    x = [-3*d_x, -p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [-3*d_x, -2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3*d_x, -p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [3*d_x, -2*p, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-
-    x = [-9/2*d_x, p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [-9/2*d_x, -p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [9/2*d_x, p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    x = [9/2*d_x, -p/2, 0]
-    c, l, ns, ls = place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns)
-    '''
+    c, l, ns, ls = place_central_assembly(f, d_x, rcc, x[19], c, l, ns)
+    c, l, ns = place_reflector(f, d_x, rr1, rr2, x[19], c, l, ns)
 
     f.close()
 
