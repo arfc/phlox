@@ -14,6 +14,7 @@ Directory Descriptions:
 - MegaPower: for the microreactor design from LANL
 - Starcore: for the microreactor design from Starcore
 - U-battery: for the microreactor design from Urenco
+- MMR: for the microreactor design from USNC
 - MsNB:for the microreactor design from MicroNuclear
 
 Use Makefile to create pdf file. 
