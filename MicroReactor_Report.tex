@@ -9,38 +9,52 @@
 \usepackage{amssymb}
 \usepackage{microtype}
 
-\bibliographystyle{elsarticle-num}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{datatool}
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
 
+\makeglossaries
+
+
+\bibliographystyle{elsarticle-num}
 
 \begin{document}
 \title{Work Plan for the Selection of the $\mu$Reactor Design at UIUC\\}
-\author{Draft\\ \\ \\ \\ Kathryn D. Huff,\\
+\author{\\ \\ \\ \\ Kathryn D. Huff,\\
 Mehmet Turkmen,\\
 Zoe Richter}
 \date{\today}
 \maketitle
 
 \pagebreak
+\tableofcontents
+
+
+\printglossary
+
+
+\pagebreak
 \section{Introduction}
-Micro-reactors are the reactors which produce power typically less than 20 MWe and site less than 500 m2 (0.1 acre) in the size of shipping container or a big house. They are considered to be automated operation with minimum operating staff. Due to the small size and low consequences of micro-reactors, the regulations applied to the existing (non)commercial reactors may not fully applicable to micro-reactors. Apart from other advanced reactor designs like SMRs, micro-reactors have specific following licencing issues: security, aircraft strike, emergency preparedness, source term analysis, staffing, remote operation, decommissioning, transportation, manufacturing licenses, quality assurance, probabilistic risk assessment and NRC oversight.
+Micro-reactors are the reactors which produce power typically less than 20 MWe and site less than 500 m2 (0.1 acre) in the size of shipping container or a big house. They are considered to be automated operation with minimum operating staff. Due to the small size and low consequences of micro-reactors, the regulations applied to the existing (non)commercial reactors may not fully applicable to micro-reactors. Apart from other advanced reactor designs like \gls{SMR}s, micro-reactors have specific following licencing issues: security, aircraft strike, emergency preparedness, source term analysis, staffing, remote operation, decommissioning, transportation, manufacturing licenses, quality assurance, probabilistic risk assessment and \gls{NRC} oversight.
 
 \section{Reactors} \label{sec:reactors}
-Nine designs of micro-reactors are under investigation: Westinghouse (eVinci), Holosgen (Holos), LANL (MegaPower), MicroNuclear, NuScale (NuScale), Oklo (Oklo), Starcore (Starcore), Urenco (U-battery) and X-energy (Xe-100) (in alphabetical order). Kairos does not have any reactor designs which produce power less than 200 MWe. A brief comparison of the selected reactors is listed in Table \ref{microreactors}. In addition, recent progresses in the design reviews of different reactors around the world are provided in Table \ref{reviews}. 
+Nine designs of micro-reactors are under investigation: Westinghouse (eVinci), Holosgen (Holos), \gls{LANL} (MegaPower), MicroNuclear, NuScale (NuScale), Oklo (Oklo), Starcore (Starcore), Urenco (U-battery) and X-energy (Xe-100) (in alphabetical order). Kairos does not have any reactor designs which produce power less than 200 MWe. A brief comparison of the selected reactors is listed in Table \ref{microreactors}. In addition, recent progresses in the design reviews of different reactors around the world are provided in Table \ref{reviews}. 
 
 The information on reactor designs was mainly gathered from the following sources.
 
-1. International and domestic government organization databases: design information was collected from the International Atomic Energy Agency (IAEA), the Nuclear Energy Agency (OECD-NEA), the U.S Department of Energy (U.S. DOE), and the U.S.
-Nuclear Regulatory Commission (U.S.NRC) online databases.
+1. International and domestic government organization databases: design information was collected from the \gls{IAEA} , the \gls{NEA}, the \gls{DOE}, and the NRC online databases.
 
 2. Vendor database: the latest design brochures, catalogues and reports were directly obtained from the vendors.
 
 Notes:
 
-1. GA is developing a mobile nuclear power supply that is truck/air shippable and would fit in a standard military shipping container. This modular, autonomous system has a load-following generating capacity of up to 10 MWe and a refueling period greater than 10 years. (source: press releases)
+1. \gls{GA} is developing a mobile nuclear power supply that is truck/air shippable and would fit in a standard military shipping container. This modular, autonomous system has a load-following generating capacity of up to 10 MWe and a refueling period greater than 10 years. (source: press releases)
 
 2. The NuGen Engine developed by NuGen is a direct-cycle gas-cooled microreactor. The concept design, by Professor Tsvetkov at the Department of Nuclear Engineering at Texas A$\&$M University, produces 1-50 MWe scalable output. It is in the stage of patent aproaval. (source: https://www.nucdev.com/about-us.html)
 
-3. In the case of MSR design at micro-level, only Terrapower has started to adopt its MCFR design to 1-10 MWe with more than 10 years refueling.(source: press releases of the president) 
+3. In the case of \gls{MSR} design at micro-level, only Terrapower has started to adopt its \gls{MCFR} design to 1-10 MWe with more than 10 years refueling.(source: press releases of the president) 
 
 \pagebreak
 \newgeometry{margin=1cm}
@@ -50,21 +64,21 @@ Notes:
 
 \caption{A brief comparison of micro-reactor designs}
 \label{microreactors}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline 
-Design 		&eVinci 		& Holos		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 		& Xe-100 \\ 
+Design 		&eVinci 		& Holos		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 	& MMR 	& Xe-100 \\ 
 \hline 
-Institution 	&Westinghouse& Holosgen	&LANL	& NuScale		& Oklo Inc. 	& Starcore		& Urenco 		& X-energy \\ 
-Source 	&\cite{levinsky_westinghouse_2018};\cite{yan_technology_2020};\cite{arafat_evinci_2019}  &\cite{filippone_holos_2017}  	& \cite{mcclure_design_2015};\cite{sterbentz_special_2017}	& \cite{nuscale_chapter_2018} 		& \cite{oklo_inc._pilot_2018} 	&vendor's website		&\cite{ding_design_2011}  		&\cite{iaea_advances_2018}; \cite{harlan_x-energy_2018} \\ 
-Type			&Heat Pipe	& HTGR (Pebble)	  	& Heat Pipe 		& PWR/Heat Pipe&Heat Pipe   			&	HTGR (Pebble)			& HTGR (Pebble)	& HTGR (Pebble)\\ 
-Spectrum		&Epithermal	& Thermal 		 	&Fast  	&Thermal/Thermal 		&Fast   			& Thermal  			&	Thermal		&Thermal\\ 
-Power (MWe)	&0.2-5		& 10/13  			&2			& 10-50 /1-10			& 2  			&2x10  			&4-8			&75\\ 
-Refueling (years)&5 to 10		&12 or 20   			&	5		& 2/- 			& 12 (estimated)  			&5  			&5-10 			&Online refueling\\ 
-Enrichment (\%)&19.75		&8 for 12 or 15 for 20   			&19.75			& $<$4.95/- 		&  5 to 20 			&$<$20	  			&20-17			&15.5\\ 
-Core  Diameter (m)	&1.5		& 1.8  			&1.5			& 1.5/- 		&   			&1.5   			&3.5-1.8			& 5\\ 
-Fuel			&UN/U-Mo	& UCO TRISO  			&	UO2		&UO2/-		&  U-Zr 			& UCO TRISO  			&UCO TRISO			&UCO TRISO\\ 
-Clad			&-		&  Silicon carbide 			&	-		& M5/- 		&   -			&Silicon carbide   			&Silicon carbide			&Silicon carbide\\ 
-Heat Pipe fluid	&Na/K	& -  			&K			& - 		& Na/K 			&  - 			&	-		&-\\ 
+Institution 	&Westinghouse& Holosgen	&LANL	& NuScale		& Oklo Inc. 	& Starcore		& Urenco 	& USNC	& X-energy \\ 
+Source 	&\cite{levinsky_westinghouse_2018};\cite{yan_technology_2020};\cite{arafat_evinci_2019}  &\cite{filippone_holos_2017}  	& \cite{mcclure_design_2015};\cite{sterbentz_special_2017}	& \cite{nuscale_chapter_2018} 		& \cite{oklo_inc._pilot_2018} 	&vendor's website		&\cite{ding_design_2011}  	&\cite{iaea_advances_2018} 	&\cite{iaea_advances_2018}; \cite{harlan_x-energy_2018} \\ 
+Type			&Heat Pipe	& HTGR (Pebble)	  	& Heat Pipe 		& PWR/Heat Pipe&Heat Pipe   			&	HTGR (Pebble)			& HTGR (Pebble)	& HTGR (Pebble) & HTGR (Pebble)\\ 
+Spectrum		&Epithermal	& Thermal 		 	&Fast  	&Thermal/Thermal 		&Fast   			& Thermal  			&	Thermal		&Thermal &Thermal\\ 
+Power (MWe)	&0.2-5		& 10/13  			&2			& 10-50 /1-10			& 2  			&2x10  			&4-8		&5	&75\\ 
+Refueling (years)&5 to 10		&12 or 20   			&	5		& 2/- 			& 12 (estimated)  			&5  			&5-10 	&20		&Online refueling\\ 
+Enrichment (\%)&19.75		&8 for 12 or 15 for 20   			&19.75			& $<$4.95/- 		&  5 to 20 			&$<$20	  			&20-17	&12		&15.5\\ 
+Core  Diameter (m)	&1.5		& 1.8  			&1.5			& 1.5/- 		&   			&1.5   			&3.5-1.8		& 3 	& 4.88 (RPV)\\ 
+Fuel			&UN/U-Mo	& UCO TRISO  			&	UO2		&UO2/-		&  U-Zr 			& UCO TRISO  			&UCO TRISO	&UCO TRISO	&UCO TRISO\\ 
+Clad			&-		&  Silicon carbide 			&	-		& M5/- 		&   -			&Silicon carbide   			&Silicon carbide		&Silicon carbide 	&Silicon carbide\\ 
+Heat Pipe fluid	&Na/K	& -  			&K			& - 		& Na/K 			&  - 	&	-			&	-		&-\\ 
 \hline
 \end{tabular}
 
@@ -96,12 +110,15 @@ Heat Pipe fluid	&Na/K	& -  			&K			& - 		& Na/K 			&  - 			&	-		&-\\
 
 \end{center}
 \end{table}
+*\gls{HTGR}, \gls{PWR}, \gls{RPV}, \gls{TRISO}
+
 \end{landscape}
+
 \restoregeometry
 
 \pagebreak
 \subsection{Westinghouse}
-Full design details have not been revealed yet to the public; only general information is given by the company. However, several academic studies, most of them eVinci-like, can be found in the literature. Recently, two papers, \cite{hong_thermal_2019} and \cite{wright_phenomena_2019}, have been published in 18th NURETH conference. Those are not available for now but reaching them somehow would be valuable. Westinghouse is planning to finalize the current design of eVinci by 2022, testing by 2023 and commercializing by 2025. Hernandez et al. \cite{hernandez_micro_2019} performed a series of calculations in eVinci-like (not eVinci) for natural resource utilization, burnup analyses, waste management and environmental impacts. The details of eVinci design obtained from the documents published by Westinghouse are presented in Table 3. Reactor core configuration and 3D design representation are given in Figs. \ref{eVincidesign} and \ref{eVincioverview}.
+Full design details have not been revealed yet to the public; only general information is given by the company. However, several academic studies, most of them eVinci-like, can be found in the literature. Recently, two papers, \cite{hong_thermal_2019} and \cite{wright_phenomena_2019}, have been published in 18th \gls{NURETH} conference. Those are not available for now but reaching them somehow would be valuable. Westinghouse is planning to finalize the current design of eVinci by 2022, testing by 2023 and commercializing by 2025. Hernandez et al. \cite{hernandez_micro_2019} performed a series of calculations in eVinci-like (not eVinci) for natural resource utilization, burnup analyses, waste management and environmental impacts. The details of eVinci design obtained from the documents published by Westinghouse are presented in Table 3. Reactor core configuration and 3D design representation are given in Figs. \ref{eVincidesign} and \ref{eVincioverview}.
 
 \begin{table} [ht]
 \begin{center}
@@ -121,7 +138,7 @@ Enrichment (\%) 		&19.75 		&  \\
 Fuel channel radius (in) 		& 		& 0.281 \\ 
 Number of fuel channels 		&378 (1 MWth), 4219 (14 MWth)		& 2112 (5 MWth) \\ 
 Reflector material 		&		& BeO\\ 
-HP channel radius (in) 		&		& 0.298\\ 
+\gls{HP} channel radius (in) 		&		& 0.298\\ 
 Number of HP channels 		& 		& 1224\\ 
 HP to HP web thickness (in) 		& 		& 0.039\\ 
 Fuel to fuel web thickness (in) 		& 		& 0.059\\ 
@@ -210,7 +227,7 @@ Generation Time -$\Lambda$- ($\mu$s)&233                        \\
 
 \pagebreak
 \subsection{LANL}
-MegaPower is a Los Alamos National Laboratory (LANL) reactor design concept. Table \ref{Megatable} provides important features of MegaPower reactor parameters. More specific design details can be found in the reports \cite{sterbentz_special_2017} and \cite{mcclure_design_2015}. Results of the neutronics and thermal-hydraulics analyses have been published by INL and LANL in various reports. Apart from a 5 MWt design, there is an advanced 15 MWt design which uses UN fuel and Na as HP fluid. However, publications are mostly on the first design shown in Figs. \ref{Megadesign} and \ref{Megaoverview}. 
+MegaPower is a LANL reactor design concept. Table \ref{Megatable} provides important features of MegaPower reactor parameters. More specific design details can be found in the reports \cite{sterbentz_special_2017} and \cite{mcclure_design_2015}. Results of the neutronics and thermal-hydraulics analyses have been published by \gls{INL} and LANL in various reports. Apart from a 5 MWt design, there is an advanced 15 MWt design which uses UN fuel and Na as HP fluid. However, publications are mostly on the first design shown in Figs. \ref{Megadesign} and \ref{Megaoverview}. 
 
 \begin{figure}[hbtp]
 \centering
@@ -293,7 +310,7 @@ There is absolutely nothing on MsNB design of MicroNuclear LLC company. I think 
 
 
 \subsection{NuScale}
-Detailed technical specifications (as seen in Table \ref{Nutable}) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{nuscale_chapter_2018-1}. This is the FSAR for the SMR design of NuScale. NuScale considers two different micro-reactor concepts \cite{nichol_cost_2019}: one (10-50 MWe) is based on current small modular reactor tecnhnology and the other (1-10 MWe) is based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. 2D and 3D views of the reactor are illustrated in Figs. \ref{Nu2d} and \ref{Nu3d}, respectively. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW. There is no detail on the heat pipe design.  \\
+Detailed technical specifications (as seen in Table \ref{Nutable}) related to reactor core design, source term, licensing requirements and safety assessments are given in the NRC web-page \cite{nuscale_chapter_2018-1}. This is the \gls{FSAR} for the SMR design of NuScale. NuScale considers two different micro-reactor concepts \cite{nichol_cost_2019}: one (10-50 MWe) is based on current small modular reactor tecnhnology and the other (1-10 MWe) is based on heat pipe reactor technology. The first one is very similar to the SMR. FSAR report  seems quite sufficient by supplying all the details about the plant. 2D and 3D views of the reactor are illustrated in Figs. \ref{Nu2d} and \ref{Nu3d}, respectively. This design can be altered for the $\mu$R concept of NuScale for a nominal electric power of less than 20 MW. There is no detail on the heat pipe design.  \\
 In 2018, BWX Technologies was selected to provide manufacturing input. In 2019, Doosan Heavy Industries and Construction and NuScale signed an MOU. 
 
 \begin{table} [htbp]
@@ -332,13 +349,13 @@ Material&UO2 (sintered)\\
 Diameter (in)&0.3195\\
 Length (in) &0.40\\
 \hline 
-Number of CR Assemblies&16                              \\
+Number of Contol Rod Assemblies&16                              \\
 Upper absorber material&boron carbide              \\
 Lower absorber material&silver-indium-cadmium \\
 Cladding&304 stainless steel      \\
 Fill gas&helium                        \\
 \hline 
-BA Material Type&integral with fuel         \\
+Burnable Absorber Material Type&integral with fuel         \\
 Material &gadolinia (Gd2O3 )      \\
 Number &Up to 32 per assembly\\
 \hline 
@@ -354,17 +371,18 @@ Boron coefficient (pcm/ppm)&-10             \\
 \hline 
 Effective Delayed Neutron Fraction 
 and Prompt Neutron Lifetime\\
-$\beta_{eff}$ BOC&0.0059\\
-$ \beta _{eff}$ EOC&0.0052\\
+$\beta_{eff}$ - \gls{BOC}&0.0059\\
+$ \beta _{eff}$ - \gls{EOC}&0.0052\\
 Prompt lifetime BOC (10-6 seconds)&18.35  \\
 Prompt lifetime EOC (10-6 seconds)&-6       \\
 \hline 
 Boron Concentration (BOC) (ppm)&2000\\
 \hline 
-
+*\gls{HZP}, \gls{HFP}
 \end{tabular}
 \end{center}
 \end{table}
+
 
 \begin{figure}[htbp]
 \centering
@@ -387,7 +405,7 @@ Oklo is working on a Compact Fast Reactor design since 2013. Since November 2016
 \subsection{Starcore}
 The StarCore technical data is acquired directly from the vendor website and summarized in Table \ref{startable} below. In terms of size and basic technical characteristics, the reactor, illustrated in Fig \ref{Starcore}, is similar to HTR-10, a prototype pebble bed modular reactor built and operated in China, and HTTR, a 30 MWth experimental gas cooled reactor in Japan.
 
-HTGR reactor with 2 reactor units per standard plant is embedded 15m underground in Ultra High Strength Concrete (UHSC) silos. The reactors are installed in silos 57 meters deep (as seen in Fig. \ref{Starview}) and 13 meters in diameter, made from double-walled high performance concrete with a steel canister silo at the base.  TRISO fuel compacts supplied by BWX Technologies. StarCore is fully automated and has only two operating states: Load Following and Shutdown.
+HTGR reactor with 2 reactor units per standard plant is embedded 15m underground in \gls{UHSC} silos. The reactors are installed in silos 57 meters deep (as seen in Fig. \ref{Starview}) and 13 meters in diameter, made from double-walled high performance concrete with a steel canister silo at the base.  TRISO fuel compacts supplied by BWX Technologies. StarCore is fully automated and has only two operating states: Load Following and Shutdown.
 
 \begin{figure}[htbp]
 \centering
@@ -499,6 +517,11 @@ Flask inner height (cm)& $<$500         & - \\
 \label{ucore}
 \end{figure}
 
+
+\pagebreak
+\subsection{USNC}
+
+
 \pagebreak
 \subsection{X-energy}
 X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt, called Pebble Bed Fuel Reactor. The main microrector design is ST-OTTO (referring to Fig.  \ref{xo}) which produces 30-48 MWt power. But the design details are not open to the public. I think the design is very identical to the design of 200 MWt, as presented in Table \ref{xtable} except for the reactor size and fuel type. Th-based fuel is under consideration for the use in TRISOs. 
@@ -512,8 +535,8 @@ X-energy company provides various reactor designs ranging from 600 MWt to 30 MWt
 \hline 
 Design 		&Value \\ 
 \hline 
-Core Diameter (m) 		&4.88 \\ 
-Core Height (m) 		&20 \\ 
+RPV diameter (m) 		&4.88 \\ 
+RPV height (m) 		&20 \\ 
 Refueling		&Online fuel loading  \\ 
 	&175 fresh pebbles/day \\ 
 Fuel		&UCO TRISO Pebbles \\ 
@@ -563,7 +586,7 @@ For site requirement, main documents are:
 \pagebreak
 \section{Source Term}
 A general source term analysis comprises transient scenario modeling, fuel pin radionuclide distribution, failed pin radionuclide release, radionuclide bubble transport, offsite dispersion analysis and containment region analysis. Some of them can, however, be eliminated or new ones can be added depending on which micro-reactor is to be chosen. As an example, the micro-reactor design does not include any spent fuel storage, thus the source term would not.
-For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Pathways for some advanced reactors (i.e., HTGR, SFR, MSR) are illustrated in Fig. \ref{pathway}. There are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
+For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Pathways for some advanced reactors (i.e., HTGR, \gls{SFR}, MSR) are illustrated in Fig. \ref{pathway}. There are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
 
 \begin{figure}[hbtp]
 \centering
@@ -574,7 +597,7 @@ For the source term analysis of a selected micro-reactor design, phenomena and r
 
 There is a possibility to make an assumption for the pathway identification of the micro-reactors. We can use the same or modified pathways of the existing reactors, accepted by the NRC, for the analogy to the selected micro-reactor design. Yet, heat pipe reactors may still require as the release ways have not completely known.
 The method for the source term calculation recommended by the NRC is given in Fig. \ref{sourceterm}. The method to be applied changes with the type of the reactor. In any cases, MELCOR, system accident analysis code, produce the source term for the defined design-basis accidents. 
-For probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 PRA including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.   
+For probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 \gls{PRA} including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.   
 The methodology and the results on the source term calculations are presented in detail in the relevant documents of NuScale \cite{nuscale_chapter_2018-1} and eVinci \cite{maioli_westinghouse_2019}.
 
 \begin{figure}[hbtp]
@@ -608,7 +631,9 @@ This part is going to be discussed later but will include accident scenarios inc
 Considering available data of the interested reactors given in Section \ref{sec:reactors}, full core modeling capabilities are presented in Table \ref{table:feasiblity}. it should be taken into account that desing details of the reactor to be selected can be gathered from the corresponding vendor. What should be the criteria for the selection of the micro-reactor?
 
 1. according to reactor type
+
 2. according to NRC review
+
 3. 
 
 \begin{table} [ht]
@@ -616,11 +641,11 @@ Considering available data of the interested reactors given in Section \ref{sec:
 
 \caption{Full core modeling}
 \label{table:feasiblity}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
 \hline 
-Design 		&eVinci 		& Holos		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 		& Xe-100 \\ 
+Design 		&eVinci 		& Holos		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 	 & MMR	& Xe-100 \\ 
 \hline 
-$\times$ or 	$\surd$ 		&  $\times$		& $\surd$		& $\surd$ 	&   $\surd$		&  $\times$		& $\surd$	&  $\surd$ 		&  $\surd$ \\ 
+$\times$ or 	$\surd$ 		&  $\times$		& $\surd$		& $\surd$ 	&   $\surd$		&  $\times$		& $\surd$	&  $\surd$ 	&  $\surd$	&  $\surd$ \\ 
 \hline 
 
 \end{tabular}
@@ -633,8 +658,6 @@ $\times$ or 	$\surd$ 		&  $\times$		& $\surd$		& $\surd$ 	&   $\surd$		&  $\time
 \pagebreak
 
 \bibliography{MicroReactor}
-
-
 
 
 \end{document}
