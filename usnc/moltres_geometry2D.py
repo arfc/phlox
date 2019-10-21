@@ -130,6 +130,8 @@ def place_reflector(f, d_x, rr1, rr2, x, c, l, ns):
     
     f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
     f.write("Physical Surface('reflector') = {"+ str(ns+1) +"};\n")
+    
+    f.write("Physical Curve('boundary') = {"+ str(l+1) +"};\n")
 
     c += 2
     l += 2
