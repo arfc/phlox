@@ -1,4 +1,6 @@
 """
+This script produces the file MMR2D.geo, the geometry in 2D of the MMR
+
 c: number of circles
 l: number of loops
 ns: number of physical surfaces
