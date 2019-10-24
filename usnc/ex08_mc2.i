@@ -1,5 +1,5 @@
 [Mesh]
-  file = untitled.msh
+  file = 2boxes.msh
 []
 
 [Variables]

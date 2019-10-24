@@ -1,7 +1,8 @@
 [Mesh]
-  file = 2rectangles.msh
+  #file = 2rectangles.msh
+  #file = 2boxesA.msh
+  file = 2boxesA.msh
 []
-
 
 [Variables]
   [./temperature]
@@ -30,7 +31,7 @@
     type = TempDiffusion
     variable = temperature
     diffcoef = 1.0
-    block = 'reflector'
+    block = 'moderator'
   [../]
 []
 
@@ -39,7 +40,8 @@
   [./left]
     type = DirichletBC
     variable = temperature
-    boundary = 'bottom'
+    #boundary = 'bottom'
+    boundary = 'fuel_bottom moderator_bottom'
     value = 0
   [../]
 
