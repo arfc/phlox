@@ -10,18 +10,11 @@ Physical Surface("fuel_bottom") = {3, 6};
 //+
 Physical Volume("fuel") = {1, 2};
 //+
-Curve Loop(10) = {3};
-Curve Loop(11) = {6};
-Curve Loop(12) = {9};
-Plane Surface(10) = {10, 11, 12};
+Plane Surface(10) = {2, 5, 8};
+Plane Surface(11) = {3, 6, 9};
 //+
-Curve Loop(13) = {1};
-Curve Loop(14) = {4};
-Curve Loop(15) = {7};
-Plane Surface(11) = {13, 14, 15};
-//+
-Physical Surface("moderator_bottom") = {10};
-Physical Surface("moderator_top") = {11};
+Physical Surface("moderator_top") = {10};
+Physical Surface("moderator_bottom") = {11};
 Physical Surface("moderator_side") = {7};
 //+
 Surface Loop(4) = {10, 11, 1, 4, 7};
