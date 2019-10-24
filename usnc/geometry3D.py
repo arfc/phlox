@@ -10,11 +10,11 @@ import math as mt
 import random as rd
 import sys
 
-def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
+def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
         cc = 0
         for i in row:
-            f.write("Circle("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
+            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", 0, 2*Pi};\n")
             f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
             f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
 
@@ -31,64 +31,64 @@ def place_circles(f, r, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     
     return c, l, ns, dict_type
 
-def fuel_channels(f, d_x, rf, p_c, x, c, l, ns, fuel, dict_type):
+def fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, fuel, dict_type):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
 
     col = [-2, 2]
     row = [0]
-    #c, l, ns, dict_type = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
 
     col = [-1, 1]
     if fuel == True:
         row = [-1, 0, 1]
     else:
         row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
+    c, l, ns, dict_type = place_circles(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
 
     return c, l, ns, dict_type
 
-def cooling_channels(f, d_x, rc, p_c, x, c, l, ns, fuel, dict_type):
+def cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, fuel, dict_type):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
 
     col = [-3/2, 3/2]
     row = [-1, 1]
-    #c, l, ns, dict_type = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rc, H, p2, p_c, x, col, row, c, l, ns, 'cool', dict_type)
 
     col = [0]
     if fuel:
         row = [-1, 0, 1]
     else:
         row = [-1, 1]
-    #c, l, ns, dict_type = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
     
     return c, l, ns, dict_type
 
-def control_rod(f, rcb, x, c, l, ns, dict_type):
+def control_rod(f, rcb, H, x, c, l, ns, dict_type):
     col=[0]
     row=[0]
-    c, l, ns, dict_type = place_circles(f, rcb, 0, 0, x, col, row, c, l, ns, 'cool', dict_type)
+    c, l, ns, dict_type = place_circles(f, rcb, H, 0, 0, x, col, row, c, l, ns, 'cool', dict_type)
 
     return c, l, ns, dict_type
 
-def place_fuel_assembly(f, d_x, rc, rf, p_c, x, c, l, ns, dict_type):
-    c, l, ns, dict_type = cooling_channels(f, d_x, rc, p_c, x, c, l, ns, True, dict_type)
-    c, l, ns, dict_type = fuel_channels(f, d_x, rf, p_c, x, c, l, ns, True, dict_type)
+def place_fuel_assembly(f, d_x, rc, rf, H, p_c, x, c, l, ns, dict_type):
+    c, l, ns, dict_type = cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, True, dict_type)
+    c, l, ns, dict_type = fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, True, dict_type)
 
     return c, l, ns, dict_type
 
-def place_control_assembly(f, d_x, rc, rf, rcb, p_c, x, c, l, ns, dict_type):
-    c, l, ns, dict_type = cooling_channels(f, d_x, rc, p_c, x, c, l, ns, False, dict_type)
-    c, l, ns, dict_type = fuel_channels(f, d_x, rf, p_c, x, c, l, ns, False, dict_type)
-    c, l, ns, dict_type = control_rod(f, rcb, x, c, l, ns, dict_type)
+def place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x, c, l, ns, dict_type):
+    c, l, ns, dict_type = cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, False, dict_type)
+    c, l, ns, dict_type = fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, False, dict_type)
+    c, l, ns, dict_type = control_rod(f, rcb, H, x, c, l, ns, dict_type)
 
     return c, l, ns, dict_type
 
-def place_central_assembly(f, d_x, rcc, x, c, l, ns, dict_type):
-    c, l, ns, dict_type = control_rod(f, rcc, x, c, l, ns, dict_type)
+def place_central_assembly(f, d_x, rcc, H, x, c, l, ns, dict_type):
+    c, l, ns, dict_type = control_rod(f, rcc, H, x, c, l, ns, dict_type)
 
     return c, l, ns, dict_type
 
@@ -193,7 +193,7 @@ def main():
     x = np.zeros((2,3))
    
     for i in assemblies['control']:
-        c, l, ns, dict_type = place_control_assembly(f, d_x, rc, rf, rcb, p_c, x[i], c, l, ns, dict_type)
+        c, l, ns, dict_type = place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x[i], c, l, ns, dict_type)
    
     c, l, ns = place_reflector(f, d_x, rr1, rr2, H, x[1], c, l, ns)
 

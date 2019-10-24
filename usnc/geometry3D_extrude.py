@@ -114,7 +114,9 @@ def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
     #f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
     #f.write("Physical Surface('reflector_bottom') = {"+ str(ns+1) +"};\n")
 
-    f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
+    #f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
+    f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; };\n")
+
     f.write("Physical Surface('moderator_top') = {moder[0]};\n")
     f.write("Physical Volume('moderator') = {moder[1]};\n")
     f.write("Physical Surface('moderator_side') = {moder[3]};\n")
@@ -142,7 +144,8 @@ def define_physical_groups(f, H, dict_type):
 
     f.write("fuel_vol[] = {};\nfuel_surf[] = {};\n")
     for i in dict_type['fuel']:
-        f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        #f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; };\n")
         f.write("fuel_vol += fuel[1];\nfuel_surf += fuel[0];\n")
     
     f.write("Physical Surface('fuel_top') = {fuel_surf[]};\n")
@@ -160,7 +163,8 @@ def define_physical_groups(f, H, dict_type):
 
     f.write("cool_vol[] = {};\ncool_surf[] = {};\n")
     for i in dict_type['cool']:
-        f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        #f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; };\n")
         f.write("cool_vol += cool[1];\ncool_surf += cool[0];\n")
     
     f.write("Physical Surface('coolant_top') = {cool_surf[]};\n")
