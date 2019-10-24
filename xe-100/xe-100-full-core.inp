@@ -77,9 +77,9 @@ cell 20 3 cool -20
 pbed 20 3 "pebb.inp" pow
 
 % --- inner cylinder, radius of 142 cm, centered at (x,y,z) = (0,0,0), height 1048 cm
-surf 4 cyl 0.0 0.0 142 -524 524
+surf 4 cyl 0.0 0.0 152 -290 290
 % --- outer reflector shell
-surf 5 cyl 0.0 0.0 244 -646 687
+surf 5 cyl 0.0 0.0 244 -412 453
 %
 %
 
@@ -87,7 +87,6 @@ cell 50 0 fill 20  -4
 cell 60 0 graph     4 -5
 %cell 70 0 cool      2 -3
 cell 80 0 outside   5
-
 
 % run parameters
 
