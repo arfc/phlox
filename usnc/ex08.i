@@ -1,7 +1,7 @@
 [Mesh]
   #file = 2rectangles.msh
   #file = 2boxesA.msh
-  file = 2boxesA.msh
+  file = 2cylinder.msh
 []
 
 [Variables]
