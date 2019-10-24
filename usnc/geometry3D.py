@@ -168,6 +168,44 @@ def define_physical_groups(f, H, dict_type):
     f.write("Physical Surface('coolant_top') = {cool_surf[]};\n")
     f.write("Physical Volume('coolant') = {cool_vol[]};\n")
 
+def define_physical_groups2(f, H, dict_type):
+    f.write("Physical Surface('fuel_bottom') = {")
+    for i in dict_type['fuel']:
+        if i == dict_type['fuel'][-1]:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
+    f.write("fuel_vol[] = {};\nfuel_surf[] = {};\n")
+    for i in dict_type['fuel']:
+        f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        f.write("fuel_vol += fuel[1];\nfuel_surf += fuel[0];\n")
+    
+    f.write("Physical Surface('fuel_top') = {fuel_surf[]};\n")
+    f.write("Physical Volume('fuel') = {fuel_vol[]};\n")
+    
+    f.write("Physical Surface('coolant_bottom') = {")
+    for i in dict_type['cool']:
+        if i == dict_type['cool'][-1]:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
+    f.write("cool_vol[] = {};\ncool_surf[] = {};\n")
+    for i in dict_type['cool']:
+        f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
+        f.write("cool_vol += cool[1];\ncool_surf += cool[0];\n")
+    
+    f.write("Physical Surface('coolant_top') = {cool_surf[]};\n")
+    f.write("Physical Volume('coolant') = {cool_vol[]};\n")
+2
+
 def main():    
     f = open("untitled.geo","w+")
     f.write("//+\n")
@@ -199,7 +237,7 @@ def main():
    
     c, l, ns = place_reflector(f, d_x, rr1, rr2, H, x[1], c, l, ns)
 
-    define_physical_groups(f, H, dict_type)
+    define_physical_groups2(f, H, dict_type)
 
     f.close()
 
