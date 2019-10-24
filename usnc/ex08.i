@@ -39,16 +39,16 @@
   [./left]
     type = DirichletBC
     variable = temperature
-    boundary = 'left'
+    boundary = 'bottom'
     value = 0
   [../]
 
-  [./right]
-    type = DirichletBC
-    variable = temperature
-    boundary = 'right'
-    value = 0
-  [../]
+#  [./right]
+#    type = DirichletBC
+#    variable = temperature
+#    boundary = 'right'
+#    value = 0
+#  [../]
 []
 
 

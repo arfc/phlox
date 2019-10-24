@@ -37,7 +37,7 @@ def fuel_channels(f, d_x, rf, p_c, x, c, l, ns, fuel, dict_type):
 
     col = [-2, 2]
     row = [0]
-    c, l, ns, dict_type = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rf, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
 
     col = [-1, 1]
     if fuel == True:
@@ -55,14 +55,14 @@ def cooling_channels(f, d_x, rc, p_c, x, c, l, ns, fuel, dict_type):
 
     col = [-3/2, 3/2]
     row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rc, p2, p_c, x, col, row, c, l, ns, 'cool', dict_type)
 
     col = [0]
     if fuel:
         row = [-1, 0, 1]
     else:
         row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rc, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
     
     return c, l, ns, dict_type
 
@@ -95,8 +95,8 @@ def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
     f.write("// Reflector \n")
     f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
     f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
-    f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
-    f.write("Curve Loop("+ str(l + 1) +") = {"+ str(c + 1) +"};\n")
+    #f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
+    #f.write("Curve Loop("+ str(l + 1) +") = {"+ str(c + 1) +"};\n")
 
     f.write("Plane Surface("+str(ns)+") = {")
     for i in range(1, ns+1):
@@ -110,21 +110,22 @@ def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
 
     f.write("Physical Surface('moderator_bottom') = {"+ str(ns) +"};\n")
 
-    f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
-    f.write("Physical Surface('reflector_bottom') = {"+ str(ns+1) +"};\n")
+    #f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
+    #f.write("Physical Surface('reflector_bottom') = {"+ str(ns+1) +"};\n")
 
     f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
     f.write("Physical Surface('moderator_top') = {moder[0]};\n")
     f.write("Physical Volume('moderator') = {moder[1]};\n")
+    f.write("Physical Surface('moderator_side') = {moder[3]};\n")
 
-    f.write("reflec[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns+1) +"}; Layers{5}; Recombine; };\n")
-    f.write("Physical Surface('reflector_top') = {reflec[0]};\n")
-    f.write("Physical Surface('reflector_side') = {reflec[3]};\n")
-    f.write("Physical Volume('reflector') = {reflec[1]};\n")
+    #f.write("reflec[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns+1) +"}; Layers{5}; Recombine; };\n")
+    #f.write("Physical Surface('reflector_top') = {reflec[0]};\n")
+    #f.write("Physical Surface('reflector_side') = {reflec[3]};\n")
+    #f.write("Physical Volume('reflector') = {reflec[1]};\n")
 
-    c += 2
-    l += 2
-    ns += 2
+    c += 1
+    l += 1
+    ns += 1
     return c, l, ns
 
 def define_physical_groups(f, H, dict_type):
