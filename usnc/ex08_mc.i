@@ -1,5 +1,5 @@
 [Mesh]
-  file = multiple_cylinder.msh
+  file = untitled.msh
 []
 
 [Variables]
@@ -14,7 +14,7 @@
   [./diff_fuel]
     type = TempDiffusion
     variable = temperature
-    diffcoef = 5.0
+    diffcoef = 10.0
     block = 'fuel'
   [../]
 
@@ -28,7 +28,7 @@
   [./diff_moderator]
     type = TempDiffusion
     variable = temperature
-    diffcoef = 2.0
+    diffcoef = 1.0
     block = 'moderator'
   [../]
 
@@ -45,16 +45,17 @@
   [./left]
     type = DirichletBC
     variable = temperature
-    boundary = 'fuel_bottom coolant_bottom moderator_bottom'
+    #boundary = 'fuel_bottom coolant_bottom moderator_bottom'
+    boundary = 'outside'
     value = 0
   [../]
 
-  [./right]
-    type = DirichletBC
-    variable = temperature
-    boundary = 'fuel_top coolant_top moderator_top'
-    value = 1
-  [../]
+  #[./right]
+  #  type = DirichletBC
+  #  variable = temperature
+  #  boundary = 'fuel_top coolant_top moderator_top'
+  #  value = 1
+  #[../]
 []
 
 [Executioner]

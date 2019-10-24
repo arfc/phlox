@@ -1,5 +1,5 @@
 """
-3D geometry based on the definition of cylinders.
+3D geometry based on the extrusion of 2D geometry.
 c: number of circles
 l: number of loops
 ns: number of physical surfaces
