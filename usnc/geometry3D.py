@@ -14,9 +14,9 @@ def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
         cc = 0
         for i in row:
-            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", 0, 2*Pi};\n")
-            f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
-            f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
+            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", "+ str(r) +", 2*Pi};\n")
+            #f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
+            #f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
 
             if type == 'fuel' or type == 'cool':
                 dict_type[type].append(l)
@@ -93,31 +93,33 @@ def place_central_assembly(f, d_x, rcc, H, x, c, l, ns, dict_type):
     return c, l, ns, dict_type
 
 def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
-    f.write("// Reflector \n")
-    f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
-    f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
+    f.write("// Moderator \n")
+    #f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
+    f.write("Cylinder("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", "+ str(rr1) +", 2*Pi};\n")
+
+    #f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
     #f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
     #f.write("Curve Loop("+ str(l + 1) +") = {"+ str(c + 1) +"};\n")
 
-    f.write("Plane Surface("+str(ns)+") = {")
-    for i in range(1, ns+1):
-        if i == ns:
-            f.write(str(i))
-        else:
-           f.write(str(i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
+    #f.write("Plane Surface("+str(ns)+") = {")
+    #for i in range(1, ns+1):
+    #    if i == ns:
+    #        f.write(str(i))
+    #    else:
+    #       f.write(str(i)+", ")
+    #    if i%20 == 0:
+    #        f.write("\n")
+    #f.write("};\n")
 
-    f.write("Physical Surface('moderator_bottom') = {"+ str(ns) +"};\n")
+    #f.write("Physical Surface('moderator_bottom') = {"+ str(ns) +"};\n")
 
     #f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
     #f.write("Physical Surface('reflector_bottom') = {"+ str(ns+1) +"};\n")
 
-    f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
-    f.write("Physical Surface('moderator_top') = {moder[0]};\n")
-    f.write("Physical Volume('moderator') = {moder[1]};\n")
-    f.write("Physical Surface('moderator_side') = {moder[3]};\n")
+    #f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
+    #f.write("Physical Surface('moderator_top') = {moder[0]};\n")
+    #f.write("Physical Volume('moderator') = {moder[1]};\n")
+    #f.write("Physical Surface('moderator_side') = {moder[3]};\n")
 
     #f.write("reflec[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns+1) +"}; Layers{5}; Recombine; };\n")
     #f.write("Physical Surface('reflector_top') = {reflec[0]};\n")
