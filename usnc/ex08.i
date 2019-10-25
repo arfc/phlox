@@ -3,7 +3,8 @@
   #file = 2boxesA.msh
   #file = 2cylinder.msh
   #file = 3cylinders.msh
-  file = fuel_cylinders.msh
+  #file = fuel_cylinders.msh
+  file = untitled.msh
 []
 
 [Variables]

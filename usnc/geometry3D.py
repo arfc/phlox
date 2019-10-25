@@ -10,7 +10,7 @@ import math as mt
 import random as rd
 import sys
 
-def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
+def place_cylinders(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
         for i in row:
             f.write("Cylinder("+ str(c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")     
@@ -34,14 +34,14 @@ def fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, fuel, dict_type):
 
     col = [-2, 2]
     row = [0]
-    #c, l, ns, dict_type = place_circles(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
+    #c, l, ns, dict_type = place_cylinders(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
 
     col = [-1, 1]
     if fuel == True:
-        row = [-1, 0, 1]
+        row = [-2, -1, 0, 1, 2]
     else:
-        row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
+        row = [-2, -1, 1, 2]
+    c, l, ns, dict_type = place_cylinders(f, rf, H, p, p_c, x, col, row, c, l, ns, 'fuel', dict_type)
 
     return c, l, ns, dict_type
 
@@ -52,19 +52,19 @@ def cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, fuel, dict_type):
 
     col = [-3/2, 3/2]
     row = [-1, 1]
-    #c, l, ns, dict_type = place_circles(f, rc, H, p2, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
+    #c, l, ns, dict_type = place_cylinders(f, rc, H, p2, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
 
     col = [0]
     if fuel:
         row = [-1, 0, 1]
     else:
-        row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
+        row = [-2, -1, 1, 2]
+    c, l, ns, dict_type = place_cylinders(f, rc, H, p, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
     
     return c, l, ns, dict_type
 
 def control_rod(f, rcb, H, x, c, l, ns, dict_type):
-    c, l, ns, dict_type = place_circles(f, rcb, H, 0, 0, x, [0], [0], c, l, ns, 'coolant', dict_type)
+    c, l, ns, dict_type = place_cylinders(f, rcb, H, 0, 0, x, [0], [0], c, l, ns, 'coolant', dict_type)
 
     return c, l, ns, dict_type
 
@@ -88,10 +88,10 @@ def place_central_assembly(f, d_x, rcc, H, x, c, l, ns, dict_type):
 
 def place_moderator_reflector(f, rr1, rr2, H, x, c, l, ns, dict_type):
     f.write("// Moderator \n")
-    c, l, ns, dict_type = place_circles(f, rr1, H, 0, 0, x, [0], [0], c, l, ns, 'moderator', dict_type)
+    c, l, ns, dict_type = place_cylinders(f, rr1, H, 0, 0, x, [0], [0], c, l, ns, 'moderator', dict_type)
 
     # f.write("// Reflector \n")
-    # c, l, ns, dict_type = place_circles(f, rr2, H, 0, 0, x, [0], [0], c, l, ns, 'reflector', dict_type)
+    # c, l, ns, dict_type = place_cylinders(f, rr2, H, 0, 0, x, [0], [0], c, l, ns, 'reflector', dict_type)
 
     return c, l, ns, dict_type
 
