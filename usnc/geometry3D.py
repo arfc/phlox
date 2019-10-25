@@ -14,7 +14,7 @@ def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
         cc = 0
         for i in row:
-            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", "+ str(r) +", 2*Pi};\n")
+            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")
             #f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
             #f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
 
@@ -130,7 +130,7 @@ def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
 
     c += 1
     l += 1
-    ns += 1
+    ns += 3
     return c, l, ns
 
 def define_physical_groups(f, H, dict_type, ns, c):
@@ -190,8 +190,11 @@ def define_physical_groups(f, H, dict_type, ns, c):
         f.write(str(3*(i-1)+1)+", ")
         if i%20 == 0:
             f.write("\n")
-    f.write(str(ns) +", "+ str(ns+1) +"};\n")
+    f.write(str(3*(c-2)+1) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
     f.write("Volume("+ str(c) +") = {"+ str(c) +"};\n")
+
+    f.write("Physical Volume('moderator') = {"+ str(c) +"};\n")
+    f.write("Coherence;\n")
 
     #c += 1
     ns += 2
@@ -273,8 +276,8 @@ def main():
     p_c = 5.6 # pitch between channels [cm]
     rcb = 4   # Control bar radius [cm]
     rcc = 6   # Central control bar radius [cm]
-    rr1 = 20  # Inner Reflector Radius [cm]
-    rr2 = 25  # Outer Reflector Radius [cm]
+    rr1 = 30  # Inner Reflector Radius [cm]
+    rr2 = 35  # Outer Reflector Radius [cm]
     H = 20    # Reactor Height [cm]
 
     p = 2*d_x/2/np.tan(np.pi/6)

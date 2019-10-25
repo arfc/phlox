@@ -1,5 +1,5 @@
 [Mesh]
-  file = multiple_cylinders.msh
+  file = untitled.msh
 []
 
 [Variables]
