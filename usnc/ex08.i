@@ -1,7 +1,9 @@
 [Mesh]
   #file = 2rectangles.msh
   #file = 2boxesA.msh
-  file = 2cylinder.msh
+  #file = 2cylinder.msh
+  #file = 3cylinders.msh
+  file = fuel_cylinders.msh
 []
 
 [Variables]
@@ -10,7 +12,6 @@
     family = LAGRANGE
   [../]
 []
-
 
 [Kernels]
   [./diff_fuel]

@@ -1,5 +1,6 @@
 [Mesh]
-  file = untitled.msh
+  #file = 3circles.msh
+  file = 
 []
 
 [Variables]
