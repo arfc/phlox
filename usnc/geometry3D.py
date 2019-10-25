@@ -90,8 +90,8 @@ def place_moderator_reflector(f, rr1, rr2, H, x, c, l, ns, dict_type):
     f.write("// Moderator \n")
     c, l, ns, dict_type = place_circles(f, rr1, H, 0, 0, x, [0], [0], c, l, ns, 'moderator', dict_type)
 
-    f.write("// Reflector \n")
-    c, l, ns, dict_type = place_circles(f, rr2, H, 0, 0, x, [0], [0], c, l, ns, 'reflector', dict_type)
+    # f.write("// Reflector \n")
+    # c, l, ns, dict_type = place_circles(f, rr2, H, 0, 0, x, [0], [0], c, l, ns, 'reflector', dict_type)
 
     return c, l, ns, dict_type
 
@@ -118,7 +118,7 @@ def fc_physical_groups(f, H, dict_type, ns, c, type):
             f.write("\n")
     f.write("};\n")
 
-    f.write("Physical Volume("+ type +") = {")
+    f.write("Physical Volume('"+ type +"') = {")
     for i in dict_type[type]:
         if i == dict_type[type][-1]:
             f.write(str(i))
@@ -129,7 +129,7 @@ def fc_physical_groups(f, H, dict_type, ns, c, type):
     f.write("};\n")
 
 
-def mr_physical_groups(f, H, dict_type, ns, c):
+def m_physical_groups(f, H, dict_type, ns, c):
     f.write("//Moderator\n")
     f.write("Plane Surface("+ str(ns) +") = {") 
     for type, cylinder in dict_type.items():
@@ -151,8 +151,8 @@ def mr_physical_groups(f, H, dict_type, ns, c):
             elif type == 'moderator':
                 f.write(str(3*i) + "};\n")    
 
-    f.write("Physical Surface('moderator_top') = {"+ str(3*(dict_type['moderator'][-1]-1)+2) +"};\n")
-    f.write("Physical Surface('moderator_bottom') = {"+ str(3*dict_type['moderator'][-1]) +"};\n")
+    f.write("Physical Surface('moderator_top') = {"+ str(ns) +"};\n")
+    f.write("Physical Surface('moderator_bottom') = {"+ str(ns+1) +"};\n")
     f.write("Physical Surface('moderator_side') = {"+ str(3*(dict_type['moderator'][-1]-1)+1) +"};\n")
     
     f.write("Surface Loop("+ str(c) +") = {")
@@ -164,12 +164,24 @@ def mr_physical_groups(f, H, dict_type, ns, c):
                 if i%20 == 0:
                     f.write("\n")
             elif type == 'moderator':
-                f.write(str(3*(i-1)+2) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
+                f.write(str(3*(i-1)+1) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
 
     f.write("Volume("+ str(c) +") = {"+ str(c) +"};\n")
     f.write("Physical Volume('moderator') = {"+ str(c) +"};\n")
 
-    f.write("Coherence;\n")
+    ns += 4
+    return ns
+
+def r_physical_groups(f, H, dict_type, ns, c):
+    f.write("Plane Surface("+ str(ns) +") = {"+ str(3*(dict_type['moderator'][-1]-1)+2) +", "+ str(3*(dict_type['reflector'][-1]-1)+2) +"};\n")
+    f.write("Plane Surface("+ str(ns + 1) +") = {"+ str(3*(dict_type['moderator'][-1]-1)+3) +", "+ str(3*(dict_type['reflector'][-1]-1)+3) +"};\n")
+    f.write("Surface Loop("+ str(c+1) +") = {"+ str(3*(dict_type['moderator'][-1]-1)+1) + ", "+ str(3*(dict_type['reflector'][-1]-1)+1) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
+
+    f.write("Volume("+ str(c+1) +") = {"+ str(c+1) +"};\n")
+    f.write("Physical Volume('reflector') = {"+ str(c+1) +"};\n")
+
+    ns += 4
+    return ns
 
 
 def main():    
@@ -205,8 +217,9 @@ def main():
 
     fc_physical_groups(f, H, dict_type, ns, c, 'fuel')
     fc_physical_groups(f, H, dict_type, ns, c, 'coolant')
-    mr_physical_groups(f, H, dict_type, ns, c)
-
+    m_physical_groups(f, H, dict_type, ns, c)
+    # r_physical_groups(f, H, dict_type, ns, c)
+    f.write("Coherence;\n")
     f.close()
 
 if __name__ == "__main__":
