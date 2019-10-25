@@ -155,25 +155,21 @@ def mr_physical_groups(f, H, dict_type, ns, c):
     f.write("Physical Surface('moderator_bottom') = {"+ str(3*dict_type['moderator'][-1]) +"};\n")
     f.write("Physical Surface('moderator_side') = {"+ str(3*(dict_type['moderator'][-1]-1)+1) +"};\n")
     
-    """
     f.write("Surface Loop("+ str(c) +") = {")
-    for i in dict_type['coolant']:
-        f.write(str(3*(i-1)+1)+", ")
-        if i%20 == 0:
-            f.write("\n")
 
-    for i in dict_type['fuel']:
-        f.write(str(3*(i-1)+1)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write(str(3*(c-2)+1) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
+    for type, cylinder in dict_type.items():
+        for i in cylinder:
+            if type == 'fuel' or type == 'coolant':
+                f.write(str(3*(i-1)+1)+", ")
+                if i%20 == 0:
+                    f.write("\n")
+            elif type == 'moderator':
+                f.write(str(3*(i-1)+2) + ", "+ str(ns) +", "+ str(ns+1) +"};\n")
+
     f.write("Volume("+ str(c) +") = {"+ str(c) +"};\n")
-
     f.write("Physical Volume('moderator') = {"+ str(c) +"};\n")
-    f.write("Coherence;\n")
 
-    ns += 2
-    """
+    f.write("Coherence;\n")
 
 
 def main():    
