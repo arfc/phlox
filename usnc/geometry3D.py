@@ -1,7 +1,7 @@
 """
 3D geometry based on the definition of cylinders.
-c: number of circles
-l: number of loops
+c: number of cylinders
+l: number of curves (not used)
 ns: number of surfaces
 """
 
@@ -12,20 +12,18 @@ import sys
 
 def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
-        cc = 0
         for i in row:
-            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")     
+            f.write("Cylinder("+ str(c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")     
 
-            if type == 'fuel' or type == 'cool':
-                dict_type[type].append(l)
+            if type == 'fuel' or type == 'coolant' or type == 'moderator' or type == 'reflector':
+                dict_type[type].append(c)
             else:
                 print('Wrong type')
                 sys.exit()
 
-            cc += 1
-            l += 1
+            c += 1
+            l += 3
             ns += 3
-        c += cc
     
     return c, l, ns, dict_type
 
@@ -54,21 +52,19 @@ def cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, fuel, dict_type):
 
     col = [-3/2, 3/2]
     row = [-1, 1]
-    #c, l, ns, dict_type = place_circles(f, rc, H, p2, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    #c, l, ns, dict_type = place_circles(f, rc, H, p2, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
 
     col = [0]
     if fuel:
         row = [-1, 0, 1]
     else:
         row = [-1, 1]
-    c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'coolant', dict_type)
     
     return c, l, ns, dict_type
 
 def control_rod(f, rcb, H, x, c, l, ns, dict_type):
-    col=[0]
-    row=[0]
-    c, l, ns, dict_type = place_circles(f, rcb, H, 0, 0, x, col, row, c, l, ns, 'cool', dict_type)
+    c, l, ns, dict_type = place_circles(f, rcb, H, 0, 0, x, [0], [0], c, l, ns, 'coolant', dict_type)
 
     return c, l, ns, dict_type
 
@@ -81,7 +77,7 @@ def place_fuel_assembly(f, d_x, rc, rf, H, p_c, x, c, l, ns, dict_type):
 def place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x, c, l, ns, dict_type):
     c, l, ns, dict_type = cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, False, dict_type)
     c, l, ns, dict_type = fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, False, dict_type)
-    #c, l, ns, dict_type = control_rod(f, rcb, H, x, c, l, ns, dict_type)
+    c, l, ns, dict_type = control_rod(f, rcb, H, x, c, l, ns, dict_type)
 
     return c, l, ns, dict_type
 
@@ -90,50 +86,21 @@ def place_central_assembly(f, d_x, rcc, H, x, c, l, ns, dict_type):
 
     return c, l, ns, dict_type
 
-def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
+def place_moderator_reflector(f, rr1, rr2, H, x, c, l, ns, dict_type):
     f.write("// Moderator \n")
-    #f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
-    f.write("Cylinder("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(rr1) +", 2*Pi};\n")
+    c, l, ns, dict_type = place_circles(f, rr1, H, 0, 0, x, [0], [0], c, l, ns, 'moderator', dict_type)
 
-    #f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
-    #f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
-    #f.write("Curve Loop("+ str(l + 1) +") = {"+ str(c + 1) +"};\n")
+    f.write("// Reflector \n")
+    c, l, ns, dict_type = place_circles(f, rr2, H, 0, 0, x, [0], [0], c, l, ns, 'reflector', dict_type)
 
-    #f.write("Plane Surface("+str(ns)+") = {")
-    #for i in range(1, ns+1):
-    #    if i == ns:
-    #        f.write(str(i))
-    #    else:
-    #       f.write(str(i)+", ")
-    #    if i%20 == 0:
-    #        f.write("\n")
-    #f.write("};\n")
+    return c, l, ns, dict_type
 
-    #f.write("Physical Surface('moderator_bottom') = {"+ str(ns) +"};\n")
-
-    #f.write("Plane Surface("+ str(ns + 1) +") = { "+ str(l) +", "+ str(l + 1) +"};\n")
-    #f.write("Physical Surface('reflector_bottom') = {"+ str(ns+1) +"};\n")
-
-    #f.write("moder[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns) +"}; Layers{5}; Recombine; };\n")
-    #f.write("Physical Surface('moderator_top') = {moder[0]};\n")
-    #f.write("Physical Volume('moderator') = {moder[1]};\n")
-    #f.write("Physical Surface('moderator_side') = {moder[3]};\n")
-
-    #f.write("reflec[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(ns+1) +"}; Layers{5}; Recombine; };\n")
-    #f.write("Physical Surface('reflector_top') = {reflec[0]};\n")
-    #f.write("Physical Surface('reflector_side') = {reflec[3]};\n")
-    #f.write("Physical Volume('reflector') = {reflec[1]};\n")
-
-    c += 1
-    l += 1
-    ns += 3
-    return c, l, ns
-
-def define_physical_groups(f, H, dict_type, ns, c):
-    f.write("//Fuel\n")
-    f.write("Physical Surface('fuel_bottom') = {")
-    for i in dict_type['fuel']:
-        if i == dict_type['fuel'][-1]:
+def fc_physical_groups(f, H, dict_type, ns, c, type):
+    # fuel coolant physical groups
+    f.write("//"+ type +"\n")
+    f.write("Physical Surface('"+ type +"_bottom') = {")
+    for i in dict_type[type]:
+        if i == dict_type[type][-1]:
             f.write(str(3*i))
         else:
            f.write(str(3*i)+", ")
@@ -141,9 +108,9 @@ def define_physical_groups(f, H, dict_type, ns, c):
             f.write("\n")
     f.write("};\n")
 
-    f.write("Physical Surface('fuel_top') = {")
-    for i in dict_type['fuel']:
-        if i == dict_type['fuel'][-1]:
+    f.write("Physical Surface('"+ type +"_top') = {")
+    for i in dict_type[type]:
+        if i == dict_type[type][-1]:
             f.write(str(3*(i-1)+2))
         else:
            f.write(str(3*(i-1)+2)+", ")
@@ -151,9 +118,9 @@ def define_physical_groups(f, H, dict_type, ns, c):
             f.write("\n")
     f.write("};\n")
 
-    f.write("Physical Volume('fuel') = {")
-    for i in dict_type['fuel']:
-        if i == dict_type['fuel'][-1]:
+    f.write("Physical Volume("+ type +") = {")
+    for i in dict_type[type]:
+        if i == dict_type[type][-1]:
             f.write(str(i))
         else:
            f.write(str(i)+", ")
@@ -161,70 +128,36 @@ def define_physical_groups(f, H, dict_type, ns, c):
             f.write("\n")
     f.write("};\n")
 
-    f.write("//Coolant\n")
-    f.write("Physical Surface('coolant_bottom') = {")
-    for i in dict_type['cool']:
-        if i == dict_type['cool'][-1]:
-            f.write(str(3*i))
-        else:
-           f.write(str(3*i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
 
-    f.write("Physical Surface('cool_top') = {")
-    for i in dict_type['cool']:
-        if i == dict_type['cool'][-1]:
-            f.write(str(3*(i-1)+2))
-        else:
-           f.write(str(3*(i-1)+2)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
-
-    f.write("Physical Volume('coolant') = {")
-    for i in dict_type['cool']:
-        if i == dict_type['cool'][-1]:
-            f.write(str(i))
-        else:
-           f.write(str(i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
-
+def mr_physical_groups(f, H, dict_type, ns, c):
     f.write("//Moderator\n")
-    f.write("Plane Surface("+ str(ns) +") = {")
-
-    for i in dict_type['cool']:
-        f.write(str(3*(i-1)+2)+", ")
-        if i%20 == 0:
-            f.write("\n")
-
-    for i in dict_type['fuel']:
-        f.write(str(3*(i-1)+2)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write(str(3*(c-2)+2)+ "};\n")
+    f.write("Plane Surface("+ str(ns) +") = {") 
+    for type, cylinder in dict_type.items():
+        for i in cylinder:
+            if type == 'fuel' or type == 'coolant':
+                f.write(str(3*(i-1)+2)+", ")
+                if i%20 == 0:
+                    f.write("\n")
+            elif type == 'moderator':
+                f.write(str(3*(i-1)+2) + "};\n")
     
     f.write("Plane Surface("+ str(ns + 1) +") = {")
+    for type, cylinder in dict_type.items():
+        for i in cylinder:
+            if type == 'fuel' or type == 'coolant':
+                f.write(str(3*i)+", ")
+                if i%20 == 0:
+                    f.write("\n")
+            elif type == 'moderator':
+                f.write(str(3*i) + "};\n")    
 
-    for i in dict_type['cool']:
-        f.write(str(3*i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-
-    for i in dict_type['fuel']:
-        f.write(str(3*i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write(str(3*(c-1))+ "};\n")
+    f.write("Physical Surface('moderator_top') = {"+ str(3*(dict_type['moderator'][-1]-1)+2) +"};\n")
+    f.write("Physical Surface('moderator_bottom') = {"+ str(3*dict_type['moderator'][-1]) +"};\n")
+    f.write("Physical Surface('moderator_side') = {"+ str(3*(dict_type['moderator'][-1]-1)+1) +"};\n")
     
-    f.write("Physical Surface('moderator_top') = {"+ str(ns) +"};\n")
-    f.write("Physical Surface('moderator_bottom') = {"+ str(ns+1) +"};\n")
-    f.write("Physical Surface('moderator_side') = {"+ str(3*(c-2)+1) +"};\n")
-
+    """
     f.write("Surface Loop("+ str(c) +") = {")
-    for i in dict_type['cool']:
+    for i in dict_type['coolant']:
         f.write(str(3*(i-1)+1)+", ")
         if i%20 == 0:
             f.write("\n")
@@ -239,16 +172,8 @@ def define_physical_groups(f, H, dict_type, ns, c):
     f.write("Physical Volume('moderator') = {"+ str(c) +"};\n")
     f.write("Coherence;\n")
 
-    #c += 1
     ns += 2
-
-    #f.write("fuel_vol[] = {};\nfuel_surf[] = {};\n")
-    #for i in dict_type['fuel']:
-    #    f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
-    #    f.write("fuel_vol += fuel[1];\nfuel_surf += fuel[0];\n")
-    
-    #f.write("Physical Surface('fuel_top') = {fuel_surf[]};\n")
-    #f.write("Physical Volume('fuel') = {fuel_vol[]};\n")
+    """
 
 
 def main():    
@@ -273,16 +198,18 @@ def main():
     ns = 1
     
     assemblies = {'control': [1]}
-    dict_type = {'fuel': [], 'cool': []}
+    dict_type = {'fuel': [], 'coolant': [], 'moderator': [], 'reflector': []}
 
     x = np.zeros((2,3))
    
     for i in assemblies['control']:
         c, l, ns, dict_type = place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x[i], c, l, ns, dict_type)
    
-    c, l, ns = place_reflector(f, d_x, rr1, rr2, H, x[1], c, l, ns)
+    c, l, ns, dict_type = place_moderator_reflector(f, rr1, rr2, H, x[1], c, l, ns, dict_type)
 
-    define_physical_groups(f, H, dict_type, ns, c)
+    fc_physical_groups(f, H, dict_type, ns, c, 'fuel')
+    fc_physical_groups(f, H, dict_type, ns, c, 'coolant')
+    mr_physical_groups(f, H, dict_type, ns, c)
 
     f.close()
 

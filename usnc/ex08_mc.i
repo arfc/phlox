@@ -1,6 +1,7 @@
 [Mesh]
   #file = 3circles.msh
-  file = multiple_cylinders.msh
+  #file = multiple_cylinders.msh
+  file = untitled.msh
 []
 
 [Variables]
