@@ -9,7 +9,7 @@ Curve Loop(1) = {1};
 Curve Loop(2) = {2};
 Curve Loop(3) = {3};
 Plane Surface(1) = {1, 2, 3};
-Extrude {0, 0, 5} {
+Extrude {0, 0, 20} {
   Surface{1}; 
 }
 //+
