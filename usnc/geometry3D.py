@@ -14,9 +14,7 @@ def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
     for j in col:
         cc = 0
         for i in row:
-            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")
-            #f.write("Curve Loop("+ str(l) +") = {"+ str(cc + c) +"};\n")
-            #f.write("Plane Surface("+ str(ns) +") = {"+ str(l) +"};\n")          
+            f.write("Cylinder("+ str(cc + c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(r) +", 2*Pi};\n")     
 
             if type == 'fuel' or type == 'cool':
                 dict_type[type].append(l)
@@ -63,7 +61,7 @@ def cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, fuel, dict_type):
         row = [-1, 0, 1]
     else:
         row = [-1, 1]
-    #c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
+    c, l, ns, dict_type = place_circles(f, rc, H, p, p_c, x, col, row, c, l, ns, 'cool', dict_type)
     
     return c, l, ns, dict_type
 
@@ -81,7 +79,7 @@ def place_fuel_assembly(f, d_x, rc, rf, H, p_c, x, c, l, ns, dict_type):
     return c, l, ns, dict_type
 
 def place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x, c, l, ns, dict_type):
-    #c, l, ns, dict_type = cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, False, dict_type)
+    c, l, ns, dict_type = cooling_channels(f, d_x, rc, H, p_c, x, c, l, ns, False, dict_type)
     c, l, ns, dict_type = fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, False, dict_type)
     #c, l, ns, dict_type = control_rod(f, rcb, H, x, c, l, ns, dict_type)
 
@@ -95,9 +93,7 @@ def place_central_assembly(f, d_x, rcc, H, x, c, l, ns, dict_type):
 def place_reflector(f, d_x, rr1, rr2, H, x, c, l, ns):
     f.write("// Moderator \n")
     #f.write("Circle("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr1) +", 0, 2*Pi};\n")
-    f.write("Cylinder("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", 0, 0,"+ str(H) +", "+ str(rr1) +", 2*Pi};\n")
-
-
+    f.write("Cylinder("+ str(c) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", 0, 0, "+ str(H) +", "+ str(rr1) +", 2*Pi};\n")
 
     #f.write("Curve Loop("+ str(l) +") = {"+ str(c) +"};\n")
     #f.write("Circle("+ str(c + 1) +") = { "+ str(x[0]) +", "+ str(x[1]) +", "+ str(x[2]) +", "+ str(rr2) +", 0, 2*Pi};\n")
@@ -165,8 +161,44 @@ def define_physical_groups(f, H, dict_type, ns, c):
             f.write("\n")
     f.write("};\n")
 
+    f.write("//Coolant\n")
+    f.write("Physical Surface('coolant_bottom') = {")
+    for i in dict_type['cool']:
+        if i == dict_type['cool'][-1]:
+            f.write(str(3*i))
+        else:
+           f.write(str(3*i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
+    f.write("Physical Surface('cool_top') = {")
+    for i in dict_type['cool']:
+        if i == dict_type['cool'][-1]:
+            f.write(str(3*(i-1)+2))
+        else:
+           f.write(str(3*(i-1)+2)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
+    f.write("Physical Volume('coolant') = {")
+    for i in dict_type['cool']:
+        if i == dict_type['cool'][-1]:
+            f.write(str(i))
+        else:
+           f.write(str(i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+    f.write("};\n")
+
     f.write("//Moderator\n")
     f.write("Plane Surface("+ str(ns) +") = {")
+
+    for i in dict_type['cool']:
+        f.write(str(3*(i-1)+2)+", ")
+        if i%20 == 0:
+            f.write("\n")
 
     for i in dict_type['fuel']:
         f.write(str(3*(i-1)+2)+", ")
@@ -175,6 +207,12 @@ def define_physical_groups(f, H, dict_type, ns, c):
     f.write(str(3*(c-2)+2)+ "};\n")
     
     f.write("Plane Surface("+ str(ns + 1) +") = {")
+
+    for i in dict_type['cool']:
+        f.write(str(3*i)+", ")
+        if i%20 == 0:
+            f.write("\n")
+
     for i in dict_type['fuel']:
         f.write(str(3*i)+", ")
         if i%20 == 0:
@@ -186,6 +224,11 @@ def define_physical_groups(f, H, dict_type, ns, c):
     f.write("Physical Surface('moderator_side') = {"+ str(3*(c-2)+1) +"};\n")
 
     f.write("Surface Loop("+ str(c) +") = {")
+    for i in dict_type['cool']:
+        f.write(str(3*(i-1)+1)+", ")
+        if i%20 == 0:
+            f.write("\n")
+
     for i in dict_type['fuel']:
         f.write(str(3*(i-1)+1)+", ")
         if i%20 == 0:
@@ -206,64 +249,7 @@ def define_physical_groups(f, H, dict_type, ns, c):
     
     #f.write("Physical Surface('fuel_top') = {fuel_surf[]};\n")
     #f.write("Physical Volume('fuel') = {fuel_vol[]};\n")
-    
-    """
-    f.write("Physical Surface('coolant_bottom') = {")
-    for i in dict_type['cool']:
-        if i == dict_type['cool'][-1]:
-            f.write(str(i))
-        else:
-           f.write(str(i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
 
-    f.write("cool_vol[] = {};\ncool_surf[] = {};\n")
-    for i in dict_type['cool']:
-        f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
-        f.write("cool_vol += cool[1];\ncool_surf += cool[0];\n")
-    
-    f.write("Physical Surface('coolant_top') = {cool_surf[]};\n")
-    f.write("Physical Volume('coolant') = {cool_vol[]};\n")
-    """
-
-def define_physical_groups2(f, H, dict_type):
-    f.write("Physical Surface('fuel_bottom') = {")
-    for i in dict_type['fuel']:
-        if i == dict_type['fuel'][-1]:
-            f.write(str(i))
-        else:
-           f.write(str(i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
-
-    f.write("fuel_vol[] = {};\nfuel_surf[] = {};\n")
-    for i in dict_type['fuel']:
-        f.write("fuel[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
-        f.write("fuel_vol += fuel[1];\nfuel_surf += fuel[0];\n")
-    
-    f.write("Physical Surface('fuel_top') = {fuel_surf[]};\n")
-    f.write("Physical Volume('fuel') = {fuel_vol[]};\n")
-    
-    f.write("Physical Surface('coolant_bottom') = {")
-    for i in dict_type['cool']:
-        if i == dict_type['cool'][-1]:
-            f.write(str(i))
-        else:
-           f.write(str(i)+", ")
-        if i%20 == 0:
-            f.write("\n")
-    f.write("};\n")
-
-    f.write("cool_vol[] = {};\ncool_surf[] = {};\n")
-    for i in dict_type['cool']:
-        f.write("cool[] = Extrude {0, 0, "+ str(H) +"} { Surface{"+ str(i) +"}; Layers{5}; Recombine; };\n")
-        f.write("cool_vol += cool[1];\ncool_surf += cool[0];\n")
-    
-    f.write("Physical Surface('coolant_top') = {cool_surf[]};\n")
-    f.write("Physical Volume('coolant') = {cool_vol[]};\n")
-2
 
 def main():    
     f = open("untitled.geo","w+")

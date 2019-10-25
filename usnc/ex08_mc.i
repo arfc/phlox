@@ -1,6 +1,6 @@
 [Mesh]
   #file = 3circles.msh
-  file = 
+  file = multiple_cylinders.msh
 []
 
 [Variables]
@@ -9,7 +9,6 @@
     family = LAGRANGE
   [../]
 []
-
 
 [Kernels]
   [./diff_fuel]
@@ -26,21 +25,27 @@
     block = 'fuel'
   [../]
 
-  [./diff_moderator]
+  [./diff_coolant]
     type = TempDiffusion
     variable = temperature
     diffcoef = 1.0
+    block = 'coolant'
+  [../]
+
+  [./diff_moderator]
+    type = TempDiffusion
+    variable = temperature
+    diffcoef = 2.0
     block = 'moderator'
   [../]
 []
-
 
 [BCs]
   [./left]
     type = DirichletBC
     variable = temperature
-    #boundary = 'fuel_bottom moderator_bottom'
-    boundary = 'moderator_side'
+    boundary = 'fuel_bottom coolant_bottom moderator_bottom'
+    #boundary = 'moderator_side'
     value = 0
   [../]
 
