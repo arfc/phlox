@@ -1,5 +1,8 @@
 """
 3D geometry based on the definition of cylinders.
+This one partially works, but at the moment of meshing, sometimes fails.
+It won't be used in the future. I'll keep ir as a reference.
+
 c: number of cylinders
 l: number of curves (not used)
 ns: number of surfaces

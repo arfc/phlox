@@ -1,4 +1,4 @@
-// Gmsh project created on Fri Oct 25 14:46:31 2019
+// This one was close, it works but when I expand it, it throws warnings and errors.
 SetFactory("OpenCASCADE");
 //+
 Circle(1) = {-2, 0, 0, 1, 0, 2*Pi};

@@ -1,4 +1,4 @@
-//+
+// Produces geometry in 2D. It works fine. Not a problem.
 SetFactory('OpenCASCADE');
 Circle(1) = { -9.6995, -5.6, 0.0, 1.4, 0, 2*Pi};
 Curve Loop(1) = {1};

@@ -1,4 +1,4 @@
-// Gmsh project created on Thu Oct 24 11:16:08 2019
+// Produces two boxes, by connecting points and lines. The msh is the input file to ex08.i
 SetFactory("OpenCASCADE");
 //+
 Point(1) = {0, 0, 0, 1.0};

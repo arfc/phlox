@@ -1,4 +1,4 @@
-// Gmsh project created on Thu Oct 24 11:32:24 2019
+// Produces 1 box, and a second one by extruding one of the lateral surfaces. The msh is the input file to ex08.i
 SetFactory("OpenCASCADE");
 //+
 Box(1) = {0, 0, 0, 10, 10, 10};

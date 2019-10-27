@@ -1,4 +1,4 @@
-//+
+// It was close to working, but when I expand it, it throws warnings and errors.
 SetFactory("OpenCASCADE");
 Cylinder(1) = {-1.5, 0, 0, 0, 0, 10, 1, 2*Pi};
 Cylinder(2) = {+1.5, 0, 0, 0, 0, 10, 1, 2*Pi};
