@@ -3,7 +3,8 @@
   #file = msh_files/multiple_cylinders.msh
   #file = msh_files/multiple.msh
   #file = msh_files/multiple2.msh
-  file = msh_files/untitled.msh
+  file = msh_files/MMR3D_full.msh
+  #file = msh_files/untitled.msh
 []
 
 [Variables]
