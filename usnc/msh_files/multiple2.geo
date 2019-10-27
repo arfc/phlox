@@ -1,4 +1,5 @@
-// This one works well. It's the input file for ex08_mc.i
+// This one works well. It's the input file for ex08_mc.i.
+// It was produced by geometry3D_extrude2.
 SetFactory("OpenCASCADE");
 //+
 Circle(1) = { -19.399, -5.6, 0.0, 1, 0, 2*Pi};

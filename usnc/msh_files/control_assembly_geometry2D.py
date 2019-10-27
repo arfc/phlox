@@ -1,5 +1,5 @@
 """
-
+This script produces the 2D geometry of a control rod assembly.
 
 """
 

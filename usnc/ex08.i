@@ -1,10 +1,10 @@
 [Mesh]
-  #file = 2rectangles.msh
-  #file = 2boxesA.msh
-  #file = 2cylinder.msh
-  #file = 3cylinders.msh
-  #file = fuel_cylinders.msh
-  file = untitled.msh
+  #file = msh_files/2rectangles.msh
+  #file = msh_files/2boxesA.msh
+  #file = msh_files/2cylinder.msh
+  #file = msh_files/3cylinders.msh
+  #file = msh_files/fuel_cylinders.msh
+  file = msh_files/untitled.msh
 []
 
 [Variables]

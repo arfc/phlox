@@ -1,5 +1,8 @@
 """
-3D geometry based on the extrusion of 2D geometry.
+3D geometry based on the extrusion of 2D geometry. It doesn't work, the
+cyclinders don't share surfaces and moltres/moose fails.
+I'll keep it as a reference.
+
 c: number of circles
 l: number of loops
 ns: number of physical surfaces

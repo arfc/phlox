@@ -1,9 +1,9 @@
 [Mesh]
-  #file = 3circles.msh
-  #file = multiple_cylinders.msh
-  #file = multiple.msh
-  file = multiple2.msh
-  #file = untitled.msh
+  #file = msh_files/3circles.msh
+  #file = msh_files/multiple_cylinders.msh
+  #file = msh_files/multiple.msh
+  #file = msh_files/multiple2.msh
+  file = msh_files/untitled.msh
 []
 
 [Variables]

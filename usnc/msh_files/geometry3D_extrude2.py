@@ -1,5 +1,7 @@
 """
 3D geometry based on the definition of circles and then the extrusion of the geometry into 3D.
+It works. It produces 2fuel2, 4fuel, multiple, and multiple2.
+
 c: number of cylinders
 l: number of curves (not used)
 ns: number of surfaces
