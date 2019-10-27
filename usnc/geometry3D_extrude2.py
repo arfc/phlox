@@ -33,9 +33,9 @@ def fuel_channels(f, d_x, rf, H, p_c, x, c, l, ns, fuel, dict_type):
     p2 = round(3*s/2, 4)
 
     p = 2
-    p_c = 0
+    p_c = 2
 
-    col = [0]
+    col = [-1, 1]
     if fuel == True:
         row = [-1, 0, 1]
     else:
@@ -190,7 +190,7 @@ def main():
     p_c = 5.6 # pitch between channels [cm]
     rcb = 4   # Control bar radius [cm]
     rcc = 6   # Central control bar radius [cm]
-    rr1 = 5  # Inner Reflector Radius [cm]
+    rr1 = 10  # Inner Reflector Radius [cm]
     rr2 = 35  # Outer Reflector Radius [cm]
     H = 10    # Reactor Height [cm]
 
