@@ -1,0 +1,11 @@
+Python scripts:
+---------------
+* geometry_extrude2.py: produces a geometry (.geo) based on the placement of circles and then it extrudes them to generate a 3D geometry. This is the one that works. The extension of this script is 'moltres_geometry.py'.
+* moltres_geometry.py: produces a the 3D geometry of the MMR. It is based on the script 'geometry_extrude2.py'.
+
+.geo & .msh files:
+------------------
+* 2fuel2.geo: produced by "geometry_extrude2.py". It defines 2 fuel channels and the moderator.
+* 4fuel.geo: produced by "geometry_extrude2.py". It defines 4 fuel channels and the moderator.
+
+* cut1.geo: simple geometry that defines a single fuel channel and the moderator. The moderator has the shape of slice of pizza. The fuel channel is completely defined in the geometry.
