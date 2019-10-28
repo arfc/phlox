@@ -124,6 +124,8 @@ def place_control_assembly(f, d_x, rc, rf, rcb, H, p_c, x, c, l, ns, dict_type):
 def place_moderator(f, rm, H, a1, a2, p, p_c, x, c, l, ns, dict_type):
     c, l, ns, dict_type = place_arc(f, rm, H, a1, a2, p, p_c, x, [0], [0], c, l, ns, 'moderator', dict_type)
 
+    c, l, ns, dict_type = place_lines()
+
     return c, l, ns, dict_type
 
 def define_moderator(f, H, c, l, ns, dict_type):
