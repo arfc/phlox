@@ -4,7 +4,8 @@
   #file = msh_files/2cylinder.msh
   #file = msh_files/3cylinders.msh
   #file = msh_files/fuel_cylinders.msh
-  file = msh_files/untitled.msh
+  #file = msh_files/untitled.msh
+  file = msh_files/cut1.msh
 []
 
 [Variables]
