@@ -81,19 +81,33 @@ def plot_lines(f, R, a, l, ps, dict_type, lp):
         f.write("Line("+ str(l+1) +") = { "+ str(ps+1) +", "+ str(ps+2) +"};\n")
     else:
         f.write("Line("+ str(l+1) +") = { "+ str(ps+1) +", "+ str(lp[dict_type['arc'][0]][0]) +"};\n")
-        f.write("Line("+ str(l+2) +") = { "+ str(lp[dict_type['arc'][0]][0]) +", "+ str(lp[dict_type['arc'][0]][1]) +"};\n")
-        f.write("Line("+ str(l+3) +") = { "+ str(lp[dict_type['arc'][0]][1]) +", "+ str(ps+2) +"};\n")
+        cc = 2
+        for i in dict_type['arc'][:-1]:
+            print(i)
+            f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+            cc += 1
+            print(i + 1)
+            #f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(lp[i+1][0]) +"};\n")
+            #cc += 1
+        
+        #i = dict_type['arc']
+        #print(i)
+        #f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+        #cc += 1
+        #f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+2) +"};\n")
 
 def main():    
     r = 1        # Channel radius
-    R = 7        # Moderator Radius
+    R = 10        # Moderator Radius
     a1 = np.pi/6 # angle of the plane
     # x defines the center of the circle
-    x = np.zeros((2,2))
+    x = np.zeros((5,2))
     # x[0] = [ 2, 0.2]  # intersection above the center
-    x[0] = [ 2, 1]  # intersection below the center
-    x[1] = [ 2, 4]  # no intersection
-    #x[2] = [ 4, 3]  # no intersection
+    x[0] = [ 1, 4.2]  # intersection below the center
+    x[1] = [ 1, 2]    # no intersection
+    x[2] = [ 3.1, 2.1]
+    x[3] = [ 3.1, 5]
+    x[4] = [ 5.2, 4.0]
     
     l = 0
     ps = 0
@@ -113,7 +127,7 @@ def main():
     
     print(dict_type)
     print(lp)
-    print(lp[dict_type['arc'][0]])
+    # print(lp[dict_type['arc'][0]])
     plot_lines(f, R, a1, l, ps, dict_type, lp)
     
     f.close()        
