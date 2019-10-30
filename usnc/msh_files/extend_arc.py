@@ -224,11 +224,11 @@ def place_fuel_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
 def plot_upper_lines(f, R, l, ps, dict_type, lp):
     X = 0
     Y = R
-    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")
+    #f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")
     if ps-l == 0:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(ps+2) +"};\n")
+        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps-2) +"};\n")
     else:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
+        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
         cc = 2
         for i in range(len(dict_type['up_arc'][:-1])):
             j0 = dict_type['up_arc'][i]
@@ -241,18 +241,17 @@ def plot_upper_lines(f, R, l, ps, dict_type, lp):
         i = dict_type['up_arc'][-1]
         f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
         cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps-2) +"};\n")
     l += cc
-    ps += 1
 
     return l, ps
 
 def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
     X = R * np.cos(a)
     Y = R * np.sin(a)
-    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")      
+    #f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")      
     if ps-l == 1:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps+1) +"};\n")
+        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps-1) +"};\n")
         cc = 1
     else:
         f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['low_arc'][0]][0]) +"};\n")      
@@ -269,12 +268,31 @@ def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
         i = dict_type['low_arc'][-1]
         f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
         cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps-1) +"};\n")
         l += cc
     l += cc
-    ps += 1
 
     return l, ps
+
+def place_moderator(f, r, a, l, ps, dict_type, lp, phy_type):
+    """
+    plots arc based on the intersection of the upper line and a circle
+    r: radius of the circle
+    R: radius of the moderator
+    x,y: center of the circle
+    """
+  
+    f.write("Circle("+ str(l+1) +") = { 0, 0, 0, "+ str(r) +", "+ str(a) +", "+ str(np.pi/2) +"};\n")
+    dict_type['mod'].append(l+1)
+    points = []
+    points.append(ps + 1)
+    points.append(ps + 2)
+    lp.append(points)
+    
+    l += 1
+    ps += 2
+
+    return l, ps, dict_type, lp, phy_type
 
 def main():    
     rc = 0.8        # Channel radius
@@ -289,13 +307,13 @@ def main():
 
     l = 0
     ps = 0
-    dict_type = {'circle':[], 'up_arc':[], 'low_arc':[]}
+    dict_type = {'circle':[], 'up_arc':[], 'low_arc':[], 'mod':[]}
     lp = [0] # list of points
 
     f = open("untitled.geo","w+")
     f.write('// Gmsh whatever\n')
     f.write('SetFactory("OpenCASCADE");\n//+\n')
-    
+
     assemblies = {'control': [3, 5, 9],
                   'fuel': [1, 2, 4, 6, 7, 8]}
     phy_type = {'fuel': [], 'coolant': [], 'moderator': []}
@@ -308,7 +326,7 @@ def main():
     for i in range(7, 9):
         x[i,:] = [+3*d_x, (i-6)*p, 0]
     x[9,:] = [9/2*d_x, 3/2*p, 0]
-   
+
     for i in assemblies['control']:
         l, ps, dict_type, lp, phy_type = place_control_assembly(f, rcb, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
     for i in assemblies['fuel']:
@@ -316,14 +334,16 @@ def main():
 
     #print(phy_type)
     #print(dict_type)
-    #print(lp)
     #for i in dict_type['up_arc']:
     #    print(lp[i])
+
+    l, ps, dict_type, lp, phy_type = place_moderator(f, R, a1, l, ps, dict_type, lp, phy_type)
+    print(lp)
     f.write("Point("+ str(ps+1) +") = { 0, 0, 0, 1.0};\n")
     ps += 1
     l, ps = plot_lower_lines(f, R, a1, l, ps, dict_type, lp)
     l, ps = plot_upper_lines(f, R, l, ps, dict_type, lp)
-    
+
     f.close()        
 
 if __name__ == "__main__":
