@@ -107,61 +107,6 @@ def plot_arc_lower(f, r, a, x, y, l, ps, dict_type, lp):
     ps += 2
     return l, ps, dict_type, lp
 
-def plot_upper_lines(f, R, l, ps, dict_type, lp):
-    X = 0
-    Y = R
-    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")
-    if ps-l == 0:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(ps+2) +"};\n")
-    else:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
-        cc = 2
-        for i in range(len(dict_type['up_arc'][:-1])):
-            j0 = dict_type['up_arc'][i]
-            j1 = dict_type['up_arc'][i+1]
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
-            cc += 1
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
-            cc += 1
-        
-        i = dict_type['up_arc'][-1]
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
-        cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
-    l += cc
-    ps += 1
-
-    return l, ps
-
-def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
-    X = R * np.cos(a)
-    Y = R * np.sin(a)
-    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")      
-    if ps-l == 1:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps+1) +"};\n")
-        cc = 1
-    else:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['low_arc'][0]][0]) +"};\n")      
-        cc = 2
-        for i in range(len(dict_type['low_arc'][:-1])):
-            j0 = dict_type['low_arc'][i]
-            j1 = dict_type['low_arc'][i+1]
-            print(j0,j1)         
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
-            cc += 1
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
-            cc += 1
-        
-        i = dict_type['low_arc'][-1]
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
-        cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
-        l += cc
-    l += cc
-    ps += 1
-
-    return l, ps
-
 def check_domain(x, y, r, a):
     """
     If the circle is fully or partially inside the domain returns TRUE
@@ -276,16 +221,71 @@ def place_fuel_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
         
     return l, ps, dict_type, lp, phy_type
 
+def plot_upper_lines(f, R, l, ps, dict_type, lp):
+    X = 0
+    Y = R
+    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")
+    if ps-l == 0:
+        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(ps+2) +"};\n")
+    else:
+        f.write("Line("+ str(l+1) +") = { "+ str(ps-1) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
+        cc = 2
+        for i in range(len(dict_type['up_arc'][:-1])):
+            j0 = dict_type['up_arc'][i]
+            j1 = dict_type['up_arc'][i+1]
+            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
+            cc += 1
+            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
+            cc += 1
+        
+        i = dict_type['up_arc'][-1]
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+        cc += 1
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
+    l += cc
+    ps += 1
+
+    return l, ps
+
+def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
+    X = R * np.cos(a)
+    Y = R * np.sin(a)
+    f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")      
+    if ps-l == 1:
+        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps+1) +"};\n")
+        cc = 1
+    else:
+        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['low_arc'][0]][0]) +"};\n")      
+        cc = 2
+        for i in range(len(dict_type['low_arc'][:-1])):
+            j0 = dict_type['low_arc'][i]
+            j1 = dict_type['low_arc'][i+1]
+            # print(j0,j1)
+            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
+            cc += 1
+            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
+            cc += 1
+        
+        i = dict_type['low_arc'][-1]
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+        cc += 1
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps+1) +"};\n")
+        l += cc
+    l += cc
+    ps += 1
+
+    return l, ps
+
 def main():    
     rc = 0.8        # Channel radius
     rf = 1.2
     rcb = 4
-    R = 10        # Moderator Radius
+    R = 205        # Moderator Radius
     a1 = np.pi/6 # angle of the plane
 
     d_x = 30
     p_c = 5.6 # pitch between channels [cm]
-    p = 2*d_x/2/np.tan(np.pi/6)       
+    p = 2*d_x/2/np.tan(np.pi/6)
 
     l = 0
     ps = 0
@@ -296,27 +296,18 @@ def main():
     f.write('// Gmsh whatever\n')
     f.write('SetFactory("OpenCASCADE");\n//+\n')
     
-    assemblies = {'control': [1, 4, 7, 11, 14, 16, 22, 24, 27, 31, 34, 37],
-                  'fuel': [2, 3, 5, 6, 8, 9, 10, 12, 13, 15, 17, 18, 20, 21,
-                           23, 25, 26, 28, 29, 30, 32, 33, 35, 36]}
+    assemblies = {'control': [3, 5, 9],
+                  'fuel': [1, 2, 4, 6, 7, 8]}
     phy_type = {'fuel': [], 'coolant': [], 'moderator': []}
 
-    x = np.zeros((38,3))
-    # First & Seventh Column
-    for i in range(1, 5):
-        x[i,:] = [-9/2*d_x, (5-2*i)*p/2, 0]
-        x[i+33,:] = [+9/2*d_x, (5-2*i)*p/2, 0]
-    # Second & Sixth Column
-    for i in range(5, 10):
-        x[i,:] = [-3*d_x, (7-i)*p, 0]
-        x[i+24,:] = [+3*d_x, (7-i)*p, 0]
-    # Third & Fifth Column
-    for i in range(10, 16):
-        x[i,:] = [-3/2*d_x, (7-2*(i-9))*p/2, 0]
-        x[i+13,:] = [+3/2*d_x, (7-2*(i-9))*p/2, 0]
-    # Fourth Column
-    for i in range(16, 23):
-        x[i,:] = [0, (19-i)*p, 0]   
+    x = np.zeros((10,3))       
+    for i in range(1,4):
+        x[i,:] = [0, i*p, 0]
+    for i in range(4, 7):
+        x[i,:] = [+3/2*d_x, (2*i-7)*p/2, 0]
+    for i in range(7, 9):
+        x[i,:] = [+3*d_x, (i-6)*p, 0]
+    x[9,:] = [9/2*d_x, 3/2*p, 0]
    
     for i in assemblies['control']:
         l, ps, dict_type, lp, phy_type = place_control_assembly(f, rcb, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
@@ -326,10 +317,12 @@ def main():
     #print(phy_type)
     #print(dict_type)
     #print(lp)
+    #for i in dict_type['up_arc']:
+    #    print(lp[i])
     f.write("Point("+ str(ps+1) +") = { 0, 0, 0, 1.0};\n")
     ps += 1
-    #l, ps = plot_lower_lines(f, R, a1, l, ps, dict_type, lp)
-    #l, ps = plot_upper_lines(f, R, l, ps, dict_type, lp)
+    l, ps = plot_lower_lines(f, R, a1, l, ps, dict_type, lp)
+    l, ps = plot_upper_lines(f, R, l, ps, dict_type, lp)
     
     f.close()        
 
