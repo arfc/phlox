@@ -166,7 +166,6 @@ def check_domain(x, y, r, a):
     """
     If the circle is fully or partially inside the domain returns TRUE
     """
-    ac = mt.atan2(y, x)
     beta1 = mt.atan2(y + r * np.cos(a), x - r * np.sin(a))
     beta2 = mt.atan2(y, x + r)
 
@@ -257,9 +256,17 @@ def cooling_channels(f, r, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
     
     return l, ps, dict_type, lp, phy_type
 
-def place_control_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
+def control_rod(f, r, a1, x, l, ps, dict_type, lp, phy_type):
+    col=[0]
+    row=[0]
+    l, ps, dict_type, lp, phy_type = place_channel(f, r, 0, 0, a1, x, [0], [0], l, ps, 'coolant', dict_type, lp, phy_type)
+
+    return l, ps, dict_type, lp, phy_type
+
+def place_control_assembly(f, rcb, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
     l, ps, dict_type, lp, phy_type = fuel_channels(f, rf, a1, p_c, x, l, ps, False, dict_type, lp, phy_type)
     l, ps, dict_type, lp, phy_type = cooling_channels(f, rc, a1, p_c, x, l, ps, False, dict_type, lp, phy_type)
+    l, ps, dict_type, lp, phy_type = control_rod(f, rcb, a1, x, l, ps, dict_type, lp, phy_type)
         
     return l, ps, dict_type, lp, phy_type
 
@@ -272,6 +279,7 @@ def place_fuel_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
 def main():    
     rc = 0.8        # Channel radius
     rf = 1.2
+    rcb = 4
     R = 10        # Moderator Radius
     a1 = np.pi/6 # angle of the plane
 
@@ -311,7 +319,7 @@ def main():
         x[i,:] = [0, (19-i)*p, 0]   
    
     for i in assemblies['control']:
-        l, ps, dict_type, lp, phy_type = place_control_assembly(f, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
+        l, ps, dict_type, lp, phy_type = place_control_assembly(f, rcb, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
     for i in assemblies['fuel']:
         l, ps, dict_type, lp, phy_type = place_fuel_assembly(f, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
 
