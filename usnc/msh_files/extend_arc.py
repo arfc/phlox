@@ -162,14 +162,15 @@ def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
 
     return l, ps
 
-def check_domain(x, y, a):
+def check_domain(x, y, r, a):
     """
     If the circle is fully or partially inside the domain returns TRUE
     """
     ac = mt.atan2(y, x)
-    # print(x, y, ac*180/np.pi)
+    beta1 = mt.atan2(y + r * np.cos(a), x - r * np.sin(a))
+    beta2 = mt.atan2(y, x + r)
 
-    if ac >= a and ac <= np.pi/2:
+    if beta1 > a and beta2 < np.pi/2:
         inside = True
     else:
         # print("Circle is outside the domain.")
@@ -182,7 +183,7 @@ def place_channel(f, r, d_x, d_y, a1, x, col, row, l, ps, type, dict_type, lp, p
         for i in row:
             xo = x[0] + i*d_x
             yo = x[1] + j*d_y
-            if check_domain(xo, yo, a1):       
+            if check_domain(xo, yo, r, a1):       
                 if check_lower(xo, yo, r, a1):
                     l, ps, dict_type, lp = plot_arc_lower(f, r, a1, xo, yo, l, ps, dict_type, lp)
                 elif check_upper(xo, yo, r):
