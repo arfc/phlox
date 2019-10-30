@@ -72,8 +72,8 @@ def plot_arc_upper(f, r, x, y, l, ps, dict_type, lp):
     f.write("Circle("+ str(l+1) +") = { "+ str(x) +", "+ str(y) +", 0, "+ str(r) +", "+ str(-alpha2) +", "+ str(alpha2) +"};\n")
     dict_type['up_arc'].append(l+1)
     points = []
-    points.append(ps + 1)
     points.append(ps + 2)
+    points.append(ps + 1)
     lp.append(points)
     
     l += 1
@@ -143,7 +143,7 @@ def place_channel(f, r, d_x, d_y, a1, x, col, row, l, ps, type, dict_type, lp, p
     
     return l, ps, dict_type, lp, phy_type
 
-def fuel_channels(f, r, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
+def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
@@ -151,74 +151,93 @@ def fuel_channels(f, r, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
     #p = 2
     #p_c = 2
 
-    col = [-1/2, 1/2]
+    col = [-4]
+    row = [-1, 0, 1]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [-7/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [-3]
+    row = [-1, 0, 1]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+
+    col = [-5/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [-2]
+    row = [-2, -1, 0, 1, 2]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [-3/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+
+    col = [-1]
+    if fuel == True:
+        row = [-2, -1, 0, 1, 2]
+        l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    else:
+        row = [-2, -1]
+        l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+        l, ps, dict_type, lp, phy_type = place_channel(f, rcb, 0, 0, a1, x, [0], [0], l, ps, 'coolant', dict_type, lp, phy_type)
+        row = [ 1, 2]
+        l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [-1/2]
     if fuel == True:
         row = [-5, -3, -1, 1, 3, 5]
     else:
         row = [-5, -3, 3, 5]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
-
-    col = [-7/2, -5/2, 5/2, 7/2]
-    row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
-
-    col = [-2, 2]
-    row = [-2, -1, 0, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
-
-    col = [-1, 1]
-    if fuel == True:
-        row = [-2, -1, 0, 1, 2]
-    else:
-        row = [-2, -1, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
-
-    col = [-4, 4]
-    row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
-
-    return l, ps, dict_type, lp, phy_type
-
-def cooling_channels(f, r, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
-    s = 2 * p_c/2 * np.tan(np.pi/6)
-    p = round(3*s, 4)
-    p2 = round(3*s/2, 4)
-
-    col = [-3, 3]
-    row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
-
-    col = [-3/2, 3/2]
-    row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [0]
     if fuel:
         row = [-2, -1, 0, 1, 2]
     else:
         row = [-2, -1, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
-    
-    return l, ps, dict_type, lp, phy_type
+    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
-def control_rod(f, r, a1, x, l, ps, dict_type, lp, phy_type):
-    col=[0]
-    row=[0]
-    l, ps, dict_type, lp, phy_type = place_channel(f, r, 0, 0, a1, x, [0], [0], l, ps, 'coolant', dict_type, lp, phy_type)
+    col = [1/2]
+    if fuel == True:
+        row = [-5, -3, -1, 1, 3, 5]
+    else:
+        row = [-5, -3, 3, 5]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
-    return l, ps, dict_type, lp, phy_type
+    col = [1]
+    if fuel == True:
+        row = [-2, -1, 0, 1, 2]
+    else:
+        row = [-2, -1, 1, 2]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
-def place_control_assembly(f, rcb, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
-    l, ps, dict_type, lp, phy_type = fuel_channels(f, rf, a1, p_c, x, l, ps, False, dict_type, lp, phy_type)
-    l, ps, dict_type, lp, phy_type = cooling_channels(f, rc, a1, p_c, x, l, ps, False, dict_type, lp, phy_type)
-    l, ps, dict_type, lp, phy_type = control_rod(f, rcb, a1, x, l, ps, dict_type, lp, phy_type)
-        
-    return l, ps, dict_type, lp, phy_type
+    col = [3/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
-def place_fuel_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
-    l, ps, dict_type, lp, phy_type = fuel_channels(f, rf, a1, p_c, x, l, ps, True, dict_type, lp, phy_type)
-    l, ps, dict_type, lp, phy_type = cooling_channels(f, rc, a1, p_c, x, l, ps, True, dict_type, lp, phy_type)
-        
+    col = [2]
+    row = [-2, -1, 0, 1, 2]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [5/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [3]
+    row = [-1, 0, 1]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+
+    col = [7/2]
+    row = [-3, -1, 1, 3]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
+    col = [4]
+    row = [-1, 0, 1]
+    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+
     return l, ps, dict_type, lp, phy_type
 
 def place_central_assembly(f, r, a, l, ps, dict_type, lp, phy_type):
@@ -338,14 +357,14 @@ def main():
         x[i,:] = [+3*d_x, (i-6)*p, 0]
     x[9,:] = [9/2*d_x, 3/2*p, 0]
 
-    for i in assemblies['control']:
-        l, ps, dict_type, lp, phy_type = place_control_assembly(f, rcb, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
     for i in assemblies['fuel']:
-        l, ps, dict_type, lp, phy_type = place_fuel_assembly(f, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
+        l, ps, dict_type, lp, phy_type = multiple_channels(f, rcb, rc, rf, a1, p_c, x[i], l, ps, True, dict_type, lp, phy_type)
+    for i in assemblies['control']:
+        l, ps, dict_type, lp, phy_type = multiple_channels(f, rcb, rc, rf, a1, p_c, x[i], l, ps, False, dict_type, lp, phy_type)
 
     # print(phy_type)
     # print(dict_type)
-    # for i in dict_type['up_arc']:
+    #for i in dict_type['low_arc']:
     #    print(lp[i])
     
     l, ps, dict_type, lp, phy_type = place_central_assembly(f, rcc, a1, l, ps, dict_type, lp, phy_type)
