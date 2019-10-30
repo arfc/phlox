@@ -572,20 +572,106 @@ Core Outlet Pressure (MPa)	&5.84 \\
 
 \pagebreak
 \section{Site Requirements}
-For site requirement, main documents are: 
 
-1. Idaho National Laboratory, “Modernization of Technical Requirements for Licensing of Advanced Non-Light Water Reactors, Probabilistic Risk Assessment Approach,” Rev 0, August 2019.
+In a White Paper \cite{nrc_staff_population-related_2019} on the “Population-Related Siting Considerations for Advanced Reactors”, two primary issues were identified for the possible deployment of advanced reactors and the NRC’s current siting requirements. The first issue is that population density should not exceed 500 persons per square mile (ppsm) out to a distance of 20 miles from a reactor site. The second issue is the use of SMRs for remote communities or smaller grids with relatively small but concentrated populations that would be near a reactor site. Due to the reduced risks and radiological releases from advanced reactor designs, the NRC is revising the existing guidance on population density.  For that purpose, the NRC suggests four options:
 
-2. Idaho National Laboratory, “Modernization of Technical Requirements for Licensing of Advanced Non-Light Water Reactors, Selection and Evaluation of Licensing Basis Events,” Rev 0, August 2019.
+Option-1: Same as the siting requirements of LWRs, with no changes to the current population-related siting regulations or the existing guidance. Fig. \ref{rprox} shows the NRC’s current siting requirements. 
 
-3. Idaho National Laboratory, “Modernization of Technical Requirements for Licensing of Advanced Non-Light Water Reactors, Safety Classification and Performance Criteria for Structures, Systems and Components,” Rev 0, August 2019.
+Option-2:  No changes in NRC regulations; however, the staff would revise the population-related guidance to include provisions for advanced reactor designs and more specifically for SMRs.
 
-4. Idaho National Laboratory, “Modernization of Technical Requirements for Licensing of Advanced Non-Light Water Reactors, Risk-Informed and Performance-Based Evaluation of Defense-inDepth Adequacy,” Rev 0, August 2019.
+Option-3: Similar to Option 2 except that the criteria are directly related to estimates of radiological consequences from design-specific events rather than a general correlation of offsite doses to radionuclide inventories or power level. 
+The following three cases involving possible offsite consequences from design-basis events and beyond-design-basis events illustrate the limitations on populations near an advanced reactor under Option 3:
+
+1. In the first case for possible advanced reactor designs, the potential offsite consequences of some beyond-design-basis events are calculated to approach 25 rem
+over the course of the event.
+
+2. The second case involves an advanced reactor design for which all design-basis events and beyond-design-basis events are calculated to result in doses to an individual at the site boundary of less than 25 rem over the duration of the event. However, for this case, the calculation of some design-basis events or beyond-design-basis events results in offsite doses exceeding 1 rem over the month following the event. 
+
+3. In the third case, the potential consequences from all design-basis and beyond-design-basis events are estimated to be below 1 rem for the month following the event for an individual at the site boundary.
+
+Option-4: Calls for the NRC staff to develop societal risk measures for assessing specific advanced reactor designs at specific sites. 
+
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{Figs/reactorproximity.jpeg}
+\caption{Reactor Proximity to Population Centers}
+\label{rprox}
+
+\flushleft
+d$_{EAB}$: exclusion area boundary (EAB) radial distance
+
+d$_{LPZ}$: low population zone (LPZ) radial distance
+
+d$_{PCD}$: population center distance (PCD) to the nearest boundary of a densely populated center
+
+d$_{20}$: 20 mile outward radial distance 
+
+EAB: radial distance based on the 25 rem criteria for any 2 hour period
+
+LPZ: radial distance based on the 25 rem criteria during the entire period of the radioactive cloud passage
+
+PCD: radial distance from the reactor to the nearest boundary of a densely populated center at least 1 1/3 that of the outer boundary of the LPZ
+
+Population Density: the staff also considers the population density of 500 persons per square mile out to 20 miles
+\end{figure} 
 
 \pagebreak
 \section{Source Term}
-A general source term analysis comprises transient scenario modeling, fuel pin radionuclide distribution, failed pin radionuclide release, radionuclide bubble transport, offsite dispersion analysis and containment region analysis. Some of them can, however, be eliminated or new ones can be added depending on which micro-reactor is to be chosen. As an example, the micro-reactor design does not include any spent fuel storage, thus the source term would not.
-For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Pathways for some advanced reactors (i.e., HTGR, \gls{SFR}, MSR) are illustrated in Fig. \ref{pathway}. There are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
+
+ For licensing existing operating reactors a mechanistic source\footnote{Mechanistic Source Term: A source term that is calculated using models and supporting scientific data that simulate the physical and chemical processes that describe the radionuclide inventories and the time-dependent radionuclide transport mechanisms that are necessary and sufficient to predict the source term.}
+ is used for the transport of the fission products from the fuel through the reactor coolant system, through all holdup volumes and barriers, taking into account mitigation features, and into the environment. Such a method method to determine accident dose is also under consideration for microRs.  
+ 
+The source term is expressed as
+
+ST(Si, RNj, t) = I(RNj).F(Si, t).MR(Si, RNj, t).PSR(Si, RNj, t).LPF(Si, RNj, t)
+
+where,
+
+ST(Si, RNj, t) - Source term as a function of the accident scenario (Si), radionuclide class (RNj), and timing (t)
+
+I(RNj) - Inventory 
+
+F(Si, t) -Fuel damage
+
+MR(Si, RNj, t) - Matrix release
+
+PSR(Si, RNj, t) - Primary system release
+
+LPF(Si, RNj, t) - Leak path factor
+
+
+A general source term analysis comprises transient scenario modeling, fuel pin radionuclide distribution, failed pin radionuclide release, radionuclide bubble transport, offsite dispersion analysis and containment region analysis. Some of them can, however, be eliminated or new ones can be added depending on which micro-reactor is to be chosen. As an example, the micro-reactor design does not include any spent fuel storage, thus the source term would not. As tabulated in Table \ref{inputandsource}, inputs that used in the source term calculation may come from experiments or other computer codes. 
+
+\begin{table} [ht]
+\begin{center}
+
+\caption{ Inputs used in the source term calculations and their sources}
+\label{inputandsource}
+\begin{tabular}{l l}
+\hline 
+Input 		&Source \\ 
+\hline 
+FP inventory 		&SCALE\\ 
+FP diffusion coefficients 		&Experiments and analysis (e.g., DOE tools) \\ 
+Core power shape		&Radial/Axial profiles (e.g., SCALE or vendor data)  \\ 
+Fuel particle failure rate response surface \\
+(function of temperature and burnup)	&Experiments/other codes (e.g., DOE tools) \\ 
+Dust generation, lift-off, and FP adsorption on dust \\
+(impact of aerosol growth, shape factor, etc.)	& Experiments/Historical data and other codes\\ 
+FP release under accident conditions \\including air/water ingress 	&Experiments \\ 
+FP speciation and interaction \\with graphite and other structures &Experiments  \\ 
+\hline 
+
+\end{tabular}
+\end{center}
+\end{table}
+
+
+MicroRs have significantly lower source terms (about 1\% of typical 1000 MWe LWR) due to their reduced fuel inventory and passive safety features. A reduced source term would facilitate siting SMRs in locations where nuclear plants have not been traditionally sited.
+
+For the source term analysis of a selected micro-reactor design, phenomena and release paths of accident scenarios first need to be identified. Eventhough pathways for some advanced reactors (i.e., HTGR, \gls{SFR}, MSR) illustrated in Fig. \ref{pathway} are known  \cite{noauthor_htgr_2010}, there are on-going discussions in the NRC on the evaluation of the source term of micro-reactors; it is expected to come to a conclusion on the licencing issues including the source term by the end of this year (estimated). 
 
 \begin{figure}[hbtp]
 \centering
@@ -594,10 +680,12 @@ For the source term analysis of a selected micro-reactor design, phenomena and r
 \label{pathway}
 \end{figure}
 
-There is a possibility to make an assumption for the pathway identification of the micro-reactors. We can use the same or modified pathways of the existing reactors, accepted by the NRC, for the analogy to the selected micro-reactor design. Yet, heat pipe reactors may still require as the release ways have not completely known.
-The method for the source term calculation recommended by the NRC is given in Fig. \ref{sourceterm}. The method to be applied changes with the type of the reactor. In any cases, MELCOR, system accident analysis code, produce the source term for the defined design-basis accidents. 
-For probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 \gls{PRA} including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.   
-The methodology and the results on the source term calculations are presented in detail in the relevant documents of NuScale \cite{nuscale_chapter_2018-1} and eVinci \cite{maioli_westinghouse_2019}.
+There is a possibility to make an assumption for the pathway identification of the micro-reactors. We can use the same or modified pathways of the existing reactors, accepted by the NRC, for the analogy to the selected micro-reactor design. 
+
+A recent document by the NRC \cite{noauthor_nrc_2019} has published for the source term calculations of non-LWR reactors.
+The method for the source term calculation recommended by the NRC is given in Fig. \ref{sourceterm}. The method to be applied changes with the type of the reactor. In any cases, as a code system, SCALE calculates radioactive material composition for the licensed current and advanced reactors and provides necessary data to MELCOR. MELCOR, system accident analysis code, produce the source term for the defined design-basis accidents. And then, for probabilistic offsite consequence analysis bounded by the calculated source term, MACCS code needs to be utilized. The code is capable of evaluating the Level 3 \gls{PRA} including the radionuclide release, atmospheric transport, meteorology, protective actions, site data, dosimetry, health effects, economic factors, and so forth. Design-specific and site-related issues must be input to the code.  Meteorological statistics (i.e., day and night temperatures, magnitude and direction of the wind, tornados, flooding level), topographical data and population density and distribution, habitat of the animals and the location of the endemic plants are to be recorded.  
+ 
+The methodology and the results on the source term calculations are presented in detail in the relevant documents of NuScale \cite{nuscale_chapter_2018-1} and eVinci \cite{maioli_westinghouse_2019}.According to the NuScale, the potential radionuclide source term associated with a severe accident is much smaller (5\%) than that associated with a 1000 MWe design. This value is 1\% for eVinci. 
 
 \begin{figure}[hbtp]
 \centering
@@ -606,7 +694,19 @@ The methodology and the results on the source term calculations are presented in
 \label{sourceterm}
 \end{figure}
 
-According to the NuScale, the potential radionuclide source term associated with a severe accident is much smaller (5\%) than that associated with a 1000 MWe design. This value is 1\% for eVinci. 
+\subsection{HTGR}
+Pathway for HTGR is given in the reference  \cite{noauthor_htgr_2010}. There is a generic pathway almost for all HTGRs. NRC evaluation model for HTGRs is displayed in Fig. \ref{sourceterm}. Source term calculation for HTGRs is given in Fig.  \ref{htgrsourceterm}. 
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.5]{Figs/htgrsourceterm.jpeg}
+\caption{Source term calculation for HTGRs}
+\label{htgrsourceterm}
+\end{figure}
+
+\subsection{Heat Pipe Reactor}
+In contrast to HTGRs, pathways for the radioactive material release from the heat pipe reactors are completely unknown. However, source term evaluation model is very similar to HTGRs once the pathway of HPRs is defined.  
+
 
 \pagebreak
 \section{Licencing Procedure}
