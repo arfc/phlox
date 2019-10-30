@@ -159,56 +159,59 @@ def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, ph
 
     col = [-4]
     row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [-7/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [-3]
     row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
     col = [-5/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [-2]
     row = [-2, -1, 0, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [-3/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
     col = [-1]
     if fuel == True:
         row = [-2, -1, 0, 1, 2]
-        l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+        #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
     else:
         row = [-2, -1]
         l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
         l, ps, dict_type, lp, phy_type = place_channel(f, rcb, 0, 0, a1, x, [0], [0], l, ps, 'coolant', dict_type, lp, phy_type)
         row = [ 1, 2]
-        l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+        #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [-1/2]
     if fuel == True:
-        row = [-5, -3, -1, 1, 3, 5]
+        #row = [-5, -3, -1, 1, 3, 5]
+        row = [-1, 1]
     else:
         row = [-5, -3, 3, 5]
     l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [0]
     if fuel:
-        row = [-2, -1, 0, 1, 2]
+        #row = [-2, -1, 0, 1, 2]
+        row = [-1, 0, 1]
     else:
         row = [-2, -1, 1, 2]
     l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
     col = [1/2]
     if fuel == True:
-        row = [-5, -3, -1, 1, 3, 5]
+        #row = [-5, -3, -1, 1, 3, 5]
+        row = [-1, 1]
     else:
         row = [-5, -3, 3, 5]
     l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
@@ -218,31 +221,31 @@ def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, ph
         row = [-2, -1, 0, 1, 2]
     else:
         row = [-2, -1, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [3/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rc, p2, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
     col = [2]
     row = [-2, -1, 0, 1, 2]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [5/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [3]
     row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rc, p, p_c, a1, x, col, row, l, ps, 'coolant', dict_type, lp, phy_type)
 
     col = [7/2]
     row = [-3, -1, 1, 3]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p2, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     col = [4]
     row = [-1, 0, 1]
-    l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
+    #l, ps, dict_type, lp, phy_type = place_channel(f, rf, p, p_c, a1, x, col, row, l, ps, 'fuel', dict_type, lp, phy_type)
 
     return l, ps, dict_type, lp, phy_type
 
@@ -329,16 +332,24 @@ def place_moderator(f, r, a, l, ps, dict_type, lp, phy_type):
 
     return l, ps, dict_type, lp, phy_type
 
+def define_moderator(l, ps, dict_type, lp):
+    for i in range(1, l-1):
+        f.write("//+\nCurve Loop("+ str(i) +") = {"+ str(i) +"};\n")
+        f.write("//+\nPlane Surface("+ str(i) +") = {"+ str(i) +"};\n")
+
 def main():    
-    rc = 0.8        # Channel radius
-    rf = 1.2
+    #rc = 0.8        # Channel radius
+    rc = 2.0        # Channel radius
+    #rf = 1.2
+    rf = 3.5
     rcb = 4
     rcc = 6
-    R = 205        # Moderator Radius
+    R = 70        # Moderator Radius
     a1 = np.pi/6 # angle of the plane
 
     d_x = 30
-    p_c = 5.6 # pitch between channels [cm]
+    #p_c = 5.6 # pitch between channels [cm]
+    p_c = 12 # pitch between channels [cm]
     p = 2*d_x/2/np.tan(np.pi/6)
 
     l = 0
@@ -350,8 +361,10 @@ def main():
     f.write('// Gmsh whatever\n')
     f.write('SetFactory("OpenCASCADE");\n//+\n')
 
-    assemblies = {'control': [3, 5, 9],
-                  'fuel': [1, 2, 4, 6, 7, 8]}
+    #assemblies = {'control': [3, 5, 9],
+    #              'fuel': [1, 2, 4, 6, 7, 8]}
+    assemblies = {'control': [],
+                  'fuel': [1, 4]}
     phy_type = {'fuel': [], 'coolant': [], 'moderator': []}
 
     x = np.zeros((10,3))       
@@ -379,9 +392,11 @@ def main():
     # print(lp)
     f.write("Point("+ str(ps+1) +") = { 0, 0, 0, 1.0};\n")
     ps += 1
-    print(dict_type['central'])
+    #print(dict_type['central'])
     l, ps = plot_lower_lines(f, R, a1, l, ps, dict_type, lp)
     l, ps = plot_upper_lines(f, R, l, ps, dict_type, lp)
+
+    define_moderator(l, ps, dict_type, lp)
 
     f.close()
 
