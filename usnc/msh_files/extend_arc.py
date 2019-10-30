@@ -221,27 +221,40 @@ def place_fuel_assembly(f, rc, rf, a1, p_c, x, l, ps, dict_type, lp, phy_type):
         
     return l, ps, dict_type, lp, phy_type
 
+def place_central_assembly(f, r, a, l, ps, dict_type, lp, phy_type):
+    
+    f.write("Circle("+ str(l+1) +") = { 0, 0, 0, "+ str(r) +", "+ str(a) +", "+ str(np.pi/2) +"};\n")
+    dict_type['central'].append(l+1)
+    points = []
+    points.append(ps + 1)
+    points.append(ps + 2)
+    lp.append(points)
+    
+    l += 1
+    ps += 2
+
+    return l, ps, dict_type, lp, phy_type
+
 def plot_upper_lines(f, R, l, ps, dict_type, lp):
     X = 0
     Y = R
-    #f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")
-    if ps-l == 0:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps-2) +"};\n")
-    else:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
-        cc = 2
-        for i in range(len(dict_type['up_arc'][:-1])):
-            j0 = dict_type['up_arc'][i]
-            j1 = dict_type['up_arc'][i+1]
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
-            cc += 1
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
-            cc += 1
-        
-        i = dict_type['up_arc'][-1]
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+
+    f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['central'][-1]][0]) +"};\n")
+    f.write("Line("+ str(l+2) +") = { "+ str(lp[dict_type['central'][-1]][0]) +", "+ str(lp[dict_type['up_arc'][0]][0]) +"};\n")
+    cc = 3
+    for i in range(len(dict_type['up_arc'][:-1])):
+        j0 = dict_type['up_arc'][i]
+        j1 = dict_type['up_arc'][i+1]
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
         cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps-2) +"};\n")
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
+        cc += 1
+    
+    i = dict_type['up_arc'][-1]
+    f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+    cc += 1
+    f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(lp[dict_type['mod'][-1]][0]) +"};\n")
+    cc += 1
     l += cc
 
     return l, ps
@@ -249,27 +262,24 @@ def plot_upper_lines(f, R, l, ps, dict_type, lp):
 def plot_lower_lines(f, R, a, l, ps, dict_type, lp):
     X = R * np.cos(a)
     Y = R * np.sin(a)
-    #f.write("Point("+ str(ps+1) +") = { "+ str(X) +", "+ str(Y) +", 0, 1.0};\n")      
-    if ps-l == 1:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(ps-1) +"};\n")
-        cc = 1
-    else:
-        f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['low_arc'][0]][0]) +"};\n")      
-        cc = 2
-        for i in range(len(dict_type['low_arc'][:-1])):
-            j0 = dict_type['low_arc'][i]
-            j1 = dict_type['low_arc'][i+1]
-            # print(j0,j1)
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
-            cc += 1
-            f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
-            cc += 1
-        
-        i = dict_type['low_arc'][-1]
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+
+    f.write("Line("+ str(l+1) +") = { "+ str(ps) +", "+ str(lp[dict_type['central'][-1]][1]) +"};\n")
+    f.write("Line("+ str(l+2) +") = { "+ str(lp[dict_type['central'][-1]][1]) +", "+ str(lp[dict_type['low_arc'][0]][0]) +"};\n")
+    cc = 3
+    for i in range(len(dict_type['low_arc'][:-1])):
+        j0 = dict_type['low_arc'][i]
+        j1 = dict_type['low_arc'][i+1]
+        # print(j0,j1)
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][0]) +", "+ str(lp[j0][1]) +"};\n")
         cc += 1
-        f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(ps-1) +"};\n")
-        l += cc
+        f.write("Line("+ str(l+cc) +") = { "+ str(lp[j0][1]) +", "+ str(lp[j1][0]) +"};\n")
+        cc += 1
+    
+    i = dict_type['low_arc'][-1]
+    f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][0]) +", "+ str(lp[i][1]) +"};\n")
+    cc += 1
+    f.write("Line("+ str(l+cc) +") = { "+ str(lp[i][1]) +", "+ str(lp[dict_type['mod'][-1]][1]) +"};\n")
+    cc += 1
     l += cc
 
     return l, ps
@@ -298,6 +308,7 @@ def main():
     rc = 0.8        # Channel radius
     rf = 1.2
     rcb = 4
+    rcc = 6
     R = 205        # Moderator Radius
     a1 = np.pi/6 # angle of the plane
 
@@ -307,7 +318,7 @@ def main():
 
     l = 0
     ps = 0
-    dict_type = {'circle':[], 'up_arc':[], 'low_arc':[], 'mod':[]}
+    dict_type = {'circle':[], 'up_arc':[], 'low_arc':[], 'mod':[], 'central':[]}
     lp = [0] # list of points
 
     f = open("untitled.geo","w+")
@@ -332,19 +343,22 @@ def main():
     for i in assemblies['fuel']:
         l, ps, dict_type, lp, phy_type = place_fuel_assembly(f, rc, rf, a1, p_c, x[i], l, ps, dict_type, lp, phy_type)
 
-    #print(phy_type)
-    #print(dict_type)
-    #for i in dict_type['up_arc']:
+    # print(phy_type)
+    # print(dict_type)
+    # for i in dict_type['up_arc']:
     #    print(lp[i])
-
+    
+    l, ps, dict_type, lp, phy_type = place_central_assembly(f, rcc, a1, l, ps, dict_type, lp, phy_type)
     l, ps, dict_type, lp, phy_type = place_moderator(f, R, a1, l, ps, dict_type, lp, phy_type)
-    print(lp)
+    
+    # print(lp)
     f.write("Point("+ str(ps+1) +") = { 0, 0, 0, 1.0};\n")
     ps += 1
+    print(dict_type['central'])
     l, ps = plot_lower_lines(f, R, a1, l, ps, dict_type, lp)
     l, ps = plot_upper_lines(f, R, l, ps, dict_type, lp)
 
-    f.close()        
+    f.close()
 
 if __name__ == "__main__":
     main()
