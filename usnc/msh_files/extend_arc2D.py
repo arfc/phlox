@@ -144,6 +144,12 @@ def place_channel(f, r, d_x, d_y, a1, x, col, row, l, ps, type, dict_type, lp, p
     return l, ps, dict_type, lp, phy_type
 
 def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
+    """
+    The channels are defined from left to right and from the bottom to the top.
+    To add the side lines, the channels have to be defined that way. Otherwise
+    the lines would be a mess.
+
+    """
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
