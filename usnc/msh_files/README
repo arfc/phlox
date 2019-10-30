@@ -3,6 +3,12 @@ Python scripts:
 * geometry_extrude2.py: produces a geometry (.geo) based on the placement of circles and then it extrudes them to generate a 3D geometry. This is the one that works. The extension of this script is 'moltres_geometry.py'.
 * moltres_geometry.py: produces a the 3D geometry of the MMR. It is based on the script 'geometry_extrude2.py'.
 
+* get_arc_upper.py: produces arcs instead of circles if they intersect the upper line (90 degrees)
+* get_arc_lower.py: produces arcs instead of circles if they intersect the lower line (angle a1)
+* get_arc.py: produces arcs instead of circles if they intersect any of the lines. It doesn't contemplate the case where the circle intersects both lines.
+*extend_arc.py: extends get_arc for a simple reactor geometry. Meant to apply get_arc to geometry3D_extrude2.py
+
+
 .geo & .msh files:
 ------------------
 * 2fuel2.geo: produced by "geometry_extrude2.py". It defines 2 fuel channels and the moderator.

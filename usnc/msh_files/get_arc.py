@@ -1,5 +1,6 @@
 """
-Script that intersects circles with a line and plots arcs instead.
+Script that intersects circles with upper and lower lines and plots arcs instead.
+It does not contemplate the case of being a circle that intersects boths lines.
 """
 
 import numpy as np
