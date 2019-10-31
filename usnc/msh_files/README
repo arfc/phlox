@@ -6,8 +6,8 @@ Python scripts:
 * get_arc_upper.py: produces arcs instead of circles if they intersect the upper line (90 degrees)
 * get_arc_lower.py: produces arcs instead of circles if they intersect the lower line (angle a1)
 * get_arc.py: produces arcs instead of circles if they intersect any of the lines. It doesn't contemplate the case where the circle intersects both lines.
-*extend_arc.py: extends get_arc for a simple reactor geometry. Meant to apply get_arc to geometry3D_extrude2.py
-
+* extend_arc2D.py: extends get_arc for a simple reactor geometry. Meant to apply get_arc to moltres_geometry2D.py
+*extend_arc3D.py: extend last case 2 3D. I will leave it in 2D and then do it by hand. I will work on this in the future. Produces MMR3D_cut30.geo's 2D geometry, and then I extruded it by hand.
 
 .geo & .msh files:
 ------------------
@@ -15,3 +15,5 @@ Python scripts:
 * 4fuel.geo: produced by "geometry_extrude2.py". It defines 4 fuel channels and the moderator.
 
 * cut1.geo: simple geometry that defines a single fuel channel and the moderator. The moderator has the shape of slice of pizza. The fuel channel is completely defined in the geometry.
+
+* MMR3D_cut30.geo has 3D geometry of the MMR with 1/12th (30 degrees) of the reactor.
