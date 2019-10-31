@@ -335,7 +335,7 @@ def main():
     rcb = 4
     rcc = 6
     R = 205        # Moderator Radius
-    a1 = np.pi/6 # angle of the plane
+    a1 = np.pi/3 # angle of the plane
 
     d_x = 30
     p_c = 5.6 # pitch between channels [cm]
