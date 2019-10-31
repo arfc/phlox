@@ -333,9 +333,17 @@ def place_moderator(f, r, a, l, ps, dict_type, lp, phy_type):
     return l, ps, dict_type, lp, phy_type
 
 def define_moderator(l, ps, dict_type, lp):
+    lp[dict_type['low_arc'][0]][0]
+    
+
+    cl = 0 # curve loops
+    f.write("//+\nCurve Loop("+ str(cl+1) +") = {")
     for i in range(1, l-1):
-        f.write("//+\nCurve Loop("+ str(i) +") = {"+ str(i) +"};\n")
-        f.write("//+\nPlane Surface("+ str(i) +") = {"+ str(i) +"};\n")
+        f.write(str(i) +"};\n")
+    
+    cl += 1
+    
+    f.write("//+\nPlane Surface("+ str(i) +") = {"+ str(i) +"};\n")
 
 def main():    
     #rc = 0.8        # Channel radius
