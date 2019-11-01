@@ -198,7 +198,7 @@ set bc 1
 
 % --- Neutron population and criticality cycles:
 
-set pop 2000 500 10
+set pop 5000 100 40
 
 % --- Geometry plot:
 
