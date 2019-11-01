@@ -1,4 +1,4 @@
-/*This input file defines a hexagonal elementary cell for FCM fuel.*/
+/*This input file defines a hexagonal elementary cell for the FCM fuel.*/
 
 /**********************************
 *       Particle Definition       *
@@ -85,7 +85,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Neutron population and criticality cycles:
 
-set pop 2000 500 10
+set pop 5000 100 40
 
 % --- Geometry plot:
 
