@@ -3,8 +3,8 @@
 
 /**********************************
 *       Particle Definition       *
-* Kernel UN Diameter (D) 700e-6 m *
-* Buffer Thickness (T) 50e-6 m    *
+* Kernel UN Diameter (D) 800e-6 m *
+* Buffer Thickness (T) 75e-6 m    *
 * IPyC T 35e-6 m                  *
 * SiC T 35e-6 m                   *
 * OPyC T 20e-6 m                  *
@@ -13,24 +13,24 @@
 % -- Coated Particle
 particle 1
 
-un     0.035
-buffer 0.04
-pyc    0.0435
-sic    0.047
-pyc    0.049
+un     0.04
+buffer 0.0475
+pyc    0.0510
+sic    0.0545
+pyc    0.0565
 sic
 
 surf 1 inf
-cell 1 2 sic -1
-pbed 10 2 "dispersed_particles.inp"
+cell 101 2 sic -1
+pbed 10 2 "dispersed_particles4.inp"
 
 % -- Fuel Channel
-surf 2 cyl 0.0 0.0 0.7 0.0 1.0
-surf 10 cyl 0.0 0.0 0.7 0.0 64.0
-surf 11 cyl 0.0 0.0 1.0 0.0 64.0
+surf 2 cyl 0.0 0.0 0.9 0.0 1.0
+surf 10 cyl 0.0 0.0 0.9 0.0 64.0
+surf 11 cyl 0.0 0.0 1.08 0.0 64.0
 
-cell 30 12 fill 10 -2
-cell 31 12 sic      2
+cell 130 12 fill 10 -2
+cell 131 12 sic      2
 
 lat 11 9 0.0 0.0 64 
   0.0 12  1.0 12  2.0 12  3.0 12
@@ -50,20 +50,20 @@ lat 11 9 0.0 0.0 64
  56.0 12 57.0 12 58.0 12 59.0 12
  60.0 12 61.0 12 62.0 12 63.0 12
 
-cell 2 3 fill 11 -10
-cell 3 3 helium   10 -11
-cell 4 3 block    11
+cell 102 3 fill 11 -10
+cell 103 3 helium   10 -11
+cell 104 3 block    11
 
 % -- Coolant Channel
 surf 20 cyl 0.0 0.0 0.77 0.0 64.0
 
-cell 5 4 helium -20
-cell 6 4 block   20
+cell 105 4 helium -20
+cell 106 4 block   20
 
 % -- Graphite (Empty) Channel
 
 surf 5 inf
-cell 7 5 block -5
+cell 107 5 block -5
 
 % -- Fuel Block Lattice
 
@@ -84,8 +84,8 @@ lat 20 3 0.0 0.0 13 13 5.6
 
 surf 30 hexyprism 0.0 0.0 26.0 0.0 64.0
 
-cell 10 8 fill 20  -30
-cell 11 8 block     30
+cell 110 8 fill 20  -30
+cell 111 8 block     30
 
 % -- Control Block Lattice
 
@@ -107,16 +107,16 @@ lat 21 3 0.0 0.0 13 13 5.6
 surf 31 cyl 0.0 0.0 4.0 0.0 64.0
 surf 32 hexyprism 0.0 0.0 26.0 0.0 64.0
 
-cell 12 7 helium   -31
-cell 13 7 fill 20   31 -32
-cell 14 7 block     32
+cell 112 7 helium   -31
+cell 113 7 fill 20   31 -32
+cell 114 7 block     32
 
 % -- Central Block
 
 surf 33 cyl 0.0 0.0 6.0 0.0 64.0
 
-cell 15 6 helium   -33
-cell 16 6 block     33
+cell 115 6 helium   -33
+cell 116 6 block     33
 
 % -- Core Lattice
 
@@ -140,11 +140,11 @@ surf 37 cyl 0.0 0.0 215.0  -2.5  0.0
 surf 38 cyl 0.0 0.0 215.0  64.0 66.5
 surf 39 cyl 0.0 0.0 215.0  -2.5 66.5
 
-cell 21 0 fill 22   -35
-cell 22 0 reflector  35 -36
-cell 23 0 block     -37
-cell 24 0 block     -38
-cell 25 0 outside    39
+cell 121 0 fill 22   -35
+cell 122 0 reflector  35 -36
+cell 123 0 block     -37
+cell 124 0 block     -38
+cell 125 0 outside    39
 
 /**********************************
 *            Materials            *
