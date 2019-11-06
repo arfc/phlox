@@ -9,11 +9,18 @@
   [../]
 []
 
-[Kernels]
+[Kernels] 
   [./diff_fuel]
     type = TempDiffusion
     variable = temperature
     diffcoef = 10.18
+    block = 'fuel'
+  [../]
+
+  [./source]
+    type = TempSource
+    variable = temperature
+    src = 10.9
     block = 'fuel'
   [../]
 
