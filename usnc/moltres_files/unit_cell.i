@@ -10,6 +10,12 @@
 []
 
 [Kernels] 
+  #[./temp_time_derivative]
+  #  type = MatINSTemperatureTimeDerivative
+  #  variable = temperature
+  #  block = 'fuel'
+  #[../]
+
   [./diff_fuel]
     type = TempDiffusion
     variable = temperature
@@ -24,12 +30,25 @@
     block = 'fuel'
   [../]
 
+  [./temp_advection_fuel]
+    type = ConservativeAdvection
+    velocity = '0 0 -0.01'
+    variable = temperature
+    block = 'coolant'
+  [../]
+
   [./diff_cool]
     type = TempDiffusion
     variable = temperature
     diffcoef = 0.35
     block = 'coolant'
   [../]
+
+  #[./temp_time_derivative]
+  #  type = MatINSTemperatureTimeDerivative
+  #  variable = temperature
+  #  block = 'moderator'
+  #[../]
 
   [./diff_mod]
     type = TempDiffusion
@@ -40,18 +59,18 @@
 []
 
 [BCs]
-  [./left]
+  [./top]
     type = DirichletBC
     variable = temperature
-    boundary = 'fuel_bottom coolant_bottom moderator_bottom'
-    value = 0
+    boundary = 'fuel_top coolant_top moderator_top'
+    value = 1
   [../]
 
-  [./right]
-    type = DirichletBC
+  [./temp_advection_outlet]
+    boundary = 'coolant_bottom'
+    type = TemperatureOutflowBC
     variable = temperature
-    boundary = 'coolant_top'
-    value = 1
+    velocity = '0 -0.01 0'
   [../]
 []
 
