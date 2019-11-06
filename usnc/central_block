@@ -1,47 +1,7 @@
 /* This input file defines the central block. */
 
-/**********************************
-*       Particle Definition       *
-* Kernel UN Diameter (D) 700e-6 m *
-* Buffer Thickness (T) 50e-6 m    *
-* IPyC T 35e-6 m                  *
-* SiC T 35e-6 m                   *
-* OPyC T 20e-6 m                  *
-* Matrix SiC                      *
-**********************************/
-% -- Coated Particle
-particle 1
-
-un     0.035
-buffer 0.04
-pyc    0.0435
-sic    0.047
-pyc    0.049
-sic
-
-surf 1 inf
-cell 1 2 sic -1
-pbed 10 2 "dispersed_particles1047.inp"
-
-% -- Fuel Channel
-surf 10 cyl 0.0 0.0 0.7 0.0 1.0
-surf 11 cyl 0.0 0.0 1.0 0.0 1.0
-
-%cell 2 3 fill 10 -10
-cell 2 3 un      -10
-cell 3 3 helium   10 -11
-cell 4 3 block    11
-
-% -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 0.0 1.0
-
-cell 5 4 helium -20
-cell 6 4 block   20
-
-% -- Lattice
-
-surf 30 cyl 0.0 0.0 6.0 0.0 1.0
-surf 31 hexyprism 0.0 0.0 26.0 0.0 1.0
+surf 30 cyl 0.0 0.0 6.0 0.0 4.0
+surf 31 hexyprism 0.0 0.0 15.0 0.0 4.0
 
 cell 10 0 helium   -30
 cell 11 0 block     30 -31
