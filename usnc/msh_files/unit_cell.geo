@@ -36,7 +36,7 @@ Curve Loop(3) = {8, -1, 4, 5, -2};
 //+
 Plane Surface(3) = {3};
 //+
-Extrude {0, 0, 200} {
+Extrude {0, 0, 50} {
   Surface{1}; Surface{3}; Surface{2}; Layers{20}; Recombine;
 }
 //+
