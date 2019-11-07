@@ -56,7 +56,7 @@ lat 20 3 0.0 0.0 13 13 3.2
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 15.0 0.0 1.0
+surf 30 hexyprism 0.0 0.0 15.0 0.0 4.0
 
 cell 107 0 fill 20  -30
 cell 108 0 outside   30
@@ -117,7 +117,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Periodic boundary condition:
 
-set bc 3
+%set bc 3
 
 % --- Neutron population and criticality cycles:
 
@@ -125,5 +125,5 @@ set pop 5000 100 40
 
 % --- Geometry plot:
 
-plot 3 600 600 0.2 -2.7 2.7 -2.4 2.4
-plot 1 1000 500 0.0 -2.3 2.3 -0.0 1.0
+plot 3  600 600 0.2 -15. 15. -15. 15.
+plot 1 1000 500 0.0 -15. 15. -0.25 1.25
