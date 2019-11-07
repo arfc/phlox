@@ -117,7 +117,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Periodic boundary condition:
 
-%set bc 3
+set bc 3
 
 % --- Neutron population and criticality cycles:
 
@@ -126,4 +126,12 @@ set pop 5000 100 40
 % --- Geometry plot:
 
 plot 3  600 600 0.2 -15. 15. -15. 15.
-plot 1 1000 500 0.0 -15. 15. -0.25 1.25
+plot 1 1000 500 0.0 -15. 15. -0.25 4.25
+
+% -- 1 Group generation
+% I think 3 includes the He, and 10 is just the pellet
+% 5 should be the moderator
+% 4 should be the coolant channels
+
+set gcu 3 10 5
+set nfg 2 0.625E-6
