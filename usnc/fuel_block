@@ -58,7 +58,7 @@ lat 20 3 0.0 0.0 13 13 3.2
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 15.0 0.0 1.0
+surf 30 hexyprism 0.0 0.0 15.0 0.0 4.0
 
 cell 107 0 fill 20  -30
 cell 108 0 outside   30
