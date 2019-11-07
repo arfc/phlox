@@ -29,7 +29,7 @@
 
  [./temp_advection_coolant]
    type = ConservativeTemperatureAdvection
-   velocity = '0 0 2.5'
+   velocity = '0 0 -2.5'
    variable = temp
    block = 'coolant'
  [../]
@@ -43,17 +43,17 @@
 
 [BCs]
   [./temp_diri_cg]
-    boundary = 'moderator_bottom fuel_bottom coolant_bottom'
+    boundary = 'moderator_top fuel_top coolant_top'
     type = DirichletBC
     variable = temp
     value = 600
   [../]
 
   [./temp_advection_outlet]
-    boundary = 'coolant_top'
+    boundary = 'coolant_bottom'
     type = TemperatureOutflowBC
     variable = temp
-    velocity = '0 0 2.5'
+    velocity = '0 0 -2.5'
   [../]
 []
 
@@ -62,18 +62,18 @@
     type = GenericConstantMaterial
     block = 'fuel'
     prop_names = 'k cp rho'
-    prop_values = '10.18 1. 3.84'
+    prop_values = '10.18 1. 3.84' #rho is actually rho*cp [J/m3/K]
   [../]
   [./coolant]
     type = GenericConstantMaterial
     block = 'coolant'
     prop_names = 'k cp rho'
-    prop_values = '0.35 5.19 1.'
+    prop_values = '0.35 5.19 1.' #rho is 1, and velocity is m_dot (mass flow)
   [../]
   [./moder]
     type = GenericConstantMaterial
     prop_names = 'k cp rho'
-    prop_values = '30.0 1. 2.9'
+    prop_values = '30.0 1. 2.9' #rho is actually rho*cp [J/m3/K]
     block = 'moderator'
   [../]
 []
