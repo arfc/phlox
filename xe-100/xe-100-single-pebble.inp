@@ -26,7 +26,9 @@ mat cool      -0.00408
 % --- nat comp for now
 
 mat graph    -1.74
- 6000.09c    1.0
+ 6000.09c    9.99E-01
+ 5010.09c    4.975E-07
+ 5011.09c    2.0025E-06
 
 % --- graph mat can be used for carbon buffer in TRISO particle
 % --- below input other TRISO mats
@@ -76,15 +78,15 @@ surf 1 sph  0.0 0.0 0.0 2.5
 surf 2 sph  0.0 0.0 0.0 3.0
 surf 3 cube 0.0 0.0 0.0 3.0
 
-cell 1 0 fill 10  -1
-cell 2 0 graph     1 -2
-cell 3 0 cool      2 -3
-cell 4 0 outside   3
+cell 50 0 fill 10  -1
+cell 60 0 graph     1 -2
+cell 70 0 cool      2 -3
+cell 80 0 outside   3
 
 
 % run parameters
 
-set pop 3000 500 50
+set pop 7000 500 50
 
 % unsure of bc choice
 
