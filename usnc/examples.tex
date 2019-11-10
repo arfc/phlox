@@ -1,0 +1,175 @@
+\documentclass[11pt,letterpaper]{article}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\usepackage[utf8]{inputenc}
+\usepackage{caption} % for table captions
+\usepackage{amsmath} % for multi-line equations and piecewises
+\DeclareMathOperator{\sign}{sign}
+\usepackage{graphicx}
+\usepackage{relsize}
+\usepackage{xspace}
+\usepackage{verbatim} % for block comments
+\usepackage{subcaption} % for subfigures
+\usepackage{enumitem} % for a) b) c) lists
+\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}%
+\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}%
+\newcommand{\deploy}{\texttt{d3ploy}\xspace}%
+\newcommand{\Deploy}{\texttt{D3ploy}\xspace}%
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{float} 
+\usepackage[acronym,toc]{glossaries}
+%\include{acros}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\newcolumntype{b}{X}
+\newcolumntype{f}{>{\hsize=.15\hsize}X}
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+\newcolumntype{m}{>{\hsize=.75\hsize}X}
+\newcolumntype{r}{>{\hsize=1.1\hsize}X}
+\usepackage{titling}
+\usepackage[hang,flushmargin]{footmisc}
+\renewcommand*\footnoterule{}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes.geometric,arrows}
+\tikzstyle{process} = [rectangle, rounded corners, 
+minimum width=1cm, minimum height=1cm,text centered, draw=black, 
+fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\graphicspath{}
+\title{Micro Modular Reactor - USNC}
+\author{Roberto E. Fairhurst Agosta}
+
+\begin{document}
+%	\begin{titlepage}
+%		\maketitle
+%		\thispagestyle{empty}
+%	\end{titlepage}
+
+\section{Description}	
+
+The Micro Modular Reactor (MMR) concept integrates power production, power conversion, and electricity generation in a single unit, making it suitable for use in remote areas. 
+The MMR will use fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
+The power of this reactor will range between 10 to 40 MW-thermal and its cycle length will be greater than 20 years.
+The MMR design results attractive for replacing diesel generators in remote areas. As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
+
+\section{Serpent2 Model}
+
+The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side. 3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}. The fuel assembly consists of 54 fuel channels and 19 cooling channels. The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels. The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}. The fuel channels are 2 cm diameter. The fuel compacts are 1.4 cm diameter. The fuel channel wall and the compacts have a 0.3 cm gap filled with He. The cooling channels are 1.45 cm diameter. The core has a top and bottom reflector of graphite. The hexagonal core as a radial reflector of graphite and another one of BeO.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{figures/MMR_full_stack_geom1.png}
+	\hfill
+	\caption{XY cross section of the full core Serpent2 model geometry.}
+	\label{fig:FullXY}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{figures/MMR_full_stack_geom2.png}
+	\hfill
+	\caption{YZ cross section of the full core Serpent2 model geometry.}
+	\label{fig:FullYZ}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/fuel_block_geom1.png} 
+	\hfill
+	\caption{Fuel Assembly Serpent2 model geometry.}
+	\label{fig:FuelAssembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/control_block_geom1.png} 
+	\hfill
+	\caption{Control Rod Assembly Serpent2 model geometry.}
+	\label{fig:ControlRodAssembly}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{figures/central_block_geom1.png}
+	\hfill
+	\caption{Central Assembly Serpent2 model geometry.}
+	\label{fig:CentralAssembly}
+\end{figure}
+
+\subsection{FCM}
+
+The fuel compact (Fig. \ref{fig:FCM}) is 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}. The fuel compact contains the TRISO particles in Carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}. The model assumes a 40\% packing fraction. The following section describes the particles and the compact.
+Serpent2 has a capability to randomly distribute particles in a volume. We used such capability to define this model.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
+		\caption{XY cross section.}
+		\label{fig:FCM_xy}
+	\end{subfigure}
+	\begin{subfigure}[t]{0.4\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
+		\caption{YZ cross section.}
+		\label{fig:FCM_yz}
+	\end{subfigure}
+	\hfill
+	\caption{FCM Serpent2 model geometry for different cross-sections.}
+	\label{fig:FCM}
+\end{figure}
+
+\subsection{TRISO particles}
+
+A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}. The kernel has the fissile material (UO$_2$, UCO, UN, etc.). The layers (from the inside to the outside) are buffer, inner pyrolytic carbon (IPyC), silicon carbide (SiC), and outer pyrolytic carbon (OPyC).
+The model assumes a kernel of UN with a 700 $\mu$m-diameter. The layers have a thickness of 50, 35, 35, and 20 $\mu$m, respectively.
+The density for the kernel is 14.32 g/cc and for the layers it is 1.05, 1.9, 3.18, 1.9 g/cc, respectively. The enrichment is 12\%. For the SiC, the layer has a Si weight fraction of 70.05\% while the rest is Graphite. The rest of the layers only component is Graphite.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{figures/triso1.png}
+	\hfill
+	\caption{Typical TRISO particle [Add reference to the website].}
+	\label{fig:triso}
+\end{figure}
+
+\section{Results}
+
+Both cases use 100 active cycles and 40 inactive cycles. The number of particles is 5000 for each cycle.
+
+The eigenvalue of an elementary cell containing a fuel channel (Fig. \ref{fig:FCM}) is: \\
+\noindent
+k-eff (analog)    = 1.40963 +/- 0.00164  [1.40641  1.41284]\\
+\noindent
+k-eff (implicit)  = 1.41108 +/- 0.00090  [1.40932  1.41285]
+
+The eigenvalue of the full core (Fig. \ref{fig:FullXY}) results:\\
+\noindent
+k-eff (analog)    = 0.79770 +/- 0.00193  [0.79392  0.80148]\\
+\noindent
+k-eff (implicit)  = 0.79688 +/- 0.00156  [0.79383  0.79993]
+
+
+\section{Comments}
+
+The results indicate that the model has some erroneous assumption, as the reactor seems to be sub critical.
+Many of the values chosen for the model come from \cite{hawari_development_2018}. However, some values are not clearly defined.
+For example the dimensions of a TRISO particle and the FCM fuel. Those values came from \cite{powers_fully_2013}, \cite{jo_preliminary_2014}, and \cite{venneri_neutronic_2015}.
+Another point that it is worth commenting is the discrepancy between \cite{hawari_development_2018} and \cite{jo_preliminary_2014} about the core's height. While the first defines it to be around 64 cm, the latter states that a height has to be larger than 200 cm.
+The next step will be modify those values to get an eigenvalue greater than 1.
+
+\pagebreak
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\end{document}
