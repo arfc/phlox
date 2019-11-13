@@ -1,0 +1,171 @@
+usncdata={
+"USNC_MMR": {
+   "10MWt": {
+         "reactor_tpower": {
+             "value": [10],
+             "units":  ["MWt"],
+             "description": ["Reactor thermal power (MWt)"]
+         },
+         "reactor_epower": {
+             "value": [3],
+             "units":  ["MWe"],
+             "description": ["Reactor electrical power (MWe)"]
+         },
+         "reactor_type": {
+             "value": ["HTGR (Prismatic)"],
+             "units":  [""],
+             "description": ["Reactor Type"]
+         },
+         "spectrum": {
+             "value": ["Thermal"],
+             "units":  [""],
+             "description": ["Reactor spectrum"]
+         },
+         "core_diameter": {
+             "value": [-],
+             "units":  ["m"],
+             "description": ["Core diameter(m)"]
+         },
+         "core_height": {
+             "value": [-],
+             "units":  ["m"],
+             "description": ["Core height(m)"]
+         },
+         "enrichment": {
+             "value": [12],
+             "units":  ["wt%"],
+             "description": ["Maximum U-235 enrichment (wt%) - less than 20%"]
+         },
+         "refueling": {
+             "value": [20],
+             "units":  ["y"],
+             "description": ["Fuel cycle length"]
+         },
+         "fuel": {
+             "value": ["TRISO Fuel Compacts (FCC)"],
+             "units":  [""],
+             "description": ["Fuel"]
+         },
+         "reflector_mat": {        
+              "value": ["BeO"],        
+              "units":  [""],        
+              "description": ["Reflector composition"]
+         },
+         "total_crod": {
+             "value": [12],
+             "units":  ["#"],
+             "description": ["Control rods (#)"]
+         },
+         "fuel_block": {
+             "value": [36],
+             "units":  ["#"],
+             "description": ["Fuel Blocks (#)"]
+         },
+         "fuel_block_dimension": {
+             "value": ["30"],
+             "units":  ["cm"],
+             "description": ["Hexagonal fuel block dimension (cm)"]
+         },
+         "fuel_burnup": {
+             "value": [-],
+             "units":  ["MWd/kg HM"],
+             "description": ["Burn-up (MWd/kgHM)"]
+         },
+         "outer_diameter": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Outer diameter (cm)"]
+         },
+         "vessel_thick": {
+             "value": [5],
+             "units":  ["cm"],
+             "description": ["Vessel thickness (cm)"]
+         },
+         "reflector_thick": {
+             "value": [15],
+             "units":  ["cm"],
+             "description": ["Reflector thickness (cm) - BeO"]
+         },
+         "insulation_thick": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Insulation thickness (cm) - SiC Fiber"]
+         },
+         "barrel_thick": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Barrel thickness (cm)"]
+         },
+         "core_gap_thick": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Core gap thickness (cm)"]
+         },
+         "top_reflector": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Top reflector (cm) - BeO"]
+         },
+         "bottom_reflector": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Bottom reflector (cm) - BeO"]
+         },
+         "top_plenum": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Top plenum (cm)"]
+         },
+         "bottom_plenum": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Bottom plenum (cm)"]
+         },
+         "top_insulation": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Top insulation (cm)"]
+         },
+         "bottom_insulation": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Bottom insulation (cm)"]
+         },
+         "support_plate": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Core support plate (cm)"]
+         },
+         "support_structure": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Support structure (cm)"]
+         },
+         "vessel_height": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Vessel height (cm)"],
+         },
+         "beo_mass": {
+             "value": [-],
+             "units":  ["kg"],
+             "description": ["BeO mass (kg)"]
+         },
+         "graphite_mass": {
+             "value": [-],
+             "units":  ["kg"],
+             "description": ["Graphite mass (kg)"]
+         },
+         "flask_inner_dia": {        
+              "value": [-],        
+              "units":  ["cm"],        
+              "description": ["Flask inner diameter (cm) "]
+         },
+         "flask_inner_height": {
+             "value": [-],
+             "units":  ["cm"],
+             "description": ["Flask inner height (cm) "]
+         },
+    },
+  }
+}
