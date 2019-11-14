@@ -14,8 +14,11 @@ Directory Descriptions:
 - MegaPower: for the microreactor design from LANL
 - Starcore: for the microreactor design from Starcore
 - U-battery: for the microreactor design from Urenco
+- MMR: for the microreactor design from USNC
 - MsNB:for the microreactor design from MicroNuclear
 
 Use Makefile to create pdf file. 
 
 There is a bug in the Latex which prevents making pdf file. To solve this, after bib file generation from Zotero, remove the 'URL' lines from the bib file.  
+
+Site requirement section was extended for NRC options. Source term section was updated for HTGR and Heat Pipe. An acronmy file was added. 
