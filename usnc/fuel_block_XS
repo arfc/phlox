@@ -1,9 +1,9 @@
-/*This input file defines a hexagonal elementary cell for the FCM fuel.*/
+/* This input file defines a fuel assembly block. */
 
 /**********************************
 *       Particle Definition       *
-* Kernel UN Diameter (D) 700e-6 m *
-* Buffer Thickness (T) 50e-6 m    *
+* Kernel UN Diameter (D) 800e-6 m *
+* Buffer Thickness (T) 75e-6 m    *
 * IPyC T 35e-6 m                  *
 * SiC T 35e-6 m                   *
 * OPyC T 20e-6 m                  *
@@ -38,6 +38,7 @@ cell 104 4 helium -20
 cell 105 4 block   20
 
 % -- Lattice
+
 surf 5 inf
 cell 106 5 block -5
 
@@ -56,7 +57,7 @@ lat 20 3 0.0 0.0 13 13 3.2
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 hexyprism 0.0 0.0 15.0 0.0 4.0
+surf 30 hexyprism 0.0 0.0 15.0 0.0 1.0
 
 cell 107 0 fill 20  -30
 cell 108 0 outside   30
@@ -75,7 +76,7 @@ cell 108 0 outside   30
 * - C  29.96%                     *
 **********************************/
 % UO2+UCO
-mat un       -10.00 burn 1
+mat un       -10.00
  92235.09c   0.0404
  92238.09c   0.2929
   6000.09c   0.0833
@@ -88,24 +89,20 @@ mat un       -10.00 burn 1
 %  7014.09c   -0.0811
 
 mat buffer   -1.05        moder grph 6000
- 6000.09c    -1.0000
+ 6000.09c    -100.0
 
 mat pyc      -1.90        moder grph 6000
- 6000.09c    -1.0000
+ 6000.09c    -100.0
 
 mat sic      -3.18        moder grph 6000
-14000.09c    -0.7005
- 6000.09c    -0.2996
+14000.09c    -70.05
+ 6000.09c    -29.96
 
 mat block    -1.75        moder grph 6000
- 6000.09c    -1.0000
+ 6000.09c    -100.0
 
 mat helium   2.65156E-05
  2004.09c    2.65156E-05
-
-mat reflector   -3.01
- 4009.09c    0.50
- 8016.09c    0.50
 
 % --- Thermal scattering data for graphite:
 
@@ -119,29 +116,9 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 set bc 2
 
-% --- Assembly linear power is 1.4 kW
-
-set power 1442
-
 % --- Neutron population and criticality cycles:
 
 set pop 5000 100 40
-
-% --- Burnup
-
-dep butot 0.5  1  3  6  9  12  15  18  21
-%div un sep 1
-set mcvol 10000000
-
-set inventory
- 922350
- 922380
-
-set pcc leli 10 10
-
-set declib "/home/roberto/Serpent2/xs/sss_jeff311.dec"
-set nfylib "/home/roberto/Serpent2/xs/sss_jeff311.nfy"
-%set egrid 5e-5 1e-9 15.0
 
 % --- Geometry plot:
 
@@ -152,3 +129,18 @@ plot 1 1000 500 0.0 -15. 15. -0.25 4.25
 % I think 3 includes the He, and 10 is just the pellet
 % 5 should be the moderator
 % 4 should be the coolant channels
+
+set gcu 3 10 5
+set nfg 2 0.625E-6
+
+branch fuel0
+stp un        -10.0       900
+stp buffer    -1.05       900 grph gre7.18t gre7.20t
+stp pyc       -1.90       900 grph gre7.18t gre7.20t
+stp sic       -3.18       900 grph gre7.18t gre7.20t
+stp block     -1.75       900 grph gre7.18t gre7.20t
+stp helium    2.65156E-05 900
+
+coef 1
+0
+1 fuel0
