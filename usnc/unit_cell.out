@@ -68,7 +68,7 @@
 
  Nuclide    1 / 10 : 2004.09c -- helium 4 (He-4)
 
- Pointers                     : 369346 2399
+ Pointers                     : 369590 2399
  Primary type                 : Transport
  Nuclide ZAI                  : 20040
  Library ID                   : 09c
@@ -112,7 +112,7 @@
 
  Nuclide    2 / 10 : 6000.09c -- natural carbon (C-nat)
 
- Pointers                     : 358428 4331
+ Pointers                     : 358672 4331
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 09c
@@ -182,7 +182,7 @@
 
  Nuclide    3 / 10 : 6000.09s -- natural carbon (C-nat)
 
- Pointers                     : 369787 4331
+ Pointers                     : 370545 4331
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 09s
@@ -200,7 +200,7 @@
  - Nuclide has neutron transport data
  - Nuclide has no photon transport data
  - Nuclide has inelastic S(a,b) channel between 1.00E-11 and 3.75E-06 MeV
- - Nuclide has elastic S(a,b) channel between 1.82E-09 and 1.18E-06 MeV
+ - Nuclide has elastic S(a,b) channel between 1.82E-09 and 5.27E-07 MeV
  - Nuclide has no isomeric branching data
  - Nuclide is not fissile
  - Nuclide is not a delayed neutron precursor
@@ -255,7 +255,7 @@
 
  Nuclide    4 / 10 : 6000.09s -- natural carbon (C-nat)
 
- Pointers                     : 371796 4331
+ Pointers                     : 372554 4331
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 09s
@@ -273,7 +273,7 @@
  - Nuclide has neutron transport data
  - Nuclide has no photon transport data
  - Nuclide has inelastic S(a,b) channel between 1.00E-11 and 3.75E-06 MeV
- - Nuclide has elastic S(a,b) channel between 1.82E-09 and 1.18E-06 MeV
+ - Nuclide has elastic S(a,b) channel between 1.82E-09 and 5.27E-07 MeV
  - Nuclide has no isomeric branching data
  - Nuclide is not fissile
  - Nuclide is not a delayed neutron precursor
@@ -328,7 +328,7 @@
 
  Nuclide    5 / 10 : 6000.09s -- natural carbon (C-nat)
 
- Pointers                     : 373805 4331
+ Pointers                     : 374563 4331
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 09s
@@ -346,7 +346,7 @@
  - Nuclide has neutron transport data
  - Nuclide has no photon transport data
  - Nuclide has inelastic S(a,b) channel between 1.00E-11 and 3.75E-06 MeV
- - Nuclide has elastic S(a,b) channel between 1.82E-09 and 1.18E-06 MeV
+ - Nuclide has elastic S(a,b) channel between 1.82E-09 and 5.27E-07 MeV
  - Nuclide has no isomeric branching data
  - Nuclide is not fissile
  - Nuclide is not a delayed neutron precursor
@@ -401,7 +401,7 @@
 
  Nuclide    6 / 10 : 6000.09s -- natural carbon (C-nat)
 
- Pointers                     : 375814 4331
+ Pointers                     : 376572 4331
  Primary type                 : Transport
  Nuclide ZAI                  : 60000
  Library ID                   : 09s
@@ -419,7 +419,7 @@
  - Nuclide has neutron transport data
  - Nuclide has no photon transport data
  - Nuclide has inelastic S(a,b) channel between 1.00E-11 and 3.75E-06 MeV
- - Nuclide has elastic S(a,b) channel between 1.82E-09 and 1.18E-06 MeV
+ - Nuclide has elastic S(a,b) channel between 1.82E-09 and 5.27E-07 MeV
  - Nuclide has no isomeric branching data
  - Nuclide is not fissile
  - Nuclide is not a delayed neutron precursor
@@ -474,7 +474,7 @@
 
  Nuclide    7 / 10 : 8016.09c -- oxygen 16 (O-16)
 
- Pointers                     : 360291 5435
+ Pointers                     : 360535 5435
  Primary type                 : Transport
  Nuclide ZAI                  : 80160
  Library ID                   : 09c
@@ -589,7 +589,7 @@
 
  Nuclide    8 / 10 : 14000.09c -- natural silicon (Si-nat)
 
- Pointers                     : 365439 8195
+ Pointers                     : 365683 8195
  Primary type                 : Transport
  Nuclide ZAI                  : 140000
  Library ID                   : 09c
@@ -687,7 +687,7 @@
 
  Nuclide    9 / 10 : 92235.09c -- uranium 235 (U-235)
 
- Pointers                     : 351631 105899
+ Pointers                     : 351875 105899
  Primary type                 : Transport
  Nuclide ZAI                  : 922350
  Library ID                   : 09c
@@ -776,7 +776,7 @@
 
  Nuclide   10 / 10 : 92238.09c -- uranium 238 (U-238)
 
- Pointers                     : 354813 106727
+ Pointers                     : 355057 106727
  Primary type                 : Transport
  Nuclide ZAI                  : 922380
  Library ID                   : 09c
@@ -912,7 +912,7 @@ Material "buffer":
  - Neutron emission rate 0.00000E+00 1/s
  - 1 nuclides in composition
  - 1 nuclides associated with S(a,b) data
- - 1.98 Mb of memory allocated for data
+ - 1.97 Mb of memory allocated for data
 
 Isotopic composition (non-zero densities):
 
@@ -935,7 +935,7 @@ Material "pyc":
  - Neutron emission rate 0.00000E+00 1/s
  - 1 nuclides in composition
  - 1 nuclides associated with S(a,b) data
- - 1.98 Mb of memory allocated for data
+ - 1.97 Mb of memory allocated for data
 
 Isotopic composition (non-zero densities):
 
@@ -982,7 +982,7 @@ Material "block":
  - Neutron emission rate 0.00000E+00 1/s
  - 1 nuclides in composition
  - 1 nuclides associated with S(a,b) data
- - 1.98 Mb of memory allocated for data
+ - 1.97 Mb of memory allocated for data
 
 Isotopic composition (non-zero densities):
 

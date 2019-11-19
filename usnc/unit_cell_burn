@@ -75,7 +75,7 @@ cell 108 0 outside   30
 * - C  29.96%                     *
 **********************************/
 % UO2+UCO
-mat un       -10.00
+mat un       -10.00 burn 1
  92235.09c   0.0404
  92238.09c   0.2929
   6000.09c   0.0833
@@ -115,13 +115,33 @@ therm grph 900 gre7.18t gre7.20t
 
 set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
-% --- Periodic boundary condition:
+% --- Reflective boundary condition:
 
-set bc 3
+set bc 2
+
+% --- Assembly linear power is 1.4 kW
+
+set power 1442
 
 % --- Neutron population and criticality cycles:
 
 set pop 5000 100 40
+
+% --- Burnup
+
+dep butot 0.5  1  3  6  9  12  15  18  21
+%div un sep 1
+set mcvol 10000000
+
+set inventory
+ 922350
+ 922380
+
+set pcc leli 10 10
+
+set declib "/home/roberto/Serpent2/xs/sss_jeff311.dec"
+set nfylib "/home/roberto/Serpent2/xs/sss_jeff311.nfy"
+%set egrid 5e-5 1e-9 15.0
 
 % --- Geometry plot:
 
@@ -132,19 +152,3 @@ plot 1 1000 500 0.0 -15. 15. -0.25 4.25
 % I think 3 includes the He, and 10 is just the pellet
 % 5 should be the moderator
 % 4 should be the coolant channels
-
-set gcu 3 10 5
-set nfg 2 0.625E-6
-
-branch fuel0
-stp un        -10.0       900
-stp buffer    -1.05       900 grph gre7.18t gre7.20t
-stp pyc       -1.90       900 grph gre7.18t gre7.20t
-stp sic       -3.18       900 grph gre7.18t gre7.20t
-stp block     -1.75       900 grph gre7.18t gre7.20t
-stp helium    2.65156E-05 900
-stp reflector -3.01       900
-
-coef 1
-0
-1 fuel0
