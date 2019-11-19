@@ -1,3 +1,5 @@
+# The volumetric heat source is uniformly distributed in the fuel.
+
 [Mesh]
   file = ../msh_files/unit_cell.msh
 [../]

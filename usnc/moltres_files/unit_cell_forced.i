@@ -1,3 +1,5 @@
+# The volumetric heat source follows the parsedfunction shape.
+
 [Mesh]
   file = ../msh_files/unit_cell.msh
 [../]
