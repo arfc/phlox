@@ -25,13 +25,13 @@
  [./source1]
    type = TempSource
    variable = temp
-   src = 10.9
+   src = 14
    block = 'fuel'
  [../]
 
  [./temp_advection_coolant]
    type = ConservativeTemperatureAdvection
-   velocity = '0 0 -2.5'
+   velocity = '0 0 -80.0'
    variable = temp
    block = 'coolant'
  [../]
@@ -44,18 +44,27 @@
 []
 
 [BCs]
-  [./temp_diri_cg]
-    boundary = 'moderator_top fuel_top coolant_top'
+  [./temp_diri_top]
+    #boundary = 'coolant_top fuel_top moderator_top'
+    boundary = 'fuel_top moderator_top'
     type = DirichletBC
     variable = temp
     value = 600
   [../]
 
+  #[./temp_advection_inlet]
+  #  boundary = 'coolant_top'
+  #  type = TemperatureInflowBC
+  #  variable = temp
+  #  velocity = '0 0 -80.0'
+  #  inlet_conc = 1.
+  #[../]
+
   [./temp_advection_outlet]
     boundary = 'coolant_bottom'
     type = TemperatureOutflowBC
     variable = temp
-    velocity = '0 0 -2.5'
+    velocity = '0 0 -80.0'
   [../]
 []
 
@@ -70,7 +79,7 @@
     type = GenericConstantMaterial
     block = 'coolant'
     prop_names = 'k cp rho'
-    prop_values = '0.35 5.19 0.02826' #rho is 1, and velocity is m_dot (mass flow)
+    prop_values = '0.35 5.19 1.' #rho is 1, and velocity is m_dot (mass flow)
   [../]
   [./moder]
     type = GenericConstantMaterial
