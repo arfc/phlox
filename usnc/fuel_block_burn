@@ -116,7 +116,7 @@ set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 set bc 2
 
-% --- Assembly linear power is 1.4 kW
+% --- Assembly linear power is 1.4 kW/cm
 
 set power 1442
 
