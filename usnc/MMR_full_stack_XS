@@ -1,5 +1,9 @@
-/*This input file defines the whole core of the MMR. */
-/*The stack is a reference to the way the 'pellets' are 'stacked' in the fuel channels. */
+/* This input file defines the whole core of the MMR.
+*  The stack is a reference to the way the 'pellets' are 'stacked' in the fuel
+*  channels.
+*  This input file produces the XS that will be used in the full core and 1/12
+*  core model.
+*/
 
 /**********************************
 *       Particle Definition       *
@@ -191,7 +195,7 @@ mat reflector   -3.01
 
 % --- Thermal scattering data for light water:
 
-therm grph gre7.00t
+therm grph 900 gre7.18t gre7.20t
 
 % --- Cross section data library file path:
 
@@ -212,3 +216,23 @@ plot 1 1000 500 10.0
 
 plot 3 600 600 1.0 -100.0 100.0 -100.0 100.0
 plot 1 1000 500 10.0 0.0 60.0 -3.0 67.0
+
+% -- 1 Group generation
+% I think 3 includes the He, and 10 is just the pellet
+% 5 should be the moderator
+% 4 should be the coolant channel
+
+set gcu 3 10 5 4
+set nfg 2 0.625E-6
+
+branch fuel0
+stp un        -10.0       900
+stp buffer    -1.05       900 grph gre7.18t gre7.20t
+stp pyc       -1.90       900 grph gre7.18t gre7.20t
+stp sic       -3.18       900 grph gre7.18t gre7.20t
+stp block     -1.75       900 grph gre7.18t gre7.20t
+stp helium    2.65156E-05 900
+
+coef 1
+0
+1 fuel0

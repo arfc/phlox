@@ -132,7 +132,7 @@ plot 1 1000 500 0.0 -15. 15. -0.25 4.25
 % 5 should be the moderator
 % 4 should be the coolant channels
 
-set gcu 3 10 5
+set gcu 3 10 5 4
 set nfg 2 0.625E-6
 
 branch fuel0
