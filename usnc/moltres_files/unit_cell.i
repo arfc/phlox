@@ -70,7 +70,7 @@
     type = GenericConstantMaterial
     block = 'coolant'
     prop_names = 'k cp rho'
-    prop_values = '0.35 5.19 1.' #rho is 1, and velocity is m_dot (mass flow)
+    prop_values = '0.35 5.19 0.02826' #rho is 1, and velocity is m_dot (mass flow)
   [../]
   [./moder]
     type = GenericConstantMaterial
