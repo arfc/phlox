@@ -1,4 +1,6 @@
-/* This input file defines a fuel assembly block. */
+/* This input file defines a fuel assembly block. 
+*  This input produces the XS that will be used in the unit cell model.
+*/
 
 /**********************************
 *       Particle Definition       *
