@@ -30,7 +30,8 @@ run fuel_block_burn_dep.m;
 ###############################################
 
 figure('visible','off');
-errorbar(BU, IMP_KEFF(:,1), IMP_KEFF(:,1).*IMP_KEFF(:,2)*2,'k.')
+errorbar(BU, IMP_KEFF(:,1), IMP_KEFF(:,1).*IMP_KEFF(:,2)*2,'k.-')
+#plot(BU, TOT_MASS(iU235, :), 'k.-')
 
 ## Set font size for the axes
 
@@ -47,7 +48,7 @@ title("Multiplication factor of the assembly as a function of burnup")
 
 ## Set limits for the axes
 
-xlim([0 20]);
+xlim([0 25]);
 #ylim([0.95 1.05]);
 
 ## Make the plot a bit nicer
@@ -85,8 +86,8 @@ title("U-235 mass in the assembly as a function of burnup")
 
 ## Set limits for the axes
 
-xlim([0 20]);
-ylim([0 35]);
+xlim([0 25]);
+#ylim([0 35]);
 
 ## Make the plot a bit nicer
 
