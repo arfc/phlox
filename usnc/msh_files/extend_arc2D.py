@@ -1,5 +1,5 @@
 """
-Extension of get_arc. Meant to apply get_arc to geometry3D_extrude2.py.
+Gets a 2D geometry of a portion of the reactor.
 
 """
 
@@ -10,34 +10,30 @@ import sys
 
 def check_upper(x, y, r):
     """
-    If the circle intersects the line, returns TRUE
+    If the circle intersects the line at 90 degrees, returns TRUE
     """
-    xo = x - r
 
+    xo = x - r
     if xo < 0:
-        # print("Intersection")
         intersect = True
     else:
-        # print("No intersection")
         intersect = False
     return intersect
 
 def check_lower(x, y, r, a):
     """
-    If the circle intersects the lower line, returns TRUE
+    If the circle intersects the line at angle 'a', returns TRUE
     """
+
     dx = r * np.sin(a)
     dy = r * np.cos(a)
     xo = x + dx
     yo = y - dy
     ac = mt.atan(yo/xo)
     # print("ac: ", ac/np.pi*180)
-
     if ac < a:
-        # print("Intersection")
         intersect = True
     else:
-        # print("No intersection")
         intersect = False
     return intersect
 
@@ -45,37 +41,37 @@ def plot_circle(f, r, x, y, l, ps, dict_type, lp):
     """
     plots circles
     r: radius of the circle
-    R: radius of the moderator
-    a: angle of the reactor cut
     x,y: center of the circle
+    l: number of lines
+    ps: number of surfaces
+    dict_type: dictionary that classifies the figures
     """
     
     f.write("Circle("+ str(l+1) +") = { "+ str(x) +", "+ str(y) +", 0, "+ str(r) +", 0, 2*Pi};\n")
     dict_type['circle'].append(l+1)
     lp.append(ps+1)
-
     l += 1
     ps += 1
     return l, ps, dict_type, lp
 
 def plot_arc_upper(f, r, x, y, l, ps, dict_type, lp):
     """
-    plots arc based on the intersection of the upper line and a circle
+    plots arc based on the intersection of the line at 90 degrees and a circle
     r: radius of the circle
-    R: radius of the moderator
     x,y: center of the circle
+    l: number of lines
+    ps: number of surfaces
+    dict_type: dictionary that classifies the figures
     """
   
     alpha = mt.acos(x/r)
     alpha2 = np.pi - alpha
-
     f.write("Circle("+ str(l+1) +") = { "+ str(x) +", "+ str(y) +", 0, "+ str(r) +", "+ str(-alpha2) +", "+ str(alpha2) +"};\n")
     dict_type['up_arc'].append(l+1)
     points = []
     points.append(ps + 2)
     points.append(ps + 1)
     lp.append(points)
-    
     l += 1
     ps += 2
     return l, ps, dict_type, lp
@@ -84,9 +80,11 @@ def plot_arc_lower(f, r, a, x, y, l, ps, dict_type, lp):
     """
     plots arc based on the intersection of the lower line and the circle
     r: radius of the circle
-    R: radius of the moderator
-    a: angle of the reactor cut
+    a: angle of the lower line
     x,y: center of the circle
+    l: number of lines
+    ps: number of surfaces
+    dict_type: dictionary that classifies the figures
     """
 
     y1 = x * np.tan(a)
@@ -95,14 +93,12 @@ def plot_arc_lower(f, r, a, x, y, l, ps, dict_type, lp):
     alpha = mt.acos(d/r)
     alpha2 = 3./2*np.pi - (alpha - a)   
     alpha1 = -1./2*np.pi + (alpha + a)
-
     f.write("Circle("+ str(l+1) +") = { "+ str(x) +", "+ str(y) +", 0, "+ str(r) +", "+ str(alpha1) +", "+ str(alpha2) +"};\n")
     dict_type['low_arc'].append(l+1)
     points = []
     points.append(ps + 1)
     points.append(ps + 2)
     lp.append(points)
-    
     l += 1
     ps += 2
     return l, ps, dict_type, lp
@@ -110,19 +106,28 @@ def plot_arc_lower(f, r, a, x, y, l, ps, dict_type, lp):
 def check_domain(x, y, r, a):
     """
     If the circle is fully or partially inside the domain returns TRUE
+    x,y: center of the circle
+    r: radius of the circle
+    a: angle of the lower line
     """
+
     beta1 = mt.atan2(y + r * np.cos(a), x - r * np.sin(a))
     beta2 = mt.atan2(y, x + r)
-
     if beta1 > a and beta2 < np.pi/2:
         inside = True
     else:
-        # print("Circle is outside the domain.")
-        inside = False
-    
+        inside = False   
     return inside
 
 def place_channel(f, r, d_x, d_y, a1, x, col, row, l, ps, type, dict_type, lp, phy_type):
+    """
+    Plots circle if the channel is in the geometry. If the circle intersects
+    the line at 90 degrees, it plots an 'upper arc'. If the circle intersects
+    the line at angle 'a', it plots a 'lower arc'.
+    r: radius of the circle
+    d_x:
+    """
+
     for j in col:
         for i in row:
             xo = x[0] + i*d_x
@@ -140,7 +145,6 @@ def place_channel(f, r, d_x, d_y, a1, x, col, row, l, ps, type, dict_type, lp, p
                 else:
                     print('Wrong type')
                     sys.exit()
-    
     return l, ps, dict_type, lp, phy_type
 
 def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, phy_type):
@@ -149,13 +153,11 @@ def multiple_channels(f, rcb, rc, rf, a1, p_c, x, l, ps, fuel, dict_type, lp, ph
     To add the side lines, the channels have to be defined that way. Otherwise
     the lines would be a mess.
 
+
     """
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
-
-    #p = 2
-    #p_c = 2
 
     col = [-4]
     row = [-1, 0, 1]
