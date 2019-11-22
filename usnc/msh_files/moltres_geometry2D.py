@@ -163,7 +163,7 @@ def define_physical_groups(f, dict_type):
     f.write("};\n")
 
 def main():    
-    f = open("MMR2D.geo","w+")
+    f = open("untitled.geo","w+")
     f.write("//+\n")
     f.write("SetFactory('OpenCASCADE');\n")
 
