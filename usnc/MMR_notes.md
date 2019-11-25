@@ -9,15 +9,16 @@ MMR Fuel: FCM
 - Packing fraction: 0.4 (It can vary from 0.4 to 0.58)
 
 TRISO particles:
-- Kernel UN      Diameter = 800e-6 m  Density = 14.32 g/cc  Enrichment = 12%
-- Buffer layer  Thickness =  75e-6 m  Density =  1.05 g/cc
-- IPyC          Thickness =  35e-6 m  Density =  1.9  g/cc
-- SiC           Thickness =  35e-6 m  Density =  3.18 g/cc
-- OPyC          Thickness =  20e-6 m  Density =  1.9  g/cc
-- SiC Matrix                          Density =  3.18 g/cc
+- Kernel UO2 UCO  Diameter = 800e-6 m  Density = 10.00 g/cc  Enrichment = 12%
+- Buffer layer    Thickness = 75e-6 m  Density =  1.05 g/cc
+- IPyC            Thickness = 35e-6 m  Density =  1.9  g/cc
+- SiC             Thickness = 35e-6 m  Density =  3.18 g/cc
+- OPyC            Thickness = 20e-6 m  Density =  1.9  g/cc
+- SiC Matrix                           Density =  3.18 g/cc
 
-Material Mass Fractions:
-- UN			U  91.89% - N   8.11%
+Materials Mole Fractions:
+- UO2+U2CO3 (50%-50%) U235 0.0404 - U238 0.2929 - O16 0.5834 - C 0.0833
+Materials Mass Fractions:
 - Buffer 		C 100.00%
 - PyC   		C 100.00%
 - SiC    		C  29.96% - Si 70.05%

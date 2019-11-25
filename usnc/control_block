@@ -12,20 +12,20 @@
 % -- Coated Particle
 particle 1
 
-un     0.035
-buffer 0.04
-pyc    0.0435
-sic    0.047
-pyc    0.049
+un     0.04
+buffer 0.0475
+pyc    0.0510
+sic    0.0545
+pyc    0.0565
 sic
 
 surf 1 inf
 cell 1 2 sic -1
-pbed 10 2 "dispersed_particles.inp"
+pbed 10 2 "dispersed_particles4.inp"
 
 % -- Fuel Channel
-surf 10 cyl 0.0 0.0 0.7 0.0 1.0
-surf 11 cyl 0.0 0.0 1.0 0.0 1.0
+surf 10 cyl 0.0 0.0 0.9 0.0 4.0
+surf 11 cyl 0.0 0.0 1.08 0.0 4.0
 
 %cell 2 3 fill 10 -10
 cell 2 3 un      -10
@@ -33,7 +33,7 @@ cell 3 3 helium   10 -11
 cell 4 3 block    11
 
 % -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 0.0 1.0
+surf 20 cyl 0.0 0.0 0.77 0.0 4.0
 
 cell 5 4 helium -20
 cell 6 4 block   20
@@ -58,8 +58,8 @@ lat 20 3 0.0 0.0 13 13 3.2
            5 5 5 3 3 5 5 5 5 5 5 5 5
             5 5 5 5 5 5 5 5 5 5 5 5 5
 
-surf 30 cyl 0.0 0.0 4.0 0.0 1.0
-surf 31 hexyprism 0.0 0.0 15.0 0.0 1.0
+surf 30 cyl 0.0 0.0 4.0 0.0 4.0
+surf 31 hexyprism 0.0 0.0 15.0 0.0 4.0
 
 
 cell 10 0 helium   -30
@@ -79,10 +79,18 @@ cell 12 0 outside   31
 * - Si 70.05%                     *
 * - C  29.96%                     *
 **********************************/
-mat un       -14.32
- 92235.09c   -11.0268
- 92238.09c   -80.8632
-  7014.09c   -8.11
+% UO2+UCO
+mat un       -10.00
+ 92235.09c   0.0404
+ 92238.09c   0.2929
+  6000.09c   0.0833
+  8016.09c   0.5834
+
+% UN
+%mat un       -14.32
+% 92235.09c   -0.110268
+% 92238.09c   -0.808632
+%  7014.09c   -0.0811
 
 mat buffer   -1.05        moder grph 6000
  6000.09c    -100.0
