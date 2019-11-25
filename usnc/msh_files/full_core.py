@@ -1,9 +1,6 @@
 """
 3D geometry based on the extrusion of a 2D geometry.
 
-c: number of cylinders
-l: number of curves (not used)
-ns: number of surfaces
 """
 
 import numpy as np
@@ -194,7 +191,7 @@ def define_moderator(f, H, c, l, ns, dict_type):
     f.write('//+\nPhysical Volume("moderator") = {1};\n')
 
 def main():    
-    f = open("untitled.geo","w+")
+    f = open("MMR3D_full.geo","w+")
     f.write('// Gmsh whatever\n')
     f.write('SetFactory("OpenCASCADE");\n//+\n')
 
