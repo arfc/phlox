@@ -12,42 +12,42 @@ set acelib sss_jeff312.xsdata
 % --- density/chemical formula of AGR2 UCO from nagley et. all "fabrication..."
 
 mat fuel      -11.0 rgb 100 50 100
-92235.09c     -0.132848
-92238.09c     -0.762437
- 8016.09c     -0.086060
- 6000.09c     -0.017760
+% --- originally -0.132848, -0.762437, -0.086060, -0.017760
+92235.08c     -0.132848
+92238.08c     -0.762437
+ 8016.08c     -0.086060
+ 6000.08c     -0.017760
 
 % --- coolant: Helium, assuming all he-4
 
 mat cool      -0.00408 rgb 50 100 100
- 2004.09c     1.00
+ 2004.08c     1.00
 
 % --- reflector: HTGR graphite - have notes on this graphite, going with
 % --- nat comp for now
 
 mat graph    -1.74 rgb 100 100 100
- 6000.09c    9.99E-01
- 5010.09c    4.975E-07
- 5011.09c    2.0025E-06
+ 6000.08c    9.99E-01
+ 5010.08c    4.975E-07
+ 5011.08c    2.0025E-06
 
 % --- graph mat can be used for carbon buffer in TRISO particle
 % --- below input other TRISO mats
 
 mat pyroc   -2.2 rgb 50 50 150
- 6000.09c   1.0
+ 6000.08c   1.0
 
 mat sic     -3.1 rgb 50 150 50
-14028.09c   0.4611
-14029.09c   0.02343
-14030.09c   0.01546
- 6000.09c   0.5
+14028.08c   0.4611
+14029.08c   0.02343
+14030.08c   0.01546
+ 6000.08c   0.5
 
 therm MyThermLib lw10.32t
 
  /************************
   * Geometry definitions *
   ************************/
-%remember to set universal symmetry
 
 particle 1
 
@@ -64,12 +64,6 @@ surf 10 inf
 cell 10 2 graph -10
 pbed 10 2 "particles.inp"
 
-% --- describing pebble: graphite
-
-%surf 1 sph  0.0 0.0 0.0 2.5
-%surf 2 sph  0.0 0.0 0.0 3.0
-%surf 3 cube 0.0 0.0 0.0 3.0
-
 % --- attempt at describing core
 
 surf 20 inf
@@ -77,32 +71,23 @@ cell 20 3 cool -20
 pbed 20 3 "pebb.inp" pow
 
 % --- inner cylinder, radius of 142 cm, centered at (x,y,z) = (0,0,0), height 1048 cm
-surf 4 cyl 0.0 0.0 142 -524 524
+surf 4 cyl 0.0 0.0 152 -290 290
 % --- outer reflector shell
-surf 5 cyl 0.0 0.0 244 -646 687
-%
-%
+surf 5 cyl 0.0 0.0 244 -412 453
 
 cell 50 0 fill 20  -4
 cell 60 0 graph     4 -5
-%cell 70 0 cool      2 -3
 cell 80 0 outside   5
-
 
 % run parameters
 
-set pop 50000 1000 100
+set pop 5000 1000 100
 
-% unsure of bc choice
 
 set bc 1
 
 plot 33 8000  8000
-
 plot 33 9000 9000 0.0 -15 15 -15 15
-
-%plot 2  400  400
 
 mesh 3 1000 1000
 mesh 1 1000 1000
-%set usym
