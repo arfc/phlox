@@ -1,6 +1,7 @@
 """
 Gets a 2D geometry of a portion of the reactor.
-
+Then, I extruded the geometry, and add physical surfaces by hand 
+to produce MMR3D_cut30.geo .msh
 """
 
 import numpy as np
