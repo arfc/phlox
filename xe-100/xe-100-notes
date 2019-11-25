@@ -59,3 +59,21 @@ cross section.  ((add later and see if matters))
 
 '''
 ^from osti graphite handbook
+
+
+'''
+current notes on full core model:
+
+when I dropped the U235 enrichment down to 0.03xxxxx, I ended up with a k-eff of ~1.08, which seems much better.
+*convert this 0.03 mass percent isotopic concentration for UCO as a whole to just uranium enrichment, see what that
+comes out with.  Maybe the enrichment really is closer to LWR enrichments?*
+
+I updated the temperature to the closest to 777K (the average of the inlet and outlet temperatures) that the xs
+data had available.  As I would expect, k increased when temperature decreased, as reactors are designed to have
+negative temp coeffs.
+    since this is a sign that modeling the temperature with a better resolution wouldn't solve the current k problem, I
+    will put that on the back burner for now.
+
+jinja template for full core in progress
+'''
+^[notes as I work on model]
