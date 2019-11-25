@@ -9,27 +9,30 @@ import random as rd
 import sys
 
 def place_circles(f, r, H, d_x, d_y, x, col, row, c, l, ns, type, dict_type):
+    """
+    Plots circles.
+    r: radius of the circle.
+    H: height of the reactor.
+    d_x: distance between circles in x.
+    d_y: distance between circles in y.
+    x: origin of the first circle.
+    """
     for j in col:
         for i in row:
             f.write("Circle("+ str(c) +") = { "+ str(x[0] + i*d_x) +", "+ str(x[1] + j*d_y) +", "+ str(x[2]) +", "+ str(r) +", 0, 2*Pi};\n")
-            
+
             if type == 'fuel' or type == 'coolant' or type == 'moderator' or type == 'reflector':
                 dict_type[type].append(c)
             else:
                 print('Wrong type')
                 sys.exit()
-
             c += 1
-    
     return c, l, ns, dict_type
 
 def fuel_channels(f, d_x, r, H, p_c, x, c, l, ns, fuel, dict_type):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
-
-    #p = 2
-    #p_c = 2
 
     col = [-1/2, 1/2]
     if fuel == True:
@@ -63,9 +66,6 @@ def cooling_channels(f, d_x, r, H, p_c, x, c, l, ns, fuel, dict_type):
     s = 2 * p_c/2 * np.tan(np.pi/6)
     p = round(3*s, 4)
     p2 = round(3*s/2, 4)
-
-    #p = 2
-    #p_c = 2
 
     col = [-3, 3]
     row = [-1, 0, 1]
@@ -197,7 +197,7 @@ def main():
 
     d_x = 30  # Side of hexagonal assembly [cm]
     rc = 0.8  # Radius of cooling channel [cm]
-    rf = 1    # Radius of cooling channel [cm]
+    rf = 1    # Radius of fuel channel [cm]
     p_c = 5.6 # pitch between channels [cm]
     rcb = 4   # Control bar radius [cm]
     rcc = 6   # Central control bar radius [cm]
