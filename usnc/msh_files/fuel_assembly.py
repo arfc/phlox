@@ -71,19 +71,19 @@ def cooling_channels(f, d_x, rc, p_c, c, l, ns, ls, dict_type):
 
     col = [-3]
     row = [-1]
-    c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
+    #c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
 
     col = [-3, 3]
     row = [-1, 0, 1]
-    #c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
 
     col = [-3/2, 3/2]
     row = [-3, -1, 1, 3]
-    #c, l, ns, ls, dict_type = place_circles(f, rc, p2, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rc, p2, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
 
     col = [0]
     row = [-2, -1, 0, 1, 2]
-    #c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rc, p, p_c, col, row, c, l, ns, ls, 'coolant', dict_type)
     
     return c, l, ns, ls, dict_type
 
@@ -94,23 +94,23 @@ def fuel_channels(f, d_x, rf, p_c, c, l, ns, ls, dict_type):
 
     col = [-1/2]
     row = [-5]
-    c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
+    #c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
 
     col = [-1/2, 1/2]
     row = [-5, -3, -1, 1, 3, 5]
-    #c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
 
     col = [-7/2, -5/2, 5/2, 7/2]
     row = [-3, -1, 1, 3]
-    #c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rf, p2, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
 
     col = [-2, -1, 1, 2]
     row = [-2, -1, 0, 1, 2]
-    #c, l, ns, ls, dict_type = place_circles(f, rf, p, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rf, p, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
 
     col = [-4, 4]
     row = [-1, 0, 1]
-    #c, l, ns, ls, dict_type = place_circles(f, rf, p, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
+    c, l, ns, ls, dict_type = place_circles(f, rf, p, p_c, col, row, c, l, ns, ls, 'fuel', dict_type)
 
     return c, l, ns, ls, dict_type
 
@@ -141,12 +141,34 @@ def define_moderator(f, H, ns, ls, dict_type):
         f.write(str(i)+', ')
     f.write(str(dict_type['fuel'][-1])+'};\n')
 
-    #f.write('//+\nPhysical Surface("moderator_top") = {'+ str(2*c-1) +'};\n') 
+    f.write('//+\nPhysical Surface("moderator_top") = {'+ str(2*ns+6) +'};\n')
+
+    f.write('//+\nPhysical Surface("coolant_top") = {')
+    for i in dict_type['coolant'][:-1]:
+        f.write(str(2*ns+6+i)+', ')
+    f.write(str(2*ns+6+dict_type['coolant'][-1])+'};\n')
+
+    f.write('//+\nPhysical Surface("fuel_top") = {')
+    for i in dict_type['fuel'][:-1]:
+        f.write(str(2*ns+6+i)+', ')
+    f.write(str(2*ns+6+dict_type['fuel'][-1])+'};\n')
+
+    f.write('//+\nPhysical Volume("moderator") = {1};\n')
+
+    f.write('//+\nPhysical Volume("coolant") = {')
+    for i in dict_type['coolant'][:-1]:
+        f.write(str(1+i)+', ')
+    f.write(str(1+dict_type['coolant'][-1])+'};\n')
+
+    f.write('//+\nPhysical Volume("fuel") = {')
+    for i in dict_type['fuel'][:-1]:
+        f.write(str(1+i)+', ')
+    f.write(str(1+dict_type['fuel'][-1])+'};\n')
 
     return ns, ls, dict_type
 
 def main():    
-    f = open("untitled.geo","w+")
+    f = open("fuel-assembly.geo","w+")
 
     d_x = 30  # Side of hexagonal assembly
     rc = 0.5 # Radius of cooling channel
