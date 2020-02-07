@@ -70,7 +70,7 @@ surf 10 inf
 
 cell 10 2 graph -10
 
-pbed 10 2 "particles.inp"
+pbed 10 2 "prtcles.inp"
 
 % --- describing pebble: graphite
 

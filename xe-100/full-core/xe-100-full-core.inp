@@ -62,7 +62,7 @@ void
 
 surf 10 inf
 cell 10 2 graph -10
-pbed 10 2 "part.inp"
+pbed 10 2 "prtcls.inp"
 
 % --- describing core
 
