@@ -20,7 +20,7 @@ mat fuel      -11.0 rgb 100 50 100
 
 % --- coolant: Helium, assuming all he-4
 
-mat cool      3.74E35 rgb 50 100 100
+mat cool      0.0006 rgb 50 100 100
  2004.08c     1.00
 
 % --- reflector: HTGR graphite - have notes on this graphite, going with
