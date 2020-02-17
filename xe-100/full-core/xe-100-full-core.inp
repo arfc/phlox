@@ -20,7 +20,7 @@ mat fuel      -11.0 rgb 100 50 100
 
 % --- coolant: Helium, assuming all he-4
 
-mat cool      -0.00408 rgb 50 100 100
+mat cool      3.74E35 rgb 50 100 100
  2004.08c     1.00
 
 % --- reflector: HTGR graphite - have notes on this graphite, going with
@@ -68,12 +68,12 @@ pbed 10 2 "prtcls.inp"
 
 surf 20 inf
 cell 20 3 cool -20
-pbed 20 3 "pebb.inp" pow
+pbed 20 3 "pbbls.inp" pow
 
-% --- inner cylinder, radius of 152 cm, centered at (x,y,z) = (0,0,0), height 1048 cm
-surf 4 cyl 0.0 0.0 152 -290 290
+% --- inner cylinder, radius of 124 cm, centered at (x,y,z) = (0,0,0), height 966 cm
+surf 4 cyl 0.0 0.0 124 -483 483
 % --- outer reflector shell
-surf 5 cyl 0.0 0.0 244 -412 453
+surf 5 cyl 0.0 0.0 216 -575 575
 
 cell 50 0 fill 20  -4
 cell 60 0 graph     4 -5
