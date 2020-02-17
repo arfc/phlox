@@ -73,6 +73,55 @@ Heat Pipe fluid	&-&	-			&	-		&-\\
 \begin{table} [ht]
 \begin{center}
 
+\caption{Reactor list to be demostrated}
+\label{demonstrate}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline 
+Design							& Source 	&Enrichment	& Fuel requirement$^3$		&Fuel cost$^2$	$^4$ $^6$		&Assumptions 	 \\ 
+										&						& (\%) 								&  (kg)												& (M\$)								& 	 \\ 
+\hline 
+Oklo								&						&5-20 (U-Zr)								& Fuel requirement 		&Fuel cost 			&Assumptions 	 \\ 
+X-energy (Xe-100)					&						&15.5	(TRISO)						 	& Fuel requirement 		&Fuel cost 			&Assumptions 	 \\ 
+Westinghouse (e-Vinci)		&						&19.75	 (UN)				 	& Fuel requirement 		&Fuel cost 			&Assumptions 	 \\ 
+BWXT (mPower)  & \cite{iaea_advances_2018}		& $<$ 5 (UO$_2$) 	& 365 for 2 years 	& 0.5$^1$			& Based on IAEA report, maximum burnup: 40 MWd/kg	 \\ 
+  &		&  	&  	& 			& Note: 20 MWth of this design may not be possible at this enrichment level.	 \\ 
+Holosgen	& \cite{filippone_holos_2017} \cite{stauff_neutronic_2019}	&8-15 (TRISO)	& 2562 for 12 years		&13.6	& Documents provide all related data for 22 MWth. Capital cost: 219 M\$	 \\ 
+GA	(EM2)							&		 \cite{iaea_advances_2018}		 \cite{schleicher_design_2014}			& 12 (UC)  	& 1685 for 30 years		&Fuel cost 		&Based on IAEA report, fuel burnup: 130 MWd/kg 	 \\ 
+GE-Prism				&						&  	& Fuel requirement		&Fuel cost 		&Assumptions 	 \\ 
+NuScale					&						&  	& Fuel requirement		&Fuel cost 		&Assumptions 	 \\ 
+Urenco					& \cite{ding_design_2011}	&17 (TRISO)  	& 1040	 for 10 years		&13			& Documents provide all related data for 20 MWth.  	 \\ 
+					& 	&  	& 	&			& Capital cost: 102 MEuro 	 \\ 
+Ultrasafe (MMR)				&\cite{venneri_neutronic_2015}					&12 (TRISO) 	& Fuel requirement		&Fuel cost			&Assumptions 	 \\ 
+Hydromine (LFR-TL-X)			& \cite{iaea_advances_2018}					&19.75 (Salt) 	& 183 for 1 years		&1$^5$		&Based on IAEA report, maximum burnup: 40 MWd/kg at 20 MWth 	 \\ 
+\hline
+
+\end{tabular}
+\end{center}
+
+$^1$ This value was calculated using the fuel cycle calculator (https://www.uxc.com/p/tools/FuelCalculator.aspx). Fuel fabrication cost for UO$_2$ fuel is assumed to be 300 \$ per kg of UO$_2$, based on the value given in https://www.world-nuclear.org/information-library/economic-aspects/economics-of-nuclear-power.aspx. 
+
+$^2$ The HTR-type reactor fuel production cost (TRISO particles) was calculated as 5300 \$ per pebble by using the value given in a recent quote from BWXT.
+
+$^3$ For the required fuel of the reactor designs other than 20 MWth, scaling was carried out using discharge burnup of the reference design according to the following formula:
+total$\_$required$\_$fuel$\_$mass [kg HM] = (reactor$\_$power [=20 MWth]*core$\_$life$\_$time [years])/ discharge$\_$burnup [MWd/kgHM]
+
+$^4$ From UxC, as of mid-Feb, 2020, U$_3$O$_8$, conversion and SWU costs are 25 \$/lb U$_3$O$_8$, 23 \$/kgU as UF$_6$ and 47 \$/SWU, respectively. 
+
+$^5$ No information on the fuel salt fabrication cost. Total fuel cycle cost except for fabrication is approximately 5500 \$/kg UF$_6$ for 19.75 enrichment at an optimal tail of 0.167. 
+
+$^6$ UN and UC fuel fabrication costs are unknown but is assumed to be the same value with UO$_2$ fuel fabrication cost. Total fuel cycle cost except for fabrication is approximately 5500 \$/kg UF$_6$ for 19.75 enrichment at an optimal tail of 0.167. 
+
+\end{table}
+\end{landscape}
+
+\restoregeometry
+\pagebreak
+
+\newgeometry{margin=1cm}
+\begin{landscape}
+\begin{table} [ht]
+\begin{center}
+
 \caption{Worldwide design reviews}
 \label{reviews}
 \begin{tabular}{|l|l|l|l|l|l|}
