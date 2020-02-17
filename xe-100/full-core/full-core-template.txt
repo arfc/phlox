@@ -40,47 +40,43 @@ mat sic     -3.1 rgb 50 150 50
 
 therm MyThermLib lw10.32t
 
- /************************
-  * Geometry definitions *
-  ************************/
+/************************
+ * Geometry definitions *
+ ************************/
 
 particle 1
 
-fuel        {[trisofuelr]}
-graph       {[trisographr]}
-pyroc       {[trisopyrocinr]}
-sic         {[trisosicr]}
-pyroc       {[trisopyrocoutr]}
+fuel        0.02125
+graph       0.03075
+pyroc       0.03475
+sic         0.03825
+pyroc       0.04225
 void
 
 % --- based on HGTR tutorial from serpent wiki
 
-surf 10a inf
-cell 10b 2 graph -10a
-pbed 10c 2 {{particlefile}}
+surf 10 inf
+cell 10 2 graph -10
+pbed 10 2 "prtcls.inp"
 
-% --- attempt at describing core
+% --- describing core
 
-surf 20a inf
-cell 20b 3 cool -20a
-pbed 20c 3 {{pebblefile}} pow
+surf 20 inf
+cell 20 3 cool -20
+pbed 20 3 "pbbls.inp" pow
 
-% --- inner cylinder, centered at origin
-surf cinner cyl 0.0 0.0 124 -486 486
-% --- top gap between where pebbles are and walls of vessel/reflectors
-surf tgap cyl 0.0 0.0 124 487 546
-% --- bottom gap
-surf bgap cyl 0.0 0.0 124 -656 -487
+% --- inner cylinder, radius of 124 cm, centered at (x,y,z) = (0,0,0), height 966 cm
+surf 4 cyl 0.0 0.0 {{inner_rad}} {{inner_bottom}} {{inner_top}}
 % --- outer reflector shell
-surf reflect cyl 0.0 0.0 244 -748 638
+surf 5 cyl 0.0 0.0 {{outer_rad}} {{outer_bottom}} {{outer_top}}
 
-cell 30a 0 fill 20c  -cinner
-cell 30b 0 graph     cinner -reflect
-cell 30c 0 cool      cinner -tgap
-cell 30d 0 cool      cinner -bgap
-cell 30e 0 outside   reflect
+cell 50 0 fill 20  -4
+cell 60 0 graph     4 -5
+cell 80 0 outside   5
 
 % run parameters
+
+%set fum nj11
 
 set pop 5000 1000 100
 
