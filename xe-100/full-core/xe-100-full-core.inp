@@ -81,7 +81,6 @@ cell 80 0 outside   5
 
 % run parameters
 
-%set fum nj11
 
 set pop 5000 1000 100
 
