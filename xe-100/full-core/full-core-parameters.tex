@@ -13,6 +13,9 @@
 \usepackage{caption}
 \usepackage{xcolor}
 \usepackage{adjustbox}
+\usepackage{cleveref}
+
+\bibliographystyle{elsarticle-num}
 \def\thesection       {\arabic{section}}
 \def\thesubsection     {\thesection.\alph{subsection}}
 
@@ -28,63 +31,63 @@
 \begin{adjustbox}{max width=\textwidth}
 \centering
  \begin{tabular}{c c c c}
- Parameter & Reference & Certainty & Value \\
+ Parameter & Value & Certainty & Reference  \\
 
- Core Inner Radius [cm] & X-energy, Initial NRC meeting & Not Certain & 124 \\
+ Core Inner Radius [cm] & 124  & 0.99 & \cite{harlan_x-energy_2018} \\
 
- Core Outer Radius [cm] & X-energy, Initial NRC meeting & Not Certain & 216 \\
+ Core Outer Radius [cm]  & 216 & 0.99  & \cite{harlan_x-energy_2018} \\
 
- Core Inner Height [cm] & X-energy, Initial NRC meeting & Not Certain & 966 \\
+ Core Inner Height [cm] & 966 & 0.9 & \cite{harlan_x-energy_2018}  \\
 
- Core Outer Height [cm] & X-energy, Initial NRC meeting & Not Certain & 1150 \\
+ Core Outer Height [cm] & 1150 & 0.9 & \cite{harlan_x-energy_2018}   \\
 
- Top Gap Thickness [cm] & X-energy, Initial NRC meeting & Not Certain & n/a \\
+ Top Gap Thickness [cm] & n/a & 0.75  & \cite{harlan_x-energy_2018}  \\
 
- Bottom Gap Thickness [cm] & X-energy, Initial NRC meeting & Not Certain & n/a \\
+ Bottom Gap Thickness [cm] & n/a & 0.75 & \cite{harlan_x-energy_2018}  \\
 
- Pebble Inner Radius [cm] & X-energy, Initial NRC meeting & Certain & 2.5 \\
+ Pebble Inner Radius [cm] & 2.5 & 1.00 & \cite{harlan_x-energy_2018}  \\
 
- Pebble Outer Radius [cm] & X-energy, Initial NRC meeting & Certain & 3.0 \\
+ Pebble Outer Radius [cm] & 3.0 & 1.00 & \cite{harlan_x-energy_2018}   \\
 
-  TRISO Particle Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.04225 \\
+  TRISO Particle Radius [cm] & 0.04225 & 1.00 & \cite{harlan_x-energy_2018} \\
 
- TRISO Fuel Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.02125 \\
+ TRISO Fuel Radius [cm] & 0.02125 & 1.00 & \cite{harlan_x-energy_2018}   \\
 
- TRISO Buffer Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.03075 \\
+ TRISO Buffer Radius [cm] & 0.03075 & 1.00 & \cite{harlan_x-energy_2018}   \\
 
- TRISO Inner Pyrolytic Carbon Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.03475 \\
+ TRISO Inner Pyrolytic Carbon Radius [cm] & 0.03475 & 1.00 & \cite{harlan_x-energy_2018}   \\
 
- TRISO Silicon Carbide Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.03825 \\
+ TRISO Silicon Carbide Radius [cm] & 0.03825 & 1.00 & \cite{harlan_x-energy_2018}   \\
 
- TRISO Outer Pyrolytic Carbon Radius [cm] & X-energy, Initial NRC meeting & Certain & 0.04225 \\
+ TRISO Outer Pyrolytic Carbon Radius [cm]  & 0.04225 & 1.00 & \cite{harlan_x-energy_2018}  \\
 
- Number of Pebbles & X-energy, Initial NRC meeting & Given as an Approx. Value & 220000 \\
+ Number of Pebbles & 220000 & 0.85 &\cite{harlan_x-energy_2018}   \\
 
- Number of Particles per Pebble & X-energy, Initial NRC meeting & Given as an Approx. Value & 18000 \\
+ Number of Particles per Pebble & 18000 & 0.85  & \cite{harlan_x-energy_2018}  \\
 
- Packing Fraction & serpent dispersal routine & the pacfrac of the model is calculated by serpent & 0.59 [0.53] \\
+ Packing Fraction  & 0.53 & 1.00  & serpent dispersal routine  \\
 
- U235 Enrichment [wt] & ANS Xe-100 Overview, 2017 & Certain & 15.5\% \\
+ U235 Enrichment [wt] & 15.5\% & 1.00 & \cite{harlan_ans_2017}  \\
 
- UCO Density [g/cc] & Fabrication of Uranium Oxycarbide Kernels for HTR Fuel & Certain & 11.0 \\
+ UCO Density [g/cc] & 11.0 & 1.00 [0.03] & \cite{nagley_fabrication_2010}  \\
 
- Helium Density [10E+24/cc] & Calculated using Ideal Gas Law & Calculation &  0.0006\\
+ Helium Density [10E+24/cc] &  0.0006 & 0.9  & Calculated using Ideal Gas Law \\
 
- Graphite Reflector Density [g/cc] & Ho, Graphite Design & Certain & 1.74 \\
+ Graphite Reflector Density [g/cc] & 1.74  & 0.99 & \cite{ho_graphite_1988}  \\
 
- Porous Carbon Buffer Density [g/cc] & Using Reflector Data & Certain, if assume same density as reflector & 1.74 \\
+ Porous Carbon Buffer Density [g/cc] & 1.74 & 0.8 & Using Reflector Data  \\
 
- Pyrolytic Carbon Density [g/cc] & ESPI Metals, Graphite & Certain & 2.2 \\
+ Pyrolytic Carbon Density [g/cc] & 2.2 & 0.95 & \cite{espi_metals_graphite-pyrolytic_2019}   \\
 
- Silicon Carbide Density [g/cc] & Accuratus, Silicon Carbide & Certain & 3.1 \\
+ Silicon Carbide Density [g/cc] & 3.1 & 0.95 & \cite{accuratus_silicon_2013}  \\
 
- Core Inlet Temperature [C] & X-energy, Initial NRC meeting & Certain & 259.1 \\
+ Core Inlet Temperature [C] & 259.1 & 1.00 & \cite{harlan_x-energy_2018}  \\
 
- Core Outlet Temperature [C] & X-energy, Initial NRC meeting & Certain & 750 \\
+ Core Outlet Temperature [C] & 750 & 1.00 & \cite{harlan_x-energy_2018}  \\
 
- Core Inlet Pressure [MPa] & X-energy, Initial NRC meeting & Certain & 6 \\
+ Core Inlet Pressure [MPa] & 6  & 1.00 & \cite{harlan_x-energy_2018}  \\
 
- Core Outlet Pressure [MPa] & X-energy, Initial NRC meeting & Certain & 5.84 \\
+ Core Outlet Pressure [MPa]  & 5.84 & 1.00 &\cite{harlan_x-energy_2018}   \\
 
 
 
@@ -92,6 +95,6 @@
  \end{tabular}
 \end{adjustbox}
 
-
+\bibliography{x-energy}
 
 \end{document}
