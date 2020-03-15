@@ -12,11 +12,10 @@ set acelib sss_jeff312.xsdata
 % --- density/chemical formula of AGR2 UCO from nagley et. all "fabrication..."
 
 mat fuel      -11.0 rgb 100 50 100
-% --- originally -0.132848, -0.762437, -0.086060, -0.017760
-92235.08c     -0.132848
-92238.08c     -0.762437
- 8016.08c     -0.086060
- 6000.08c     -0.017760
+6012.08c -1.7761e-02
+8016.08c -8.6071e-02
+92235.08c -1.3891e-01
+92238.08c -7.5726e-01
 
 % --- coolant: Helium, assuming all he-4
 
