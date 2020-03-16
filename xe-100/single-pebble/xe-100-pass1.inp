@@ -70,7 +70,7 @@ surf 10 inf
 
 cell 10 2 graph -10
 
-pbed 10 2 "prtcles.inp"
+pbed 10 2 "prtcls.inp"
 
 % --- describing pebble: graphite
 
@@ -90,10 +90,6 @@ set pop 7000 500 50
 
 set bc 2
 
-% designating as 2 group, cutoff at thermal energy:
-
-set nfg 0.625E-6
-
 plot 3  200  200
 
 plot 3 1000 1000 0.0 -3.5 3.5 -3.5 3.5
@@ -106,3 +102,9 @@ mesh 3  200  200
 
 set declib sss_jeff33.dec
 set nfylib sss_jeff33.nfy
+
+set power 200E6 fuel
+
+dep daystep
+
+30
