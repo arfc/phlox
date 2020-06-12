@@ -1,9 +1,4 @@
-/* This input file defines the whole core of the MMR.
-*  The stack is a reference to the way the 'pellets' are 'stacked' in the fuel
-*  channels.
-*  This input file produces the XS that will be used in the full core and 1/12
-*  core model.
-*/
+/* This input file defines the whole core of the MMR. */
 
 /**********************************
 *       Particle Definition       *
@@ -24,127 +19,119 @@ sic    0.0545
 pyc    0.0565
 sic
 
-surf 1 inf
-cell 101 2 sic -1
-pbed 10 2 "dispersed_particles4.inp"
+surf 100 inf
+surf 101 inf
+surf 102 inf
+surf 103 inf
+surf 104 inf
+
+cell 500 2 sic    -100
+cell 501 3 helium -101
+cell 502 4 block  -102
+cell 503 R block  -103 %R is bottom and top reflector
+cell 504 RR reflector -104 %RR is radial reflector
+
+pbed 10 2 "dispersed68.inp"
 
 % -- Fuel Channel
-surf 2 cyl 0.0 0.0 0.9 0.0 4.0
-surf 10 cyl 0.0 0.0 0.9 0.0 192.0
-surf 11 cyl 0.0 0.0 1.08 0.0 192.0
+surf 110 cyl 0.0 0.0 1.07 0.0 68.0
+surf 111 cyl 0.0 0.0 1.07 0.0 204.0
+surf 112 cyl 0.0 0.0 1.08 0.0 204.0
 
-cell 130 12 fill 10 -2
-cell 131 12 sic      2
+cell 510 12 fill 10 -110
+cell 511 12 sic      110
 
-lat 11 9 0.0 0.0 48
-   0.0 12   4.0 12   8.0 12  12.0 12
-  16.0 12  20.0 12  24.0 12  28.0 12
-  32.0 12  36.0 12  40.0 12  44.0 12
-  48.0 12  52.0 12  56.0 12  60.0 12
-  64.0 12  68.0 12  72.0 12  76.0 12
-  80.0 12  84.0 12  88.0 12  92.0 12
-  96.0 12 100.0 12 104.0 12 108.0 12
- 112.0 12 116.0 12 120.0 12 124.0 12
- 128.0 12 132.0 12 136.0 12 140.0 12
- 144.0 12 148.0 12 152.0 12 156.0 12
- 160.0 12 164.0 12 168.0 12 172.0 12
- 176.0 12 180.0 12 184.0 12 188.0 12
+lat 11 9 0.0 0.0 3
+    0.0 12
+   68.0 12
+  136.0 12
 
-cell 102 3 fill 11 -10
-cell 103 3 helium   10 -11
-cell 104 3 block    11
+cell 512 5 fill 11 -111
+cell 513 5 fill 3   111 -112
+cell 514 5 fill 4   112
 
 % -- Coolant Channel
-surf 20 cyl 0.0 0.0 0.77 0.0 192.0
+surf 113 cyl 0.0 0.0 0.77 0.0 204.0
 
-cell 105 4 helium -20
-cell 106 4 block   20
-
-% -- Graphite (Empty) Channel
-
-surf 5 inf
-cell 107 5 block -5
+cell 515 6 fill 3  -113
+cell 516 6 fill 4   113
 
 % -- Fuel Block Lattice
-
 lat 20 3 0.0 0.0 13 13 3.2
-5 5 5 5 5 5 5 5 5 5 5 5 5
- 5 5 5 5 5 5 5 5 3 3 5 5 5
-  5 5 5 5 5 5 3 3 4 3 3 5 5
-   5 5 5 5 3 3 4 3 3 4 3 3 5
-    5 5 5 3 4 3 3 4 3 3 4 3 5
-     5 5 5 3 3 4 3 3 4 3 3 5 5
-      5 5 3 4 3 3 4 3 3 4 3 5 5
-       5 5 3 3 4 3 3 4 3 3 5 5 5
-        5 3 4 3 3 4 3 3 4 3 5 5 5
-         5 3 3 4 3 3 4 3 3 5 5 5 5
-          5 5 3 3 4 3 3 5 5 5 5 5 5
-           5 5 5 3 3 5 5 5 5 5 5 5 5
-            5 5 5 5 5 5 5 5 5 5 5 5 5
+4 4 4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 5 5 4 4 4
+  4 4 4 4 4 4 5 5 6 5 5 4 4
+   4 4 4 4 5 5 6 5 5 6 5 5 4
+    4 4 4 5 6 5 5 6 5 5 6 5 4
+     4 4 4 5 5 6 5 5 6 5 5 4 4
+      4 4 5 6 5 5 6 5 5 6 5 4 4
+       4 4 5 5 6 5 5 6 5 5 4 4 4
+        4 5 6 5 5 6 5 5 6 5 4 4 4
+         4 5 5 6 5 5 6 5 5 4 4 4 4
+          4 4 5 5 6 5 5 4 4 4 4 4 4
+           4 4 4 5 5 4 4 4 4 4 4 4 4
+            4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 30 hexyprism 0.0 0.0 15.0 0.0 192.0
+surf 120 hexyprism 0.0 0.0 15.0 0.0 204.0
 
-cell 110 8 fill 20  -30
-cell 111 8 block     30
+cell 520 8 fill 20  -120
+cell 521 8 fill 4    120
 
 % -- Control Block Lattice
-
 lat 21 3 0.0 0.0 13 13 3.2
-5 5 5 5 5 5 5 5 5 5 5 5 5
- 5 5 5 5 5 5 5 5 3 3 5 5 5
-  5 5 5 5 5 5 3 3 4 3 3 5 5
-   5 5 5 5 3 3 4 3 3 4 3 3 5
-    5 5 5 3 4 3 3 4 3 3 4 3 5
-     5 5 5 3 3 4 5 5 4 3 3 5 5
-      5 5 3 4 3 5 5 5 3 4 3 5 5
-       5 5 3 3 4 5 5 4 3 3 5 5 5
-        5 3 4 3 3 4 3 3 4 3 5 5 5
-         5 3 3 4 3 3 4 3 3 5 5 5 5
-          5 5 3 3 4 3 3 5 5 5 5 5 5
-           5 5 5 3 3 5 5 5 5 5 5 5 5
-            5 5 5 5 5 5 5 5 5 5 5 5 5
+4 4 4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 5 5 4 4 4
+  4 4 4 4 4 4 5 5 6 5 5 4 4
+   4 4 4 4 5 5 6 5 5 6 5 5 4
+    4 4 4 5 6 5 5 6 5 5 6 5 4
+     4 4 4 5 5 6 4 4 6 5 5 4 4
+      4 4 5 6 5 4 4 4 5 6 5 4 4
+       4 4 5 5 6 4 4 6 5 5 4 4 4
+        4 5 6 5 5 6 5 5 6 5 4 4 4
+         4 5 5 6 5 5 6 5 5 4 4 4 4
+          4 4 5 5 6 5 5 4 4 4 4 4 4
+           4 4 4 5 5 4 4 4 4 4 4 4 4
+            4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 31 cyl 0.0 0.0 4.0 0.0 192.0
-surf 32 hexyprism 0.0 0.0 15.0 0.0 192.0
+surf 121 cyl 0.0 0.0 4.0 0.0 204.0
+surf 122 hexyprism 0.0 0.0 15.0 0.0 204.0
 
-cell 112 7 helium   -31
-cell 113 7 fill 20   31 -32
-cell 114 7 block     32
+cell 522 7 fill 3   -121
+cell 523 7 fill 21   121 -122
+cell 524 7 fill 4    122
 
 % -- Central Block
+surf 123 cyl 0.0 0.0 6.0 0.0 204.0
 
-surf 33 cyl 0.0 0.0 6.0 0.0 192.0
-
-cell 115 6 helium   -33
-cell 116 6 block     33
+cell 530 6 fill 3   -123
+cell 531 6 fill 4    123
 
 % -- Core Lattice
-
 lat 22 3 0.0 0.0 11 11 30.0
-5 5 5 5 5 5 5 5 5 5 5
- 5 5 5 5 5 5 5 5 5 5 5
-  5 5 5 5 5 7 8 8 7 5 5
-   5 5 5 5 8 8 7 8 8 5 5
-    5 5 5 8 7 8 8 7 8 5 5
-     5 5 7 8 8 6 8 8 7 5 5
-      5 5 8 7 8 8 7 8 5 5 5
-       5 5 8 8 7 8 8 5 5 5 5
-        5 5 7 8 8 7 5 5 5 5 5
-         5 5 5 5 5 5 5 5 5 5 5
-          5 5 5 5 5 5 5 5 5 5 5
+4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 4 4 4
+  4 4 4 4 4 7 8 8 7 4 4
+   4 4 4 4 8 8 7 8 8 4 4
+    4 4 4 8 7 8 8 7 8 4 4
+     4 4 7 8 8 6 8 8 7 4 4
+      4 4 8 7 8 8 7 8 4 4 4
+       4 4 8 8 7 8 8 4 4 4 4
+        4 4 7 8 8 7 4 4 4 4 4
+         4 4 4 4 4 4 4 4 4 4 4
+          4 4 4 4 4 4 4 4 4 4 4
   
-surf 35 cyl 0.0 0.0 124.0 0.0 192.0
-surf 36 cyl 0.0 0.0 134.0 0.0 192.0
+surf 130 cyl 0.0 0.0 124.0 0.0 204.0
+surf 131 cyl 0.0 0.0 134.0 0.0 204.0
 
-surf 37 cyl 0.0 0.0 134.0  -20   0
-surf 38 cyl 0.0 0.0 134.0  192 212
-surf 39 cyl 0.0 0.0 134.0  -20 212
+surf 132 cyl 0.0 0.0 134.0  -20   0
+surf 133 cyl 0.0 0.0 134.0  204 224
+surf 134 cyl 0.0 0.0 134.0  -20 224
 
-cell 121 0 fill 22   -35
-cell 122 0 reflector  35 -36
-cell 123 0 block     -37
-cell 124 0 block     -38
-cell 125 0 outside    39
+cell 121 0 fill 22   -130
+cell 122 0 fill RR    130 -131
+cell 123 0 fill R    -132
+cell 124 0 fill R    -133
+cell 125 0 outside    134
 
 /**********************************
 *            Materials            *
@@ -194,27 +181,23 @@ mat reflector   -3.01
  8016.09c    0.50
 
 % --- Thermal scattering data for light water:
-
 therm grph 900 gre7.18t gre7.20t
 
 % --- Cross section data library file path:
-
 set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
 
 % --- Periodic boundary condition:
-
 set bc 1
 
 % --- Neutron population and criticality cycles:
-
 set pop 5000 100 40
 
 % --- Geometry plot:
 
 plot 3 600 600 1.0
-plot 1 1000 500 10.0
-
 plot 3 600 600 1.0 -100.0 100.0 -100.0 100.0
+
+plot 1 1000 500 10.0
 plot 1 1000 500 10.0 0.0 60.0 -3.0 67.0
 
 % -- 1 Group generation
@@ -222,17 +205,17 @@ plot 1 1000 500 10.0 0.0 60.0 -3.0 67.0
 % 5 should be the moderator
 % 4 should be the coolant channel
 
-set gcu 3 10 5 4
-set nfg 2 0.625E-6
+% set gcu 3 10 5 4
+% set nfg 2 0.625E-6
 
-branch fuel0
-stp un        -10.0       900
-stp buffer    -1.05       900 grph gre7.18t gre7.20t
-stp pyc       -1.90       900 grph gre7.18t gre7.20t
-stp sic       -3.18       900 grph gre7.18t gre7.20t
-stp block     -1.75       900 grph gre7.18t gre7.20t
-stp helium    2.65156E-05 900
+% branch fuel0
+% stp un        -10.0       900
+% stp buffer    -1.05       900 grph gre7.18t gre7.20t
+% stp pyc       -1.90       900 grph gre7.18t gre7.20t
+% stp sic       -3.18       900 grph gre7.18t gre7.20t
+% stp block     -1.75       900 grph gre7.18t gre7.20t
+% stp helium    2.65156E-05 900
 
-coef 1
-0
-1 fuel0
+% coef 1
+% 0
+% 1 fuel0
