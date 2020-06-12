@@ -35,7 +35,7 @@ surf 111 cyl 0.0 0.0 1.08 0.0 68.0
 
 cell 510 5 fill 10  -110
 cell 511 5 fill 3    110 -111
-cell 512 5 fill 4    112
+cell 512 5 fill 4    111
 
 % -- Coolant Channel
 surf 112 cyl 0.0 0.0 0.77 0.0 68.0
@@ -97,10 +97,6 @@ mat block    -1.75        moder grph 6000
 
 mat helium   -0.0020526
  2004.09c    -1.00
-
-mat reflector   -3.01
- 4009.09c    0.50
- 8016.09c    0.50
 
 % --- Thermal scattering data for light water:
 therm grph gre7.00t

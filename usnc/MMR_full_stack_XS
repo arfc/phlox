@@ -108,8 +108,8 @@ cell 524 7 fill 4    122
 % -- Central Block
 surf 123 cyl 0.0 0.0 6.0 0.0 204.0
 
-cell 530 6 fill 3   -123
-cell 531 6 fill 4    123
+cell 530 9 fill 3   -123
+cell 531 9 fill 4    123
 
 % -- Core Lattice
 lat 22 3 0.0 0.0 11 11 30.0
@@ -118,7 +118,7 @@ lat 22 3 0.0 0.0 11 11 30.0
   4 4 4 4 4 7 8 8 7 4 4
    4 4 4 4 8 8 7 8 8 4 4
     4 4 4 8 7 8 8 7 8 4 4
-     4 4 7 8 8 6 8 8 7 4 4
+     4 4 7 8 8 9 8 8 7 4 4
       4 4 8 7 8 8 7 8 4 4 4
        4 4 8 8 7 8 8 4 4 4 4
         4 4 7 8 8 7 4 4 4 4 4
@@ -126,34 +126,25 @@ lat 22 3 0.0 0.0 11 11 30.0
           4 4 4 4 4 4 4 4 4 4 4
   
 surf 130 cyl 0.0 0.0 124.0 0.0 204.0
-%surf 131 cyl 0.0 0.0 134.0 0.0 204.0
+surf 131 cyl 0.0 0.0 134.0 0.0 204.0
 
-% surf 132 cyl 0.0 0.0 134.0  -20   0
-% surf 133 cyl 0.0 0.0 134.0  204 224
-% surf 134 cyl 0.0 0.0 134.0  -20 224
+surf 132 cyl 0.0 0.0 134.0  -20   0
+surf 133 cyl 0.0 0.0 134.0  204 224
+surf 134 cyl 0.0 0.0 134.0  -20 224
 
 cell 540 0 fill 22   -130
-% cell 541 0 fill RR    130 -131
-% cell 542 0 fill R    -132
-% cell 543 0 fill R    -133
-cell 544 0 outside    130
+cell 541 0 fill RR    130 -131
+cell 542 0 fill R    -132
+cell 543 0 fill R    -133
+cell 544 0 outside    134
 
-/**********************************
-*            Materials            *
-* Kernel UN Density (d) 14.32g/cc *
-* - U (e% = 12%)                  *
-* - N 8.11%                       *
-* Buffer d 1.05g/cc               *
-* - C 100%                        *
-* PyC d 1.9g/cc                   *
-* - C 100%                        *
-* SiC d 3.18g/cc                  *
-* - Si 70.05%                     *
-* - C  29.96%                     *
-**********************************/
-
+/**************************************
+*              Materials              *
+* Kernel UO2+UCO Density (d) 10.8g/cc *
+* U (e% = 12%)                        *
+**************************************/
 % UO2+UCO
-mat un       -10.00
+mat un       -10.8
  92235.09c   0.0404
  92238.09c   0.2929
   6000.09c   0.0833
@@ -165,21 +156,21 @@ mat un       -10.00
 % 92238.09c   -0.808632
 %  7014.09c   -0.0811
 
-mat buffer   -1.05        moder grph 6000
+mat buffer   -0.98        moder grph 6000
  6000.09c    -1.0000
 
-mat pyc      -1.90        moder grph 6000
+mat pyc      -1.85        moder grph 6000
  6000.09c    -1.0000
 
-mat sic      -3.18        moder grph 6000
+mat sic      -3.2         moder grph 6000
 14000.09c    -0.7005
  6000.09c    -0.2996
 
 mat block    -1.75        moder grph 6000
- 6000.09c    -1.0000
+ 6000.09c    -1.00
 
-mat helium   2.65156E-05
- 2004.09c    2.65156E-05
+mat helium   -0.0020526
+ 2004.09c    -1.00
 
 mat reflector   -3.01
  4009.09c    0.50
