@@ -27,7 +27,7 @@ cell 500 2 sic    -100
 cell 501 3 helium -101
 cell 502 4 block  -102
 
-pbed 10 2 "dispersed_particles4.inp"
+pbed 10 2 "dispersed4.inp"
 
 % -- Fuel Channel
 surf 110 cyl 0.0 0.0 1.07 0.0 4.0
@@ -90,5 +90,5 @@ set bc 3
 set pop 5000 100 40
 
 % --- Geometry plot:
-plot 3 600 600 0.2 -2.7 2.7 -2.4 2.4
-plot 1 1000 500 0.0 -2.3 2.3 -0.0 1.0
+plot 3 600 600 0.2 -2. 2. -2. 2.
+plot 1 1000 500 0.0 -2. 2. 0.0 4.0
