@@ -1,5 +1,5 @@
 Brief description of the reactor:
-- Power: 10 - 40 MWt.
+- Power: 10 - 40 MWth.
 - Gas cooled reactor. Coolant: He.
 - Fuel: TRISO particles encapsulated in Fuel Ceramic Compacts (FCC/FCM).
 
@@ -9,7 +9,7 @@ MMR Fuel: FCM
 - Packing fraction: 0.4 (It can vary from 0.4 to 0.58)
 
 TRISO particles:
-- Kernel UO2 UCO  Diameter = 800e-6 m  Density = 10.00 g/cc  Enrichment = 12%
+- Kernel UO2/UCO  Diameter = 800e-6 m  Density = 10.00 g/cc  Enrichment = 12%
 - Buffer layer    Thickness = 75e-6 m  Density =  1.05 g/cc
 - IPyC            Thickness = 35e-6 m  Density =  1.9  g/cc
 - SiC             Thickness = 35e-6 m  Density =  3.18 g/cc

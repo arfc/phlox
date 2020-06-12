@@ -45,7 +45,7 @@ fill=blue!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 \graphicspath{}
-\title{Micro Modular Reactor - USNC}
+\title{Micro Modular Reactor (MMR) - USNC}
 \author{Roberto E. Fairhurst Agosta}
 
 \begin{document}
@@ -54,16 +54,101 @@ fill=blue!30]
 %		\thispagestyle{empty}
 %	\end{titlepage}
 
-\section{Description}	
+\section{Description}
 
 The Micro Modular Reactor (MMR) concept integrates power production, power conversion, and electricity generation in a single unit, making it suitable for use in remote areas. 
-The MMR will use fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
-The power of this reactor will range between 10 to 40 MW-thermal and its cycle length will be greater than 20 years.
-The MMR design results attractive for replacing diesel generators in remote areas. As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
+The MMR uses fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
+The power of this reactor ranges between 10 to 40 MW-thermal.
+The MMR design results attractive for replacing diesel generators in remote areas.
+As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
 
 \section{Serpent2 Model}
 
-The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side. 3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}. The fuel assembly consists of 54 fuel channels and 19 cooling channels. The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels. The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}. The fuel channels are 2 cm diameter. The fuel compacts are 1.4 cm diameter. The fuel channel wall and the compacts have a 0.3 cm gap filled with He. The cooling channels are 1.45 cm diameter. The core has a top and bottom reflector of graphite. The hexagonal core as a radial reflector of graphite and another one of BeO.
+\subsection{TRISO particles}
+
+A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}.
+The kernel has the fissile materials UO$_2$ and UCO.
+The layers (from the inside to the outside) are the buffer, the inner pyrolytic carbon (IPyC), the silicon carbide (SiC), and the outer pyrolytic carbon (OPyC).
+
+The fuel compact (Fig. \ref{fig:FCM}) is of 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}.
+The fuel compact contains the TRISO particles in a carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}.
+The model assumes a 40\% packing fraction.
+Serpent2 has a capability to randomly distribute particles in a volume.
+We used such capability to define the fuel compact model.
+
+Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact.
+
+	\begin{figure}[]
+		\centering
+		\includegraphics[width=0.5\linewidth]{figures/triso1.png}
+		\hfill
+		\caption{Typical TRISO particle [Add reference to the website].}
+		\label{fig:triso}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
+			\caption{XY cross section.}
+			\label{fig:FCM_xy}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
+			\caption{YZ cross section.}
+			\label{fig:FCM_yz}
+		\end{subfigure}
+		\hfill
+		\caption{FCM Serpent2 model geometry for different cross-sections.}
+		\label{fig:FCM}
+	\end{figure}
+
+	\begin{table}[]
+		\centering
+	    \caption{TRISO and Fuel Compact Characteristics.}
+	    \label{tab:compact}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value                \\ \hline
+		Fuel                             & UO$_2$ + UC$_{0.5}$O$_{1.5}$ (50/50\%)  \\
+		Enrichment (average)             & 12.0 wt\%            \\
+		Kernel radius                    & 400 $\micro$m        \\
+		Buffer thickness                 & 75 $\micro$m         \\
+		IPyC thickness                   & 35 $\micro$m         \\
+		SiC thickness                    & 35 $\micro$m         \\
+		OPyC thickness                   & 20 $\micro$m         \\
+    	Kernel density                   & 10.8 g/cm$^3$        \\
+		Buffer density                   & 1.05 g/cm$^3$        \\
+		IPyC density                     & 1.9 g/cm$^3$         \\
+		SiC density                      & 3.18 g/cm$^3$        \\
+		OPyC density                     & 1.9 g/cm$^3$         \\
+		SiC Matrix density               & 3.18 g/cm$^3$        \\
+		Packing Fraction (average)       & 39.9 \%              \\
+		
+		Compact radius                   & 0.6223 cm            \\
+		Compact Gap radius               & 0.635 cm             \\
+		Compact length                   & 4.928 cm             \\ 
+        Helium density           		 & 4.19 kg/m$^3$        \\
+        Block graphite density           & 1.85 g/cm$^3$        \\ \hline
+
+		\end{tabular}
+	\end{table}
+
+\subsection{Full Core}
+
+The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side.
+3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}.
+The fuel assembly consists of 54 fuel channels and 19 cooling channels.
+The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels.
+The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}.
+The fuel channels are 2 cm diameter.
+The fuel compacts are 1.4 cm diameter.
+The fuel channel wall and the compacts have a 0.3 cm gap filled with He.
+The cooling channels are 1.45 cm diameter.
+The core has a top and bottom reflector of graphite.
+The hexagonal core as a radial reflector of graphite and another one of BeO.
 
 \begin{figure}[H]
 	\centering
@@ -105,44 +190,6 @@ The model describes a core composed of hexagonal graphite assemblies Figs. \ref{
 	\label{fig:CentralAssembly}
 \end{figure}
 
-\subsection{FCM}
-
-The fuel compact (Fig. \ref{fig:FCM}) is 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}. The fuel compact contains the TRISO particles in Carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}. The model assumes a 40\% packing fraction. The following section describes the particles and the compact.
-Serpent2 has a capability to randomly distribute particles in a volume. We used such capability to define this model.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[t]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
-		\caption{XY cross section.}
-		\label{fig:FCM_xy}
-	\end{subfigure}
-	\begin{subfigure}[t]{0.4\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
-		\caption{YZ cross section.}
-		\label{fig:FCM_yz}
-	\end{subfigure}
-	\hfill
-	\caption{FCM Serpent2 model geometry for different cross-sections.}
-	\label{fig:FCM}
-\end{figure}
-
-\subsection{TRISO particles}
-
-A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}. The kernel has the fissile material (UO$_2$, UCO, UN, etc.). The layers (from the inside to the outside) are buffer, inner pyrolytic carbon (IPyC), silicon carbide (SiC), and outer pyrolytic carbon (OPyC).
-The model assumes a kernel of UN with a 700 $\mu$m-diameter. The layers have a thickness of 50, 35, 35, and 20 $\mu$m, respectively.
-The density for the kernel is 14.32 g/cc and for the layers it is 1.05, 1.9, 3.18, 1.9 g/cc, respectively. The enrichment is 12\%. For the SiC, the layer has a Si weight fraction of 70.05\% while the rest is Graphite. The rest of the layers only component is Graphite.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figures/triso1.png}
-	\hfill
-	\caption{Typical TRISO particle [Add reference to the website].}
-	\label{fig:triso}
-\end{figure}
-
 \section{Results}
 
 Both cases use 100 active cycles and 40 inactive cycles. The number of particles is 5000 for each cycle.
@@ -177,8 +224,6 @@ The next step will be modify those values to get an eigenvalue greater than 1.
 	\caption{3D mesh.}
 	\label{fig:gmsh3D}
 \end{figure}
-
-
 
 \pagebreak
 \bibliographystyle{plain}
