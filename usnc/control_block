@@ -30,7 +30,7 @@ cell 502 4 block  -102
 pbed 10 2 "dispersed_particles4.inp"
 
 % -- Fuel Channel
-surf 110 cyl 0.0 0.0 0.9 0.0 4.0
+surf 110 cyl 0.0 0.0 1.07 0.0 4.0
 surf 111 cyl 0.0 0.0 1.08 0.0 4.0
 
 cell 510 5 fill 10  -110
@@ -84,21 +84,21 @@ mat un       -10.8
 % 92238.09c   -0.808632
 %  7014.09c   -0.0811
 
-mat buffer   -1.05        moder grph 6000
+mat buffer   -0.98        moder grph 6000
  6000.09c    -1.0000
 
-mat pyc      -1.90        moder grph 6000
+mat pyc      -1.85        moder grph 6000
  6000.09c    -1.0000
 
-mat sic      -3.18        moder grph 6000
+mat sic      -3.2         moder grph 6000
 14000.09c    -0.7005
  6000.09c    -0.2996
 
 mat block    -1.75        moder grph 6000
- 6000.09c    -1.0000
+ 6000.09c    -1.00
 
-mat helium   2.65156E-05
- 2004.09c    2.65156E-05
+mat helium   -0.0020526
+ 2004.09c    -1.00
 
 mat reflector   -3.01
  4009.09c    0.50

@@ -66,43 +66,30 @@ As it could be factory produced, it could generate power at economically competi
 
 \subsection{TRISO particles}
 
-A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}.
-The kernel has the fissile materials UO$_2$ and UCO.
-The layers (from the inside to the outside) are the buffer, the inner pyrolytic carbon (IPyC), the silicon carbide (SiC), and the outer pyrolytic carbon (OPyC).
-
-The fuel compact (Fig. \ref{fig:FCM}) is of 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}.
-The fuel compact contains the TRISO particles in a carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}.
-The model assumes a 40\% packing fraction.
-Serpent2 has a capability to randomly distribute particles in a volume.
-We used such capability to define the fuel compact model.
-
 Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact.
+
+The values for the TRISO particles come from Table 5 of \cite{hawari_development_2018}.
+This values are not equal to values found in other documents such as in Table 1 of \cite{venneri_neutronic_2015}, but are very close.
+
+While \cite{venneri_neutronic_2015} uses a fuel compact of 0.7 cm of radius, \cite{hawari_development_2018} uses a fuel pin diameter of 2.17 cm.
+The model adopts a fuel hole diameter of 2.16 cm.
+I assume a helium gap of 0.1 cm between the block and the fuel compact.
+
+Further assumptions:
+\begin{itemize}
+	\item compact length: 4 cm.
+	\item helium temperature: 700 K.
+	\item helium pressure: 3 MPa \cite{hawari_development_2018}.
+\end{itemize}
+
+Figure \ref{fig:FCM} depicts the fuel compact model in Serpent.
 
 	\begin{figure}[]
 		\centering
 		\includegraphics[width=0.5\linewidth]{figures/triso1.png}
 		\hfill
-		\caption{Typical TRISO particle [Add reference to the website].}
+		\caption{Typical TRISO particle. Image reproduced from \cite{usnc_mmr_2019}.}
 		\label{fig:triso}
-	\end{figure}
-
-	\begin{figure}[H]
-		\centering
-		\begin{subfigure}[t]{0.4\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
-			\caption{XY cross section.}
-			\label{fig:FCM_xy}
-		\end{subfigure}
-		\begin{subfigure}[t]{0.4\textwidth}
-			\centering
-			\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
-			\caption{YZ cross section.}
-			\label{fig:FCM_yz}
-		\end{subfigure}
-		\hfill
-		\caption{FCM Serpent2 model geometry for different cross-sections.}
-		\label{fig:FCM}
 	\end{figure}
 
 	\begin{table}[]
@@ -120,35 +107,104 @@ Table \ref{tab:compact} summarizes the characteristics of the TRISO particles an
 		SiC thickness                    & 35 $\micro$m         \\
 		OPyC thickness                   & 20 $\micro$m         \\
     	Kernel density                   & 10.8 g/cm$^3$        \\
-		Buffer density                   & 1.05 g/cm$^3$        \\
-		IPyC density                     & 1.9 g/cm$^3$         \\
-		SiC density                      & 3.18 g/cm$^3$        \\
-		OPyC density                     & 1.9 g/cm$^3$         \\
-		SiC Matrix density               & 3.18 g/cm$^3$        \\
+		Buffer density                   & 0.98 g/cm$^3$        \\
+		IPyC density                     & 1.85 g/cm$^3$        \\
+		SiC density                      & 3.2  g/cm$^3$        \\
+		OPyC density                     & 1.85 g/cm$^3$        \\
+		SiC Matrix density               & 3.2 g/cm$^3$         \\
 		Packing Fraction (average)       & 39.9 \%              \\
-		
-		Compact radius                   & 0.6223 cm            \\
-		Compact Gap radius               & 0.635 cm             \\
-		Compact length                   & 4.928 cm             \\ 
-        Helium density           		 & 4.19 kg/m$^3$        \\
-        Block graphite density           & 1.85 g/cm$^3$        \\ \hline
+		Compact diameter                 & 2.14 cm              \\
+		Helium gap                       & 0.1 cm               \\
+		Compact length                   & 4.0 cm               \\ 
+        Helium density           		 & 2.0526 kg/m$^3$      \\
+        Block graphite density           & 1.75 g/cm$^3$        \\ \hline
 
 		\end{tabular}
 	\end{table}
 
+	\begin{figure}[]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
+			\caption{XY cross section.}
+			\label{fig:FCM_xy}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
+			\caption{YZ cross section.}
+			\label{fig:FCM_yz}
+		\end{subfigure}
+		\hfill
+		\caption{FCM Serpent model geometry for different planes.}
+		\label{fig:FCM}
+	\end{figure}
+
+
+
 \subsection{Full Core}
 
-The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side.
-3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}.
-The fuel assembly consists of 54 fuel channels and 19 cooling channels.
-The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels.
-The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}.
-The fuel channels are 2 cm diameter.
-The fuel compacts are 1.4 cm diameter.
-The fuel channel wall and the compacts have a 0.3 cm gap filled with He.
-The cooling channels are 1.45 cm diameter.
+\cite{venneri_neutronic_2015} uses a fuel compact of 0.7 cm-radius, a coolant hole of 0.4 cm-radius, and a 17 mm center to center distance hexagonal lattice.
+Section 3 of the same document defines the core with graphite pancake-like blocks.
+The blocks are 25 cm thick quarter disks with a diameter of 200 cm and a total length of 200 cm, surrounded by a 50 cm thick beryllium oxide reflectors.
+The overall core assembly size is 300 cm in diameter and 300 cm in length.
+
+\cite{hawari_development_2018} defines a very different core.
+The core definition adopted in this model is closer to \cite{hawari_development_2018} core.
+Such core has 37 different hexagonal graphite assemblies.
+3 different types assemblies make up the core, the fuel assembly, the control rod assembly, and a central assembly.
+The central assembly has one 12 cm-diameter control rod.
+
+%The fuel channel wall and the compacts have a 0.3 cm gap filled with He.
+
 The core has a top and bottom reflector of graphite.
 The hexagonal core as a radial reflector of graphite and another one of BeO.
+
+	\begin{table}[]
+		\centering
+	    \caption{Fuel Assembly Characteristics.}
+	    \label{tab:compact}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value         \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         \\
+		Block graphite density           & 1.75 g/cm$^3$ \\
+		Number of fuel holes             & 54            \\
+		Fuel hole diameter               & 2.16 cm       \\
+		Compacts per hole                &               \\
+		Number of coolant holes          & 19            \\
+		Coolant hole radius        		 & 1.54 cm       \\
+
+		Fuel/coolant pitch               &               \\
+		Fuel length                      &               \\ \hline
+
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[]
+		\centering
+	    \caption{Control Rod Assembly Characteristics.}
+	    \label{tab:compact}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value         \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         \\
+		Block graphite density           & 1.75 g/cm$^3$ \\
+		Number of fuel holes             & 48            \\
+		Fuel hole diameter               & 2.16 cm       \\
+		Compacts per hole                &               \\
+		Number of coolant holes          & 18            \\
+		Large coolant hole radius        & 1.54 cm       \\
+
+		Fuel/coolant pitch               &               \\
+		Fuel length                      &               \\ 
+		Control rod diameter             & 8 cm          \\ 
+
+		\hline
+
+		\end{tabular}
+	\end{table}
 
 \begin{figure}[H]
 	\centering
@@ -212,7 +268,7 @@ k-eff (implicit)  = 0.79688 +/- 0.00156  [0.79383  0.79993]
 The results indicate that the model has some erroneous assumption, as the reactor seems to be sub critical.
 Many of the values chosen for the model come from \cite{hawari_development_2018}. However, some values are not clearly defined.
 For example the dimensions of a TRISO particle and the FCM fuel. Those values came from \cite{powers_fully_2013}, \cite{jo_preliminary_2014}, and \cite{venneri_neutronic_2015}.
-Another point that it is worth commenting is the discrepancy between \cite{hawari_development_2018} and \cite{jo_preliminary_2014} about the core's height. While the first defines it to be around 64 cm, the latter states that a height has to be larger than 200 cm.
+Another point that it is worth commenting on is the discrepancy between \cite{hawari_development_2018} and \cite{jo_preliminary_2014} about the core's height. While the first defines it to be around 64 cm, the latter states that a height has to be larger than 200 cm.
 The next step will be modify those values to get an eigenvalue greater than 1.
 
 \section{Thermal-Hydraulics}
