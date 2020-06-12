@@ -189,12 +189,8 @@ set bc 1
 set pop 5000 100 40
 
 % --- Geometry plot:
-
 plot 3 600 600 1.0
-plot 3 600 600 1.0 -50.0 50.0 -50.0 50.0
-
-plot 1 1000 500 10.0
-plot 1 1000 500 10.0 0.0 60.0 -3.0 67.0
+plot 1 1000 500 1.0
 
 % -- 1 Group generation
 % I think 3 includes the He, and 10 is just the pellet

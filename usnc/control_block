@@ -27,18 +27,18 @@ cell 500 2 sic    -100
 cell 501 3 helium -101
 cell 502 4 block  -102
 
-pbed 10 2 "dispersed_particles4.inp"
+pbed 10 2 "dispersed68.inp"
 
 % -- Fuel Channel
-surf 110 cyl 0.0 0.0 1.07 0.0 4.0
-surf 111 cyl 0.0 0.0 1.08 0.0 4.0
+surf 110 cyl 0.0 0.0 1.07 0.0 68.0
+surf 111 cyl 0.0 0.0 1.08 0.0 68.0
 
 cell 510 5 fill 10  -110
 cell 511 5 fill 3    110 -111
-cell 512 5 fill 4    112
+cell 512 5 fill 4    111
 
 % -- Coolant Channel
-surf 112 cyl 0.0 0.0 0.77 0.0 4.0
+surf 112 cyl 0.0 0.0 0.77 0.0 68.0
 
 cell 513 6 fill 3  -112
 cell 514 6 fill 4   112
@@ -59,8 +59,8 @@ lat 20 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 120 cyl 0.0 0.0 4.0 0.0 4.0
-surf 121 hexyprism 0.0 0.0 15.0 0.0 4.0
+surf 120 cyl 0.0 0.0 4.0 0.0 68.0
+surf 121 hexyprism 0.0 0.0 15.0 0.0 68.0
 
 cell 520 0 fill 3   -120
 cell 521 0 fill 20   120 -121
@@ -99,10 +99,6 @@ mat block    -1.75        moder grph 6000
 
 mat helium   -0.0020526
  2004.09c    -1.00
-
-mat reflector   -3.01
- 4009.09c    0.50
- 8016.09c    0.50
 
 % --- Thermal scattering data for light water:
 therm grph gre7.00t
