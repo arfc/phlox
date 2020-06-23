@@ -67,9 +67,7 @@ As it could be factory produced, it could generate power at economically competi
 \subsection{TRISO particles and fuel compact}
 
 The input file that models the fuel compact is \textit{FCM}, shown in Figure \ref{fig:FCM}.
-Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact.
-The values for the TRISO particles come from Table 5 of \cite{hawari_development_2018}.
-The model adopts a fuel hole diameter of 2.16 cm.
+Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact modeled in Serpent.
 
 Further assumptions:
 \begin{itemize}
@@ -102,28 +100,28 @@ Further assumptions:
 		\centering
 	    \caption{TRISO and Fuel Compact Characteristics.}
 	    \label{tab:compact}
-		\begin{tabular}{l|l}
+		\begin{tabular}{l|l|l}
 		\hline
-		Characteristic                   & Value                \\ \hline
-		Fuel                             & UO$_2$ + UC$_{0.5}$O$_{1.5}$ (50/50\%)  \\
-		Enrichment (average)             & 12.0 wt\%            \\
-		Kernel radius                    & 400 $\mu$m        \\
-		Buffer thickness                 & 75 $\mu$m         \\
-		IPyC thickness                   & 35 $\mu$m         \\
-		SiC thickness                    & 35 $\mu$m         \\
-		OPyC thickness                   & 20 $\mu$m         \\
-    	Kernel density                   & 10.8 g/cm$^3$        \\
-		Buffer density                   & 0.98 g/cm$^3$        \\
-		IPyC density                     & 1.85 g/cm$^3$        \\
-		SiC density                      & 3.2  g/cm$^3$        \\
-		OPyC density                     & 1.85 g/cm$^3$        \\
-		SiC Matrix density               & 3.2 g/cm$^3$         \\
-		Packing Fraction (average)       & 39.9 \%              \\
-		Compact diameter                 & 2.14 cm              \\
-		Helium gap                       & 0.01 cm              \\
-		Compact length                   & 4.0 cm               \\ 
-        Helium density           		 & 2.0526 kg/m$^3$      \\
-        Block graphite density           & 1.75 g/cm$^3$        \\ \hline
+		Characteristic              & Value             & Reference/Assumption \\ \hline
+		Fuel                        & UO$_2$ + UC$_{0.5}$O$_{1.5}$ (50/50\%)  & Section 1 of \cite{hawari_development_2018} \\
+		Enrichment (average)        & 12.0 wt\%         & Section 1 of \cite{hawari_development_2018}  \\
+		Kernel radius               & 400 $\mu$m        & Table 5 of \cite{hawari_development_2018}  \\
+		Buffer thickness            & 75 $\mu$m         & Table 5 of \cite{hawari_development_2018}  \\
+		IPyC thickness              & 35 $\mu$m         & Table 5 of \cite{hawari_development_2018}  \\
+		SiC thickness               & 35 $\mu$m         & 36.7 $\mu$m in table 5 of \cite{hawari_development_2018}  \\
+		OPyC thickness              & 20 $\mu$m         & Table 5 of \cite{hawari_development_2018}  \\
+    	Kernel density              & 10.8 g/cm$^3$     & Table 5 of \cite{hawari_development_2018}  \\
+		Buffer density              & 0.98 g/cm$^3$     & Table 5 of \cite{hawari_development_2018}  \\
+		IPyC density                & 1.85 g/cm$^3$     & Table 5 of \cite{hawari_development_2018}  \\
+		SiC density                 & 3.2  g/cm$^3$     & Table 5 of \cite{hawari_development_2018}  \\
+		OPyC density                & 1.85 g/cm$^3$     & 1.86 g/cm$^3$ in table 5 of \cite{hawari_development_2018}  \\
+		SiC Matrix density          & 3.2 g/cm$^3$      & Table 1 of \cite{hawari_development_2018}  \\
+		Packing Fraction (average)  & 39.9 \%           & 40\% in Table 1 of \cite{hawari_development_2018}  \\
+		Compact diameter            & 2.14 cm           & Fuel pin diameter is 2.17 cm in Section 1 of \cite{hawari_development_2018}  \\
+		Helium gap                  & 0.01 cm           & The gap is an assumption. \\
+		Compact length              & 4.0 cm            & Value chosen arbitrily to model the compact. \\ 
+        Helium density           	& 2.0526 kg/m$^3$   & --> HERE <--  \\
+        Block graphite density      & 1.75 g/cm$^3$     &   \\ \hline
 
 		\end{tabular}
 	\end{table}
