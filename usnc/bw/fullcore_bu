@@ -179,7 +179,7 @@ mat reflector   -3.01     tmp 800
  8016.06c    0.50
 
 % --- Thermal scattering data for light water:
-therm grph 700 gr04.32t gr05.32t
+therm grph 800 gr04.32t gr05.32t
 
 % --- Cross section data library file path:
 set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
