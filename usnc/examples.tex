@@ -45,7 +45,7 @@ fill=blue!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 \graphicspath{}
-\title{Micro Modular Reactor - USNC}
+\title{Micro Modular Reactor (MMR) - USNC}
 \author{Roberto E. Fairhurst Agosta}
 
 \begin{document}
@@ -54,131 +54,234 @@ fill=blue!30]
 %		\thispagestyle{empty}
 %	\end{titlepage}
 
-\section{Description}	
+\section{Description}
 
 The Micro Modular Reactor (MMR) concept integrates power production, power conversion, and electricity generation in a single unit, making it suitable for use in remote areas. 
-The MMR will use fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
-The power of this reactor will range between 10 to 40 MW-thermal and its cycle length will be greater than 20 years.
-The MMR design results attractive for replacing diesel generators in remote areas. As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
+The MMR uses fully ceramic micro-encapsulated (FCM) fuel, which is a form of TRISO fuel, and He (or CO$_2$) as coolant.
+The power of this reactor ranges between 10 to 40 MW-thermal.
+The MMR design results attractive for replacing diesel generators in remote areas.
+As it could be factory produced, it could generate power at economically competitive prices \cite{hawari_development_2018}.
 
 \section{Serpent2 Model}
 
-The model describes a core composed of hexagonal graphite assemblies Figs. \ref{fig:FullXY} and \ref{fig:FullYZ} of 30 cm-side. 3 different types assemblies make up the core, the fuel assembly Fig. \ref{fig:FuelAssembly}, the control rod assembly Fig. \ref{fig:ControlRodAssembly}, and a central assembly Fig. \ref{fig:CentralAssembly}. The fuel assembly consists of 54 fuel channels and 19 cooling channels. The control rod assembly hosts the control rod guide (8 cm-diameter) and consists of 48 fuel channels and 18 cooling channels. The central assembly has one 12 cm-diameter control rod \cite{hawari_development_2018}. The fuel channels are 2 cm diameter. The fuel compacts are 1.4 cm diameter. The fuel channel wall and the compacts have a 0.3 cm gap filled with He. The cooling channels are 1.45 cm diameter. The core has a top and bottom reflector of graphite. The hexagonal core as a radial reflector of graphite and another one of BeO.
+\subsection{TRISO particles and fuel compact}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.45\linewidth]{figures/MMR_full_stack_geom1.png}
-	\hfill
-	\caption{XY cross section of the full core Serpent2 model geometry.}
-	\label{fig:FullXY}
-\end{figure}
+The input file that models the fuel compact is \textit{FCM}, shown in Figure \ref{fig:FCM}.
+Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact.
+The values for the TRISO particles come from Table 5 of \cite{hawari_development_2018}.
+The model adopts a fuel hole diameter of 2.16 cm.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\linewidth]{figures/MMR_full_stack_geom2.png}
-	\hfill
-	\caption{YZ cross section of the full core Serpent2 model geometry.}
-	\label{fig:FullYZ}
-\end{figure}
+Further assumptions:
+\begin{itemize}
+	\item helium gap: 0.01 cm.
+	\item compact length: 4 cm.
+	\item helium temperature: 700 K.
+	\item helium pressure: 3 MPa \cite{hawari_development_2018}.
+\end{itemize}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/fuel_block_geom1.png} 
-	\hfill
-	\caption{Fuel Assembly Serpent2 model geometry.}
-	\label{fig:FuelAssembly}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/control_block_geom1.png} 
-	\hfill
-	\caption{Control Rod Assembly Serpent2 model geometry.}
-	\label{fig:ControlRodAssembly}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.4\linewidth]{figures/central_block_geom1.png}
-	\hfill
-	\caption{Central Assembly Serpent2 model geometry.}
-	\label{fig:CentralAssembly}
-\end{figure}
-
-\subsection{FCM}
-
-The fuel compact (Fig. \ref{fig:FCM}) is 0.7 cm radius, and it could vary from 0.4 to 0.7 cm \cite{powers_fully_2013}. The fuel compact contains the TRISO particles in Carbide compact (SiC), and the packing fraction determines the number of particles in the fuel. The packing fraction ranges from 40 to 58\% \cite{powers_fully_2013}. The model assumes a 40\% packing fraction. The following section describes the particles and the compact.
-Serpent2 has a capability to randomly distribute particles in a volume. We used such capability to define this model.
-
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}[t]{0.4\textwidth}
+	\begin{figure}[htbp!]
 		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
-		\caption{XY cross section.}
-		\label{fig:FCM_xy}
-	\end{subfigure}
-	\begin{subfigure}[t]{0.4\textwidth}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom1.png} 
+			\caption{XY-plane view.}
+			\label{fig:FCM_xy}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
+			\caption{YZ-plane view.}
+			\label{fig:FCM_yz}
+		\end{subfigure}
+		\hfill
+		\caption{FCM Serpent model geometry for different planes.}
+		\label{fig:FCM}
+	\end{figure}
+
+	\begin{table}[htbp!]
 		\centering
-		\includegraphics[width=\linewidth]{figures/FCM_geom2.png}
-		\caption{YZ cross section.}
-		\label{fig:FCM_yz}
-	\end{subfigure}
-	\hfill
-	\caption{FCM Serpent2 model geometry for different cross-sections.}
-	\label{fig:FCM}
-\end{figure}
+	    \caption{TRISO and Fuel Compact Characteristics.}
+	    \label{tab:compact}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value                \\ \hline
+		Fuel                             & UO$_2$ + UC$_{0.5}$O$_{1.5}$ (50/50\%)  \\
+		Enrichment (average)             & 12.0 wt\%            \\
+		Kernel radius                    & 400 $\mu$m        \\
+		Buffer thickness                 & 75 $\mu$m         \\
+		IPyC thickness                   & 35 $\mu$m         \\
+		SiC thickness                    & 35 $\mu$m         \\
+		OPyC thickness                   & 20 $\mu$m         \\
+    	Kernel density                   & 10.8 g/cm$^3$        \\
+		Buffer density                   & 0.98 g/cm$^3$        \\
+		IPyC density                     & 1.85 g/cm$^3$        \\
+		SiC density                      & 3.2  g/cm$^3$        \\
+		OPyC density                     & 1.85 g/cm$^3$        \\
+		SiC Matrix density               & 3.2 g/cm$^3$         \\
+		Packing Fraction (average)       & 39.9 \%              \\
+		Compact diameter                 & 2.14 cm              \\
+		Helium gap                       & 0.01 cm              \\
+		Compact length                   & 4.0 cm               \\ 
+        Helium density           		 & 2.0526 kg/m$^3$      \\
+        Block graphite density           & 1.75 g/cm$^3$        \\ \hline
 
-\subsection{TRISO particles}
+		\end{tabular}
+	\end{table}
 
-A typical TRISO particle has a kernel and 4 layers Fig. \ref{fig:triso}. The kernel has the fissile material (UO$_2$, UCO, UN, etc.). The layers (from the inside to the outside) are buffer, inner pyrolytic carbon (IPyC), silicon carbide (SiC), and outer pyrolytic carbon (OPyC).
-The model assumes a kernel of UN with a 700 $\mu$m-diameter. The layers have a thickness of 50, 35, 35, and 20 $\mu$m, respectively.
-The density for the kernel is 14.32 g/cc and for the layers it is 1.05, 1.9, 3.18, 1.9 g/cc, respectively. The enrichment is 12\%. For the SiC, the layer has a Si weight fraction of 70.05\% while the rest is Graphite. The rest of the layers only component is Graphite.
+\subsection{Assemblies and full core}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figures/triso1.png}
-	\hfill
-	\caption{Typical TRISO particle [Add reference to the website].}
-	\label{fig:triso}
-\end{figure}
+Three different types assemblies make up the core, the fuel assembly, the control rod assembly, and a central assembly.
+
+The input file that models the fuel assembly and the control rod assembly are \textit{fuel\_block} and \textit{control\_block}, respectively, Figure \ref{fig:assemblies}.
+
+The input file that describes the full core is \textit{fullcore}, Figure \ref{fig:full}.
+
+Table \ref{tab:fuel} and \ref{tab:control} summarize the characteristics of the fuel and the control rod assemblies.
+
+The central assembly has one 12 cm-diameter control rod.
+
+Most of the values adopted in the model come from \cite{hawari_development_2018}.
+Knowing the fuel assembly flat-to-flat distance, and the number of fuel and cooling channels we estimate the flat-to-flat distance of the hexagonal lattice to be 6.4 cm.
+
+The fuel column is 63.24 cm long, and has a graphite bottom and top reflector of 2.38 cm.
+I assume that the fuel column has the length of the fuel assembly 68 cm.
+The model does not include the reflectors in the fuel column.
+Section 1 of \cite{hawari_development_2018} does not mention the height of the core. 
+\cite{venneri_neutronic_2015} considers a reactor height of 2 meters.
+Our model considers 3 fuel assemblies stacked on top of each other, reaching a core height of 204 cm.
+
+\cite{hawari_development_2018} does not specify the height of the reflector.
+\cite{venneri_neutronic_2015} uses a top and bottom reflector of 50 cm. 
+Our model assumes a top and bottom reflector of 50 cm.
+
+The core counts with a radial reflector of graphite and another one of BeO.
+The radial reflector of graphite has a diameter of 248.62 cm and the reflector of BeO has a diameter of 268.62 cm\cite{hawari_development_2018}.
+The model considers diameters of 248 cm and 268 cm, respectively.
+
+See Section \ref{sec:comments} for further discussion on the assumptions.
+
+	\begin{figure}[htbp!]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/fuel_block_geom1.png} 
+			\caption{Fuel assembly serpent model.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/control_block_geom1.png}
+			\caption{Control rod assembly serpent model.}
+		\end{subfigure}
+		\hfill
+		\caption{Different assemblies geometry.}
+		\label{fig:assemblies}
+	\end{figure}
+
+	\begin{figure}[htbp!]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/fullcore_geom1.png} 
+			\caption{XY-plane view.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/fullcore_geom2.png}
+			\caption{YZ-plane view.}
+		\end{subfigure}
+		\hfill
+		\caption{Full core Serpent model for different planes.}
+		\label{fig:full}
+	\end{figure}
+
+	\begin{table}[htbp!]
+		\centering
+	    \caption{Fuel Assembly Characteristics.}
+	    \label{tab:fuel}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value         \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         \\
+		Block graphite density           & 1.75 g/cm$^3$ \\
+		Number of fuel holes             & 54            \\
+		Fuel hole diameter               & 2.16 cm       \\
+		Number of coolant holes          & 19            \\
+		Coolant hole radius        		 & 1.54 cm       \\
+		Flat-to-flat hexagonal lattice   & 6.4 cm        \\
+		Fuel length                      & 68 cm         \\ \hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[htbp!]
+		\centering
+	    \caption{Control Rod Assembly Characteristics.}
+	    \label{tab:control}
+		\begin{tabular}{l|l}
+		\hline
+		Characteristic                   & Value         \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         \\
+		Block graphite density           & 1.75 g/cm$^3$ \\
+		Number of fuel holes             & 48            \\
+		Fuel hole diameter               & 2.16 cm       \\
+		Number of coolant holes          & 18            \\
+		Large coolant hole radius        & 1.54 cm       \\
+		Flat-to-flat hexagonal lattice   & 6.4 cm        \\
+		Fuel length                      & 68 cm         \\ 
+		Control rod diameter             & 8 cm          \\ \hline
+		\end{tabular}
+	\end{table}
 
 \section{Results}
 
-Both cases use 100 active cycles and 40 inactive cycles. The number of particles is 5000 for each cycle.
+Table \ref{tab:results1} shows the results of the eigenvalue calculations in Serpent of the FCM and the full core.
 
-The eigenvalue of an elementary cell containing a fuel channel (Fig. \ref{fig:FCM}) is: \\
-\noindent
-k-eff (analog)    = 1.40963 +/- 0.00164  [1.40641  1.41284]\\
-\noindent
-k-eff (implicit)  = 1.41108 +/- 0.00090  [1.40932  1.41285]
+Figure \ref{fig:results2} presents the variation of $k_{eff}$ and the mass of $U_{235}$ with the burn up.
 
-The eigenvalue of the full core (Fig. \ref{fig:FullXY}) results:\\
-\noindent
-k-eff (analog)    = 0.79770 +/- 0.00193  [0.79392  0.80148]\\
-\noindent
-k-eff (implicit)  = 0.79688 +/- 0.00156  [0.79383  0.79993]
+For the depletion calculations, we consider a reactor power of 10 MW-th.
 
+	\begin{table}[htbp!]
+		\centering
+	    \caption{$k_{eff}$ for different configurations.}
+	    \label{tab:results1}
+		\begin{tabular}{l|l}
+		\hline
+		             & $k_{eff}$ (analog)  \\ \hline
+		FCM          & 1.53402 +/- 0.00084 \\ 
+		fullcore     & 1.13582 +/- 0.00052 \\ \hline
+
+		\end{tabular}
+	\end{table}
+
+%Depeltions calculations
+	\begin{figure}[htbp!]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/Keff.png}
+			\caption{$k_{eff}$ of the full core for different burn ups.}
+		\end{subfigure}
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{figures/mU235.png}
+			\caption{$U_{235}$ mass of the full core for different burn ups.}
+		\end{subfigure}
+		\hfill
+		\caption{Burnup calculation results.}
+		\label{fig:results2}
+	\end{figure}
 
 \section{Comments}
+\label{sec:comments}
 
-The results indicate that the model has some erroneous assumption, as the reactor seems to be sub critical.
-Many of the values chosen for the model come from \cite{hawari_development_2018}. However, some values are not clearly defined.
-For example the dimensions of a TRISO particle and the FCM fuel. Those values came from \cite{powers_fully_2013}, \cite{jo_preliminary_2014}, and \cite{venneri_neutronic_2015}.
-Another point that it is worth commenting is the discrepancy between \cite{hawari_development_2018} and \cite{jo_preliminary_2014} about the core's height. While the first defines it to be around 64 cm, the latter states that a height has to be larger than 200 cm.
-The next step will be modify those values to get an eigenvalue greater than 1.
+This section discusses a few discrepancies between the adopted model and models from other documents.
 
-\section{Thermal-Hydraulics}
+The values for the TRISO particles are not equal to the values found in other documents such as \cite{venneri_neutronic_2015}, but are very close.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{figures/MMR3D_full.png}
-	\hfill
-	\caption{3D mesh.}
-	\label{fig:gmsh3D}
-\end{figure}
-
-
+While \cite{venneri_neutronic_2015} uses a fuel compact of 0.7 cm of radius, \cite{hawari_development_2018} uses a fuel pin diameter of 2.17 cm. The model adopts a value of 2.16 cm.
+\cite{venneri_neutronic_2015} uses a coolant hole of 0.4 cm-radius, and a 17 mm center to center distance hexagonal lattice.
+Section 3 of the same document defines the core with graphite pancake-like blocks.
+The blocks are 25 cm thick quarter disks with a diameter of 200 cm and a total length of 200 cm, surrounded by a 50 cm thick beryllium oxide reflectors.
+The overall core assembly size is 300 cm in diameter and 300 cm in length.
 
 \pagebreak
 \bibliographystyle{plain}
