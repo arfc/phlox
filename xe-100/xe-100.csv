@@ -1,8 +1,0 @@
-Parameter [#],value,reference,notes
-coolant,He,X-energy Xe-100 Reactor initial NRC meeting,
-fuel,TRISO particles in pebbles,X-energy Xe-100 Reactor initial NRC meeting,
-reflector,graphite,X-energy Xe-100 Reactor initial NRC meeting,
-u235 wt%,0.132848,"Nagley et al , “Fabrication...”  ","calculated based on Table 1 values, used AGR-2 UCO values"
-u238 wt%,0.762437,"Nagley et al , “Fabrication...”  ","calculated based on Table 1 values, used AGR-2 UCO values"
-o16 wt%,0.0860602,"Nagley et al , “Fabrication...”  ","calculated based on Table 1 values, used AGR-2 UCO values"
-c12 wt%,0.01776,"Nagley et al , “Fabrication...”  ","calculated based on Table 1 values, used AGR-2 UCO values"
