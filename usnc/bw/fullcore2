@@ -185,8 +185,10 @@ therm grph 800 gr04.32t gr05.32t
 % --- Cross section data library file path:
 set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
 
-% --- Periodic boundary condition:
+% --- Vacuum boundary condition:
 set bc 1
+
+set power 20000000 %20MW
 
 % --- Neutron population and criticality cycles:
 set pop 100000 400 100
@@ -195,27 +197,23 @@ set pop 100000 400 100
 plot 3 600 600 1.0
 plot 1 1000 500 1.0
 
-% -- 1 Group generation
-% I think 3 includes the He, and 10 is just the pellet
-% 5 should be the moderator
-% 4 should be the coolant channel
+%
+set ppw 8 20
+det pinpowers dr -8 void   dh 3 26 32.2 3.2 5 5 0 204 1
 
 % -- Group constant generation
 set gcu 0
 set nfg 2 0.625E-6
 
-% branch fuel0
-% stp un        -10.0       900
-% stp buffer    -1.05       900 grph gre7.18t gre7.20t
-% stp pyc       -1.90       900 grph gre7.18t gre7.20t
-% stp sic       -3.18       900 grph gre7.18t gre7.20t
-% stp block     -1.75       900 grph gre7.18t gre7.20t
-% stp helium    2.65156E-05 900
+branch fuel0
+stp un         -10.8       800
+stp buffer     -0.98       800 grph gr04.32t gr05.32t
+stp pyc        -1.85       800 grph gr04.32t gr05.32t
+stp sic        -3.2        800 grph gr04.32t gr05.32t
+stp block      -1.75       800 grph gr04.32t gr05.32t
+stp helium     -0.0020526  800
+stp reflector  -3.01       800
 
-% coef 1
-% 0
-% 1 fuel0
-
-set ppw 8 20
-
-det pinpowers dr -8 void   dh 3 26 32.2 3.2 5 5 0 272 1
+coef 1
+0
+1 fuel0
