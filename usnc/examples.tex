@@ -68,14 +68,7 @@ As it could be factory produced, it could generate power at economically competi
 
 The input file that models the fuel compact is \textit{FCM}, shown in Figure \ref{fig:FCM}.
 Table \ref{tab:compact} summarizes the characteristics of the TRISO particles and the fuel compact modeled in Serpent.
-
-Further assumptions:
-\begin{itemize}
-	\item helium gap: 0.01 cm.
-	\item compact length: 4 cm.
-	\item helium temperature: 700 K.
-	\item helium pressure: 3 MPa \cite{hawari_development_2018}.
-\end{itemize}
+The table also lists the assumptions made for each parameter.
 
 	\begin{figure}[htbp!]
 		\centering
@@ -118,10 +111,10 @@ Further assumptions:
 		SiC Matrix density          & 3.2 g/cm$^3$      & Table 1 of \cite{hawari_development_2018}  \\
 		Packing Fraction (average)  & 39.9 \%           & 40\% in Table 1 of \cite{hawari_development_2018}  \\
 		Compact diameter            & 2.14 cm           & Fuel pin diameter is 2.17 cm in Section 1 of \cite{hawari_development_2018}  \\
-		Helium gap                  & 0.01 cm           & The gap is an assumption. \\
+		Helium gap                  & 0.01 cm           & The presence of a gap is an assumption. \\
 		Compact length              & 4.0 cm            & Value chosen arbitrily to model the compact. \\ 
-        Helium density           	& 2.0526 kg/m$^3$   & --> HERE <--  \\
-        Block graphite density      & 1.75 g/cm$^3$     &   \\ \hline
+        Helium density           	& 2.0526 kg/m$^3$   & Ideal gas density, T=700K, P=3 MPa. Section 5 of \cite{hawari_development_2018} \\
+        Block graphite density      & 1.75 g/cm$^3$     & Density of grade H-451 Graphite \cite{gougar_prismatic_2010} \\ \hline
 
 		\end{tabular}
 	\end{table}
@@ -129,32 +122,23 @@ Further assumptions:
 \subsection{Assemblies and full core}
 
 Three different types assemblies make up the core, the fuel assembly, the control rod assembly, and a central assembly.
+The central assembly has one 12 cm-diameter control rod.
 
 The input file that models the fuel assembly and the control rod assembly are \textit{fuel\_block} and \textit{control\_block}, respectively, Figure \ref{fig:assemblies}.
-
 The input file that describes the full core is \textit{fullcore}, Figure \ref{fig:full}.
 
 Table \ref{tab:fuel} and \ref{tab:control} summarize the characteristics of the fuel and the control rod assemblies.
+The same tables provide information on the assumptions made.
+The rest of the assumptions are listed below:
 
-The central assembly has one 12 cm-diameter control rod.
+\begin{itemize}
+	\item \cite{hawari_development_2018} does not mention the height of the core. \cite{venneri_neutronic_2015} considers a reactor height of 2 meters. Our model considers 4 fuel assemblies stacked on top of each other, reaching a core height of 272 cm.
+	\item \cite{hawari_development_2018} does not specify the height of the reflector. We assume a 20 cm bottom and top reflector thickness.
+	\item The core counts with a radial reflector of graphite and another one of BeO.
+	The radial reflector of graphite has a diameter of 248.62 cm and the reflector of BeO has a diameter of 268.62 cm\cite{hawari_development_2018}.
+	The model considers diameters of 248 cm and 268 cm, respectively.
 
-Most of the values adopted in the model come from \cite{hawari_development_2018}.
-Knowing the fuel assembly flat-to-flat distance, and the number of fuel and cooling channels we estimate the flat-to-flat distance of the hexagonal lattice to be 6.4 cm.
-
-The fuel column is 63.24 cm long, and has a graphite bottom and top reflector of 2.38 cm.
-I assume that the fuel column has the length of the fuel assembly 68 cm.
-The model does not include the reflectors in the fuel column.
-Section 1 of \cite{hawari_development_2018} does not mention the height of the core. 
-\cite{venneri_neutronic_2015} considers a reactor height of 2 meters.
-Our model considers 3 fuel assemblies stacked on top of each other, reaching a core height of 204 cm.
-
-\cite{hawari_development_2018} does not specify the height of the reflector.
-\cite{venneri_neutronic_2015} uses a top and bottom reflector of 50 cm. 
-Our model assumes a top and bottom reflector of 50 cm.
-
-The core counts with a radial reflector of graphite and another one of BeO.
-The radial reflector of graphite has a diameter of 248.62 cm and the reflector of BeO has a diameter of 268.62 cm\cite{hawari_development_2018}.
-The model considers diameters of 248 cm and 268 cm, respectively.
+\end{itemize}
 
 See Section \ref{sec:comments} for further discussion on the assumptions.
 
@@ -196,17 +180,17 @@ See Section \ref{sec:comments} for further discussion on the assumptions.
 		\centering
 	    \caption{Fuel Assembly Characteristics.}
 	    \label{tab:fuel}
-		\begin{tabular}{l|l}
+		\begin{tabular}{l|l|l}
 		\hline
-		Characteristic                   & Value         \\ \hline
-		Block pitch (flat-to-flat)       & 30 cm         \\
-		Block graphite density           & 1.75 g/cm$^3$ \\
-		Number of fuel holes             & 54            \\
-		Fuel hole diameter               & 2.16 cm       \\
-		Number of coolant holes          & 19            \\
-		Coolant hole radius        		 & 1.54 cm       \\
-		Flat-to-flat hexagonal lattice   & 6.4 cm        \\
-		Fuel length                      & 68 cm         \\ \hline
+		Characteristic                   & Value         & Reference/Assumption \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         & Section 1 of \cite{hawari_development_2018} \\
+		Block graphite density           & 1.75 g/cm$^3$ & Density of grade H-451 Graphite \cite{gougar_prismatic_2010} \\
+		Number of fuel holes             & 54            & Section 1 of \cite{hawari_development_2018} \\
+		Fuel hole diameter               & 2.16 cm       & 2.17 cm in Section 1 of \cite{hawari_development_2018} \\
+		Number of coolant holes          & 19            & Section 1 of \cite{hawari_development_2018} \\
+		Coolant hole radius        		 & 1.54 cm       & 1.55 cm in Section 1 of \cite{hawari_development_2018} \\
+		Flat-to-flat hexagonal lattice   & 6.4 cm        & Value infered. \\
+		Fuel length                      & 68 cm         & Fuel rod of 63.24 cm with top and bottom graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ \hline
 		\end{tabular}
 	\end{table}
 
@@ -214,18 +198,18 @@ See Section \ref{sec:comments} for further discussion on the assumptions.
 		\centering
 	    \caption{Control Rod Assembly Characteristics.}
 	    \label{tab:control}
-		\begin{tabular}{l|l}
+		\begin{tabular}{l|l|l}
 		\hline
-		Characteristic                   & Value         \\ \hline
-		Block pitch (flat-to-flat)       & 30 cm         \\
-		Block graphite density           & 1.75 g/cm$^3$ \\
-		Number of fuel holes             & 48            \\
-		Fuel hole diameter               & 2.16 cm       \\
-		Number of coolant holes          & 18            \\
-		Large coolant hole radius        & 1.54 cm       \\
-		Flat-to-flat hexagonal lattice   & 6.4 cm        \\
-		Fuel length                      & 68 cm         \\ 
-		Control rod diameter             & 8 cm          \\ \hline
+		Characteristic                   & Value         & Reference/Assumption \\ \hline
+		Block pitch (flat-to-flat)       & 30 cm         & Section 1 of \cite{hawari_development_2018} \\
+		Block graphite density           & 1.75 g/cm$^3$ & Density of grade H-451 Graphite \cite{gougar_prismatic_2010} \\
+		Number of fuel holes             & 48            & Section 1 of \cite{hawari_development_2018} \\
+		Fuel hole diameter               & 2.16 cm       & 2.17 cm in Section 1 of \cite{hawari_development_2018} \\
+		Number of coolant holes          & 18            & Section 1 of \cite{hawari_development_2018} \\
+		Large coolant hole radius        & 1.54 cm       & 1.55 cm in Section 1 of \cite{hawari_development_2018} \\
+		Flat-to-flat hexagonal lattice   & 6.4 cm        & Value infered. \\
+		Fuel length                      & 68 cm         & Fuel rod of 63.24 cm with top and bottom graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ 
+		Control rod diameter             & 8 cm          & Section 1 of \cite{hawari_development_2018} \\ \hline
 		\end{tabular}
 	\end{table}
 

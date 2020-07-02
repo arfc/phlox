@@ -8,14 +8,14 @@
 
 ## Check that the main results file exists
 
-if (exist("./fullcore_bu_res.m", "file") != 2)
+if (exist("bw/fullcore_bu_res.m", "file") != 2)
   disp("Could not find fuel_block_burn_res.m from current folder! Cannot do analysis.")
   exit()
 endif
 
 ## Check that the depletion output file exists
 
-if (exist("./fullcore_bu_dep.m", "file") != 2)
+if (exist("bw/fullcore_bu_dep.m", "file") != 2)
   disp("Could not find fuel_block_burn_dep.m from current folder! Cannot do analysis.")
   exit()
 endif

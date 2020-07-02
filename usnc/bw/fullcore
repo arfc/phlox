@@ -35,8 +35,8 @@ pbed 10 2 "dispersed68.inp"
 
 % -- Fuel Channel
 surf 110 cyl 0.0 0.0 1.07 0.0 68.0
-surf 111 cyl 0.0 0.0 1.07 0.0 272.0
-surf 112 cyl 0.0 0.0 1.08 0.0 272.0
+surf 111 cyl 0.0 0.0 1.07 0.0 204.0
+surf 112 cyl 0.0 0.0 1.08 0.0 204.0
 
 cell 510 12 fill 10 -110
 cell 511 12 sic      110
@@ -51,7 +51,7 @@ cell 513 5 fill 3   111 -112
 cell 514 5 fill 4   112
 
 % -- Coolant Channel
-surf 113 cyl 0.0 0.0 0.77 0.0 272.0
+surf 113 cyl 0.0 0.0 0.77 0.0 204.0
 
 cell 515 6 fill 3  -113
 cell 516 6 fill 4   113
@@ -72,12 +72,12 @@ lat 20 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 120 hexyprism 0.0 0.0 15.0 0.0 272.0
+surf 120 hexyprism 0.0 0.0 15.0 0.0 204.0
 
 cell 520 8 fill 20  -120
 cell 521 8 fill 4    120
 
-% surf 130 cyl 0.0 0.0 124.0 0.0 272.0
+% surf 130 cyl 0.0 0.0 124.0 0.0 204.0
 
 % cell 540 0 fill 8    -130
 % cell 544 0 outside    130
@@ -98,15 +98,15 @@ lat 21 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 121 cyl 0.0 0.0 4.0 0.0 272.0
-surf 122 hexyprism 0.0 0.0 15.0 0.0 272.0
+surf 121 cyl 0.0 0.0 4.0 0.0 204.0
+surf 122 hexyprism 0.0 0.0 15.0 0.0 204.0
 
 cell 522 7 fill 3   -121
 cell 523 7 fill 21   121 -122
 cell 524 7 fill 4    122
 
 % -- Central Block
-surf 123 cyl 0.0 0.0 6.0 0.0 272.0
+surf 123 cyl 0.0 0.0 6.0 0.0 204.0
 
 cell 530 9 fill 3   -123
 cell 531 9 fill 4    123
@@ -125,12 +125,12 @@ lat 22 3 0.0 0.0 11 11 30.0
          4 4 4 4 4 4 4 4 4 4 4
           4 4 4 4 4 4 4 4 4 4 4
   
-surf 130 cyl 0.0 0.0 124.0 0.0 272.0
-surf 131 cyl 0.0 0.0 134.0 0.0 272.0
+surf 130 cyl 0.0 0.0 124.0 0.0 204.0
+surf 131 cyl 0.0 0.0 134.0 0.0 204.0
 
-surf 132 cyl 0.0 0.0 134.0  -20   0
-surf 133 cyl 0.0 0.0 134.0  272 292
-surf 134 cyl 0.0 0.0 134.0  -20 292
+surf 132 cyl 0.0 0.0 134.0  -50   0
+surf 133 cyl 0.0 0.0 134.0  204 254
+surf 134 cyl 0.0 0.0 134.0  -50 254
 
 cell 540 0 fill 22   -130
 cell 541 0 fill RR    130 -131
@@ -144,42 +144,42 @@ cell 544 0 outside    134
 * U (e% = 12%)                        *
 **************************************/
 % UO2+UCO
-mat un       -10.8        tmp 800 burn 1
+mat un       -10.8        tmp 700 burn 1
  92235.06c   0.0404
  92238.06c   0.2929
   6000.06c   0.0833
   8016.06c   0.5834
 
 % UN
-% mat un       -14.32       tmp 800
+% mat un       -14.32       tmp 700
 % 92235.06c   -0.110268
 % 92238.06c   -0.808632
 %  7014.06c   -0.0811
 
-mat buffer   -0.98        tmp 800 moder grph 6000
+mat buffer   -0.98        tmp 700 moder grph 6000
  6000.06c    -1.0000
 
-mat pyc      -1.85        tmp 800 moder grph 6000
+mat pyc      -1.85        tmp 700 moder grph 6000
  6000.06c    -1.0000
 
-mat sic      -3.2         tmp 800 moder grph 6000
+mat sic      -3.2         tmp 700 moder grph 6000
 14028.06c    -0.64446
 14029.06c    -0.035025
 14030.06c    -0.020915
  6000.06c    -0.2996
 
-mat block    -1.75        tmp 800 moder grph 6000
+mat block    -1.75        tmp 700 moder grph 6000
  6000.06c    -1.00
 
-mat helium   -0.0020526   tmp 800
+mat helium   -0.0020526   tmp 700
  2004.06c    -1.00
 
-mat reflector   -3.01     tmp 800
+mat reflector   -3.01     tmp 700
  4009.06c    0.50
  8016.06c    0.50
 
 % --- Thermal scattering data for light water:
-therm grph 800 gr04.32t gr05.32t
+therm grph 700 gr04.32t gr05.32t
 
 % --- Cross section data library file path:
 set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"

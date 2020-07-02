@@ -35,8 +35,8 @@ pbed 10 2 "dispersed68.inp"
 
 % -- Fuel Channel
 surf 110 cyl 0.0 0.0 1.07 0.0 68.0
-surf 111 cyl 0.0 0.0 1.07 0.0 204.0
-surf 112 cyl 0.0 0.0 1.08 0.0 204.0
+surf 111 cyl 0.0 0.0 1.07 0.0 272.0
+surf 112 cyl 0.0 0.0 1.08 0.0 272.0
 
 cell 510 12 fill 10 -110
 cell 511 12 sic      110
@@ -51,7 +51,7 @@ cell 513 5 fill 3   111 -112
 cell 514 5 fill 4   112
 
 % -- Coolant Channel
-surf 113 cyl 0.0 0.0 0.77 0.0 204.0
+surf 113 cyl 0.0 0.0 0.77 0.0 272.0
 
 cell 515 6 fill 3  -113
 cell 516 6 fill 4   113
@@ -72,12 +72,12 @@ lat 20 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 120 hexyprism 0.0 0.0 15.0 0.0 204.0
+surf 120 hexyprism 0.0 0.0 15.0 0.0 272.0
 
 cell 520 8 fill 20  -120
 cell 521 8 fill 4    120
 
-% surf 130 cyl 0.0 0.0 124.0 0.0 204.0
+% surf 130 cyl 0.0 0.0 124.0 0.0 272.0
 
 % cell 540 0 fill 8    -130
 % cell 544 0 outside    130
@@ -98,15 +98,15 @@ lat 21 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 121 cyl 0.0 0.0 4.0 0.0 204.0
-surf 122 hexyprism 0.0 0.0 15.0 0.0 204.0
+surf 121 cyl 0.0 0.0 4.0 0.0 272.0
+surf 122 hexyprism 0.0 0.0 15.0 0.0 272.0
 
 cell 522 7 fill 3   -121
 cell 523 7 fill 21   121 -122
 cell 524 7 fill 4    122
 
 % -- Central Block
-surf 123 cyl 0.0 0.0 6.0 0.0 204.0
+surf 123 cyl 0.0 0.0 6.0 0.0 272.0
 
 cell 530 9 fill 3   -123
 cell 531 9 fill 4    123
@@ -125,12 +125,12 @@ lat 22 3 0.0 0.0 11 11 30.0
          4 4 4 4 4 4 4 4 4 4 4
           4 4 4 4 4 4 4 4 4 4 4
   
-surf 130 cyl 0.0 0.0 124.0 0.0 204.0
-surf 131 cyl 0.0 0.0 134.0 0.0 204.0
+surf 130 cyl 0.0 0.0 124.0 0.0 272.0
+surf 131 cyl 0.0 0.0 134.0 0.0 272.0
 
 surf 132 cyl 0.0 0.0 134.0  -50   0
-surf 133 cyl 0.0 0.0 134.0  204 254
-surf 134 cyl 0.0 0.0 134.0  -50 254
+surf 133 cyl 0.0 0.0 134.0  272 322
+surf 134 cyl 0.0 0.0 134.0  -50 322
 
 cell 540 0 fill 22   -130
 cell 541 0 fill RR    130 -131
