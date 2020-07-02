@@ -16,6 +16,9 @@ module swap PrgEnv-cray PrgEnv-gnu
 export OMP_NUM_THREADS=16
 
 #aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 FCM
-aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 fullcore
+#aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 fullcore
 #aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 fullcore2
+#aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 fullcore3
 #aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 fullcore_bu
+aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 MMR_full_stack_burn
+#aprun -n 8 -d 16 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 16 MMR_full_stack_burn2
