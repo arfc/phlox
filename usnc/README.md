@@ -3,7 +3,10 @@ Serpent files:
 * control_block: defines the control rod assembly of the MMR.
 * FCM: defines the fuel compact of the MMR.
 * fuel_block: defines the fuel assembly of the MMR.
-* fullcore: defines the fullcore geometry of the MMR.
+* fullcore: defines the fullcore geometry of the MMR. 
+	- active core composed of 3 fuel assemblies
+* fullcore2: defines the fullcore geometry of the MMR.
+	- active core composed of 4 fuel assemblies
 
 * dispersed4.inp: fuel compact of 4 cm-height, 1.07 cm-radius.
 * dispersed68.inp: fuel compact of 68 cm-height, 1.07 cm-radius.

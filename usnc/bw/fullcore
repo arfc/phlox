@@ -188,19 +188,15 @@ set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
 set bc 1
 
 % --- Neutron population and criticality cycles:
-set pop 50000 400 100
+set pop 100000 400 100
 
 % --- Geometry plot:
 plot 3 600 600 1.0
 plot 1 1000 500 1.0
 
-% -- 1 Group generation
-% I think 3 includes the He, and 10 is just the pellet
-% 5 should be the moderator
-% 4 should be the coolant channel
-
-% set gcu 3 10 5 4
-% set nfg 2 0.625E-6
+% -- Group constant generation
+set gcu 0
+set nfg 2 0.625E-6
 
 % branch fuel0
 % stp un        -10.0       900
