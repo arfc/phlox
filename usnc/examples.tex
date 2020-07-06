@@ -8,6 +8,7 @@
 \addtolength{\textheight}{1.75in}
 
 \usepackage[utf8]{inputenc}
+\usepackage{multirow}
 \usepackage{caption} % for table captions
 \usepackage{amsmath} % for multi-line equations and piecewises
 \DeclareMathOperator{\sign}{sign}
@@ -113,7 +114,8 @@ The table also lists the assumptions made for each parameter.
 		Compact diameter            & 2.14 cm           & Fuel pin diameter is 2.17 cm in Section 1 of \cite{hawari_development_2018}  \\
 		Helium gap                  & 0.01 cm           & The presence of a gap is an assumption. \\
 		Compact length              & 4.0 cm            & Value chosen arbitrily to model the compact. \\ 
-        Helium density           	& 2.0526 kg/m$^3$   & Ideal gas density, T=700K, P=3 MPa. Section 5 of \cite{hawari_development_2018} \\
+        \multirow{ 2}{*}{Helium density} & \multirow{ 2}{*}{2.0526 kg/m$^3$}  & Ideal gas density, T=700K, P=3 MPa. \\
+                                    &                   & Section 5 of \cite{hawari_development_2018} \\
         Block graphite density      & 1.75 g/cm$^3$     & Density of grade H-451 Graphite \cite{gougar_prismatic_2010} \\ \hline
 
 		\end{tabular}
@@ -190,7 +192,8 @@ See Section \ref{sec:comments} for further discussion on the assumptions.
 		Number of coolant holes          & 19            & Section 1 of \cite{hawari_development_2018} \\
 		Coolant hole radius        		 & 1.54 cm       & 1.55 cm in Section 1 of \cite{hawari_development_2018} \\
 		Flat-to-flat hexagonal lattice   & 6.4 cm        & Value infered. \\
-		Fuel length                      & 68 cm         & Fuel rod of 63.24 cm with top and bottom graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ \hline
+		\multirow{ 2}{*}{Fuel length}    & \multirow{ 2}{*}{68 cm} & Fuel rod of 63.24 cm with top and bottom \\
+                                         &               & graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ \hline
 		\end{tabular}
 	\end{table}
 
@@ -208,7 +211,8 @@ See Section \ref{sec:comments} for further discussion on the assumptions.
 		Number of coolant holes          & 18            & Section 1 of \cite{hawari_development_2018} \\
 		Large coolant hole radius        & 1.54 cm       & 1.55 cm in Section 1 of \cite{hawari_development_2018} \\
 		Flat-to-flat hexagonal lattice   & 6.4 cm        & Value infered. \\
-		Fuel length                      & 68 cm         & Fuel rod of 63.24 cm with top and bottom graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ 
+		\multirow{ 2}{*}{Fuel length}    & \multirow{ 2}{*}{68 cm} & Fuel rod of 63.24 cm with top and bottom \\
+                                         &               & graphite plugs of 2.38 cm. Section 1 of \cite{hawari_development_2018} \\ 
 		Control rod diameter             & 8 cm          & Section 1 of \cite{hawari_development_2018} \\ \hline
 		\end{tabular}
 	\end{table}

@@ -46,7 +46,8 @@ ylabel("Multiplication factor");
 
 ## Add title to the plot
 
-title("Multiplication factor of the assembly as a function of burnup")
+title("Multiplication factor of the fullcore MMR model")
+# title("Multiplication factor of the assembly as a function of burnup")
 
 ## Set limits for the axes
 

@@ -8,6 +8,9 @@ Serpent files:
 * fullcore2: defines the fullcore geometry of the MMR.
 	- active core composed of 4 fuel assemblies
 
+* fullcore4: defines the fullcore geometry of the MMR.
+	- active core composed of 6 fuel assemblies
+
 * dispersed4.inp: fuel compact of 4 cm-height, 1.07 cm-radius.
 * dispersed68.inp: fuel compact of 68 cm-height, 1.07 cm-radius.
 * dispersed-particles4.inp: fuel compact of 4 cm-height, 0.9cm-radius.
