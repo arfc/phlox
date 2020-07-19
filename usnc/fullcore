@@ -144,50 +144,82 @@ cell 544 0 outside    134
 * U (e% = 12%)                        *
 **************************************/
 % UO2+UCO
-mat un       -10.8
- 92235.09c   0.0404
- 92238.09c   0.2929
-  6000.09c   0.0833
-  8016.09c   0.5834
+mat un       -10.8        tmp 800 burn 1
+ 92235.06c   0.0404
+ 92238.06c   0.2929
+  6000.06c   0.0833
+  8016.06c   0.5834
 
-% UN
-%mat un       -14.32
-% 92235.09c   -0.110268
-% 92238.09c   -0.808632
-%  7014.09c   -0.0811
+mat buffer   -0.98        tmp 800 moder grph 6000
+ 6000.06c    -1.0000
 
-mat buffer   -0.98        moder grph 6000
- 6000.09c    -1.0000
+mat pyc      -1.85        tmp 800 moder grph 6000
+ 6000.06c    -1.0000
 
-mat pyc      -1.85        moder grph 6000
- 6000.09c    -1.0000
+mat sic      -3.2         tmp 800 moder grph 6000
+14028.06c    -0.64446
+14029.06c    -0.035025
+14030.06c    -0.020915
+ 6000.06c    -0.2996
 
-mat sic      -3.2         moder grph 6000
-14000.09c    -0.7005
- 6000.09c    -0.2996
+mat block    -1.75        tmp 800 moder grph 6000
+ 6000.06c    -1.00
 
-mat block    -1.75        moder grph 6000
- 6000.09c    -1.00
+mat helium   -0.0020526   tmp 800
+ 2004.06c    -1.00
 
-mat helium   -0.0020526
- 2004.09c    -1.00
-
-mat reflector   -3.01
- 4009.09c    0.50
- 8016.09c    0.50
+mat reflector   -3.01     tmp 800
+ 4009.06c    0.50
+ 8016.06c    0.50
 
 % --- Thermal scattering data for light water:
-therm grph 900 gre7.18t gre7.20t
+therm grph 800 gr04.32t gr05.32t
 
 % --- Cross section data library file path:
-set acelib "/home/roberto/Serpent2/xs/sss_jeff311u"
+set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
 
-% --- Periodic boundary condition:
+% --- Vacuum boundary condition:
 set bc 1
-
-% --- Neutron population and criticality cycles:
-set pop 5000 100 40
 
 % --- Geometry plot:
 plot 3 600 600 1.0
 plot 1 1000 500 1.0
+
+% --- Neutron population and criticality cycles:
+set pop 100000 400 100
+
+% --- Burn Up parameters
+set power 20000000 %20MW
+
+dep daytot 730 1460 2190 2920 3650 4380 5110 5840 6570 7300 8030
+%div un sep 1
+set mcvol 100000000
+
+set inventory
+ 922350
+ 922380
+
+set pcc leli 10 10
+
+set declib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.dec"
+set nfylib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.nfy"
+
+% set ppw 8 20
+% det pinpowers dr -8 void   dh 3 26 32.2 3.2 5 5 0 204 1
+
+% % -- Group constant generation
+% set gcu 0
+% set nfg 2 0.625E-6
+
+% branch fuel0
+% stp un         -10.8       800
+% stp buffer     -0.98       800 grph gr04.32t gr05.32t
+% stp pyc        -1.85       800 grph gr04.32t gr05.32t
+% stp sic        -3.2        800 grph gr04.32t gr05.32t
+% stp block      -1.75       800 grph gr04.32t gr05.32t
+% stp helium     -0.0020526  800
+% stp reflector  -3.01       800
+
+% coef 1
+% 0
+% 1 fuel0
