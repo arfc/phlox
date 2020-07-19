@@ -15,6 +15,5 @@ cd $PBS_O_WORKDIR
 module swap PrgEnv-cray PrgEnv-gnu
 export OMP_NUM_THREADS=32
 
-#aprun -n 16 -d 32 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 32 fullcore
-#aprun -n 16 -d 32 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 32 fullcore2
-aprun -n 16 -d 32 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 32 fullcore_bu
+aprun -n 16 -d 32 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 32 fullcore
+#aprun -n 16 -d 32 /projects/sciteam/bbcc/serpent/src2.1.31/sss2 -omp 32 memo-fullcore2_bu
