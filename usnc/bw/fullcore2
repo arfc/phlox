@@ -35,23 +35,24 @@ pbed 10 2 "dispersed68.inp"
 
 % -- Fuel Channel
 surf 110 cyl 0.0 0.0 1.07 0.0 68.0
-surf 111 cyl 0.0 0.0 1.07 0.0 204.0
-surf 112 cyl 0.0 0.0 1.08 0.0 204.0
+surf 111 cyl 0.0 0.0 1.07 0.0 272.0
+surf 112 cyl 0.0 0.0 1.08 0.0 272.0
 
 cell 510 12 fill 10 -110
 cell 511 12 sic      110
 
-lat 11 9 0.0 0.0 3
+lat 11 9 0.0 0.0 4
     0.0 12
    68.0 12
   136.0 12
+  204.0 12
 
 cell 512 5 fill 11 -111
 cell 513 5 fill 3   111 -112
 cell 514 5 fill 4   112
 
 % -- Coolant Channel
-surf 113 cyl 0.0 0.0 0.77 0.0 204.0
+surf 113 cyl 0.0 0.0 0.77 0.0 272.0
 
 cell 515 6 fill 3  -113
 cell 516 6 fill 4   113
@@ -72,12 +73,12 @@ lat 20 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 120 hexyprism 0.0 0.0 15.0 0.0 204.0
+surf 120 hexyprism 0.0 0.0 15.0 0.0 272.0
 
 cell 520 8 fill 20  -120
 cell 521 8 fill 4    120
 
-% surf 130 cyl 0.0 0.0 124.0 0.0 204.0
+% surf 130 cyl 0.0 0.0 124.0 0.0 272.0
 
 % cell 540 0 fill 8    -130
 % cell 544 0 outside    130
@@ -98,15 +99,15 @@ lat 21 3 0.0 0.0 13 13 3.2
            4 4 4 5 5 4 4 4 4 4 4 4 4
             4 4 4 4 4 4 4 4 4 4 4 4 4
 
-surf 121 cyl 0.0 0.0 4.0 0.0 204.0
-surf 122 hexyprism 0.0 0.0 15.0 0.0 204.0
+surf 121 cyl 0.0 0.0 4.0 0.0 272.0
+surf 122 hexyprism 0.0 0.0 15.0 0.0 272.0
 
 cell 522 7 fill 3   -121
 cell 523 7 fill 21   121 -122
 cell 524 7 fill 4    122
 
 % -- Central Block
-surf 123 cyl 0.0 0.0 6.0 0.0 204.0
+surf 123 cyl 0.0 0.0 6.0 0.0 272.0
 
 cell 530 9 fill 3   -123
 cell 531 9 fill 4    123
@@ -125,12 +126,12 @@ lat 22 3 0.0 0.0 11 11 30.0
          4 4 4 4 4 4 4 4 4 4 4
           4 4 4 4 4 4 4 4 4 4 4
   
-surf 130 cyl 0.0 0.0 124.0 0.0 204.0
-surf 131 cyl 0.0 0.0 134.0 0.0 204.0
+surf 130 cyl 0.0 0.0 124.0 0.0 272.0
+surf 131 cyl 0.0 0.0 134.0 0.0 272.0
 
 surf 132 cyl 0.0 0.0 134.0  -50   0
-surf 133 cyl 0.0 0.0 134.0  204 254
-surf 134 cyl 0.0 0.0 134.0  -50 254
+surf 133 cyl 0.0 0.0 134.0  272 322
+surf 134 cyl 0.0 0.0 134.0  -50 322
 
 cell 540 0 fill 22   -130
 cell 541 0 fill RR    130 -131
@@ -149,6 +150,12 @@ mat un       -10.8        tmp 800 burn 1
  92238.06c   0.2929
   6000.06c   0.0833
   8016.06c   0.5834
+
+% UN
+% mat un       -14.32       tmp 800
+% 92235.06c   -0.110268
+% 92238.06c   -0.808632
+%  7014.06c   -0.0811
 
 mat buffer   -0.98        tmp 800 moder grph 6000
  6000.06c    -1.0000
@@ -188,7 +195,7 @@ plot 1 1000 500 1.0
 % --- Neutron population and criticality cycles:
 set pop 100000 400 100
 
-% --- Burn Up parameters
+% % --- Burn Up parameters
 set power 10000000 %20MW
 
 dep daytot 730 1460 2190 2920 3650 4380 5110 5840 6570 7300 8030
@@ -204,6 +211,7 @@ set pcc leli 10 10
 set declib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.dec"
 set nfylib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.nfy"
 
+% power - detector
 % set ppw 8 20
 % det pinpowers dr -8 void   dh 3 26 32.2 3.2 5 5 0 204 1
 
