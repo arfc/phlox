@@ -1,0 +1,204 @@
+/* This input file defines the whole core of the MMR. */
+
+/**********************************
+*       Particle Definition       *
+* Kernel UN Diameter (D) 800e-6 m *
+* Buffer Thickness (T) 75e-6 m    *
+* IPyC T 35e-6 m                  *
+* SiC T 35e-6 m                   *
+* OPyC T 20e-6 m                  *
+* Matrix SiC                      *
+**********************************/
+% -- Coated Particle
+particle 1
+
+un     0.04
+buffer 0.0475
+pyc    0.0510
+sic    0.0545
+pyc    0.0565
+sic
+
+% Dummy rods
+surf 102 inf
+cell 502 4 block  -102
+
+% --- Universe surrounding particles:
+surf 1 inf
+cell 500 2 sic    -1
+
+% --- Fuel channel:
+surf s1  cyl 0.0 0.0 1.085  2.38  65.62
+surf s2  cyl 0.0 0.0 1.085  0     68
+
+pbed 10 2 "particles63"
+
+cell c1 12 fill 10 -s1
+cell c2 12 block    s1 -s2
+cell c3 12 block    s2
+
+lat 5 9 0.0 0.0 4
+    0.0 12
+   68.0 12
+  136.0 12
+  204.0 12
+
+% -- Coolant Channel
+surf 113 cyl 0.0 0.0 0.775 0.0 272.0
+
+cell 515 6 helium  -113
+cell 516 6 block    113
+
+% -- Fuel Block Lattice
+lat 20 3 0.0 0.0 13 13 3.2
+4 4 4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 5 5 4 4 4
+  4 4 4 4 4 4 5 5 6 5 5 4 4
+   4 4 4 4 5 5 6 5 5 6 5 5 4
+    4 4 4 5 6 5 5 6 5 5 6 5 4
+     4 4 4 5 5 6 5 5 6 5 5 4 4
+      4 4 5 6 5 5 6 5 5 6 5 4 4
+       4 4 5 5 6 5 5 6 5 5 4 4 4
+        4 5 6 5 5 6 5 5 6 5 4 4 4
+         4 5 5 6 5 5 6 5 5 4 4 4 4
+          4 4 5 5 6 5 5 4 4 4 4 4 4
+           4 4 4 5 5 4 4 4 4 4 4 4 4
+            4 4 4 4 4 4 4 4 4 4 4 4 4
+
+surf 120 hexyprism 0.0 0.0 15.0 0.0 272.0
+
+cell 520 8 fill 20  -120
+cell 521 8 block     120
+
+% -- Control Block Lattice
+lat 21 3 0.0 0.0 13 13 3.2
+4 4 4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 5 5 4 4 4
+  4 4 4 4 4 4 5 5 6 5 5 4 4
+   4 4 4 4 5 5 6 5 5 6 5 5 4
+    4 4 4 5 6 5 5 6 5 5 6 5 4
+     4 4 4 5 5 6 4 4 6 5 5 4 4
+      4 4 5 6 5 4 4 4 5 6 5 4 4
+       4 4 5 5 6 4 4 6 5 5 4 4 4
+        4 5 6 5 5 6 5 5 6 5 4 4 4
+         4 5 5 6 5 5 6 5 5 4 4 4 4
+          4 4 5 5 6 5 5 4 4 4 4 4 4
+           4 4 4 5 5 4 4 4 4 4 4 4 4
+            4 4 4 4 4 4 4 4 4 4 4 4 4
+
+surf 121 cyl       0.0 0.0  4.0 0.0 272.0
+surf 122 hexyprism 0.0 0.0 15.0 0.0 272.0
+
+cell 522 7 helium   -121
+cell 523 7 fill 21   121 -122
+cell 524 7 block     122
+
+% -- Central Block
+surf 123 cyl 0.0 0.0 6.0 0.0 272.0
+
+cell 530 9 helium   -123
+cell 531 9 block     123
+
+% -- Core Lattice
+lat 22 3 0.0 0.0 11 11 30.0
+4 4 4 4 4 4 4 4 4 4 4
+ 4 4 4 4 4 4 4 4 4 4 4
+  4 4 4 4 4 7 8 8 7 4 4
+   4 4 4 4 8 8 7 8 8 4 4
+    4 4 4 8 7 8 8 7 8 4 4
+     4 4 7 8 8 9 8 8 7 4 4
+      4 4 8 7 8 8 7 8 4 4 4
+       4 4 8 8 7 8 8 4 4 4 4
+        4 4 7 8 8 7 4 4 4 4 4
+         4 4 4 4 4 4 4 4 4 4 4
+          4 4 4 4 4 4 4 4 4 4 4
+  
+cell 540 0 fill 22   -130
+
+% Reflector: radial
+surf 130 cyl 0.0 0.0 124.0 0.0 272.0
+surf 131 cyl 0.0 0.0 134.0 0.0 272.0
+
+cell 541 0 reflector  130 -131
+
+% Reflector: bottom and top
+surf 132 cyl 0.0 0.0 134.0  -20   0
+surf 133 cyl 0.0 0.0 134.0  272 292
+
+cell 543 0 reflector  -133
+cell 542 0 reflector  -132
+
+% Outside world
+surf 134   cyl       0.0 0.0 134.0  -20   292
+cell 544 0 outside                  134
+
+/**************************************
+*              Materials              *
+* Kernel UO2+UCO Density (d) 10.8g/cc *
+* U (e% = 12%)                        *
+* fuel is UO2 and U2CO3, 1:1 molar    *
+* fraction.                           *
+**************************************/
+
+% UO2+UCO
+mat un       -10.8        tmp 900 burn 1
+ 92235.06c   0.0665
+ 92238.06c   0.2668
+  6000.06c   0.0833
+  8016.06c   0.5834
+
+mat buffer   -0.98        tmp 900 moder grph 6000
+ 6000.09c    -1.0000
+
+mat pyc      -1.85        tmp 900 moder grph 6000
+ 6000.09c    -1.0000
+
+mat sic      -3.2         tmp 900 moder grph 6000
+14028.09c    -0.64446
+14029.09c    -0.035025
+14030.09c    -0.020915
+ 6000.09c    -0.2996
+
+mat block    -1.75        tmp 900 moder grph 6000
+ 6000.09c    -1.00
+
+mat helium   -0.0020526   tmp 900
+ 2004.09c    -1.00
+
+mat reflector   -3.01     tmp 900  % A800H
+ 4009.09c    0.50
+ 8016.09c    0.50
+
+% --- Thermal scattering data for light water:
+therm grph 900 gr05.32t gr06.32t
+
+% --- Cross section data library file path:
+% set acelib  "/home/mt/Desktop/MSFR/Serpent/c757mnyws00/xsdata/sss_endfb7u.xsdata"
+set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
+
+% --- Vacuum boundary condition:
+set bc 1
+
+% --- Neutron population and criticality cycles:
+set pop 100000 400 100
+
+% --- Geometry plot:
+plot 3 2000 2000 30.0
+plot 2 2000 2000 1.0
+plot 2 2000 2000 0.0
+
+% --- Burn Up parameters
+set power 15000000 %15MW
+
+dep daytot 730 1460 2190 2920 3650 4380 5110 5840 6570 7300
+%div un sep 1
+set mcvol 100000000
+
+set inventory
+ 922350
+ 922380
+
+set pcc leli 10 10
+
+set declib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.dec"
+set nfylib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.nfy"
