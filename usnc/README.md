@@ -25,10 +25,7 @@ Serpent files:
 	- e% = 19.75
 	- P = 15MW
 
-* memo-fullcore5:
-	- 1 fuel assembly tall
-	- e% = 19.75
-	- P = 15MW
+
 
 * memo-fullcore6:
 	- 4 fuel assembly tall
@@ -70,3 +67,11 @@ Serpent files:
 
 **Core Description**: The description of the core can be found in the '14-6782 NEUP Final Report' about this reactor.
 Some of the parameters specified in such report have discrepancies with the document 'Preliminary Core Analysis of a Micro Modular Reactor'.
+
+Previous efforts:
+-----------------
+
+* memo-fullcore5:
+	- 1 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
