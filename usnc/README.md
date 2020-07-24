@@ -11,35 +11,9 @@ Serpent files:
 * fullcore4: defines the fullcore geometry of the MMR.
 	- active core composed of 7 fuel assemblies
 
-* memo-fullcore6:
-	- 4 fuel assembly tall
-	- e% = 19.75
-	- P = 15MW
-	- reflector thickness 20 cm
-
-* memo-fullcore7:
-	- 4 fuel assembly tall
-	- e% = 19.75
-	- P = 15MW
-	- reflector thickness 10 cm
-
-* memo-fullcore8:
-	- 4 fuel assembly tall
-	- e% = 19.75
-	- P = 15MW
-	- reflector thickness 10 cm
-	- reflector made of graphite
-
 * memo-fullcore9:
 	- 4 fuel assembly tall
 	- e% = 19.75
-	- P = 15MW
-	- reflector thickness 68 cm
-	- reflector made of graphite
-
-* memo-fullcore10:
-	- 4 fuel assembly tall
-	- e% = 15.5
 	- P = 15MW
 	- reflector thickness 68 cm
 	- reflector made of graphite
@@ -52,8 +26,8 @@ Serpent files:
 **Core Description**: The description of the core can be found in the '14-6782 NEUP Final Report' about this reactor.
 Some of the parameters specified in such report have discrepancies with the document 'Preliminary Core Analysis of a Micro Modular Reactor'.
 
-Previous efforts:
------------------
+Previous efforts: e = 12%
+-------------------------
 
 * memo-fullcore2:
 	- 1 fuel assembly tall
@@ -69,6 +43,9 @@ Previous efforts:
 	- P = 20MW
 	- top and bottom reflectors are made of BeO
 	- 50 cm thick top and bottom reflector
+
+Previous efforts: e = 19.75%, reflector of BeO
+----------------------------------------------
 
 * memo-fullcore4:
 	- 4 fuel assembly tall
@@ -87,3 +64,45 @@ Previous efforts:
 	- 50 cm thick top and bottom reflector
 	- keff(t=0) > 1.2
 	- t (Keff=1) = 2500 
+
+* memo-fullcore6:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- top and bottom reflectors are made of BeO
+	- reflector thickness 20 cm
+	- keff(t=0) > 1.2
+	- t (Keff=1) > 20y  
+
+* memo-fullcore7:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- top and bottom reflectors are made of BeO
+	- reflector thickness 10 cm
+	- keff(t=0) = 1.2
+	- t (Keff=1) > 20y
+
+Previous efforts: e = 19.75%, reflector of Graphite
+---------------------------------------------------
+
+* memo-fullcore8:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflector thickness 10 cm
+	- reflector made of graphite
+	- keff(t=0) < 1.2
+	- t (Keff=1) ~= 20y
+
+Previous efforts: e = 15.5%, reflector of Graphite
+---------------------------------------------------
+
+* memo-fullcore10:
+	- 4 fuel assembly tall
+	- e% = 15.5
+	- P = 15MW
+	- reflector thickness 68 cm
+	- reflector made of graphite
+	- keff(t=0) < 1.2
+	- t (Keff=1) ~= 6000
