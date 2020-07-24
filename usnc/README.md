@@ -28,6 +28,16 @@ Some of the parameters specified in such report have discrepancies with the docu
 
 Previous efforts: e = 12%
 -------------------------
+* fullcore:
+	- 3 fuel assembly tall
+	- top and bottom reflectors are made of graphite
+	- 50 cm thick top and bottom reflector
+	- P = 10MW
+	- keff(t=0) = 1.12
+	- t (Keff=1) < 4000
+	- P = 20MW
+	- keff(t=0) > 1.1
+	- t (Keff=1) < 2000 
 
 * memo-fullcore2:
 	- 1 fuel assembly tall
