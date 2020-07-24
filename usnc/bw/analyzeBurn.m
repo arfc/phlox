@@ -6,12 +6,10 @@
 ## Initial checking and pre-processing ##
 #########################################
 
-
-
 ## Run both of the files to bring the results to workspace
 
-run memo-fullcore4_bu_res.m;
-run memo-fullcore4_bu_dep.m;
+run memo-fullcore10_bu_res.m;
+run memo-fullcore10_bu_dep.m;
 
 ###############################################
 ## Plot the multiplication factor vs. burnup ##
@@ -50,7 +48,7 @@ box on;
 
 ## Save the figure
 
-print -dpng memo-fullcore4-20-Keff.png;
+print -dpng memo-fullcore10-15-Keff.png;
 
 ## Close all figures
 
@@ -91,4 +89,4 @@ box on;
 
 ## Save the figure
 
-print -dpng memo-fullcore4-20-mU235.png;
+print -dpng memo-fullcore10-15-mU235.png;
