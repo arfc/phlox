@@ -2,6 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import serpentTools as st
+from matplotlib.cbook import get_sample_data
 
 
 def plot_spectrum(data, name):
@@ -109,134 +110,36 @@ def plot_hexagonal(data, name, p):
     """
     det = data.detectors[name]
 
-    A = 3.2/np.cos(np.pi/6)  # cm length of face of the hexagon
-    Ah = 6. * (A * 3.2/2)    # Area of the hexagon
-    vdetector = Ah * 272
-
-    val = det.tallies
-    val = val/vdetector
-    # det.tallies = val
-
-    # det.grids
-    # det.indexes
+    # Dividies by detector volume
+    # A = 3.2/np.cos(np.pi/6)  # cm length of face of the hexagon
+    # Ah = 6. * (A * 3.2/2)    # Area of the hexagon
+    # vdetector = Ah * 272
+    # val = det.tallies
+    # val = val/vdetector  # I think this is not necessary
+    det.tallies /= 1e3
 
     det.pitch = 3.2
     det.hexType = 3
-    det.hexPlot()
+    ax = det.hexPlot(cbarLabel='Power [kW]')
+    ax.set_aspect('equal')
 
-    # plt.figure()
-    # plt.step(r, val[1], where='post', label='fast')
-    # plt.step(r, val[0], where='post', label='thermal')
-    # plt.xlabel('r [cm]')
-    # plt.ylabel(r'$\phi$')
-    # plt.legend(loc="upper right")
-    
     s = 15./np.cos(np.pi/6)
     plt.plot([s, 2*s], [0, 0], 'r-', lw=2)
     plt.plot([s, 2*s], [30, 30], 'r-', lw=2)
-    
     plt.plot([s, s/2], [0, 15], 'r-', lw=2)
     plt.plot([s/2, s], [15, 30], 'r-', lw=2)
-
     plt.plot([2*s, 2*s+s/2], [0, 15], 'r-', lw=2)
     plt.plot([2*s+s/2, 2*s], [15, 30], 'r-', lw=2)
-
     plt.savefig(name, dpi=300, bbox_inches="tight")
 
 
-def plot_hexagonal2(data, name, p):
-    """
-    Plots flux from curvilinear detector.
-
-    Parameters:
-    -----------
-    data: [serpenttools format]
-    name: [string]
-        name of the detector
-    p: [float]
-        pitch. Distance between hexagon centers.
-    """
-    det = data.detectors[name]
-
-    A = 3.2/np.cos(np.pi/6)  # cm length of face of the hexagon
-    Ah = 6. * (A * 3.2/2)    # Area of the hexagon
-    vdetector = Ah * 272
-
-    val = det.tallies
-    val = val/vdetector
-    # det.tallies = val
-
-    # det.grids
-    # det.indexes
-
-    # det.pitch = 3.2
-    # det.hexType = 3
-    # det.hexPlot()
-
-    xf = det.grids['COORD'][:,0]
-    yf = det.grids['COORD'][:,1]
-    # cf = det.tallies
-    # print(cf)
-
-    fig, ax = plt.subplots(figsize=(4, 4))
-
-    # values that I want
-    # i: column index
-    # n: number of hexagons in the column
-    i = 0
-    s = i*11 + 7
-    n = 2
-    ind = np.arange(s, s + n)
-    #print(ind)
-    cf = det.tallies[i]
-    #print(cf)
-    
-    x = xf[ind]
-    y = yf[ind]
-    c = cf[ind]
-    print(c)
-
-    #hb = ax.hexbin(x, y, C, gridsize=50, cmap='inferno')
-    hb = ax.hexbin(x, y, c, gridsize=len(x), cmap='inferno')
-
-    plt.show()
-
-    # i = 1
-    # s = i*11 + 5
-    # n = 5
-    # ind = np.arange(s, s + n)
-
-    # i = 2
-    # s = i*11 + 3
-    # n = 8
-    # ind = np.arange(s, s + n)
-        
-
-
-
-
-
-    
-    # fig.subplots_adjust(hspace=0.5, left=0.08, right=0.93)
-    # hb = ax.hexbin(x, y, gridsize=50, cmap='inferno')
-    # ax.axis([xmin, xmax, ymin, ymax])
-    # ax.set_title("Hexagon binning")
-    # cb = fig.colorbar(hb, ax=ax)
-    # cb.set_label('counts')
-
-    # plt.figure()
-    # plt.step(r, val[1], where='post', label='fast')
-    # plt.step(r, val[0], where='post', label='thermal')
-    # plt.xlabel('r [cm]')
-    # plt.ylabel(r'$\phi$')
-    # plt.legend(loc="upper right")
-    
-    #plt.savefig(name, dpi=300, bbox_inches="tight")
-
-
-def plots_fluxes():
+def plots_everything():
     '''
-    plots flux detectors of the MMR: 3 Axial detectors and 1 Radial flux
+    Plots the output of the detectors of the MMR
+    - Spectrum
+    - 3 axial flux detectors
+    - 1 radial flux detector
+    - Pin power distribution
     '''
     data = st.read('memo-fullcore9_det1b1.m', reader='det')
 
@@ -256,7 +159,8 @@ def plots_fluxes():
     p = np.pi/180 * 10  # = 10 deg
     plot_radial(data, 'Radial1', p*H)
 
+    # Plots pin power distribution
+    plot_hexagonal(data, 'pinpowers', 3.2)
 
-# plots_fluxes()
-data = st.read('memo-fullcore9_det1b1.m', reader='det')
-plot_hexagonal(data, 'pinpowers', 3.2)
+
+# plot_everything()
