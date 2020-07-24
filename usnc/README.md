@@ -30,6 +30,8 @@ Previous efforts: e = 12%
 -------------------------
 * fullcore:
 	- 3 fuel assembly tall
+	- fuel channels: r = 1.07 cm
+	- fuel rod doesn't have graphite plugs
 	- top and bottom reflectors are made of graphite
 	- 50 cm thick top and bottom reflector
 	- P = 10MW
@@ -39,8 +41,23 @@ Previous efforts: e = 12%
 	- keff(t=0) > 1.1
 	- t (Keff=1) < 2000 
 
+* fullcore2:
+	- 4 fuel assembly tall
+	- fuel channels: r = 1.07 cm
+	- fuel rod doesn't have graphite plugs
+	- top and bottom reflectors are made of graphite
+	- 50 cm thick top and bottom reflector
+	- P = 10MW
+	- keff(t=0) < 1.15
+	- t (Keff=1) > 5000
+	- P = 20MW
+	- keff(t=0) > 1.1
+	- t (Keff=1) > 2000 
+
 * memo-fullcore2:
 	- 1 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- P = 20MW
 	- top and bottom reflectors are made of BeO
 	- 50 cm thick top and bottom reflector
@@ -49,6 +66,8 @@ Previous efforts: e = 12%
 
 * memo-fullcore3:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 12
 	- P = 20MW
 	- top and bottom reflectors are made of BeO
@@ -59,6 +78,8 @@ Previous efforts: e = 19.75%, reflector of BeO
 
 * memo-fullcore4:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 19.75
 	- P = 15MW
 	- reflectors made of BeO
@@ -68,6 +89,8 @@ Previous efforts: e = 19.75%, reflector of BeO
 
 * memo-fullcore5:
 	- 1 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 19.75
 	- P = 15MW
 	- top and bottom reflectors are made of BeO
@@ -77,6 +100,8 @@ Previous efforts: e = 19.75%, reflector of BeO
 
 * memo-fullcore6:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 19.75
 	- P = 15MW
 	- top and bottom reflectors are made of BeO
@@ -86,6 +111,8 @@ Previous efforts: e = 19.75%, reflector of BeO
 
 * memo-fullcore7:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 19.75
 	- P = 15MW
 	- top and bottom reflectors are made of BeO
@@ -98,6 +125,8 @@ Previous efforts: e = 19.75%, reflector of Graphite
 
 * memo-fullcore8:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 19.75
 	- P = 15MW
 	- reflector thickness 10 cm
@@ -110,6 +139,8 @@ Previous efforts: e = 15.5%, reflector of Graphite
 
 * memo-fullcore10:
 	- 4 fuel assembly tall
+	- fuel channels: r = 1.085 cm
+	- fuel rod has graphite plugs
 	- e% = 15.5
 	- P = 15MW
 	- reflector thickness 68 cm
