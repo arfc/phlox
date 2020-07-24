@@ -25,8 +25,47 @@ Serpent files:
 	- e% = 19.75
 	- P = 15MW
 
+* memo-fullcore5:
+	- 1 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+
+* memo-fullcore6:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflector thickness 20 cm
+
+* memo-fullcore7:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflector thickness 10 cm
+
+* memo-fullcore8:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflector thickness 10 cm
+	- reflector made of graphite
+
+* memo-fullcore9:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflector thickness 68 cm
+	- reflector made of graphite
+
+* memo-fullcore10:
+	- 4 fuel assembly tall
+	- e% = 15.5
+	- P = 15MW
+	- reflector thickness 68 cm
+	- reflector made of graphite
+
 * dispersed4.inp: fuel compact of 4 cm-height, 1.07 cm-radius.
 * dispersed68.inp: fuel compact of 68 cm-height, 1.07 cm-radius.
+* particles63: fuel compact of 63.24 cm-height, 1.085 cm-radius.
 * dispersed-particles4.inp: fuel compact of 4 cm-height, 0.9cm-radius.
 
 **Core Description**: The description of the core can be found in the '14-6782 NEUP Final Report' about this reactor.
