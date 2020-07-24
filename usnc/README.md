@@ -11,22 +11,6 @@ Serpent files:
 * fullcore4: defines the fullcore geometry of the MMR.
 	- active core composed of 7 fuel assemblies
 
-* memo-fullcore2:
-	- 1 fuel assembly tall
-	- P = 20MW
-
-* memo-fullcore3:
-	- 4 fuel assembly tall
-	- e% = 12
-	- P = 20MW
-
-* memo-fullcore4:
-	- 4 fuel assembly tall
-	- e% = 19.75
-	- P = 15MW
-
-
-
 * memo-fullcore6:
 	- 4 fuel assembly tall
 	- e% = 19.75
@@ -71,7 +55,35 @@ Some of the parameters specified in such report have discrepancies with the docu
 Previous efforts:
 -----------------
 
+* memo-fullcore2:
+	- 1 fuel assembly tall
+	- P = 20MW
+	- top and bottom reflectors are made of BeO
+	- 50 cm thick top and bottom reflector
+	- keff(t=0) = 1.15
+	- t (Keff=1) < 1000 
+
+* memo-fullcore3:
+	- 4 fuel assembly tall
+	- e% = 12
+	- P = 20MW
+	- top and bottom reflectors are made of BeO
+	- 50 cm thick top and bottom reflector
+
+* memo-fullcore4:
+	- 4 fuel assembly tall
+	- e% = 19.75
+	- P = 15MW
+	- reflectors made of BeO
+	- reflectors 50 cm thick
+	- keff(t=0) > 1.23
+	- t (Keff=1) > 20y 
+
 * memo-fullcore5:
 	- 1 fuel assembly tall
 	- e% = 19.75
 	- P = 15MW
+	- top and bottom reflectors are made of BeO
+	- 50 cm thick top and bottom reflector
+	- keff(t=0) > 1.2
+	- t (Keff=1) = 2500 
