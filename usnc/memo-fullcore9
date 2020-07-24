@@ -134,39 +134,39 @@ cell 544 0 outside                  134
 /**************************************
 *              Materials              *
 * Kernel UO2+UCO Density (d) 10.8g/cc *
-* U (e% = 12%)                        *
+* U e% = 19.75                        *
 * fuel is UO2 and U2CO3, 1:1 molar    *
 * fraction.                           *
 **************************************/
 
 % UO2+UCO
 mat un       -10.8        tmp 900 burn 1
- 92235.06c   0.0665
- 92238.06c   0.2668
-  6000.06c   0.0833
-  8016.06c   0.5834
+ 92235.06c     0.0665
+ 92238.06c     0.2668
+  6000.06c     0.0833
+  8016.06c     0.5834
 
-mat buffer   -0.98        tmp 900 moder grph 6000
- 6000.09c    -1.0000
+mat buffer    -0.98       tmp 900 moder grph 6000
+ 6000.09c     -1.0000
 
-mat pyc      -1.85        tmp 900 moder grph 6000
- 6000.09c    -1.0000
+mat pyc       -1.85       tmp 900 moder grph 6000
+ 6000.09c     -1.0000
 
-mat sic      -3.2         tmp 900 moder grph 6000
-14028.09c    -0.64446
-14029.09c    -0.035025
-14030.09c    -0.020915
- 6000.09c    -0.2996
+mat sic       -3.2        tmp 900 moder grph 6000
+14028.09c     -0.64446
+14029.09c     -0.035025
+14030.09c     -0.020915
+ 6000.09c     -0.2996
 
-mat block    -1.75        tmp 900 moder grph 6000
- 6000.09c    -1.00
+mat block     -1.75       tmp 900 moder grph 6000
+ 6000.09c     -1.00
 
-mat helium   -0.0020526   tmp 900
- 2004.09c    -1.00
+mat helium    -0.0020526  tmp 900
+ 2004.09c     -1.00
 
-mat reflector   -3.01     tmp 900  % A800H
- 4009.09c    0.50
- 8016.09c    0.50
+mat reflector -3.01       tmp 900
+ 4009.09c      0.50
+ 8016.09c      0.50
 
 % --- Thermal scattering data for light water:
 therm grph 900 gr05.32t gr06.32t
@@ -178,26 +178,58 @@ set acelib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff312.xsdata"
 % --- Vacuum boundary condition:
 set bc 1
 
-% --- Neutron population and criticality cycles:
-set pop 100000 400 100
-
 % --- Geometry plot:
 plot 3 2000 2000 30.0
-plot 2 2000 2000 1.0
-plot 2 2000 2000 0.0
+%plot 2 2000 2000 1.0
+%plot 2 2000 2000 0.0
+
+% --- Neutron population and criticality cycles:
+set pop 200000 400 100
 
 % --- Burn Up parameters
 set power 15000000 %15MW
 
-dep daytot 730 1460 2190 2920 3650 4380 5110 5840 6570 7300
-%div un sep 1
-set mcvol 100000000
+%dep daytot 730 1460 2190 2920 3650 4380 5110 5840 6570 7300
+%set mcvol 100000000
 
-set inventory
- 922350
- 922380
+%set inventory
+% 922350
+% 922380
 
-set pcc leli 10 10
+%set pcc leli 10 10
 
-set declib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.dec"
-set nfylib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.nfy"
+%set declib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.dec"
+%set nfylib "/projects/sciteam/bbcc/serpent/xsdata/jeff312/sss_jeff33.nfy"
+
+% --- Energy spectrum detector
+ene MyEnergyGrid 3 500 1e-11 2e1
+det EnergyDetector de MyEnergyGrid
+
+% --- Spatial flux detectors
+ene engrid 1 1e-11 0.625e-6 2e1
+
+det Axial1 n dh 3 25.98 15.0 30 1 1 -68 340 80 de engrid
+det Axial2 n dh 3 51.96 30.0 30 1 1 -68 340 80 de engrid
+det Axial3 n dh 3 77.94 45.0 30 1 1 -68 340 80 de engrid
+
+det Radial1 n dn 1 0 134 100 28 32 1 102 170 1 de engrid
+
+% set ppw 8 20
+det pinpowers dr -8 void   dh 3 25.98 15.0 3.2 11 11 0 272 1
+
+% --- Cross-sections homogenization
+set gcu 0
+set nfg 2 0.625E-6
+
+branch fuel0
+stp un        -10.8       900
+stp buffer     -0.98      900 grph gr05.32t gr06.32t
+stp pyc        -1.85      900 grph gr05.32t gr06.32t
+stp sic        -3.2       900 grph gr05.32t gr06.32t
+stp block      -1.75      900 grph gr05.32t gr06.32t
+stp helium     -0.0020526 900
+mat reflector  -3.01      900
+
+coef 1
+0
+1 fuel0
