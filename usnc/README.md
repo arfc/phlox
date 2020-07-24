@@ -28,6 +28,17 @@ Some of the parameters specified in such report have discrepancies with the docu
 
 Previous efforts: e = 12%
 -------------------------
+* MMR_full_stack_burn:
+	- 4 fuel assembly tall
+	- assembly has 64 cm lenght
+	- fuel channels: r = 1.07 cm
+	- fuel rod doesn't have graphite plugs
+	- top and bottom reflectors are made of graphite
+	- 20 cm thick top and bottom reflector
+	- P = 10MW
+	- keff(t=0) < 1.15
+	- t (Keff=1) = 5000
+
 * fullcore:
 	- 3 fuel assembly tall
 	- fuel channels: r = 1.07 cm
