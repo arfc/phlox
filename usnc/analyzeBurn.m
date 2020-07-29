@@ -8,8 +8,8 @@
 
 ## Run both of the files to bring the results to workspace
 
-run memo-fullcore9BU_res.m;
-run memo-fullcore9BU_dep.m;
+run memo-fullcore9_res.m;
+run memo-fullcore9_dep.m;
 
 ###############################################
 ## Plot the multiplication factor vs. burnup ##
