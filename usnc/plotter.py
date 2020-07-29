@@ -133,14 +133,7 @@ def plot_hexagonal(data, name, p):
     plt.savefig(name, dpi=300, bbox_inches="tight")
 
 
-def plots_everything():
-    '''
-    Plots the output of the detectors of the MMR
-    - Spectrum
-    - 3 axial flux detectors
-    - 1 radial flux detector
-    - Pin power distribution
-    '''
+def main():
     data = st.read('memo-fullcore9_det1b1.m', reader='det')
 
     # Plots energy spectrum
@@ -163,4 +156,5 @@ def plots_everything():
     plot_hexagonal(data, 'pinpowers', 3.2)
 
 
-# plot_everything()
+if __name__ == "__main__":
+    main()
