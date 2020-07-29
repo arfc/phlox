@@ -6,24 +6,10 @@
 ## Initial checking and pre-processing ##
 #########################################
 
-## Check that the main results file exists
-
-if (exist("fullcore2_bu_res.m", "file") != 2)
-  disp("Could not find fuel_block_burn_res.m from current folder! Cannot do analysis.")
-  exit()
-endif
-
-## Check that the depletion output file exists
-
-if (exist("fullcore2_bu_dep.m", "file") != 2)
-  disp("Could not find fuel_block_burn_dep.m from current folder! Cannot do analysis.")
-  exit()
-endif
-
 ## Run both of the files to bring the results to workspace
 
-run fullcore2_bu_res.m;
-run fullcore2_bu_dep.m;
+run memo-fullcore9BU_res.m;
+run memo-fullcore9BU_dep.m;
 
 ###############################################
 ## Plot the multiplication factor vs. burnup ##
@@ -62,7 +48,7 @@ box on;
 
 ## Save the figure
 
-print -dpng figures/Keff.png;
+print -dpng Keff.png;
 
 ## Close all figures
 
@@ -103,4 +89,4 @@ box on;
 
 ## Save the figure
 
-print -dpng figures/mU235.png;
+print -dpng mU235.png;
