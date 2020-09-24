@@ -6,24 +6,10 @@
 ## Initial checking and pre-processing ##
 #########################################
 
-## Check that the main results file exists
-
-if (exist("./fullcore_bu_res.m", "file") != 2)
-  disp("Could not find fuel_block_burn_res.m from current folder! Cannot do analysis.")
-  exit()
-endif
-
-## Check that the depletion output file exists
-
-if (exist("./fullcore_bu_dep.m", "file") != 2)
-  disp("Could not find fuel_block_burn_dep.m from current folder! Cannot do analysis.")
-  exit()
-endif
-
 ## Run both of the files to bring the results to workspace
 
-run fullcore_bu_res.m;
-run fullcore_bu_dep.m;
+run memo-fullcore9_res.m;
+run memo-fullcore9_dep.m;
 
 ###############################################
 ## Plot the multiplication factor vs. burnup ##
@@ -46,7 +32,8 @@ ylabel("Multiplication factor");
 
 ## Add title to the plot
 
-title("Multiplication factor of the assembly as a function of burnup")
+title("Multiplication factor of the fullcore MMR model")
+# title("Multiplication factor of the assembly as a function of burnup")
 
 ## Set limits for the axes
 
@@ -61,7 +48,7 @@ box on;
 
 ## Save the figure
 
-print -dpng figures/Keff.png;
+print -dpng Keff.png;
 
 ## Close all figures
 
@@ -102,4 +89,4 @@ box on;
 
 ## Save the figure
 
-print -dpng figures/mU235.png;
+print -dpng mU235.png;
