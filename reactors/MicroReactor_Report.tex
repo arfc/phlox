@@ -1,0 +1,139 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{microtype}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+\usepackage{datatool}
+\usepackage[acronym,toc]{glossaries}
+\include{acros}
+
+\makeglossaries
+
+
+\bibliographystyle{elsarticle-num}
+
+\begin{document}
+\title{Work Plan for the Selection of the $\mu$Reactor Design at UIUC\\}
+\author{\\ \\ \\ \\ Kathryn D. Huff,\\
+Mehmet Turkmen,\\
+Zoe Richter}
+\date{\today}
+\maketitle
+
+\pagebreak
+\tableofcontents
+
+
+\printglossary
+
+
+\pagebreak
+\section{Introduction}
+Micro-reactors are the reactors which produce power typically less than 20 MWe and site less than 500 m2 (0.1 acre) in the size of shipping container or a big house. They are considered to be automated operation with minimum operating staff. Due to the small size and low consequences of micro-reactors, the regulations applied to the existing (non)commercial reactors may not fully applicable to micro-reactors. Apart from other advanced reactor designs like \gls{SMR}s, micro-reactors have specific following licencing issues: security, aircraft strike, emergency preparedness, source term analysis, staffing, remote operation, decommissioning, transportation, manufacturing licenses, quality assurance, probabilistic risk assessment and \gls{NRC} oversight.
+
+\pagebreak
+\include{reactors}
+
+\pagebreak
+\section{Site Requirements}
+
+In a White Paper \cite{nrc_staff_population-related_2019} on the “Population-Related Siting Considerations for Advanced Reactors”, two primary issues were identified for the possible deployment of advanced reactors and the NRC’s current siting requirements. The first issue is that population density should not exceed 500 persons per square mile (ppsm) out to a distance of 20 miles from a reactor site. The second issue is the use of SMRs for remote communities or smaller grids with relatively small but concentrated populations that would be near a reactor site. Due to the reduced risks and radiological releases from advanced reactor designs, the NRC is revising the existing guidance on population density.  For that purpose, the NRC suggests four options:
+
+Option-1: Same as the siting requirements of LWRs, with no changes to the current population-related siting regulations or the existing guidance. Fig. \ref{rprox} shows the NRC’s current siting requirements. 
+
+Option-2:  No changes in NRC regulations; however, the staff would revise the population-related guidance to include provisions for advanced reactor designs and more specifically for SMRs.
+
+Option-3: Similar to Option 2 except that the criteria are directly related to estimates of radiological consequences from design-specific events rather than a general correlation of offsite doses to radionuclide inventories or power level. 
+The following three cases involving possible offsite consequences from design-basis events and beyond-design-basis events illustrate the limitations on populations near an advanced reactor under Option 3:
+
+1. In the first case for possible advanced reactor designs, the potential offsite consequences of some beyond-design-basis events are calculated to approach 25 rem
+over the course of the event.
+
+2. The second case involves an advanced reactor design for which all design-basis events and beyond-design-basis events are calculated to result in doses to an individual at the site boundary of less than 25 rem over the duration of the event. However, for this case, the calculation of some design-basis events or beyond-design-basis events results in offsite doses exceeding 1 rem over the month following the event. 
+
+3. In the third case, the potential consequences from all design-basis and beyond-design-basis events are estimated to be below 1 rem for the month following the event for an individual at the site boundary.
+
+Option-4: Calls for the NRC staff to develop societal risk measures for assessing specific advanced reactor designs at specific sites. 
+
+
+
+\begin{figure}[hbtp]
+\centering
+\includegraphics[scale=0.7]{Figs/reactorproximity.jpeg}
+\caption{Reactor Proximity to Population Centers}
+\label{rprox}
+
+\flushleft
+d$_{EAB}$: exclusion area boundary (EAB) radial distance\\
+d$_{LPZ}$: low population zone (LPZ) radial distance\\
+d$_{PCD}$: population center distance (PCD) to the nearest boundary of a densely populated center\\
+d$_{20}$: 20 mile outward radial distance \\
+EAB: radial distance based on the 25 rem criteria for any 2 hour period\\
+LPZ: radial distance based on the 25 rem criteria during the entire period of the radioactive cloud passage\\
+PCD: radial distance from the reactor to the nearest boundary of a densely populated center at least 1 1/3 that of the outer boundary of the LPZ\\
+Population Density: the staff also considers the population density of 500 persons per square mile out to 20 miles
+\end{figure} 
+
+\pagebreak
+\include{sourceterm}
+
+\pagebreak
+\section{Licencing Procedure}
+For the licensing of the research reactors, below documents are critical:
+
+1. Guidelines for Preparing and Reviewing Applications for the Licensing of Non-Power Reactors: Standard Review Plan and Acceptance Criteria (NUREG 1537, Part 2).
+
+2. Guidelines for Preparing and Reviewing Applications for the Licensing of Non-Power Reactors: Format and Content (NUREG 1537, Part 1). 
+
+
+https://www.nrc.gov/reading-rm/doc-collections/nuregs/staff/sr1537
+
+A reference document \cite{nichol_roadmap_2018} has discussed  the micro-reactor from the various acpects inculding waste management, fuel supply and action plans.
+
+
+\section{Safety Assessment}
+This part is going to be discussed later but will include accident scenarios including design-basis that a nuclear facility must be designed and built to withstand, and beyond design accidents that are possible but were not fully considered in the design process.
+
+\section{Discussion on the Report}
+
+Considering available data of the interested reactors given in Section \ref{sec:reactors}, full core modeling capabilities are presented in Table \ref{table:feasiblity}. it should be taken into account that desing details of the reactor to be selected can be gathered from the corresponding vendor. What should be the criteria for the selection of the micro-reactor?
+
+1. according to reactor type
+
+2. according to NRC review
+
+3. 
+
+\begin{table} [ht]
+\begin{center}
+
+\caption{Full core modeling}
+\label{table:feasiblity}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\hline 
+Design 		&eVinci 		& Holos		&MegaPower 	& NuScale		& Oklo 		& Starcore		& U-battery 	 & MMR	& Xe-100 \\ 
+\hline 
+$\times$ or 	$\surd$ 		&  $\times$		& $\surd$		& $\surd$ 	&   $\surd$		&  $\times$		& $\surd$	&  $\surd$ 	&  $\surd$	&  $\surd$ \\ 
+\hline 
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\pagebreak
+\section{Conclusion}
+
+\pagebreak
+
+\bibliography{MicroReactor}
+
+
+\end{document}

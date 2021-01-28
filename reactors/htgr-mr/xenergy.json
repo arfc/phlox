@@ -1,0 +1,134 @@
+xdata={
+"Xe-100_Xenergy": {
+      "reactor_tpower": {
+         "value": [200],
+         "units":  ["MWt"],
+         "description": ["Reactor thermal power (MWt)"],
+      },
+      "reactor_epower": {
+         "value": [75],
+         "units":  ["MWe"],
+         "description": ["Reactor electrical power (MWe)"],
+      },
+      "reactor_type": {
+         "value": ["HTGR (pebble)"],
+         "units":  [""],
+         "description": ["Reactor Type"],
+      },
+      "spectrum": {
+         "value": ["Thermal"],
+         "units":  [""],
+         "description": ["Reactor spectrum"],
+      },
+      "core_diameter": {
+         "value": [4.88],
+         "units":  ["m"],
+         "description": ["Core diameter(m)"],
+      },
+      "core_height": {
+         "value": [20],
+         "units":  ["m"],
+         "description": ["Core diameter(m)"],
+      },
+      "enrichment": {
+         "value": [15.5],
+         "units":  ["wt%"],
+         "description": ["U-235 enrichment (wt% )"],
+      },
+      "refueling": {
+         "value": [175],
+         "units":  ["pebble/day"],
+         "description": ["Online fuel loading - pebble per day"],
+      },
+      "fuel": {
+         "value": ["UCO TRISO Pebbles"],
+         "units":  [""],
+         "description": ["Fuel"],
+      },
+      "total_pebble": {
+         "value": [220000],
+         "units":  ["#"],
+         "description": ["Number of fuel pebbles (#)"],
+      },
+      "triso_per_pebble": {
+         "value": [18000],
+         "units":  ["#"],
+         "description": ["Number of TRISO particles per pebble (#)"],
+      },
+      "pebble_diameter": {
+         "value": [60],
+         "units":  ["mm"],
+         "description": ["Pebble diameter (mm)"],
+      },
+      "pebble_core_diameter": {
+         "value": [50],
+         "units":  ["mm"],
+         "description": ["Pebble fuel core diameter (mm)"],
+      },
+      "fuel_pass": {
+         "value": [6],
+         "units":  ["#"],
+         "description": ["Number of passes (#)"],
+      },
+      "fuel_burnup": {
+         "value": [160],
+         "units":  ["MWd/kgHM"],
+         "description": ["Final burnup (MWd/kgHM)"],
+      },
+      "poison": {
+         "value": [0],
+         "units":  ["ppm"],
+         "description": ["Burnable poison"],
+      },
+     "power_density": {
+	     "value": [4.8],
+         "units":  ["MW/m3"],
+	     "description": ["Power density (MW/m3)"],
+      },
+     "kernel_diameter": {
+         "value": [0.425],
+         "units":  ["mm"],
+         "description": ["UCO TRISO kernel diameter (mm)"],
+      },
+     "buffer_layer_thickness": {
+         "value": [0.095],
+         "units":  ["mm"],
+         "description": ["Porous Carbon Buffer thickness (mm)"],
+      },
+     "inner_carbon_layer_thick": {
+         "value": [0.04],
+         "units":  ["mm"],
+         "description": ["Inner Pyrolytic Carbon Layer thickness (mm) "],
+      },
+      "buffer_layer_thickness": {
+         "value": [0.035],
+         "units":  ["mm"],
+         "description": ["Silicon Carbide Layer thickness (mm)"],
+      },
+      "outer_carbon_layer_thick": {
+         "value": [0.04],
+         "units":  ["mm"],
+         "description": ["Outer Pyrolytic Carbon Layer thickness (mm) "],
+      },
+      "core_in_temp": {
+         "value": [259],
+         "units":  ["oC"],
+         "description": ["Core Inlet temp (C)"],
+      },
+      "core_out_temp": {
+         "value": [750],
+         "units":  ["oC"],
+         "description": ["Core Outlet temp (C)"],
+      },
+      "core_inlet_pres": {
+         "value": [6],
+         "units":  ["MPa"],
+         "description": ["Core Inlet Pressure (MPa)"],
+      },
+      "core_outlet_pres": {
+         "value": [5.84],
+         "units":  ["MPa"],
+         "description": ["Core Outlet Pressure (MPa)"],
+      },
+   }
+}
