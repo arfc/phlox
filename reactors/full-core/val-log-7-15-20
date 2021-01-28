@@ -1,0 +1,387 @@
+==6036== Memcheck, a memory error detector
+==6036== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==6036== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==6036== Command: sss2-debug -omp 4 htgr-mr-full-core.inp
+==6036== Parent PID: 2135
+==6036== 
+--6036-- 
+--6036-- Valgrind options:
+--6036--    -v
+--6036--    --leak-check=full
+--6036--    --show-leak-kinds=all
+--6036--    --vgdb=full
+--6036--    --log-file=val-log-7-15-20
+--6036-- Contents of /proc/version:
+--6036--   Linux version 5.3.0-62-generic (buildd@lcy01-amd64-004) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #56~18.04.1-Ubuntu SMP Wed Jun 24 16:17:03 UTC 2020
+--6036-- 
+--6036-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--6036-- Page sizes: currently 4096, max supported 4096
+--6036-- Valgrind library directory: /usr/lib/valgrind
+--6036-- Reading syms from /home/zoe/Serpent2/sss2-debug
+--6036-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--6036--   .. CRC mismatch (computed ac9397f6 wanted d0d82632)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--6036--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--6036--   .. CRC mismatch (computed 41ddb025 wanted 9972f546)
+--6036--    object doesn't have a symbol table
+--6036--    object doesn't have a dynamic symbol table
+--6036-- Scheduler: using generic scheduler lock implementation.
+--6036-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==6036== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-6036-by-zoe-on-???
+==6036== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-6036-by-zoe-on-???
+==6036== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-6036-by-zoe-on-???
+==6036== 
+==6036== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==6036== don't want to do, unless you know exactly what you're doing,
+==6036== or are doing some strange experiment):
+==6036==   /usr/lib/valgrind/../../bin/vgdb --pid=6036 ...command...
+==6036== 
+==6036== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==6036==   /path/to/gdb sss2-debug
+==6036== and then give GDB the following command
+==6036==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=6036
+==6036== --pid is optional if only one valgrind process is running
+==6036== 
+--6036-- REDIR: 0x401f320 (ld-linux-x86-64.so.2:strlen) redirected to 0x580608c1 (???)
+--6036-- REDIR: 0x401f100 (ld-linux-x86-64.so.2:index) redirected to 0x580608db (???)
+--6036-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--6036--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--6036--   .. CRC mismatch (computed 50df1b30 wanted 4800a4cf)
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--6036--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--6036--   .. CRC mismatch (computed f893b962 wanted 95ee359e)
+--6036--    object doesn't have a symbol table
+==6036== WARNING: new redirection conflicts with existing -- ignoring it
+--6036--     old: 0x0401f320 (strlen              ) R-> (0000.0) 0x580608c1 ???
+--6036--     new: 0x0401f320 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--6036-- REDIR: 0x401d390 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--6036-- REDIR: 0x401f860 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libm-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/libm-2.27.so ..
+--6036--   .. CRC mismatch (computed 4cce394c wanted e22acdb4)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libmvec-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/libmvec-2.27.so ..
+--6036--   .. CRC mismatch (computed 00123222 wanted 806c3ffa)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libmvec-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libgd.so.3.0.5
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libpthread-2.27.so
+--6036--   Considering /usr/lib/debug/.build-id/bc/3c06107774266c5f7db3f1f380a3da68af90fa.debug ..
+--6036--   .. build-id is valid
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--6036--   .. CRC mismatch (computed c2c067b2 wanted d73adc7f)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libpng16.so.16.34.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libz.so.1.2.11
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libfreetype.so.6.15.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libjpeg.so.8.1.2
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libXpm.so.4.11.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libtiff.so.5.3.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libwebp.so.6.0.2
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libdl-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/libdl-2.27.so ..
+--6036--   .. CRC mismatch (computed 415bd007 wanted 4d6f4a12)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libdl-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libexpat.so.1.6.7
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libjbig.so.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--6036--   Considering /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0 ..
+--6036--   .. CRC mismatch (computed 256f5df8 wanted 5d40ac88)
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/libbsd.so.0.8.7
+--6036--    object doesn't have a symbol table
+--6036-- Reading syms from /lib/x86_64-linux-gnu/librt-2.27.so
+--6036--   Considering /lib/x86_64-linux-gnu/librt-2.27.so ..
+--6036--   .. CRC mismatch (computed c8cf706c wanted b5c8ed65)
+--6036--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/librt-2.27.so ..
+--6036--   .. CRC is valid
+--6036-- REDIR: 0x5b57ce0 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56db0 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57fc0 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56800 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56de0 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b59830 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57e50 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57c80 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56d70 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56870 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57db0 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b75160 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56d10 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b568e0 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b58010 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b568b0 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b58150 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56e10 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56830 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b56ce0 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b61730 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b58060 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57c50 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b75f20 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b570c0 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57f90 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57f60 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b59860 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b580b0 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5beaa50 (libc.so.6:__memcpy_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5b57b90 (libc.so.6:strstr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--6036-- REDIR: 0x5beab20 (libc.so.6:__memmove_chk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+==6036== WARNING: new redirection conflicts with existing -- ignoring it
+--6036--     old: 0x05c47d30 (__memcpy_chk_avx_una) R-> (2030.0) 0x04c375e0 __memcpy_chk
+--6036--     new: 0x05c47d30 (__memcpy_chk_avx_una) R-> (2024.0) 0x04c36fa0 __memmove_chk
+--6036-- REDIR: 0x5c47630 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--6036-- REDIR: 0x5c47800 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--6036-- REDIR: 0x5b500e0 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--6036-- REDIR: 0x5c47d40 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--6036-- REDIR: 0x5b509c0 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+--6036-- REDIR: 0x5c481c0 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4c365d0 (memset)
+--6036-- REDIR: 0x5b530a0 (libc.so.6:calloc) redirected to 0x4c31a70 (calloc)
+--6036-- REDIR: 0x5b51ca0 (libc.so.6:realloc) redirected to 0x4c31cb0 (realloc)
+--6036-- REDIR: 0x5c3e780 (libc.so.6:__strncmp_sse42) redirected to 0x4c33570 (__strncmp_sse42)
+--6036-- REDIR: 0x5b57600 (libc.so.6:__GI_strstr) redirected to 0x4c37760 (__strstr_sse2)
+--6036-- REDIR: 0x5c43e10 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4c35e00 (bcmp)
+--6036-- REDIR: 0x5c22fd0 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+--6036-- REDIR: 0x5c47440 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--6036-- REDIR: 0x5c47990 (libc.so.6:__strnlen_avx2) redirected to 0x4c32c90 (strnlen)
+--6036-- REDIR: 0x5beae20 (libc.so.6:__strcpy_chk) redirected to 0x4c37090 (__strcpy_chk)
+--6036-- REDIR: 0x5c47d20 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+--6036-- REDIR: 0x5c43690 (libc.so.6:__memchr_avx2) redirected to 0x4c33f80 (memchr)
+--6036-- REDIR: 0x5c441f0 (libc.so.6:__strcasecmp_avx) redirected to 0x4c335f0 (strcasecmp)
+--6036-- REDIR: 0x5c34bc0 (libc.so.6:__strcpy_ssse3) redirected to 0x4c32dd0 (strcpy)
+--6036-- REDIR: 0x5c43960 (libc.so.6:__rawmemchr_avx2) redirected to 0x4c37050 (rawmemchr)
+==6036== Warning: set address range perms: large range [0x30558028, 0x410d84c0) (noaccess)
+==6036== Warning: set address range perms: large range [0x410d9028, 0x53076b80) (noaccess)
+==6036== Warning: set address range perms: large range [0x20f72028, 0x343309e8) (noaccess)
+==6036== Warning: set address range perms: large range [0x34331028, 0x48b40fb0) (noaccess)
+==6036== Warning: set address range perms: large range [0x6de46028, 0x83cde320) (noaccess)
+==6036== Warning: set address range perms: large range [0x20f72028, 0x3825adf8) (noaccess)
+==6036== Warning: set address range perms: large range [0x3825b028, 0x50bad7f8) (noaccess)
+==6036== Warning: set address range perms: large range [0x6de46028, 0x88636580) (noaccess)
+==6036== Warning: set address range perms: large range [0x20f72028, 0x3cd7b348) (noaccess)
+==6036== Warning: set address range perms: large range [0x6de46028, 0x8b05e830) (noaccess)
+==6036== 
+==6036== HEAP SUMMARY:
+==6036==     in use at exit: 910,533,158 bytes in 17 blocks
+==6036==   total heap usage: 310,944 allocs, 310,927 frees, 306,200,496,517 bytes allocated
+==6036== 
+==6036== Searching for pointers to 17 not-freed blocks
+==6036== Checked 936,257,800 bytes
+==6036== 
+==6036== 8 bytes in 1 blocks are still reachable in loss record 1 of 15
+==6036==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x5674AB8: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5683A86: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x567308A: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x4010782: call_init (dl-init.c:72)
+==6036==    by 0x4010782: _dl_init (dl-init.c:119)
+==6036==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==6036==    by 0x3: ???
+==6036==    by 0x1FFEFFFF62: ???
+==6036==    by 0x1FFEFFFF6D: ???
+==6036==    by 0x1FFEFFFF72: ???
+==6036==    by 0x1FFEFFFF74: ???
+==6036== 
+==6036== 40 bytes in 1 blocks are still reachable in loss record 2 of 15
+==6036==    at 0x4C2FA3F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x4C31D84: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x5674B08: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x568282E: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5678ED9: GOMP_parallel (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x1942F8: GeometryPlotter (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1126FB: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 192 bytes in 1 blocks are still reachable in loss record 3 of 15
+==6036==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x5674AB8: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5681B55: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5678EC5: GOMP_parallel (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x1942F8: GeometryPlotter (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1126FB: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 208 bytes in 1 blocks are still reachable in loss record 4 of 15
+==6036==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x5674AB8: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x568302A: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5674F44: omp_set_num_threads (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x1A7B86: InitOMP (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112100: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 864 bytes in 3 blocks are possibly lost in loss record 5 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x40134F6: allocate_dtv (dl-tls.c:286)
+==6036==    by 0x40134F6: _dl_allocate_tls (dl-tls.c:530)
+==6036==    by 0x58A2227: allocate_stack (allocatestack.c:627)
+==6036==    by 0x58A2227: pthread_create@@GLIBC_2.2.5 (pthread_create.c:644)
+==6036==    by 0x5681F5F: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5678ED9: GOMP_parallel (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x1942F8: GeometryPlotter (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1126FB: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 2,208 bytes in 1 blocks are still reachable in loss record 6 of 15
+==6036==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x5674AB8: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x56819D7: ??? (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x5678EC5: GOMP_parallel (in /usr/lib/x86_64-linux-gnu/libgomp.so.1.0.0)
+==6036==    by 0x1942F8: GeometryPlotter (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1126FB: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 800,000 bytes in 1 blocks are still reachable in loss record 7 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D354B: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1A5588: InitData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1120AE: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 800,000 bytes in 1 blocks are still reachable in loss record 8 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D354B: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1A55A5: InitData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1120AE: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 1,991,246 bytes in 1 blocks are still reachable in loss record 9 of 15
+==6036==    at 0x4C31D2F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D34A2: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x28BD2B: PutText (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x299207: ReadDirectoryFile (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x249866: ProcessNuclides (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112746: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 20,971,520 bytes in 1 blocks are still reachable in loss record 10 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D354B: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x121440: AllocPrivateData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1A7BEF: InitOMP (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112100: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 20,994,872 bytes in 1 blocks are still reachable in loss record 11 of 15
+==6036==    at 0x4C2FA3F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x4C31D84: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D34A2: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x2D1761: ReallocMem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1A55F7: InitData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1120AE: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 63,063,040 bytes in 1 blocks are still reachable in loss record 12 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D354B: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x121440: AllocPrivateData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1F2795: NewStat (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x24EE79: ProcessPBGeometry (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1123B2: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 83,886,080 bytes in 1 blocks are still reachable in loss record 13 of 15
+==6036==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D354B: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x121440: AllocPrivateData (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x12176C: AllocValuePair (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1B9261: MakeEnergyGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1B9671: MakeEnergyGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x34109C: UnionizeGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112849: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 208,056,408 bytes in 1 blocks are still reachable in loss record 14 of 15
+==6036==    at 0x4C31D2F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D34A2: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x2D16B7: ReallocMem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1B911B: MakeEnergyGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x1B9671: MakeEnergyGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x34109C: UnionizeGrid (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112849: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== 509,966,472 bytes in 1 blocks are still reachable in loss record 15 of 15
+==6036==    at 0x4C31D2F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==6036==    by 0x1D34A2: Mem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x2D1801: ReallocMem (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x28FC9D: ReadACEFile (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x116730: AddNuclide (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x24A6A4: ProcessNuclides (in /home/zoe/Serpent2/sss2-debug)
+==6036==    by 0x112746: main (in /home/zoe/Serpent2/sss2-debug)
+==6036== 
+==6036== LEAK SUMMARY:
+==6036==    definitely lost: 0 bytes in 0 blocks
+==6036==    indirectly lost: 0 bytes in 0 blocks
+==6036==      possibly lost: 864 bytes in 3 blocks
+==6036==    still reachable: 910,532,294 bytes in 14 blocks
+==6036==         suppressed: 0 bytes in 0 blocks
+==6036== 
+==6036== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==6036== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
