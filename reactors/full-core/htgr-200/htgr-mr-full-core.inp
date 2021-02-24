@@ -8,7 +8,7 @@ set acelib sss_jeff312.xsdata
  * Material definitions *
  ************************/
 
-% --- fuel: UCO , guessing enrichment of 15% for now. using
+% --- fuel: UCO
 % --- density/chemical formula of AGR2 UCO from nagley et. all "fabrication..."
 
 mat fuel0      -11.0
